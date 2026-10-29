@@ -1,0 +1,468 @@
+:root {
+  /* Primitives: every colour on the site comes from these two scales (plus white).
+     Semantic tokens below and in sections.css point at them; components never use raw hex. */
+  --blue-10: #f7fbff;
+  --blue-50: #ebf5ff;
+  --blue-100: #d6ebff;
+  --blue-200: #add6ff;
+  --blue-300: #7abdff;
+  --blue-400: #3d9eff;
+  --blue-500: #0080ff; /* BlueMind brand blue */
+  --blue-600: #0069d3;
+  --blue-700: #0152a7;
+  --blue-800: #014084;
+  --blue-900: #022d60;
+
+  --slate-10: #f8f8f8;
+  --slate-50: #f4f4f4;
+  --slate-100: #e8e8e8;
+  --slate-200: #e0e0e0;
+  --slate-300: #b0b0b0;
+  --slate-400: #8c8c8c;
+  --slate-500: #636363;
+  --slate-600: #474747;
+  --slate-700: #323232;
+  --slate-800: #1f1f1f;
+  --slate-900: #121212;
+
+  /* Status: the only hues outside blue and slate — success, warning and risk must read as such */
+  --green-50: #e6f6ef;
+  --green-500: #22a06b; /* success */
+  --amber-50: #fef3e6;
+  --amber-500: #f68909; /* warning */
+  --amber-700: #8f4b00; /* warning text on light */
+  --red-50: #fbe9e7;
+  --red-500: #c9372c;   /* danger */
+
+  --nav-h: 72px; /* fixed top bar; 64px under 900px */
+  --hero-r: 12px; /* hero image corner; the Product menu sits 4px inside it */
+
+  --surface: #ffffff; /* the one white: page, cards, panels */
+  --ink: var(--slate-900); /* --text-primary in Figma */
+  --night: var(--slate-900);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { background: var(--surface); color: var(--ink); }
+
+body {
+  font-family: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tall track gives the sticky stage room to animate while scrolling */
+.hero {
+  position: relative;
+  height: 200vh; /* 100vh of travel; main slides over the pinned stage (see sections.css) */
+  background: #fff;
+}
+
+.hero__stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  padding: var(--nav-h) 8px 8px; /* white frame: nav bar on top, 8px on the other sides */
+  overflow: hidden;
+  background: #fff;
+}
+
+.hero__frame {
+  position: relative;
+  height: 100%;
+  border-radius: var(--hero-r);
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--night);
+}
+
+@media (max-width: 900px) {
+  .hero__stage { padding-top: var(--nav-h); }
+}
+
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%; /* matches framing in Figma 317:3388; keep in sync with POS_Y in main.js */
+  transform-origin: 49% 22%; /* overwritten in JS with exact head point */
+  will-change: transform;
+}
+
+.hero__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--slate-900) 15%, transparent), color-mix(in srgb, var(--slate-900) 55%, transparent));
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.hero__fade {
+  position: absolute;
+  inset: 0;
+  background: var(--surface);
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.hero__content {
+  position: absolute;
+  inset: 0;
+  /* Sit up to 120px below centre; on shorter screens move up (even above centre) so the buttons
+     stay 40px clear of the logo strip. 458px ≈ half the copy block + logo strip + clearances. */
+  --offset: clamp(-120px, 50svh - 458px, 120px);
+  top: var(--offset);
+  bottom: calc(-1 * var(--offset));
+  padding: 104px 24px 0; /* extra top padding nudges the centred copy ~40px down */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  color: #fff;
+  will-change: opacity, transform;
+}
+
+/* Left-aligned copy, lined up with the nav's inner edge (1123px pill − 2 × 27px padding) */
+.hero__inner {
+  position: relative;
+  width: min(1069px, 100%);
+}
+
+.hero__title {
+  max-width: 1070px;
+  font-family: "Geist", ui-sans-serif, system-ui, sans-serif;
+  /* Type scale follows Superpower (weight 400, tight tracking); hero kept ~25% larger: 70px at 1440 */
+  font-size: round(clamp(2.75rem, 4.85vw, 4.375rem), 1px);
+  font-weight: 400;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.hero__sub {
+  max-width: 668px;
+  margin-top: 32px;
+  font-size: 1.25rem; /* 20px; Superpower's lead is 18.75 */
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-top: 48px;
+}
+
+/* Key facts along the bottom of the hero frame, aligned with the copy */
+.hero__facts {
+  position: absolute;
+  left: max(24px, calc((100% - 1069px) / 2)); /* same left edge as .hero__inner */
+  right: 24px;
+  bottom: calc(64px + var(--offset));
+  display: flex;
+  list-style: none;
+}
+
+.hero__facts li {
+  display: grid;
+  padding: 0 32px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 15px; /* matches Superpower's hero facts: 15px / 21px */
+  line-height: 1.4;
+}
+
+.hero__facts li:first-child { padding-left: 0; border-left: 0; }
+.hero__facts b { font-weight: 400; color: #fff; }
+.hero__facts span { color: rgba(255, 255, 255, 0.55); }
+
+@media (max-width: 900px) {
+  .hero__facts { left: 24px; bottom: calc(32px + var(--offset)); }
+  .hero__facts li { padding: 0 12px; font-size: 12px; }
+}
+
+/* Small demo video card, bottom-right of the copy block */
+.hero__clip {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 250px;
+  height: 160px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18), 0 20px 40px -16px color-mix(in srgb, var(--slate-900) 60%, transparent);
+  isolation: isolate;
+}
+
+.hero__clip img {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%; /* keep the face in frame */
+  transition: transform 0.4s ease;
+}
+
+.hero__clip:hover img { transform: scale(1.05); }
+
+.hero__clip::after {
+  /* Darken the bottom so the label reads on a light photo */
+  content: "";
+  position: absolute;
+  inset: 45% 0 0;
+  z-index: -1;
+  background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--slate-900) 60%, transparent));
+}
+
+/* Play button sits bottom-left beside the label, clear of the subject's face */
+.hero__clip-play {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+  transition: transform 0.2s ease;
+}
+
+.hero__clip-play .icon { font-size: 14px; margin-left: 2px; }
+.hero__clip:hover .hero__clip-play { transform: scale(1.08); }
+
+.hero__clip-label {
+  position: absolute;
+  left: 52px;
+  bottom: 19px;
+  font-size: 13px;
+  font-weight: 600;
+  text-shadow: 0 1px 6px color-mix(in srgb, var(--slate-900) 40%, transparent);
+}
+
+.hero__clip:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+/* Keep the subtitle clear of the card */
+.hero__inner .hero__sub { max-width: min(668px, calc(100% - 290px)); }
+
+/* Not enough room beside the copy on small screens */
+@media (max-width: 900px) {
+  .hero__clip { display: none; }
+  .hero__inner .hero__sub { max-width: 668px; }
+}
+
+/* Placeholder client logos: quiet, endlessly scrolling strip under the CTAs */
+.logos {
+  position: absolute;
+  left: max(24px, calc((100% - 1069px) / 2)); /* same left edge as .hero__inner */
+  bottom: calc(100px + var(--offset)); /* 100px above the screen bottom */
+  display: flex;
+  width: min(880px, calc(100% - 48px));
+  overflow: hidden;
+  /* Short fade on the left (where logos exit), longer on the right */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 80%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 5%, #000 80%, transparent);
+}
+
+.logos__track {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 56px;
+  padding-right: 56px;
+  list-style: none;
+  animation: logos-marquee 40s linear infinite;
+}
+
+.logos__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 0.34);
+  white-space: nowrap;
+}
+
+@keyframes logos-marquee {
+  to { transform: translateX(-100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logos__track { animation: none; }
+}
+
+/* Buttons live in sections.css (.btn — sizes, variants, states) */
+
+/* Floating glass nav */
+/* White top bar: links left, logo centre, actions right. Stays on screen, except while the
+   suite's own tab bar is pinned at the top (sections.js adds .nav--hidden). */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: #fff;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s ease;
+}
+
+.nav--hidden { transform: translateY(-100%); }
+.nav--scrolled { box-shadow: 0 1px 0 color-mix(in srgb, var(--slate-900) 8%, transparent); }
+
+@media (prefers-reduced-motion: reduce) {
+  .nav { transition: none; }
+}
+
+.nav__bar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  height: var(--nav-h);
+  padding-inline: 32px; /* full width on every page, not on the content grid */
+  color: var(--ink);
+}
+
+.nav__logo {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+}
+
+.nav__logo img {
+  display: block;
+  width: 128px;
+  height: auto;
+  filter: brightness(0) opacity(0.93); /* logo asset is white */
+}
+
+.nav__links {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: -12px;
+  list-style: none;
+}
+
+.nav__links a,
+.nav__login {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radius-xs);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: inherit;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.nav__links a { padding: 9px 12px; white-space: nowrap; }
+.nav__links .icon { margin-right: 8px; font-size: 24px; }
+
+/* "Company" opens the company drawer */
+.nav__menu-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 12px;
+  border: 0;
+  border-radius: var(--radius-xs);
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.nav__menu-btn:hover { background: color-mix(in srgb, var(--slate-900) 6%, transparent); }
+.nav__menu-btn .icon { margin-right: 8px; font-size: 24px; }
+
+/* Icon-only trigger for phones, where the text links are hidden */
+.nav__menu-icon {
+  display: none;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.nav__menu-icon .icon { font-size: 24px; }
+
+/* "Company": a text link with a caret that flips while its menu is open */
+.nav__menu-btn--caret { font-weight: 400; }
+.nav__menu-btn--caret .icon { margin: 0 0 0 4px; font-size: 12px; transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1); }
+.nav__menu-btn--caret[aria-expanded="true"] .icon { transform: rotate(180deg); }
+.nav__links a[aria-current="page"] { font-weight: 500; }
+
+.nav__login { height: 40px; padding: 0 16px; }
+
+.nav__links a:hover,
+.nav__login:hover { background: color-mix(in srgb, var(--slate-900) 6%, transparent); }
+
+/* "Mia" in the nav: an animated blue gradient word (also used on mia.html) */
+.nav__mia { display: inline-flex; align-items: center; height: 40px; padding: 0 12px; border-radius: var(--radius-xs); font-size: 14px; font-weight: 500; text-decoration: none; transition: background-color 0.2s ease; }
+.nav__mia:hover { background: color-mix(in srgb, var(--slate-900) 6%, transparent); }
+
+.mia-text {
+  background: linear-gradient(90deg, var(--blue-500), var(--blue-300), var(--blue-700), var(--blue-400), var(--blue-500));
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: mia-flow 6s linear infinite;
+}
+
+@keyframes mia-flow { to { background-position: 300% 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .mia-text { animation: none; }
+}
+
+.nav__actions {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 900px) {
+  .nav__links { display: none; }
+  .nav__menu-icon { display: grid; order: 3; margin-right: -8px; }
+  :root { --nav-h: 64px; }
+  .nav__bar { grid-template-columns: auto 1fr; padding-inline: 16px; }
+  .nav__logo { grid-column: 1; }
+  .nav__actions { grid-column: 2; }
+}
+
+@media (max-width: 480px) {
+  .nav__login { display: none; }
+  .nav__mia { padding: 0 8px; }
+  .hero__content { padding-top: 24px; }
+  .hero__ctas { flex-direction: column; width: 100%; }
+  .hero__ctas .btn { width: 100%; }
+}
+

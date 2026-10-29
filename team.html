@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Team — BlueMind</title>
+  <meta name="description" content="Advisors, compliance experts and engineers with 50+ years of combined compliance experience." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="sections.css" />
+  <link rel="stylesheet" href="product.css" />
+  <link rel="stylesheet" href="company.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/duotone/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/thin/style.css" />
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="pp">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav" id="nav">
+    <nav class="nav__bar" aria-label="Main">
+      <a class="nav__logo" href="index.html">
+        <img src="assets/logo.svg" width="1026" height="290" alt="bluemind" />
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="enterprise.html">Enterprise</a></li>
+        <li><a href="advisor.html">Advisor</a></li>
+        <li><button class="nav__menu-btn nav__menu-btn--caret" type="button" aria-expanded="false" aria-controls="company-drawer" data-drawer-open>Company<i class="icon ph-bold ph-caret-down" aria-hidden="true"></i></button></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="nav__menu-icon" type="button" aria-label="Menu" aria-expanded="false" aria-controls="company-drawer" data-drawer-open><i class="icon ph-bold ph-dots-nine" aria-hidden="true"></i></button>
+        <a class="nav__mia" href="mia.html"><span class="mia-text">Mia</span></a>
+        <a class="nav__login" href="#">Login</a>
+        <a class="btn btn--primary btn--md" href="#">Book a demo</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Company menu: the "Company" button sinks, then the same shape spreads into this panel
+       (motion after Bencho's "Create menu", MIT — bencho.dev/licence). sections.js drives it.
+       On phones the nav links are hidden, so the menu also carries them (.drawer__item--phone).
+       The old Products menu is parked in archive/product-menu.html. -->
+  <div class="drawer-overlay" data-drawer-close aria-hidden="true"></div>
+  <div class="drawer" id="company-drawer" role="dialog" aria-labelledby="drawer-title" tabindex="-1" hidden>
+    <span class="drawer__shape" aria-hidden="true"></span>
+    <div class="drawer__panel">
+      <ul class="drawer__links drawer__links--phone">
+        <li class="drawer__item drawer__item--phone"><a href="index.html"><span class="drawer__icon"><i class="icon ph-duotone ph-house" aria-hidden="true"></i></span><span class="drawer__text"><b>Home</b><small>Back to the top</small></span></a></li>
+        <li class="drawer__item drawer__item--phone"><a href="enterprise.html" class="suite-card--enterprise"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#enterprise"/></svg></span><span class="drawer__text"><b>Enterprise</b><small>Oversight for MGAs, BGAs, IMOs &amp; carriers</small></span></a></li>
+        <li class="drawer__item drawer__item--phone"><a href="advisor.html" class="suite-card--advisor"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#advisor"/></svg></span><span class="drawer__text"><b>Advisor</b><small>Your compliance co-pilot, meeting to audit file</small></span></a></li>
+      <li class="drawer__item drawer__item--phone"><a href="mia.html"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#mia"/></svg></span><span class="drawer__text"><b class="mia-text">Mia</b><small>Your AI assistant for compliance work</small></span></a></li>
+      </ul>
+      <p class="drawer__label drawer__item" id="drawer-title">Who we are and how we work</p>
+      <ul class="drawer__links">
+        <li class="drawer__item"><a href="about.html"><span class="drawer__icon"><i class="icon ph-duotone ph-info" aria-hidden="true"></i></span><span class="drawer__text"><b>About Us</b><small>Our mission and story</small></span></a></li>
+        <li class="drawer__item"><a href="team.html"><span class="drawer__icon"><i class="icon ph-duotone ph-users-three" aria-hidden="true"></i></span><span class="drawer__text"><b>Team</b><small>The people behind BlueMind</small></span></a></li>
+        <li class="drawer__item"><a href="partners.html"><span class="drawer__icon"><i class="icon ph-duotone ph-handshake" aria-hidden="true"></i></span><span class="drawer__text"><b>Partners</b><small>Integrations, distributors and associations</small></span></a></li>
+        <li class="drawer__item"><a href="brand.html"><span class="drawer__icon"><i class="icon ph-duotone ph-palette" aria-hidden="true"></i></span><span class="drawer__text"><b>Brand</b><small>Logos, colours and press kit</small></span></a></li>
+      </ul>
+      <a class="drawer__feature drawer__item" href="about.html#story"><small>We’re founded by a CFP</small><b>Built by advisors, for advisors.</b><span>Read our story<i class="icon ph ph-arrow-right" aria-hidden="true"></i></span></a>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- 01 · Hero (Careers style) -->
+    <section class="chero" aria-labelledby="team-title">
+      <div class="container">
+        <p class="eyebrow">Team</p>
+        <h1 class="chero__title" id="team-title">Advisors, compliance experts <span>and engineers.</span></h1>
+        <p class="lead">50+ years of combined financial and tech experience — building the tools advisors wish they’d always had.</p>
+        <div class="actions"><a class="btn btn--primary btn--lg" href="https://bluemind.app/contact-us">Join us</a></div>
+      </div>
+    </section>
+    <div class="container">
+      <figure class="cwide"><img src="assets/photos/team-wide.jpg" alt="The BlueMind team working through a plan together at the office" width="2000" height="860" /></figure>
+    </div>
+
+    <!-- 02 · Leadership -->
+    <section class="section" id="leadership" aria-labelledby="lead-title">
+      <div class="container">
+        <div class="cbar"><h2 id="lead-title">Leadership</h2></div>
+        <ul class="cpeople cpeople--lg">
+          <li><a class="cpeople__item" href="https://www.linkedin.com/in/akilbluemind/" target="_blank" rel="noopener"><span class="cpeople__pic"><img src="assets/people/akil.jpg" alt="Ahilan (Akil) Balachandran" width="600" height="600" loading="lazy" /></span><span class="cpeople__name">Ahilan (Akil) Balachandran</span><span class="cpeople__role">Founder &amp; CEO</span><span class="cpeople__extra">B.Com, CFP, CLU, CHS, EPC</span><i class="icon ph ph-arrow-up-right cpeople__arrow" aria-hidden="true"></i><span class="sr-only"> on LinkedIn</span></a></li>
+          <li><a class="cpeople__item" href="https://www.linkedin.com/in/meenaartsy/" target="_blank" rel="noopener"><span class="cpeople__pic"><img src="assets/people/meena.jpg" alt="Meena Visvalingam" width="600" height="600" loading="lazy" /></span><span class="cpeople__name">Meena Visvalingam</span><span class="cpeople__role">Co-Founder &amp; UX/UI Designer</span><span class="cpeople__extra">EPC</span><i class="icon ph ph-arrow-up-right cpeople__arrow" aria-hidden="true"></i><span class="sr-only"> on LinkedIn</span></a></li>
+          <li><a class="cpeople__item" href="https://www.linkedin.com/in/kalki-nethaji/" target="_blank" rel="noopener"><span class="cpeople__pic"><img src="assets/people/kalki.jpg" alt="Kalki Nethaji" width="600" height="600" loading="lazy" /></span><span class="cpeople__name">Kalki Nethaji</span><span class="cpeople__role">Head of Engineering &amp; CISO</span><i class="icon ph ph-arrow-up-right cpeople__arrow" aria-hidden="true"></i><span class="sr-only"> on LinkedIn</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 03 · The team: rows with filter tabs -->
+    <section class="section section--snug" id="team" aria-labelledby="crew-title">
+      <div class="container">
+        <div class="cbar">
+          <h2 id="crew-title">The team</h2>
+        </div>
+        <ul class="cpeople" id="crew">
+          <li><a class="cpeople__item" href="https://www.linkedin.com/in/maneli-panahandeh-a25099134/" target="_blank" rel="noopener"><span class="cpeople__pic"><img src="assets/people/maneli.jpg" alt="Maneli Panahandeh" width="600" height="600" loading="lazy" /></span><span class="cpeople__name">Maneli Panahandeh</span><span class="cpeople__role">Business Operations Lead</span><i class="icon ph ph-arrow-up-right cpeople__arrow" aria-hidden="true"></i><span class="sr-only"> on LinkedIn</span></a></li>
+          <li><a class="cpeople__item" href="https://www.linkedin.com/in/raksanan-sasitharan/" target="_blank" rel="noopener"><span class="cpeople__pic"><img src="assets/people/rocky.jpg" alt="Rocky Sasitharan" width="600" height="600" loading="lazy" /></span><span class="cpeople__name">Rocky Sasitharan</span><span class="cpeople__role">Director, Growth &amp; Partnerships</span><i class="icon ph ph-arrow-up-right cpeople__arrow" aria-hidden="true"></i><span class="sr-only"> on LinkedIn</span></a></li>
+          <li><a class="cpeople__item" href="https://www.linkedin.com/in/meghan-huthsteiner/" target="_blank" rel="noopener"><span class="cpeople__pic"><img src="assets/people/meghan.jpg" alt="Meghan Huthsteiner" width="600" height="600" loading="lazy" /></span><span class="cpeople__name">Meghan Huthsteiner</span><span class="cpeople__role">VP of Sales (USA)</span><i class="icon ph ph-arrow-up-right cpeople__arrow" aria-hidden="true"></i><span class="sr-only"> on LinkedIn</span></a></li>
+          <li><div class="cpeople__item"><span class="cpeople__pic"><img src="assets/people/mariia.jpg" alt="Mariia Sozoniuk" width="600" height="600" loading="lazy" /></span><span class="cpeople__name">Mariia Sozoniuk</span><span class="cpeople__role">Customer Success Manager</span></div></li>
+          <li><div class="cpeople__item"><span class="cpeople__pic"><img src="assets/people/sanket.jpg" alt="Sanket Lakhani" width="600" height="600" loading="lazy" /></span><span class="cpeople__name">Sanket Lakhani</span><span class="cpeople__role">Lead Engineer, AI/ML</span></div></li>
+          <li><a class="cpeople__item" href="https://www.linkedin.com/in/johnathan-loganathan-047a71244/" target="_blank" rel="noopener"><span class="cpeople__pic"><img src="assets/people/john.jpg" alt="John Loganathan" width="600" height="600" loading="lazy" /></span><span class="cpeople__name">John Loganathan</span><span class="cpeople__role">Founding Engineer</span><i class="icon ph ph-arrow-up-right cpeople__arrow" aria-hidden="true"></i><span class="sr-only"> on LinkedIn</span></a></li>
+          <li><div class="cpeople__item"><span class="cpeople__pic"><img src="assets/people/riley.jpg" alt="Riley Fray" width="600" height="600" loading="lazy" /></span><span class="cpeople__name">Riley Fray</span><span class="cpeople__role">Marketing &amp; PR Manager</span></div></li>
+          <li><a class="cpeople__item" href="https://www.linkedin.com/in/danyaleffendi/" target="_blank" rel="noopener"><span class="cpeople__pic"><img src="assets/people/danyal.jpg" alt="Danyal Effendi" width="600" height="600" loading="lazy" /></span><span class="cpeople__name">Danyal Effendi</span><span class="cpeople__role">Fractional Marketing Lead</span><i class="icon ph ph-arrow-up-right cpeople__arrow" aria-hidden="true"></i><span class="sr-only"> on LinkedIn</span></a></li>
+          <li><div class="cpeople__item"><span class="cpeople__pic"><img src="assets/people/chris.jpg" alt="Chris Ellefson, M.Sc." width="600" height="600" loading="lazy" /></span><span class="cpeople__name">Chris Ellefson, M.Sc.</span><span class="cpeople__role">Fractional CTO</span></div></li>
+          <li><a class="cpeople__item" href="https://www.linkedin.com/in/risatrajin/" target="_blank" rel="noopener"><span class="cpeople__pic"><img src="assets/people/risat.jpg" alt="Risat Rajin" width="600" height="600" loading="lazy" /></span><span class="cpeople__name">Risat Rajin</span><span class="cpeople__role">Product Design Lead</span><i class="icon ph ph-arrow-up-right cpeople__arrow" aria-hidden="true"></i><span class="sr-only"> on LinkedIn</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 04 · Advisors & board -->
+    <section class="section section--snug" id="board" aria-labelledby="board-title">
+      <div class="container">
+        <div class="cbar"><h2 id="board-title">Strategic advisors</h2></div>
+        <ul class="cpeople">
+          <li><a class="cpeople__item" href="https://www.linkedin.com/in/peterduff/" target="_blank" rel="noopener"><span class="cpeople__pic"><img src="assets/people/peter.jpg" alt="Peter Duff" width="600" height="600" loading="lazy" /></span><span class="cpeople__name">Peter Duff</span><span class="cpeople__role">CEO, V2 Cloud</span><i class="icon ph ph-arrow-up-right cpeople__arrow" aria-hidden="true"></i><span class="sr-only"> on LinkedIn</span></a></li>
+          <li><a class="cpeople__item" href="https://www.linkedin.com/in/meenaartsy/" target="_blank" rel="noopener"><span class="cpeople__pic"><img src="assets/people/meena-2.jpg" alt="Meena Visvalingam" width="600" height="600" loading="lazy" /></span><span class="cpeople__name">Meena Visvalingam</span><span class="cpeople__role">President, LifePlan Investments</span><i class="icon ph ph-arrow-up-right cpeople__arrow" aria-hidden="true"></i><span class="sr-only"> on LinkedIn</span></a></li>
+          <li><a class="cpeople__item" href="https://www.linkedin.com/in/neil-mitchell-295a5426/" target="_blank" rel="noopener"><span class="cpeople__pic"><img src="assets/people/neil.jpg" alt="Neil Mitchell" width="600" height="600" loading="lazy" /></span><span class="cpeople__name">Neil Mitchell</span><span class="cpeople__role">Investor &amp; Advisor</span><i class="icon ph ph-arrow-up-right cpeople__arrow" aria-hidden="true"></i><span class="sr-only"> on LinkedIn</span></a></li>
+          <li><a class="cpeople__item" href="https://www.linkedin.com/in/rayadamson/" target="_blank" rel="noopener"><span class="cpeople__pic"><img src="assets/people/ray.jpg" alt="Ray Adamson" width="600" height="600" loading="lazy" /></span><span class="cpeople__name">Ray Adamson</span><span class="cpeople__role">Formerly Lavvy, Equisoft, BlueSun</span><i class="icon ph ph-arrow-up-right cpeople__arrow" aria-hidden="true"></i><span class="sr-only"> on LinkedIn</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 05 · How we work -->
+    <section class="section section--tint" id="culture" aria-labelledby="culture-title">
+      <div class="container">
+        <div class="cbar"><h2 id="culture-title">How we work together</h2></div>
+        <ul class="cgallery">
+          <li data-reveal><figure><div class="cpic"><img src="assets/photos/team-1.jpg" alt="Two colleagues working through something on a laptop" width="800" height="800" loading="lazy" /></div><figcaption>Small teams, close to the work.</figcaption></figure></li>
+          <li data-reveal><figure><div class="cpic"><img src="assets/photos/team-2.jpg" alt="Three colleagues in an open discussion around a table" width="800" height="800" loading="lazy" /></div><figcaption>Advisors in the room when we build.</figcaption></figure></li>
+          <li data-reveal><figure><div class="cpic"><img src="assets/photos/team-3.jpg" alt="Three colleagues talking through an idea on a tablet" width="800" height="800" loading="lazy" /></div><figcaption>Decisions made together, out loud.</figcaption></figure></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 17 · Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <img class="footer__logo" src="assets/logo.svg" alt="bluemind" width="1026" height="290" />
+          <p class="footer__tag">One mind for your whole business.</p>
+          <a class="btn btn--primary btn--lg" href="https://bluemind.app/contact-us">Contact us</a>
+        </div>
+        <nav class="footer__cols" aria-label="Footer">
+          <div><h3>Products</h3><ul><li><a href="enterprise.html">Harmony</a></li><li><a href="advisor.html">Advisor</a></li><li><a href="#">Pricing</a></li><li><a href="index.html#integrations">Integrations</a></li></ul></div>
+          <div><h3>Resources</h3><ul><li><a href="#">Blog</a></li><li><a href="#">Help Centre</a></li><li><a href="#">Documentation</a></li><li><a href="#">Press Release</a></li><li><a href="#">Webinar</a></li><li><a href="design-system.html">Design system</a></li></ul></div>
+          <div><h3>Company</h3><ul><li><a href="about.html">About Us</a></li><li><a href="team.html">Team</a></li><li><a href="partners.html">Partners</a></li><li><a href="brand.html">Brand</a></li></ul></div>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 BlueMind <span aria-hidden="true">·</span> <a href="#">Terms</a> <span aria-hidden="true">·</span> <a href="#">Privacy</a> <span aria-hidden="true">·</span> <a href="#">Cookies</a></p>
+        <ul class="footer__social">
+          <li><a href="https://www.linkedin.com/company/bluemindapp/" target="_blank" rel="noopener" aria-label="BlueMind on LinkedIn"><i class="icon ph ph-linkedin-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://twitter.com/BlueMind_app" target="_blank" rel="noopener" aria-label="BlueMind on X"><i class="icon ph ph-x-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.instagram.com/bluemind.app/" target="_blank" rel="noopener" aria-label="BlueMind on Instagram"><i class="icon ph ph-instagram-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.facebook.com/BlueMindApp/" target="_blank" rel="noopener" aria-label="BlueMind on Facebook"><i class="icon ph ph-facebook-logo" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+      <img class="footer__mark" src="assets/logo.svg" alt="" width="1026" height="290" aria-hidden="true" />
+    </div>
+  </footer>
+
+
+  <script src="sections.js"></script>
+  <script src="product.js"></script>
+  <script src="company.js"></script>
+</body>
+</html>

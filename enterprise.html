@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Harmony for firms — BlueMind</title>
+  <meta name="description" content="Harmony is the oversight layer for your whole advisor network: live supervision, AI risk detection and audit-ready evidence, on top of your back office." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="sections.css" />
+  <link rel="stylesheet" href="product.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/duotone/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/thin/style.css" />
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="pp pp--harmony">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav" id="nav">
+    <nav class="nav__bar" aria-label="Main">
+      <a class="nav__logo" href="index.html">
+        <img src="assets/logo.svg" width="1026" height="290" alt="bluemind" />
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="enterprise.html" aria-current="page">Enterprise</a></li>
+        <li><a href="advisor.html">Advisor</a></li>
+        <li><button class="nav__menu-btn nav__menu-btn--caret" type="button" aria-expanded="false" aria-controls="company-drawer" data-drawer-open>Company<i class="icon ph-bold ph-caret-down" aria-hidden="true"></i></button></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="nav__menu-icon" type="button" aria-label="Menu" aria-expanded="false" aria-controls="company-drawer" data-drawer-open><i class="icon ph-bold ph-dots-nine" aria-hidden="true"></i></button>
+        <a class="nav__mia" href="mia.html"><span class="mia-text">Mia</span></a>
+        <a class="nav__login" href="#">Login</a>
+        <a class="btn btn--primary btn--md" href="#demo">Book a demo</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Company menu: the "Company" button sinks, then the same shape spreads into this panel
+       (motion after Bencho's "Create menu", MIT — bencho.dev/licence). sections.js drives it.
+       On phones the nav links are hidden, so the menu also carries them (.drawer__item--phone).
+       The old Products menu is parked in archive/product-menu.html. -->
+  <div class="drawer-overlay" data-drawer-close aria-hidden="true"></div>
+  <div class="drawer" id="company-drawer" role="dialog" aria-labelledby="drawer-title" tabindex="-1" hidden>
+    <span class="drawer__shape" aria-hidden="true"></span>
+    <div class="drawer__panel">
+      <ul class="drawer__links drawer__links--phone">
+        <li class="drawer__item drawer__item--phone"><a href="index.html"><span class="drawer__icon"><i class="icon ph-duotone ph-house" aria-hidden="true"></i></span><span class="drawer__text"><b>Home</b><small>Back to the top</small></span></a></li>
+        <li class="drawer__item drawer__item--phone"><a href="enterprise.html" class="suite-card--enterprise"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#enterprise"/></svg></span><span class="drawer__text"><b>Enterprise</b><small>Oversight for MGAs, BGAs, IMOs &amp; carriers</small></span></a></li>
+        <li class="drawer__item drawer__item--phone"><a href="advisor.html" class="suite-card--advisor"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#advisor"/></svg></span><span class="drawer__text"><b>Advisor</b><small>Your compliance co-pilot, meeting to audit file</small></span></a></li>
+      <li class="drawer__item drawer__item--phone"><a href="mia.html"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#mia"/></svg></span><span class="drawer__text"><b class="mia-text">Mia</b><small>Your AI assistant for compliance work</small></span></a></li>
+      </ul>
+      <p class="drawer__label drawer__item" id="drawer-title">Who we are and how we work</p>
+      <ul class="drawer__links">
+        <li class="drawer__item"><a href="about.html"><span class="drawer__icon"><i class="icon ph-duotone ph-info" aria-hidden="true"></i></span><span class="drawer__text"><b>About Us</b><small>Our mission and story</small></span></a></li>
+        <li class="drawer__item"><a href="team.html"><span class="drawer__icon"><i class="icon ph-duotone ph-users-three" aria-hidden="true"></i></span><span class="drawer__text"><b>Team</b><small>The people behind BlueMind</small></span></a></li>
+        <li class="drawer__item"><a href="partners.html"><span class="drawer__icon"><i class="icon ph-duotone ph-handshake" aria-hidden="true"></i></span><span class="drawer__text"><b>Partners</b><small>Integrations, distributors and associations</small></span></a></li>
+        <li class="drawer__item"><a href="brand.html"><span class="drawer__icon"><i class="icon ph-duotone ph-palette" aria-hidden="true"></i></span><span class="drawer__text"><b>Brand</b><small>Logos, colours and press kit</small></span></a></li>
+      </ul>
+      <a class="drawer__feature drawer__item" href="about.html#story"><small>We’re founded by a CFP</small><b>Built by advisors, for advisors.</b><span>Read our story<i class="icon ph ph-arrow-right" aria-hidden="true"></i></span></a>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- 01 · Hero: Superhuman Mail layout; the stage is a looping product film built from DOM (product.js) -->
+    <section class="hh" id="overview" aria-labelledby="hero-title" data-hhero>
+      <div class="container">
+        <p class="hh__brand"><img src="assets/harmony/harmony-icon.svg" alt="" width="22" height="22" /><b>bluemind</b> Harmony</p>
+        <h1 class="hh__title" id="hero-title">Total supervisory command.<br>Zero blind spots.</h1>
+        <p class="hh__lead">Harmony is the oversight layer for your whole advisor network. <br>Watch every file in real time and catch risk before it becomes a finding.</p>
+        <a class="btn btn--primary btn--lg hh__cta" href="#demo">Book a demo</a>
+
+        <div class="hh__video">
+        <div class="hh__stage" role="img" aria-label="The Harmony app with sample data: the dashboard of what needs attention, the review queue filtered to high risk, Mia’s AI insight on an advisor, and a monthly compliance report being generated">
+          <div class="hh__canvas" data-scene="" aria-hidden="true">
+            <img class="hh__bg" src="assets/harmony/hero-gradient.jpg" alt="" width="1400" height="1400" />
+
+            <span class="hh__rule"></span>
+            <span class="hh__arc"></span>
+
+            <!-- The Harmony app, rebuilt from the Figma "Web" board: one window, the cursor moves between screens -->
+            <div class="hx" data-screen="dash">
+              <aside class="hx__side">
+                <img class="hx__logo" src="assets/logo.svg" alt="" width="1026" height="290" />
+                <ul class="hx__nav">
+                <li data-nav="dash"><i class="icon ph ph-house"></i>Dashboard</li>
+                <li class="hx__navlabel">Supervision</li>
+                <li><i class="icon ph ph-users"></i>Clients</li>
+                <li data-nav="queue"><i class="icon ph ph-list-checks"></i>Review Queue</li>
+                <li><i class="icon ph ph-circles-three"></i>Policies</li>
+                <li data-nav="advisors"><i class="icon ph ph-users-three"></i>Advisors</li>
+                <li><i class="icon ph ph-coins"></i>Investments</li>
+                <li><i class="icon ph ph-buildings"></i>Agency</li>
+                <li><i class="icon ph ph-file-magnifying-glass"></i>Audit Reviews</li>
+                <li><i class="icon ph ph-share-network"></i>Data Feed</li>
+                <li class="hx__navlabel">Compliance</li>
+                <li><i class="icon ph ph-warning-circle"></i>Incidents</li>
+                <li data-nav="reports"><i class="icon ph ph-file-text"></i>Reports</li>
+                <li><i class="icon ph ph-clock-counter-clockwise"></i>Audit Trails</li>
+                <li><i class="icon ph ph-folder"></i>Documents</li>
+                </ul>
+              </aside>
+              <div class="hx__body">
+                <div class="hx__top"><i class="icon ph ph-caret-left"></i><span class="hx__loc"><i class="icon ph-fill ph-map-pin"></i>Toronto — Main office<i class="icon ph ph-caret-down"></i></span><span class="hx__icons"><i class="icon ph ph-magnifying-glass"></i><i class="icon ph ph-alarm"></i><i class="icon ph ph-chat-circle-dots"><b>3</b></i><i class="icon ph ph-bell"><b>12</b></i><i class="icon ph ph-sparkle"></i></span></div>
+
+                <!-- Dashboard / CCO -->
+                <section class="hx__scr hx__scr--dash">
+                  <div class="hx__hello"><b>Good morning, Margaret</b><small>4 decisions and 3 deadlines this week · updated 08:24</small></div>
+                  <div class="hx__stats">
+                    <div><img src="assets/harmony/spark-1.svg" alt="" width="64" height="24" /><span>Supervision coverage</span><p><b>98%</b> / 3 missing</p></div>
+                    <div><img src="assets/harmony/spark-2.svg" alt="" width="64" height="24" /><span>In good standing</span><p><b>85 of 90</b> / 5 flagged</p></div>
+                    <div><img src="assets/harmony/spark-3.svg" alt="" width="64" height="24" /><span>Deadlines met</span><p><b>100%</b> / none missed</p></div>
+                    <div><img src="assets/harmony/spark-4.svg" alt="" width="64" height="24" /><span>Late files</span><p><b>15</b> / 6 high risk</p></div>
+                  </div>
+                  <div class="hx__card">
+                    <p class="hx__cardhead"><i class="icon ph ph-dots-six-vertical"></i><b>Needs your attention</b><em>11</em></p>
+                    <p class="hx__group">Your decision</p>
+                    <ul class="hx__prio">
+                      <li><i class="icon ph ph-warning-circle"></i><span><b>Unsuitable advisor · Kevin Lau</b><small>2 complaints, 6 flagged files, E&amp;O lapsed</small></span></li>
+                      <li class="is-hot"><i class="icon ph ph-warning-circle"></i><span><b>Suitability review · Richard Clark</b><small>Segregated fund switch, no signed RWL on file</small></span><em>Review</em></li>
+                      <li><i class="icon ph ph-warning-circle"></i><span><b>Screening exception · S. Iqbal</b><small>Prior MGA debt of $2,100</small></span></li>
+                      <li><i class="icon ph ph-warning-circle"></i><span><b>Termination recommended · J. Diaz</b><small>Third repeat finding in 90 days</small></span></li>
+                    </ul>
+                  </div>
+                </section>
+
+                <!-- Review Queue / Filter open -->
+                <section class="hx__scr hx__scr--queue">
+                  <h4 class="hx__h">Review queue</h4>
+                  <p class="hx__sub">Files waiting on you, sent back, and approved.</p>
+                  <p class="hx__seg"><b>Supervision</b><span>New business</span><span>Commission</span></p>
+                  <p class="hx__tabs"><b>Awaiting review <em>12</em></b><span>Flagged <em>0</em></span><span>Rejected <em>8</em></span><span>Approved <em>16</em></span></p>
+                  <div class="hx__table">
+                    <div class="hx__tools"><span class="hx__search"><i class="icon ph ph-magnifying-glass"></i>Search by client, email, or advisor</span><span class="hx__filter"><i class="icon ph ph-funnel-simple"></i><span data-hx-filter>Filter</span><i class="icon ph ph-caret-down"></i></span>
+                      <ul class="hx__menu"><li class="hx__menulabel">Risk</li><li class="is-sel">All risk <i class="icon ph ph-check"></i></li><li class="hx__menuhigh">High only</li><li>Low only</li></ul>
+                    </div>
+                    <p class="hx__thead"><span class="hx__cb"></span><span>Client</span><span>Waiting</span><span>Risk</span><span>Status</span><span></span></p>
+                    <ul class="hx__qrows">
+                      <li class="hx__qrow is-low"><span class="hx__cb"></span><span class="hx__who"><img src="assets/harmony/av/santiago.png" alt="" width="40" height="40" /><span><b>Santiago Vega</b><small>santiago.vega@example.com</small></span></span><span>9 days</span><span><em class="hx__risk hx__risk--low">Low</em></span><span><em class="hx__status">Awaiting review</em></span><span class="hx__rev">Review</span></li>
+                      <li class="hx__qrow"><span class="hx__cb"></span><span class="hx__who"><img src="assets/harmony/av/ingrid.png" alt="" width="40" height="40" /><span><b>Ingrid Larsen</b><small>ingrid.larsen@example.com</small></span></span><span>7 days</span><span><em class="hx__risk hx__risk--high">High</em></span><span><em class="hx__status">Awaiting review</em></span><span class="hx__rev">Review</span></li>
+                      <li class="hx__qrow"><span class="hx__cb"></span><span class="hx__who"><img src="assets/harmony/av/connor.png" alt="" width="40" height="40" /><span><b>Connor Doyle</b><small>connor.doyle@example.com</small></span></span><span>6 days</span><span><em class="hx__risk hx__risk--high">High</em></span><span><em class="hx__status">Awaiting review</em></span><span class="hx__rev">Review</span></li>
+                      <li class="hx__qrow"><span class="hx__cb"></span><span class="hx__who"><img src="assets/harmony/av/fatima.png" alt="" width="40" height="40" /><span><b>Fatima Zahra</b><small>fatima.zahra@example.com</small></span></span><span>5 days</span><span><em class="hx__risk hx__risk--high">High</em></span><span><em class="hx__status">Awaiting review</em></span><span class="hx__rev">Review</span></li>
+                      <li class="hx__qrow is-low"><span class="hx__cb"></span><span class="hx__who"><img src="assets/harmony/av/elena.png" alt="" width="40" height="40" /><span><b>Elena Petrov</b><small>elena.petrov@example.com</small></span></span><span>2 days</span><span><em class="hx__risk hx__risk--low">Low</em></span><span><em class="hx__status">Awaiting review</em></span><span class="hx__rev">Review</span></li>
+                      <li class="hx__qrow"><span class="hx__cb"></span><span class="hx__who"><img src="assets/harmony/av/dmitri.png" alt="" width="40" height="40" /><span><b>Dmitri Volkov</b><small>dmitri.volkov@example.com</small></span></span><span>4 days</span><span><em class="hx__risk hx__risk--high">High</em></span><span><em class="hx__status">Awaiting review</em></span><span class="hx__rev">Review</span></li>
+                      <li class="hx__qrow is-low"><span class="hx__cb"></span><span class="hx__who"><img src="assets/harmony/av/noah.png" alt="" width="40" height="40" /><span><b>Noah Bennett</b><small>noah.bennett@example.com</small></span></span><span>1 day</span><span><em class="hx__risk hx__risk--low">Low</em></span><span><em class="hx__status">Awaiting review</em></span><span class="hx__rev">Review</span></li>
+                      <li class="hx__qrow"><span class="hx__cb"></span><span class="hx__who"><img src="assets/harmony/av/ethan.png" alt="" width="40" height="40" /><span><b>Ethan Walsh</b><small>ethan.walsh@example.com</small></span></span><span>2 days</span><span><em class="hx__risk hx__risk--high">High</em></span><span><em class="hx__status">Awaiting review</em></span><span class="hx__rev">Review</span></li>
+                      <li class="hx__qrow"><span class="hx__cb"></span><span class="hx__who"><img src="assets/harmony/av/lucas.png" alt="" width="40" height="40" /><span><b>Lucas Moreau</b><small>lucas.moreau@example.com</small></span></span><span>1 day</span><span><em class="hx__risk hx__risk--high">High</em></span><span><em class="hx__status">Awaiting review</em></span><span class="hx__rev">Review</span></li>
+                    </ul>
+                    <p class="hx__foot"><span>Rows per page <b>10</b></span><span data-hx-showing>Showing 1–10 of 12</span><span class="hx__pages"><b>1</b><span>2</span></span></p>
+                  </div>
+                </section>
+
+                <!-- Advisors / Panel · AI Insight -->
+                <section class="hx__scr hx__scr--advisors">
+                  <h4 class="hx__h">Advisors</h4>
+                  <p class="hx__sub">128 advisors</p>
+                  <p class="hx__tabs"><b>All advisors <em>128</em></b><span>High risk <em>9</em></span><span>Needs review <em>17</em></span><span>Audit in progress <em>6</em></span></p>
+                  <div class="hx__table">
+                    <p class="hx__thead hx__thead--adv"><span class="hx__cb"></span><span>Advisor</span><span>Risk</span><span>Licence</span></p>
+                    <ul class="hx__arows">
+                      <li class="hx__arow"><span class="hx__cb"></span><span class="hx__who"><img src="assets/harmony/av/holly.png" alt="" width="40" height="40" /><span><b>Holly Mitchell</b><small>ADV-0034</small></span></span><span class="hx__score"><i></i>80 · ±0</span><span class="hx__lic"><b>4 expired</b><small>Dec 13</small></span></li>
+                      <li class="hx__arow"><span class="hx__cb"></span><span class="hx__who"><img src="assets/harmony/av/jessica.png" alt="" width="40" height="40" /><span><b>Jessica Williams</b><small>ADV-0004</small></span></span><span class="hx__score"><i></i>80 · ±0</span><span class="hx__lic"><b>4 expired</b><small>Jan 27</small></span></li>
+                      <li class="hx__arow"><span class="hx__cb"></span><span class="hx__who"><img src="assets/harmony/av/aaron.png" alt="" width="40" height="40" /><span><b>Aaron Robinson</b><small>ADV-0019</small></span></span><span class="hx__score"><i></i>80 · ±0</span><span class="hx__lic"><b>2 expired</b><small>1 active</small></span></li>
+                      <li class="hx__arow"><span class="hx__cb"></span><span class="hx__who"><img src="assets/harmony/av/brittany.png" alt="" width="40" height="40" /><span><b>Brittany Harris</b><small>ADV-0014</small></span></span><span class="hx__score"><i></i>80 · ±0</span><span class="hx__lic"><b>2 expired</b><small>2 active</small></span></li>
+                    </ul>
+                  </div>
+                  <div class="hx__panel">
+                    <div class="hx__pscroll">
+                      <div class="hx__cover"></div>
+                      <img class="hx__pav" src="assets/harmony/av/holly-lg.png" alt="" width="72" height="72" />
+                      <b class="hx__pname">Holly Mitchell</b>
+                      <small class="hx__pid">ADV-0034 · Montreal Est</small>
+                      <p class="hx__ptags"><em class="hx__pill hx__pill--ok">Clear</em><em class="hx__pill hx__pill--bad">high</em></p>
+                      <span class="hx__open">Open full profile <i class="icon ph ph-arrow-right"></i></span>
+                      <p class="hx__ptabs"><span>Overview</span><span>Risk</span><b>AI Insight</b><span>Activity</span></p>
+                      <div class="hx__ins">
+                        <div class="hx__verdict"><i class="icon ph ph-warning-octagon"></i><span><b>2 of 9 checks failing</b><small>3 to watch · 4 clear</small></span><span class="hx__meter"><i></i></span></div>
+                        <div class="hx__grp"><p><b>Sales Pattern</b><small>1/3 clear</small></p><ul><li><i class="icon ph ph-warning"></i>Replacement ratio above peer band</li><li><i class="icon ph ph-warning"></i>Lapse ratio above peer band</li><li class="is-ok"><i class="icon ph ph-check"></i>Book concentration within threshold</li></ul></div>
+                        <div class="hx__grp"><p><b>Licensing</b><small>1/3 clear</small></p><ul><li class="is-bad"><i class="icon ph ph-x"></i>Life licence expired Dec 13</li><li class="is-bad"><i class="icon ph ph-x"></i>A&amp;S licence expired Jan 4</li><li class="is-ok"><i class="icon ph ph-check"></i>E&amp;O coverage current</li></ul></div>
+                        <div class="hx__grp hx__intel"><p><b>Supervision Intelligence</b><em class="hx__mia"><i class="icon ph-fill ph-sparkle"></i>Mia · AI</em></p><div class="hx__bul"><p data-hx-type="Audit exposure elevated: disclosure gap on replacement not yet resolved"></p><p data-hx-type="Premium concentration is an outlier for this advisor’s portfolio"></p></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- Report Builder / Generated -->
+                <section class="hx__scr hx__scr--reports">
+                  <div class="hx__rhead"><span><small>Reports › Monthly Compliance Report</small><b>Monthly Compliance Report</b></span><em class="hx__gen"><i></i>Generated</em><span class="hx__dl"><i class="icon ph ph-download-simple"></i><span>Download PDF</span></span></div>
+                  <div class="hx__paper">
+                    <p class="hx__pmeta"><span>Greenleaf Financial · Toronto main office</span><span>Confidential · for issuer and regulator use</span></p>
+                    <b class="hx__ptitle">Monthly Compliance Report</b>
+                    <small class="hx__psub">Aug 1 – Aug 31, 2026 · compared with Jul 2026 · prepared by Margaret Chen</small>
+                    <div class="hx__sum">
+                      <p class="hx__sumtext">44 advisors were supervised in August. 312 files were reviewed and 27 findings were raised; 21 are closed and 6 are still open.</p>
+                      <div class="hx__kpis"><span><small>Advisors supervised</small><b data-hx-count="44">0</b></span><span><small>Files reviewed</small><b data-hx-count="312">0</b></span><span><small>Findings raised</small><b data-hx-count="27">0</b></span><span><small>Findings still open</small><b class="is-warn" data-hx-count="6">0</b></span></div>
+                    </div>
+                    <b class="hx__psec">Action trail</b>
+                    <ul class="hx__trail">
+                      <li><i class="icon ph ph-check-circle"></i><span>Escalation opened · Jean Tremblay, churning pattern on 3 policies<small>Margaret Chen · Aug 28</small></span></li>
+                      <li><i class="icon ph ph-check-circle"></i><span>Case closed with no findings · Sofia Almeida<small>Gabriel Okafor · Aug 24</small></span></li>
+                    </ul>
+                    <b class="hx__psec">Risk distribution</b>
+                    <p class="hx__dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></p>
+                    <p class="hx__legend"><span><i style="--c:var(--danger)"></i>Critical <b>3</b></span><span><i style="--c:var(--warn)"></i>Elevated <b>6</b></span><span><i style="--c:var(--slate-300)"></i>Standard <b>11</b></span><span><i style="--c:var(--accent)"></i>Low <b>24</b></span></p>
+                  </div>
+                </section>
+              </div>
+            </div>
+
+
+            <span class="hh__bubble"><svg class="hh__mia" viewBox="0 0 622.145 662.796" aria-hidden="true"><defs><linearGradient id="hh-mia-fill" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3d9eff"/><stop offset="1" stop-color="#0152a7"/></linearGradient></defs><path d="M6.42055 349C40.6904 128.108 231.042 33.7442 411.826 5.25682C430.774 2.27115 445.719 20.1811 439.024 38.1562C409.667 116.984 375.883 154.244 418.5 132.5C479.417 101.42 547.37 110.62 589.302 133.865C606.849 143.592 597.037 167.443 586.638 184.6C570.275 211.597 575.772 254.577 580.421 270.5C720.421 619.7 463.796 691.079 258.156 654C95.9909 624.76 -30.3794 586.2 6.42055 349Z" fill="url(#hh-mia-fill)"/><g class="hh__miaeyes" fill="#fff"><ellipse cx="224.646" cy="394" rx="59.5" ry="85.5"/><ellipse cx="407.146" cy="394" rx="59.5" ry="85.5"/></g></svg></span>
+
+            <ul class="hh__chips hh__chips--sort"><li><span>Files scanned</span><i class="icon ph ph-check-square"></i></li><li><span>Risk scored</span><i class="icon ph ph-check-square"></i></li></ul>
+            <ul class="hh__chips hh__chips--draft"><li><span>Files read</span><i class="icon ph ph-check-square"></i></li><li><span>Findings grouped</span><i class="icon ph ph-check-square"></i></li><li><span>Risk mapped</span><i class="icon ph ph-check-square"></i></li><li><span>Report ready</span><i class="icon ph ph-check-square"></i></li></ul>
+
+            <svg class="hh__cursor" viewBox="0 0 24 24" width="22" height="22"><path d="M4 2l15 11.5-6.6 1.1 3.9 7.2-2.8 1.4-3.8-7.3L4 20.5Z" fill="#121212" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+          <button class="hh__pause" type="button" aria-label="Pause animation" aria-pressed="false"><i class="icon ph-fill ph-pause"></i></button>
+        </div>
+        <!-- Logo strip under the video: integrations the site already claims. Swap for customer logos once there are real ones. -->
+        <div class="hlogos">
+          <p class="hlogos__label">Works with the tools your network already uses</p>
+          <ul class="hlogos__row"><li><img src="assets/logos/salesforce.svg" alt="" width="28" height="28" />Salesforce</li><li><img src="assets/logos/hubspot.svg" alt="" width="28" height="28" />HubSpot</li><li><img src="assets/logos/microsoft.svg" alt="" width="28" height="28" />Microsoft</li><li><img src="assets/logos/google.svg" alt="" width="28" height="28" />Google</li><li><img src="assets/logos/zapier.svg" alt="" width="28" height="28" />Zapier</li><li><img src="assets/logos/slack.svg" alt="" width="28" height="28" />Slack</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 · Rollout: Superpower-style rows -->
+    <section class="section" id="rollout" aria-labelledby="rollout-title">
+      <div class="container">
+        <div class="phead">
+          <p class="eyebrow">Implementation</p>
+          <h2 class="h2" id="rollout-title">Live across your network in weeks, <span>not quarters.</span></h2>
+          <p class="lead">We run the rollout with you. Your advisors barely notice — except for less paperwork.</p>
+        </div>
+        <ol class="rsteps">
+          <li class="rstep" data-reveal><i class="icon ph ph-handshake rstep__icon" aria-hidden="true"></i><h3>Kickoff</h3><p>Agree supervision rules, roles and reporting needs with your compliance lead.</p></li>
+          <li class="rstep" data-reveal><i class="icon ph ph-plugs-connected rstep__icon" aria-hidden="true"></i><h3>Connect systems</h3><p>Link your back office, CRMs and carrier feeds with your IT team.</p></li>
+          <li class="rstep" data-reveal><i class="icon ph ph-graduation-cap rstep__icon" aria-hidden="true"></i><h3>Onboard advisors</h3><p>Advisors get Advisor and our team runs the training sessions.</p></li>
+          <li class="rstep" data-reveal><i class="icon ph ph-rocket-launch rstep__icon" aria-hidden="true"></i><h3>Go live</h3><p>Flags, reviews and reports switch on for your compliance team.</p></li>
+          <li class="rstep" data-reveal><i class="icon ph ph-arrows-clockwise rstep__icon" aria-hidden="true"></i><h3>Success reviews</h3><p>A dedicated success manager checks in to tune rules and reports.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- How it works: six capabilities, sticky list (Duo) -->
+    <section class="section section--tint" id="how" aria-labelledby="features-title">
+      <div class="container">
+        <div class="phead">
+          <p class="eyebrow">Everything Harmony does</p>
+          <h2 class="h2" id="features-title">Six capabilities. <span>One command centre.</span></h2>
+          <p class="lead">What your compliance team gets on day one.</p>
+        </div>
+        <div class="pfeat pfeat--hx" data-pfeat>
+          <div class="pfeat__pin">
+          <ol class="pfeat__list">
+            <li class="pfeat__item">
+              <div class="pfeat__inline scene--hh" aria-hidden="true"></div>
+              <h3>Supervision without the friction.</h3>
+              <p>Harmony sits on top of your existing agency back office and watches advisor activity in real time — advisors keep working the way they do.</p><ul class="pfeat__pts"><li><i class="icon ph ph-desktop" aria-hidden="true"></i><span><b>No change to advisors’ daily tools</b>Advisors keep their CRM, email and calendar. Harmony reads in the background.</span></li><li><i class="icon ph ph-broadcast" aria-hidden="true"></i><span><b>Live feed of meetings, KYC and sales</b>Activity arrives as it happens, not at month end.</span></li><li><i class="icon ph ph-plugs-connected" aria-hidden="true"></i><span><b>Works with Advisor and your back office</b>Connects to your agency systems, CRMs and carrier feeds.</span></li></ul>
+            </li>
+            <li class="pfeat__item">
+              <div class="pfeat__inline scene--hh" aria-hidden="true"></div>
+              <h3>See the problem before the auditor does.</h3>
+              <p>BlueMind’s predictive model spots behavioural anomalies and missing records and flags them with a clear reason.</p><ul class="pfeat__pts"><li><i class="icon ph ph-warning-diamond" aria-hidden="true"></i><span><b>Unsuitable replacements and missing notes</b>Flagged the day they happen, with the file attached.</span></li><li><i class="icon ph ph-chart-line-up" aria-hidden="true"></i><span><b>Lapse spikes and unusual patterns</b>Spot outliers by advisor, agency or product.</span></li><li><i class="icon ph ph-chat-circle-text" aria-hidden="true"></i><span><b>Every flag explains why it fired</b>A plain-language reason, so reviewers know where to look.</span></li></ul>
+            </li>
+            <li class="pfeat__item">
+              <div class="pfeat__inline scene--hh" aria-hidden="true"></div>
+              <h3>Your whole network on one screen.</h3>
+              <p>KYC, suitability, E&amp;O and licensing status for every advisor — filterable by region, team or product.</p><ul class="pfeat__pts"><li><i class="icon ph ph-gauge" aria-hidden="true"></i><span><b>Network compliance score and trend</b>One score for the whole network, tracked week over week.</span></li><li><i class="icon ph ph-tree-structure" aria-hidden="true"></i><span><b>Drill down from network to advisor to client</b>Go from the big picture to a single file without switching tools.</span></li><li><i class="icon ph ph-bookmark-simple" aria-hidden="true"></i><span><b>Saved views for each team</b>Each team opens straight to the advisors and risks it owns.</span></li></ul>
+            </li>
+            <li class="pfeat__item">
+              <div class="pfeat__inline scene--hh" aria-hidden="true"></div>
+              <h3>No more expired certificates.</h3>
+              <p>Track licences, appointments and E&amp;O certificates for every advisor, with automatic reminders before anything lapses.</p><ul class="pfeat__pts"><li><i class="icon ph ph-bell-ringing" aria-hidden="true"></i><span><b>Expiry tracking with automatic reminders</b>Advisors are reminded before a licence or E&amp;O certificate lapses.</span></li><li><i class="icon ph ph-upload-simple" aria-hidden="true"></i><span><b>Certificate upload and verification</b>Advisors upload, your team verifies, and the record is kept.</span></li><li><i class="icon ph ph-identification-card" aria-hidden="true"></i><span><b>Status visible on every advisor profile</b>Licence and E&amp;O status sit on each advisor’s profile.</span></li></ul>
+            </li>
+            <li class="pfeat__item">
+              <div class="pfeat__inline scene--hh" aria-hidden="true"></div>
+              <h3>From flag to fixed — on record.</h3>
+              <p>Assign reviews, request documents, add notes and close flags in one place. Every action is logged.</p><ul class="pfeat__pts"><li><i class="icon ph ph-user-switch" aria-hidden="true"></i><span><b>Assign to reviewers with due dates</b>Every flag has an owner and a deadline.</span></li><li><i class="icon ph ph-paper-plane-tilt" aria-hidden="true"></i><span><b>Request documents from advisors in-app</b>Ask for the missing document without leaving Harmony.</span></li><li><i class="icon ph ph-clock-counter-clockwise" aria-hidden="true"></i><span><b>Resolution notes saved to the audit trail</b>Every decision is time-stamped and kept on record.</span></li></ul>
+            </li>
+            <li class="pfeat__item">
+              <div class="pfeat__inline scene--hh" aria-hidden="true"></div>
+              <h3>Proof in minutes, not weeks.</h3>
+              <p>Export a complete, time-stamped evidence file for any advisor, client, product or period.</p><ul class="pfeat__pts"><li><i class="icon ph ph-file-pdf" aria-hidden="true"></i><span><b>One-click export (PDF)</b>A complete evidence file for any advisor, client or period.</span></li><li><i class="icon ph ph-list-checks" aria-hidden="true"></i><span><b>Proof-of-work trail behind every item</b>Each line links to the review, note or document behind it.</span></li><li><i class="icon ph ph-calendar-check" aria-hidden="true"></i><span><b>Scheduled reports for leadership</b>Monthly summaries reach leadership automatically.</span></li></ul>
+            </li>
+          </ol>
+          <!-- Each picture is a real Harmony screen (Figma "Web" board), animated while its item is active -->
+          <div class="pfeat__media" aria-hidden="true">
+            <div class="pfeat__shot scene--hh" style="--bgp:20% 30%">
+              <div class="fx fx--feed" data-fx="feed">
+                <div class="fx__card">
+                  <p class="fx__h">Carrier Information <span class="fx__live"><i></i>Live</span></p>
+                  <small class="fx__sub">Carrier activity recorded in external policy staging</small>
+                  <div class="fx__tiles"><span><b>27</b>Carrier rows</span><span><b data-fx-tick="64">64</b>Pending events</span><span><b data-fx-tick="1412">1,412</b>Total events</span></div>
+                  <p class="fx__tabs"><b>Carrier Activity</b><span>Policies With Changes</span></p>
+                  <ul class="fx__rows">
+                    <li style="--i:0" class="is-new"><span><b>Sun Life Financial</b><small>SLF-CA</small></span><span><b data-fx-tick="482">482</b><small>46 pending · 419 accepted</small></span><span>Aug 30</span></li>
+                    <li style="--i:1"><span><b>Manulife</b><small>MFC-01</small></span><span><b>356</b><small>12 pending · 338 accepted</small></span><span>Aug 29</span></li>
+                    <li style="--i:2"><span><b>Canada Life</b><small>CL-CA</small></span><span><b>247</b><small>4 pending · 240 accepted</small></span><span>Aug 29</span></li>
+                    <li style="--i:3"><span><b>iA Financial</b><small>IAG-QC</small></span><span><b>183</b><small>2 pending · 181 accepted</small></span><span>Aug 28</span></li>
+                    <li style="--i:4"><span><b>Equitable Life</b><small>EQL-ON</small></span><span><b>56</b><small>0 pending · 56 accepted</small></span><span>Aug 14</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="pfeat__shot scene--hh" style="--bgp:80% 20%">
+              <div class="fx fx--risk" data-fx="risk">
+                <div class="fx__card fx__card--panel">
+                  <div class="fx__cover"></div>
+                  <img class="fx__pav" src="assets/harmony/av/holly-lg.png" alt="" width="56" height="56" />
+                  <p class="fx__name">Holly Mitchell <em class="hx__pill hx__pill--bad">high</em></p>
+                  <small class="fx__sub">ADV-0034 · Montreal Est</small>
+                  <p class="fx__ptabs"><span>Overview</span><span>Risk</span><b>AI Insight</b><span>Activity</span></p>
+                  <div class="hx__verdict"><i class="icon ph ph-warning-octagon"></i><span><b>2 of 9 checks failing</b><small>3 to watch · 4 clear</small></span><span class="hx__meter"><i class="fx__fill" style="--w:56%"></i></span></div>
+                  <div class="hx__grp"><p><b>Sales Pattern</b><small>1/3 clear</small></p><ul><li class="fx__in" style="--i:0"><i class="icon ph ph-warning"></i>Replacement ratio above peer band</li><li class="fx__in" style="--i:1"><i class="icon ph ph-warning"></i>Lapse ratio above peer band</li><li class="fx__in is-ok" style="--i:2"><i class="icon ph ph-check"></i>Book concentration within threshold</li></ul></div>
+                  <div class="hx__grp"><p><b>Supervision Intelligence</b><em class="hx__mia"><i class="icon ph-fill ph-sparkle"></i>Mia · AI</em></p><div class="hx__bul"><p class="fx__in" style="--i:4">Audit exposure elevated: disclosure gap on replacement not yet resolved</p><p class="fx__in" style="--i:5">Premium concentration is an outlier for this advisor’s portfolio</p></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="pfeat__shot scene--hh" style="--bgp:50% 70%">
+              <div class="fx fx--dash" data-fx="dash">
+                <div class="hx__stats fx__stats">
+                  <div><img class="fx__spark" src="assets/harmony/spark-1.svg" alt="" width="64" height="24" /><span>Supervision coverage</span><p><b>98%</b> / 3 missing</p></div>
+                  <div><img class="fx__spark" src="assets/harmony/spark-2.svg" alt="" width="64" height="24" /><span>Good standing</span><p><b>85 of 90</b></p></div>
+                  <div><img class="fx__spark" src="assets/harmony/spark-3.svg" alt="" width="64" height="24" /><span>Deadlines met</span><p><b>100%</b></p></div>
+                  <div><img class="fx__spark" src="assets/harmony/spark-4.svg" alt="" width="64" height="24" /><span>Late files</span><p><b>15</b> / 6 high</p></div>
+                </div>
+                <div class="fx__card">
+                  <p class="hx__cardhead"><i class="icon ph ph-dots-six-vertical"></i><b>Late files by team</b></p>
+                  <small class="fx__sub">Files past their target time today · 15 of 277 open files</small>
+                  <div class="fx__late">
+                    <svg class="fx__donut" viewBox="0 0 120 120"><circle r="44" cx="60" cy="60" pathLength="100" style="--c:#c9b8ff;--a:40;--o:0"/><circle r="44" cx="60" cy="60" pathLength="100" style="--c:#bcd8ff;--a:20;--o:-40"/><circle r="44" cx="60" cy="60" pathLength="100" style="--c:#8cc0ff;--a:20;--o:-60"/><circle r="44" cx="60" cy="60" pathLength="100" style="--c:#fde68a;--a:20;--o:-80"/><text x="60" y="56" text-anchor="middle">late</text><text class="fx__big" x="60" y="76" text-anchor="middle">15</text></svg>
+                    <ul class="fx__teams">
+                      <li class="fx__in" style="--i:0;--c:#c9b8ff"><b>High risk review</b><span><em>6 late</em> / 31</span><small>Oldest 9 days</small></li>
+                      <li class="fx__in" style="--i:1;--c:#bcd8ff"><b>New Business</b><span>3 late / 64</span><small>Oldest 6 days</small></li>
+                      <li class="fx__in" style="--i:2;--c:#8cc0ff"><b>Supervision</b><span>3 late / 22</span><small>Oldest 4 days</small></li>
+                      <li class="fx__in" style="--i:3;--c:#fde68a"><b>Commission</b><span>3 late / 153</span><small>Oldest 5 days</small></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pfeat__shot scene--hh" style="--bgp:10% 80%">
+              <div class="fx fx--lic" data-fx="lic">
+                <div class="fx__card fx__card--panel">
+                  <div class="fx__cover fx__cover--blue"></div>
+                  <img class="fx__pav" src="assets/harmony/av/aaron.png" alt="" width="56" height="56" />
+                  <p class="fx__name">James Wright</p>
+                  <small class="fx__sub">Advisor · ADV-0117 · Toronto — Main office</small>
+                  <p class="fx__tags"><em class="hx__pill hx__pill--ok">Low Risk</em><em class="hx__pill fx__pill--grey">Standard</em><em class="hx__pill fx__pill--blue">Licence Active</em></p>
+                  <p class="fx__sec">Licensing &amp; E&amp;O <i class="icon ph ph-caret-down"></i></p>
+                  <dl class="fx__dl">
+                    <div><dt>Life Licence</dt><dd>ON-4471820 · Active</dd></div>
+                    <div><dt>A&amp;S Licence</dt><dd>ON-4471821 · Active</dd></div>
+                    <div><dt>Licence Renewal</dt><dd>Mar 1, 2027</dd></div>
+                    <div><dt>E&amp;O Carrier</dt><dd>Lloyd’s — $2M / $1M</dd></div>
+                    <div class="fx__due"><dt>E&amp;O Expiry</dt><dd>Nov 30, 2026 <em>30 days</em></dd></div>
+                    <div><dt>CE Credits</dt><dd>28 / 30 this cycle</dd><span class="hx__meter"><i class="fx__fill" style="--w:93%;background:var(--ok)"></i></span></div>
+                  </dl>
+                </div>
+                <p class="fx__toast"><i class="icon ph-fill ph-check-circle"></i>Reminder sent to James Wright · E&amp;O renewal</p>
+              </div>
+            </div>
+            <div class="pfeat__shot scene--hh" style="--bgp:70% 60%">
+              <div class="fx fx--review" data-fx="review">
+                <div class="fx__card fx__case">
+                  <p class="fx__casehead"><em class="fx__risk"><i></i>High risk</em><span>Jordan Ellis · Victor Nguyen</span></p>
+                  <svg class="fx__gauge" viewBox="0 0 160 90"><path class="fx__track" d="M14 82a66 66 0 0 1 132 0" pathLength="1"/><path class="fx__arc" d="M14 82a66 66 0 0 1 132 0" pathLength="1"/></svg>
+                  <b class="fx__verdict">Look closer</b>
+                  <small class="fx__sub fx__center">MAX 1/43 · ADVISORY</small>
+                  <p class="fx__trio"><span><b>2 days</b>Waiting</span><span><b>12 of 12</b>Documents</span><span><b>1</b>Rejection</span></p>
+                  <ul class="fx__check">
+                    <li class="fx__in" style="--i:0"><i class="icon ph ph-check-circle"></i>Client identity is verified</li>
+                    <li class="fx__in" style="--i:1"><i class="icon ph ph-check-circle"></i>The financial needs analysis is complete</li>
+                    <li class="fx__in" style="--i:2"><i class="icon ph ph-check-circle"></i>The reason-why letter explains the recommendation</li>
+                  </ul>
+                  <p class="fx__btns"><span class="fx__approve"><i class="icon ph ph-check-circle"></i>Approve</span><span><i class="icon ph ph-prohibit"></i>Reject</span><span><i class="icon ph ph-flag"></i>Flag</span></p>
+                </div>
+                <div class="fx__dialog">
+                  <b>Approve file</b>
+                  <small>Approve Jordan Ellis’s file? Approved files move to “Complete” and leave your queue.</small>
+                  <p class="fx__note">Suitability confirmed with the signed RWL.</p>
+                  <p class="fx__dbtns"><span>Cancel</span><span class="fx__ok"><i class="icon ph ph-check-circle"></i>Approve</span></p>
+                </div>
+                <p class="fx__toast"><i class="icon ph-fill ph-check-circle"></i>File approved · logged to the audit trail</p>
+              </div>
+            </div>
+            <div class="pfeat__shot scene--hh" style="--bgp:90% 90%">
+              <div class="fx fx--reports" data-fx="reports">
+                <p class="fx__label">Compliance</p>
+                <div class="fx__reps">
+                  <div class="fx__rep is-pick"><i class="icon ph ph-clipboard-text"></i><b>Monthly Compliance Report</b><small>Overview of audit tracking across all advisors.</small><span class="fx__gen"><span class="fx__gentext">Generate Report</span><span class="fx__bar"><i></i></span><span class="fx__done"><i class="icon ph ph-download-simple"></i>Download PDF</span></span></div>
+                  <div class="fx__rep"><i class="icon ph ph-user-check"></i><b>KYC Compliance Report</b><small>Pending, overdue or incomplete KYC reviews by advisor.</small><span class="fx__gen"><span class="fx__gentext">Generate Report</span></span></div>
+                  <div class="fx__rep"><i class="icon ph ph-shield-warning"></i><b>E&amp;O Expiry Report</b><small>Advisors with upcoming or expired E&amp;O coverage.</small><span class="fx__gen"><span class="fx__gentext">Generate Report</span></span></div>
+                  <div class="fx__rep"><i class="icon ph ph-chat-centered-text"></i><b>Unresolved Complaints</b><small>Outstanding complaints by severity and status.</small><span class="fx__gen"><span class="fx__gentext">Generate Report</span></span></div>
+                </div>
+                <p class="fx__file"><i class="icon ph-fill ph-file-pdf"></i><span><b>Monthly-Compliance-Aug-2026.pdf</b><small>3 pages · time-stamped · 44 advisors</small></span><i class="icon ph ph-check-circle"></i></p>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Outcomes: case-style carousel (Mailchimp "Businesses like yours are thriving" layout) -->
+    <section class="section cases" id="outcomes" aria-labelledby="cases-title" data-cases>
+      <div class="container">
+        <div class="cases__head">
+          <h2 class="cases__title" id="cases-title">What firms achieve with Harmony</h2>
+          <p class="cases__sub">Less time chasing files, more time on the ones that need you.</p>
+          <a class="btn btn--primary btn--lg" href="#demo">Book a demo</a>
+        </div>
+        <ul class="cases__track" aria-label="Outcomes">
+            <li class="ccard">
+              <div class="ccard__photo"><img src="assets/cta/p4.jpg" alt="" loading="lazy" /><div class="ccard__cap"><p class="ccard__eyebrow">Supervision</p><p class="ccard__quote">“Every advisor file, watched as it happens.”</p></div></div>
+              <div class="ccard__stats"><div class="ccard__stat"><b data-count="100" data-suffix="%">100%</b><span>of advisor files watched in real time</span></div><hr /><div class="ccard__stat"><b data-count="1">1</b><span>screen for your whole advisor network</span></div><a class="clink" href="#how">See how it works<span class="clink__arrow"><i class="icon ph ph-arrow-right" aria-hidden="true"></i></span></a></div>
+            </li>
+            <li class="ccard">
+              <div class="ccard__photo"><img src="assets/cta/p2.jpg" alt="" loading="lazy" /><div class="ccard__cap"><p class="ccard__eyebrow">Efficiency</p><p class="ccard__quote">“Less paperwork, more time with the files that matter.”</p></div></div>
+              <div class="ccard__stats"><div class="ccard__stat"><b data-count="80" data-prefix="Up to " data-suffix="%">Up to 80%</b><span>less manual review work</span></div><hr /><div class="ccard__stat"><b>Minutes</b><span>to export an audit-ready evidence file</span></div><a class="clink" href="#how">See the workflow<span class="clink__arrow"><i class="icon ph ph-arrow-right" aria-hidden="true"></i></span></a></div>
+            </li>
+            <li class="ccard">
+              <div class="ccard__photo"><img src="assets/cta/p3.jpg" alt="" loading="lazy" /><div class="ccard__cap"><p class="ccard__eyebrow">Expertise</p><p class="ccard__quote">“Built by people who have run compliance themselves.”</p></div></div>
+              <div class="ccard__stats"><div class="ccard__stat"><b data-count="50" data-suffix="+">50+</b><span>years of combined compliance experience</span></div><hr /><div class="ccard__stat"><b>CA · US</b><span>FSRA, SEC and FINRA requirements covered</span></div><a class="clink" href="#security">See security &amp; regulation<span class="clink__arrow"><i class="icon ph ph-arrow-right" aria-hidden="true"></i></span></a></div>
+            </li>
+        </ul>
+        <div class="cases__nav">
+          <button class="cases__btn" type="button" data-cases-prev aria-label="Previous"><i class="icon ph ph-arrow-left" aria-hidden="true"></i></button>
+          <span class="cases__dots" aria-hidden="true"><i class="is-on"></i><i></i><i></i></span>
+          <button class="cases__btn" type="button" data-cases-next aria-label="Next"><i class="icon ph ph-arrow-right" aria-hidden="true"></i></button>
+          <button class="cases__btn cases__pause" type="button" data-cases-pause aria-label="Pause slideshow" aria-pressed="false"><i class="icon ph-fill ph-pause" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who it's for: persona tabs (Amplemarket "whole revenue team" layout) -->
+    <section class="section wsec" id="who" aria-labelledby="who-title">
+      <div class="container">
+        <h2 class="wsec__title" id="who-title">Whatever your role in distribution, <span class="wsec__doodle">Harmony fits</span></h2>
+        <div class="wbox" data-wtabs>
+          <div class="wtabs" role="tablist" aria-label="Who Harmony is for">
+            <button class="wtab wtab--mgas is-on" type="button" role="tab" id="wtab-mgas" aria-controls="wpanel-mgas" aria-selected="true">
+              <span class="wtab__name">MGAs</span>
+              <span class="wtab__glow" aria-hidden="true"></span>
+              <i class="icon ph-duotone ph-buildings wtab__art" aria-hidden="true"></i>
+            </button>
+            <button class="wtab wtab--bgas" type="button" role="tab" id="wtab-bgas" aria-controls="wpanel-bgas" aria-selected="false" tabindex="-1">
+              <span class="wtab__name">BGAs</span>
+              <span class="wtab__glow" aria-hidden="true"></span>
+              <i class="icon ph-duotone ph-handshake wtab__art" aria-hidden="true"></i>
+            </button>
+            <button class="wtab wtab--imos" type="button" role="tab" id="wtab-imos" aria-controls="wpanel-imos" aria-selected="false" tabindex="-1">
+              <span class="wtab__name">IMOs</span>
+              <span class="wtab__glow" aria-hidden="true"></span>
+              <i class="icon ph-duotone ph-tree-structure wtab__art" aria-hidden="true"></i>
+            </button>
+            <button class="wtab wtab--carriers" type="button" role="tab" id="wtab-carriers" aria-controls="wpanel-carriers" aria-selected="false" tabindex="-1">
+              <span class="wtab__name">Carriers</span>
+              <span class="wtab__glow" aria-hidden="true"></span>
+              <i class="icon ph-duotone ph-umbrella wtab__art" aria-hidden="true"></i>
+            </button>
+            <button class="wtab wtab--compliance" type="button" role="tab" id="wtab-compliance" aria-controls="wpanel-compliance" aria-selected="false" tabindex="-1">
+              <span class="wtab__name">Compliance teams</span>
+              <span class="wtab__glow" aria-hidden="true"></span>
+              <i class="icon ph-duotone ph-shield-check wtab__art" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="wpanels">
+            <div class="wpanel is-on" role="tabpanel" id="wpanel-mgas" aria-labelledby="wtab-mgas">
+              <div class="wpanel__lead"><h3>One live view of every advisor.</h3><a class="btn btn--secondary btn--sm wpanel__btn" href="#demo">Explore for MGAs</a></div>
+              <div class="wpanel__feats"><div class="wpanel__feat"><h4>See your whole network at once</h4><p>KYC, suitability, licensing and E&amp;O for hundreds of advisors on one screen, so you stop stitching reports together.</p></div><div class="wpanel__feat"><h4>Catch gaps before they spread</h4><p>Harmony flags a missing note or lapsed certificate the day it happens, not at the next audit.</p></div></div>
+            </div>
+            <div class="wpanel" role="tabpanel" id="wpanel-bgas" aria-labelledby="wtab-bgas" hidden>
+              <div class="wpanel__lead"><h3>Stop chasing paperwork by email.</h3><a class="btn btn--secondary btn--sm wpanel__btn" href="#demo">Explore for BGAs</a></div>
+              <div class="wpanel__feats"><div class="wpanel__feat"><h4>Gaps chased automatically</h4><p>Missing KYC refreshes and licence renewals trigger reminders to the advisor, with a deadline and a record.</p></div><div class="wpanel__feat"><h4>Spreadsheets retired</h4><p>Every appointment, certificate and review lives in one place your whole team can see.</p></div></div>
+            </div>
+            <div class="wpanel" role="tabpanel" id="wpanel-imos" aria-labelledby="wtab-imos" hidden>
+              <div class="wpanel__lead"><h3>Supervise what actually happened.</h3><a class="btn btn--secondary btn--sm wpanel__btn" href="#demo">Explore for IMOs</a></div>
+              <div class="wpanel__feats"><div class="wpanel__feat"><h4>Evidence, not self-reporting</h4><p>Harmony reads activity from the tools advisors already use, so supervision rests on what happened.</p></div><div class="wpanel__feat"><h4>Risk scored across every level</h4><p>Spot patterns by agency, region or product before they become findings.</p></div></div>
+            </div>
+            <div class="wpanel" role="tabpanel" id="wpanel-carriers" aria-labelledby="wtab-carriers" hidden>
+              <div class="wpanel__lead"><h3>See how your products are sold.</h3><a class="btn btn--secondary btn--sm wpanel__btn" href="#demo">Explore for carriers</a></div>
+              <div class="wpanel__feats"><div class="wpanel__feat"><h4>Suitability behind every sale</h4><p>Each policy links to the needs analysis, recommendation and signed letter that justified it.</p></div><div class="wpanel__feat"><h4>Distribution you can trust</h4><p>Know which partners keep clean files and which need a closer look.</p></div></div>
+            </div>
+            <div class="wpanel" role="tabpanel" id="wpanel-compliance" aria-labelledby="wtab-compliance" hidden>
+              <div class="wpanel__lead"><h3>Audits in minutes, not weeks.</h3><a class="btn btn--secondary btn--sm wpanel__btn" href="#demo">Explore for compliance</a></div>
+              <div class="wpanel__feats"><div class="wpanel__feat"><h4>Every file already in order</h4><p>Reviews, approvals and notes are time-stamped and filed as you work.</p></div><div class="wpanel__feat"><h4>One-click audit export</h4><p>Hand regulators a complete evidence file for any advisor, client or period.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 · Security & regulation: dark tile band + rule table -->
+    <section class="section section--dark security" id="security" aria-labelledby="security-title">
+      <div class="container">
+        <div class="head">
+          <p class="eyebrow">For your risk and IT teams</p>
+          <h2 class="h2" id="security-title">Built to pass your own due diligence.</h2>
+        </div>
+
+        <!-- Same bento as the home page security section: outlined text cards + line-art badges -->
+        <div class="bento bento--anim">
+          <div class="bento__badge" data-reveal>
+            <svg class="bi bi--shield" viewBox="0 0 64 64" aria-hidden="true"><path class="bi__draw" pathLength="1" d="M32 5 54 13v17c0 15-9.5 25-22 29C19.5 55 10 45 10 30V13z"/><path class="bi__check" pathLength="1" d="m22 32 7 7 13-14"/></svg>
+            <span>SOC 2</span>
+          </div>
+          <div class="bento__card bento__card--wide" data-reveal>
+            <h3>Designed with regulators in mind</h3>
+            <p>Built by a team with 50+ years of combined compliance experience. Encrypted in transit and at rest.</p>
+          </div>
+          <div class="bento__badge" data-reveal>
+            <svg class="bi bi--lock" viewBox="0 0 64 64" aria-hidden="true"><path class="bi__shackle" d="M22 28v-8a10 10 0 0 1 20 0v8"/><rect x="13" y="28" width="38" height="28" rx="6"/><circle class="bi__key" cx="32" cy="40" r="3"/><path d="M32 43v5"/></svg>
+            <span>Encrypted</span>
+          </div>
+          <div class="bento__badge" data-reveal>
+            <svg class="bi bi--log" viewBox="0 0 64 64" aria-hidden="true"><rect x="14" y="6" width="36" height="52" rx="5"/><path class="bi__line" pathLength="1" d="M22 18h20" style="--d:0s"/><path class="bi__line" pathLength="1" d="M22 27h20" style="--d:.35s"/><path class="bi__line" pathLength="1" d="M22 36h14" style="--d:.7s"/><path class="bi__tick" pathLength="1" d="m24 46 4 4 8-8" style="--d:1.05s"/></svg>
+            <span>Full audit log</span>
+          </div>
+
+          <div class="bento__card bento__card--wide" data-reveal>
+            <h3>Access control your IT team expects</h3>
+            <p>Single sign-on, roles and permissions, with every view and action recorded.</p>
+          </div>
+          <div class="bento__badge" data-reveal>
+            <svg class="bi bi--orbit" viewBox="0 0 64 64" aria-hidden="true"><g class="bi__ring"><circle cx="56.0" cy="32.0" r="1.6"/><circle cx="52.8" cy="44.0" r="1.6"/><circle cx="44.0" cy="52.8" r="1.6"/><circle cx="32.0" cy="56.0" r="1.6"/><circle cx="20.0" cy="52.8" r="1.6"/><circle cx="11.2" cy="44.0" r="1.6"/><circle cx="8.0" cy="32.0" r="1.6"/><circle cx="11.2" cy="20.0" r="1.6"/><circle cx="20.0" cy="11.2" r="1.6"/><circle cx="32.0" cy="8.0" r="1.6"/><circle cx="44.0" cy="11.2" r="1.6"/><circle cx="52.8" cy="20.0" r="1.6"/><circle class="bi__pin" cx="56" cy="32" r="3.2"/><circle class="bi__pin" cx="8" cy="32" r="3.2"/></g><circle class="bi__core" cx="32" cy="32" r="9"/><path class="bi__core" d="M23 32h18M32 23c3 3 4 6 4 9s-1 6-4 9c-3-3-4-6-4-9s1-6 4-9"/></svg>
+            <span>CA · US</span>
+          </div>
+          <div class="bento__card bento__card--wide" data-reveal>
+            <span class="bento__marks" aria-hidden="true"><i class="icon ph ph-identification-card"></i><i class="icon ph ph-scales"></i><i class="icon ph ph-archive"></i><i class="icon ph ph-eye"></i></span>
+            <h3>Mapped to your regulators</h3>
+            <p>Supervision, suitability, KYC and record keeping, mapped to FINRA, FSRA, SEC and IAIS.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 · Proof -->
+    <!-- Testimonials: side-by-side slider (reuses the outcomes carousel script, data-cases) -->
+    <section class="section tslider" id="customers" aria-labelledby="cust-title" data-cases data-cases-interval="8000">
+      <div class="container">
+        <div class="phead">
+          <p class="eyebrow">Testimonials</p>
+          <h2 class="h2" id="cust-title">What advisors say <span>about BlueMind.</span></h2>
+        </div>
+        <ul class="cases__track" aria-label="Testimonials">
+          <li class="tcard is-on">
+            <figure>
+              <blockquote><p>“BlueMind has helped me streamline and automate my business by making it easier to manage my clients, track progress and stay compliant!”</p></blockquote>
+              <svg class="tcard__curve" viewBox="0 0 1000 24" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="tc-fade" x1="0" x2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.55"/><stop offset="0.7" stop-color="currentColor" stop-opacity="0.25"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><path d="M0 19 C 280 14, 640 22, 1000 4" fill="none" stroke="url(#tc-fade)" stroke-width="1.5"/></svg>
+              <figcaption><span class="tcard__av" aria-hidden="true">SH</span><span class="tcard__who"><b>Dr. Shehnaz Hussain</b><span>CEO/Broker · CLU · CHS · EPC · PhD</span></span></figcaption>
+            </figure>
+          </li>
+          <li class="tcard">
+            <figure>
+              <blockquote><p>“If you want to leave mounting stress behind… all you need is a proven system.”</p></blockquote>
+              <svg class="tcard__curve" viewBox="0 0 1000 24" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="tc-fade" x1="0" x2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.55"/><stop offset="0.7" stop-color="currentColor" stop-opacity="0.25"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><path d="M0 19 C 280 14, 640 22, 1000 4" fill="none" stroke="url(#tc-fade)" stroke-width="1.5"/></svg>
+              <figcaption><span class="tcard__av" aria-hidden="true">NB</span><span class="tcard__who"><b>Nannette Britanico</b><span>CLU · CHS · MDRT</span></span></figcaption>
+            </figure>
+          </li>
+          <li class="tcard">
+            <figure>
+              <blockquote><p>“Migrating from a big-name system was a well-thought-out decision. Simplicity &amp; sophistication.”</p></blockquote>
+              <svg class="tcard__curve" viewBox="0 0 1000 24" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="tc-fade" x1="0" x2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.55"/><stop offset="0.7" stop-color="currentColor" stop-opacity="0.25"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><path d="M0 19 C 280 14, 640 22, 1000 4" fill="none" stroke="url(#tc-fade)" stroke-width="1.5"/></svg>
+              <figcaption><span class="tcard__av" aria-hidden="true">VJ</span><span class="tcard__who"><b>Vikram Janjua</b><span>Insurance broker</span></span></figcaption>
+            </figure>
+          </li>
+        </ul>
+        <div class="cases__nav">
+          <button class="cases__btn" type="button" data-cases-prev aria-label="Previous"><i class="icon ph ph-arrow-left" aria-hidden="true"></i></button>
+          <span class="cases__dots" aria-hidden="true"><i class="is-on"></i><i></i><i></i></span>
+          <button class="cases__btn" type="button" data-cases-next aria-label="Next"><i class="icon ph ph-arrow-right" aria-hidden="true"></i></button>
+          <button class="cases__btn cases__pause" type="button" data-cases-pause aria-label="Pause slideshow" aria-pressed="false"><i class="icon ph-fill ph-pause" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 · FAQ -->
+    <section class="section faq2" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <h2 class="faq2__title" id="faq-title">Questions from compliance leaders.</h2>
+        <div class="acc acc--lines" data-acc="faq">
+          <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p0" id="faq-b0">Do we have to replace our back office?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p0" role="region" aria-labelledby="faq-b0"><div><p data-type>No. Harmony sits on top of your existing agency systems, CRMs and carrier feeds.</p></div></div></div>
+          <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p1" id="faq-b1">Do our advisors have to use Advisor?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p1" role="region" aria-labelledby="faq-b1"><div><p data-type>[Answer to confirm with BlueMind.]</p></div></div></div>
+          <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p2" id="faq-b2">How does the AI decide what to flag — and can we tune it?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p2" role="region" aria-labelledby="faq-b2"><div><p data-type>[Answer to confirm with BlueMind.]</p></div></div></div>
+          <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p3" id="faq-b3">Who can see advisor and client data?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p3" role="region" aria-labelledby="faq-b3"><div><p data-type>[Answer to confirm with BlueMind.]</p></div></div></div>
+          <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p4" id="faq-b4">How long does rollout take?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p4" role="region" aria-labelledby="faq-b4"><div><p data-type>[Answer to confirm with BlueMind.]</p></div></div></div>
+          <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p5" id="faq-b5">Can we start with one team or region?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p5" role="region" aria-labelledby="faq-b5"><div><p data-type>[Answer to confirm with BlueMind.]</p></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 · Book a demo -->
+    <section class="section" id="demo" aria-labelledby="demo-title">
+      <div class="container">
+        <div class="pdemo">
+          <p class="pdemo__eyebrow"><img src="assets/harmony/harmony-icon.svg" alt="" width="18" height="18" />Harmony demo</p>
+          <h2 id="demo-title">See your whole network in one view.</h2>
+          <p class="pdemo__lead">Pick a time that suits you and we’ll walk you through Harmony on your own use case.</p>
+          <ul class="pdemo__ticks">
+            <li><i class="icon ph-bold ph-check" aria-hidden="true"></i>A walkthrough on your use case</li>
+            <li><i class="icon ph-bold ph-check" aria-hidden="true"></i>See how Harmony fits your back office</li>
+            <li><i class="icon ph-bold ph-check" aria-hidden="true"></i>Get a rollout plan and quote</li>
+          </ul>
+          <!-- Cal.com inline booking embed -->
+          <div class="pcal" id="my-cal-inline-talk"></div>
+          <p class="pdemo__alt">Are you an individual advisor? <a href="advisor.html">Start free with Advisor →</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 17 · Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <img class="footer__logo" src="assets/logo.svg" alt="bluemind" width="1026" height="290" />
+          <p class="footer__tag">One mind for your whole business.</p>
+          <a class="btn btn--primary btn--lg" href="https://bluemind.app/contact-us">Contact us</a>
+        </div>
+        <nav class="footer__cols" aria-label="Footer">
+          <div><h3>Products</h3><ul><li><a href="enterprise.html">Harmony</a></li><li><a href="advisor.html">Advisor</a></li><li><a href="#demo">Pricing</a></li><li><a href="index.html#integrations">Integrations</a></li></ul></div>
+          <div><h3>Resources</h3><ul><li><a href="#">Blog</a></li><li><a href="#">Help Centre</a></li><li><a href="#">Documentation</a></li><li><a href="#">Press Release</a></li><li><a href="#">Webinar</a></li><li><a href="design-system.html">Design system</a></li></ul></div>
+          <div><h3>Company</h3><ul><li><a href="about.html">About Us</a></li><li><a href="team.html">Team</a></li><li><a href="partners.html">Partners</a></li><li><a href="brand.html">Brand</a></li></ul></div>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 BlueMind <span aria-hidden="true">·</span> <a href="#">Terms</a> <span aria-hidden="true">·</span> <a href="#">Privacy</a> <span aria-hidden="true">·</span> <a href="#">Cookies</a></p>
+        <ul class="footer__social">
+          <li><a href="https://www.linkedin.com/company/bluemindapp/" target="_blank" rel="noopener" aria-label="BlueMind on LinkedIn"><i class="icon ph ph-linkedin-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://twitter.com/BlueMind_app" target="_blank" rel="noopener" aria-label="BlueMind on X"><i class="icon ph ph-x-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.instagram.com/bluemind.app/" target="_blank" rel="noopener" aria-label="BlueMind on Instagram"><i class="icon ph ph-instagram-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.facebook.com/BlueMindApp/" target="_blank" rel="noopener" aria-label="BlueMind on Facebook"><i class="icon ph ph-facebook-logo" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+      <img class="footer__mark" src="assets/logo.svg" alt="" width="1026" height="290" aria-hidden="true" />
+    </div>
+  </footer>
+
+
+  <!-- Cal inline embed code begins -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "talk", {origin:"https://app.cal.com"});
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+
+    Cal.ns.talk("inline", {
+      elementOrSelector:"#my-cal-inline-talk",
+      config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+      calLink: "risat-rajin-o1r1gu/talk",
+    });
+
+    Cal.ns.talk("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+  <!-- Cal inline embed code ends -->
+  <script src="sections.js"></script>
+  <script src="product.js"></script>
+</body>
+</html>

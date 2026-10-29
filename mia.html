@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meet Mia — your AI assistant for compliance work — BlueMind</title>
+  <meta name="description" content="Mia sits in on your meetings, fills in the paperwork and comes back with a regulator-ready file. An AI assistant built for financial advisors." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="sections.css" />
+  <link rel="stylesheet" href="product.css" />
+  <link rel="stylesheet" href="mia.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/duotone/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/thin/style.css" />
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="pp mia">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav" id="nav">
+    <nav class="nav__bar" aria-label="Main">
+      <a class="nav__logo" href="index.html">
+        <img src="assets/logo.svg" width="1026" height="290" alt="bluemind" />
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="enterprise.html">Enterprise</a></li>
+        <li><a href="advisor.html">Advisor</a></li>
+        <li><button class="nav__menu-btn nav__menu-btn--caret" type="button" aria-expanded="false" aria-controls="company-drawer" data-drawer-open>Company<i class="icon ph-bold ph-caret-down" aria-hidden="true"></i></button></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="nav__menu-icon" type="button" aria-label="Menu" aria-expanded="false" aria-controls="company-drawer" data-drawer-open><i class="icon ph-bold ph-dots-nine" aria-hidden="true"></i></button>
+        <a class="nav__mia" href="mia.html" aria-current="page"><span class="mia-text">Mia</span></a>
+        <a class="nav__login" href="#">Login</a>
+        <a class="btn btn--primary btn--md" href="#">Book a demo</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Company menu: the "Company" button sinks, then the same shape spreads into this panel
+       (motion after Bencho's "Create menu", MIT — bencho.dev/licence). sections.js drives it.
+       On phones the nav links are hidden, so the menu also carries them (.drawer__item--phone).
+       The old Products menu is parked in archive/product-menu.html. -->
+  <div class="drawer-overlay" data-drawer-close aria-hidden="true"></div>
+  <div class="drawer" id="company-drawer" role="dialog" aria-labelledby="drawer-title" tabindex="-1" hidden>
+    <span class="drawer__shape" aria-hidden="true"></span>
+    <div class="drawer__panel">
+      <ul class="drawer__links drawer__links--phone">
+        <li class="drawer__item drawer__item--phone"><a href="index.html"><span class="drawer__icon"><i class="icon ph-duotone ph-house" aria-hidden="true"></i></span><span class="drawer__text"><b>Home</b><small>Back to the top</small></span></a></li>
+        <li class="drawer__item drawer__item--phone"><a href="enterprise.html" class="suite-card--enterprise"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#enterprise"/></svg></span><span class="drawer__text"><b>Enterprise</b><small>Oversight for MGAs, BGAs, IMOs &amp; carriers</small></span></a></li>
+        <li class="drawer__item drawer__item--phone"><a href="advisor.html" class="suite-card--advisor"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#advisor"/></svg></span><span class="drawer__text"><b>Advisor</b><small>Your compliance co-pilot, meeting to audit file</small></span></a></li>
+      <li class="drawer__item drawer__item--phone"><a href="mia.html"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#mia"/></svg></span><span class="drawer__text"><b class="mia-text">Mia</b><small>Your AI assistant for compliance work</small></span></a></li>
+      </ul>
+      <p class="drawer__label drawer__item" id="drawer-title">Who we are and how we work</p>
+      <ul class="drawer__links">
+        <li class="drawer__item"><a href="about.html"><span class="drawer__icon"><i class="icon ph-duotone ph-info" aria-hidden="true"></i></span><span class="drawer__text"><b>About Us</b><small>Our mission and story</small></span></a></li>
+        <li class="drawer__item"><a href="team.html"><span class="drawer__icon"><i class="icon ph-duotone ph-users-three" aria-hidden="true"></i></span><span class="drawer__text"><b>Team</b><small>The people behind BlueMind</small></span></a></li>
+        <li class="drawer__item"><a href="partners.html"><span class="drawer__icon"><i class="icon ph-duotone ph-handshake" aria-hidden="true"></i></span><span class="drawer__text"><b>Partners</b><small>Integrations, distributors and associations</small></span></a></li>
+        <li class="drawer__item"><a href="brand.html"><span class="drawer__icon"><i class="icon ph-duotone ph-palette" aria-hidden="true"></i></span><span class="drawer__text"><b>Brand</b><small>Logos, colours and press kit</small></span></a></li>
+      </ul>
+      <a class="drawer__feature drawer__item" href="about.html#story"><small>We’re founded by a CFP</small><b>Built by advisors, for advisors.</b><span>Read our story<i class="icon ph ph-arrow-right" aria-hidden="true"></i></span></a>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- 01 · Hero: Mia's app plays a short scripted thread (mia.js) -->
+    <section class="mhero" aria-labelledby="mia-title">
+      <div class="container">
+        <a class="mhero__pill" href="#jobs"><b>Mia is here</b><span>See what Mia can do</span><i class="icon ph ph-arrow-right" aria-hidden="true"></i></a>
+        <h1 class="mhero__title" id="mia-title">Meet <svg class="mbot mbot--inline" viewBox="0 0 622.145 662.796" aria-hidden="true"><use href="#mbot"/></svg> <span class="mia-text">Mia</span></h1>
+        <p class="mhero__lead">An AI assistant you can hand real compliance work to. Mia sits in on your meetings, fills in the paperwork and comes back with a regulator-ready file.</p>
+        <div class="actions actions--center">
+          <a class="btn btn--primary btn--lg" href="advisor.html#pricing">Start free</a>
+          <a class="btn btn--secondary btn--lg" href="#">Book a demo</a>
+        </div>
+
+        <div class="mapp" data-mia-app role="img" aria-label="Mia with sample data: a new task thread where Mia prepares a client meeting">
+          <aside class="mapp__side" aria-hidden="true">
+            <div class="mapp__dots"><i></i><i></i><i></i><span class="icon ph ph-note-pencil"></span></div>
+            <div class="mapp__search"><i class="icon ph ph-magnifying-glass"></i>Search</div>
+            <ul class="mapp__threads" data-mia-threads>
+              <li><span class="mav" style="--c:var(--blue-500)">N</span><div><b>Meeting notes<time>Yesterday</time></b><small>3 meetings summarised, held for your ok.</small></div></li>
+              <li><span class="mav" style="--c:var(--green-500)">K</span><div><b>KYC &amp; FNA<time>4:08 AM</time></b><small>2 forms pre-filled, sent for e-sign.</small></div></li>
+              <li><span class="mav" style="--c:var(--blue-700)">S</span><div><b>Suitability<time>2:08 AM</time></b><small>Rationale drafted for Tom Park.</small></div></li>
+              <li><span class="mav" style="--c:var(--amber-500)">R</span><div><b>Renewals<time>Yesterday</time></b><small>4 renewals due, prep started.</small></div></li>
+              <li><span class="mav" style="--c:var(--slate-700)">A</span><div><b>Audit prep<time>3:08 AM</time></b><small>12 files checked, nothing missing.</small></div></li>
+              <li><span class="mav" style="--c:var(--blue-300)">F</span><div><b>Follow-ups<time>1:08 AM</time></b><small>5 thank-you notes drafted in your voice.</small></div></li>
+            </ul>
+            <div class="mapp__me"><span class="mav mav--line">SM</span>Sarah Mitchell</div>
+          </aside>
+          <div class="mapp__main" aria-hidden="true">
+            <div class="mapp__head"><span class="mav mav--sm" style="--c:var(--blue-500)" data-mia-head-av>M</span><b data-mia-head>New task</b><i class="icon ph ph-sidebar-simple"></i></div>
+            <div class="mapp__feed" data-mia-feed></div>
+            <div class="mapp__composer"><i class="icon ph ph-plus"></i><span data-mia-composer>Message Mia</span><b><i class="icon ph-bold ph-arrow-up"></i></b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 · Message Mia like a teammate: mascot follows the pointer and blinks -->
+    <section class="msec" aria-labelledby="msg-title">
+      <div class="container">
+        <div class="mcard mcard--bot" data-reveal>
+          <div class="mcard--bot__copy">
+            <h2 class="mh2" id="msg-title">Message Mia like a teammate</h2>
+            <p>Give Mia tasks the way you’d ask an assistant — on desktop or your phone. Mia takes the work from start to finish, remembers how you like things done, and checks with you before anything is filed or sent.</p>
+          </div>
+          <svg class="mbot mbot--big" viewBox="0 0 622.145 662.796" aria-hidden="true" data-mia-look><use href="#mbot"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · Many clients at once: four feature cards, each with its own small animation -->
+    <section class="msec" aria-labelledby="many-title">
+      <div class="container">
+        <div class="mhead">
+          <h2 class="mh2" id="many-title">Work on many clients at once</h2>
+          <p>Hand Mia one client file, then another. Mia works on each in parallel — notes, forms, follow-ups — and keeps going after you log off.</p>
+        </div>
+        <ul class="mgrid">
+          <li class="mcard" data-reveal>
+            <h3>Mia works where you work</h3>
+            <p>Connect your calendar, email and video calls once. Mia joins you in person, online or by phone.</p>
+            <div class="mstage mstage--warm" aria-hidden="true">
+              <div class="mwin">
+                <div class="mwin__top"><b>Meeting</b><span class="mchip mchip--live"><i></i>Recording · consent given</span></div>
+                <p class="mwin__ask">Join my 10:00 with Maria Chen and take the notes.</p>
+                <div class="mwave">
+                  <i style="--h:40%"></i><i style="--h:80%"></i><i style="--h:55%"></i><i style="--h:100%"></i><i style="--h:65%"></i><i style="--h:35%"></i><i style="--h:90%"></i><i style="--h:50%"></i><i style="--h:75%"></i><i style="--h:30%"></i><i style="--h:85%"></i><i style="--h:60%"></i><i style="--h:45%"></i><i style="--h:95%"></i><i style="--h:40%"></i><i style="--h:70%"></i><i style="--h:55%"></i><i style="--h:80%"></i>
+                </div>
+                <p class="mwin__foot"><span class="mav mav--sm" style="--c:var(--blue-500)">M</span>Mia is listening · 24:18</p>
+              </div>
+            </div>
+          </li>
+          <li class="mcard" data-reveal>
+            <h3>Show Mia how it’s done</h3>
+            <p>Walk Mia through a workflow once. It saves it as a routine and runs it the same way next time.</p>
+            <div class="mstage mstage--cool" aria-hidden="true" data-mia-teach>
+              <div class="mwin">
+                <div class="mwin__top"><b>Annual review is watching and learning</b><span class="mchip">0:04</span></div>
+                <div class="mform">
+                  <span></span><span></span><span class="is-short"></span>
+                  <div class="mbars"><i style="--h:30%"></i><i style="--h:45%"></i><i style="--h:40%"></i><i style="--h:60%"></i><i style="--h:55%"></i><i style="--h:75%"></i><i style="--h:70%"></i><i style="--h:90%"></i></div>
+                </div>
+                <i class="mcursor icon ph-fill ph-cursor"></i>
+              </div>
+            </div>
+          </li>
+          <li class="mcard" data-reveal>
+            <h3>Mia gets smarter over time</h3>
+            <p>Mia keeps context on every client. Show it how you work today, hand over the follow-ups by Friday.</p>
+            <div class="mstage mstage--plain" aria-hidden="true" data-mia-memory>
+              <p class="mbub">Tom Park replied about his renewal — same question as last year. I already had the context, so I drafted the answer for you to approve.</p>
+              <p class="mbub">Noted for next time: Tom prefers a phone call, and his spouse co-signs.</p>
+              <p class="mmem"><i class="icon ph ph-sparkle"></i>Updated memory for <span class="mchip mchip--blue">Tom Park</span></p>
+            </div>
+          </li>
+          <li class="mcard" data-reveal>
+            <h3>Every step lands in the audit trail</h3>
+            <p>Mia checks, drafts, logs and sends in one flow. You watch the file build instead of chasing it.</p>
+            <div class="mstage mstage--plain" aria-hidden="true">
+              <p class="mrelay">
+                <span class="mav mav--sm" style="--c:var(--blue-500)">M</span>
+                <span class="mrelay__arrows"><i></i><i></i><i></i></span>
+                <span class="mrelay__words" data-mia-relay><span>Checking KYC…</span><span>Drafting the FNA…</span><span>Logging to the E&amp;O trail…</span><span>Sending for e-sign…</span></span>
+                <span class="mav mav--sm" style="--c:var(--green-500)"><i class="icon ph-bold ph-check"></i></span>
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 04 · Give Mia a job: tabs swap the copy and the phone thread -->
+    <section class="msec" id="jobs" aria-labelledby="jobs-title">
+      <div class="container mjobs" data-mia-jobs>
+        <div>
+          <h2 class="mh2" id="jobs-title">Give Mia a job</h2>
+          <div class="mtabs" role="tablist" aria-label="Jobs Mia can do">
+            <button type="button" role="tab" aria-selected="true" data-job="0"><span class="mav mav--xs" style="--c:var(--blue-500)">N</span>Meeting notes</button>
+            <button type="button" role="tab" aria-selected="false" data-job="1">KYC &amp; FNA</button>
+            <button type="button" role="tab" aria-selected="false" data-job="2">Suitability</button>
+            <button type="button" role="tab" aria-selected="false" data-job="3">Renewals</button>
+            <button type="button" role="tab" aria-selected="false" data-job="4">Client follow-ups</button>
+            <button type="button" role="tab" aria-selected="false" data-job="5">Audit prep</button>
+            <button type="button" role="tab" aria-selected="false" data-job="6">Ask Mia</button>
+            <button type="button" role="tab" aria-selected="false" data-job="7">Morning brief</button>
+          </div>
+          <p class="mjobs__desc" data-job-desc aria-live="polite"><b>Talk to your client. Get the notes.</b> Mia records with consent, transcribes and summarises every meeting, then files it to the right client for your two-minute review.</p>
+          <a class="btn btn--secondary btn--md" href="advisor.html#features">Explore Advisor</a>
+        </div>
+        <div class="mphone" aria-hidden="true">
+          <div class="mphone__screen">
+            <div class="mphone__head"><i class="icon ph ph-caret-left"></i><span class="mav mav--xs" style="--c:var(--blue-500)" data-job-av>N</span><b data-job-name>Meeting notes</b><i class="icon ph ph-sidebar-simple"></i></div>
+            <div class="mphone__feed" data-job-feed></div>
+            <div class="mphone__composer"><i class="icon ph ph-plus"></i><span>Message Mia</span><i class="icon ph ph-microphone"></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · Photo band (x.ai shows a team video here; we have no film yet) -->
+    <section class="msec" aria-labelledby="day-title">
+      <div class="container">
+        <h2 class="mh2 mh2--center" id="day-title">Advisors run their day with Mia</h2>
+        <figure class="mfilm" data-reveal>
+          <img src="assets/cta/p4.jpg" alt="An advisor talking through a plan with colleagues at a table" width="1312" height="768" loading="lazy" />
+          <figcaption><span class="mbot-chip"><svg class="mbot" viewBox="0 0 622.145 662.796" aria-hidden="true"><use href="#mbot"/></svg></span>Close the laptop at five. Mia finishes the files.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 06 · Pricing: Individual / Teams toggle -->
+    <section class="msec" id="pricing" aria-labelledby="price-title">
+      <div class="container mprice" data-mia-price>
+        <h2 class="mh2 mh2--center" id="price-title">Pricing</h2>
+        <div class="mprice__top">
+          <a class="btn btn--secondary btn--md" href="#">Book a demo</a>
+          <div class="mseg" role="tablist" aria-label="Plan type">
+            <button type="button" role="tab" aria-selected="true" data-plan="solo">Individual</button>
+            <button type="button" role="tab" aria-selected="false" data-plan="team">Teams</button>
+          </div>
+        </div>
+        <ul class="mplans" data-plans="solo">
+          <li><small>Free</small><b>$0<span>/ month</span></b><em>No credit card</em><a class="btn btn--primary btn--md" href="advisor.html#pricing">Start free</a><p>Includes:</p><ul><li>Mia meeting notes [limit]</li><li>Ask Mia about any client</li><li>E&amp;O trail &amp; export</li></ul></li>
+          <li><small>[Paid plan]</small><b>[$]<span>/ month</span></b><em>Billed monthly</em><a class="btn btn--primary btn--md" href="advisor.html#pricing">Start trial</a><p>Everything in Free, plus:</p><ul><li>Unlimited meeting notes</li><li>1-click KYC &amp; FNA</li><li>Suitability engine</li><li>Reminders &amp; renewals</li></ul></li>
+          <li><small>[Team plan]</small><b>[$]<span>/ seat</span></b><em>Billed monthly</em><a class="btn btn--primary btn--md" href="#">Talk to us</a><p>Everything in [Paid plan], plus:</p><ul><li>Shared clients &amp; roles</li><li>Agency-wide routines</li></ul></li>
+        </ul>
+        <ul class="mplans mplans--one" data-plans="team" hidden>
+          <li><small>Harmony</small><b>Custom</b><em>For MGAs, BGAs, IMOs &amp; carriers</em><a class="btn btn--primary btn--md" href="enterprise.html">See Harmony</a><p>Includes:</p><ul><li>Mia for every advisor in your network</li><li>Firm-wide oversight &amp; supervision</li><li>Audit-ready files across the book</li><li>Data hosted in Canada</li></ul></li>
+        </ul>
+        <p class="mprice__bar"><i class="icon ph ph-seal-check" aria-hidden="true"></i><span>Already on Advisor or Harmony? <em>Mia is included.</em></span><a class="btn btn--border btn--sm" href="#">Sign in with your plan</a></p>
+      </div>
+    </section>
+
+    <!-- 07 · Where to use Mia -->
+    <section class="msec" aria-labelledby="get-title">
+      <div class="container mget">
+        <div>
+          <h2 class="mh2" id="get-title">Use Mia anywhere</h2>
+          <p>One assistant, wherever you are — at your desk and in your pocket.</p>
+        </div>
+        <ul class="mget__list">
+          <li><a href="#"><i class="icon ph ph-browser" aria-hidden="true"></i><span><b>Web app</b><small>Works in any browser</small></span><i class="icon ph ph-arrow-up-right" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="icon ph ph-device-mobile" aria-hidden="true"></i><span><b>[Mobile]</b><small>[Confirm availability]</small></span><i class="icon ph ph-arrow-up-right" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 08 · Guides -->
+    <section class="msec" aria-labelledby="guides-title">
+      <div class="container mhead">
+        <h2 class="mh2" id="guides-title">Mia guides</h2>
+        <p>How advisors, agencies and compliance teams run Mia day to day.</p>
+        <a class="btn btn--secondary btn--md" href="#">Read the guides</a>
+      </div>
+    </section>
+
+    <!-- 09 · FAQ: title left, list right -->
+    <section class="msec" aria-labelledby="faq-title">
+      <div class="container mfaq">
+        <h2 class="mh2" id="faq-title">FAQs</h2>
+        <div class="acc acc--lines" data-acc="faq">
+          <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p0" id="faq-b0">How is Mia different from a CRM or note-taker?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p0" role="region" aria-labelledby="faq-b0"><div><p>Mia doesn’t just store information — it does the work. Notes, forms, checks and follow-ups are drafted for you, and nothing is filed or sent without your sign-off.</p></div></div></div>
+          <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p1" id="faq-b1">Are my clients told their meeting is recorded?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p1" role="region" aria-labelledby="faq-b1"><div><p>Yes. Mia asks for client consent before recording, and the consent is saved to the audit trail.</p></div></div></div>
+          <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p2" id="faq-b2">Can I edit what Mia writes?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p2" role="region" aria-labelledby="faq-b2"><div><p>Always. Mia drafts; you review, edit and approve.</p></div></div></div>
+          <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p3" id="faq-b3">Where do I talk to Mia?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p3" role="region" aria-labelledby="faq-b3"><div><p>Inside BlueMind, on your desktop. [Mobile availability to confirm.]</p></div></div></div>
+          <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p4" id="faq-b4">How much does Mia cost?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p4" role="region" aria-labelledby="faq-b4"><div><p>Mia is part of BlueMind Advisor and Harmony, including the free plan. [Plan limits to confirm.]</p></div></div></div>
+          <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p5" id="faq-b5">Where is my data stored?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p5" role="region" aria-labelledby="faq-b5"><div><p>BlueMind is designed for Canadian advisors, with data hosted in Canada and SOC 2-grade security built into the platform.</p></div></div></div>
+          <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p6" id="faq-b6">Is my data used to train AI models?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p6" role="region" aria-labelledby="faq-b6"><div><p>[Answer to confirm with BlueMind.]</p></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 · Closing CTA: the outline mascot draws itself in -->
+    <section class="mend" aria-labelledby="end-title">
+      <div class="container">
+        <h2 class="mh2" id="end-title">Meet Mia</h2>
+        <p>An AI assistant you can trust with your compliance work</p>
+        <div class="actions actions--center">
+          <a class="btn btn--primary btn--lg" href="advisor.html#pricing">Get started for free</a>
+          <a class="btn btn--secondary btn--lg" href="#">Book a demo</a>
+        </div>
+        <svg class="mend__bot" viewBox="-6 -6 634 500" aria-hidden="true" data-mia-draw>
+          <path pathLength="1" d="M6.42055 349C40.6904 128.108 231.042 33.7442 411.826 5.25682C430.774 2.27115 445.719 20.1811 439.024 38.1562C409.667 116.984 375.883 154.244 418.5 132.5C479.417 101.42 547.37 110.62 589.302 133.865C606.849 143.592 597.037 167.443 586.638 184.6C570.275 211.597 575.772 254.577 580.421 270.5C720.421 619.7 463.796 691.079 258.156 654C95.9909 624.76 -30.3794 586.2 6.42055 349Z" />
+          <ellipse pathLength="1" cx="224.646" cy="394" rx="59.5" ry="85.5" />
+          <ellipse pathLength="1" cx="407.146" cy="394" rx="59.5" ry="85.5" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- Mascot: Mia's face (Figma "Mia Mascot"), with eyes that blink and follow the pointer -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <linearGradient id="mbot-fill" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#3d9eff" />
+          <stop offset="1" stop-color="#0152a7" />
+        </linearGradient>
+        <symbol id="mbot" viewBox="0 0 622.145 662.796">
+          <path class="mbot__body" fill="url(#mbot-fill)" d="M6.42055 349C40.6904 128.108 231.042 33.7442 411.826 5.25682C430.774 2.27115 445.719 20.1811 439.024 38.1562C409.667 116.984 375.883 154.244 418.5 132.5C479.417 101.42 547.37 110.62 589.302 133.865C606.849 143.592 597.037 167.443 586.638 184.6C570.275 211.597 575.772 254.577 580.421 270.5C720.421 619.7 463.796 691.079 258.156 654C95.9909 624.76 -30.3794 586.2 6.42055 349Z" />
+          <g class="mbot__eyes" fill="#fff">
+            <g class="mbot__set mbot__set--left"><path d="M282.646 394C282.646 441.22 256.678 479.5 224.646 479.5C198.142 479.5 175.79 463.294 168.864 427.5C166.155 413.5 204.153 413 203.153 403C202.653 394 166.646 394.5 166.646 383C166.646 335.78 192.613 308.5 224.646 308.5C256.678 308.5 282.646 346.78 282.646 394Z" /><path d="M465.146 394C465.146 441.22 439.178 479.5 407.146 479.5C380.642 479.5 358.29 463.294 351.364 427.5C349.146 419.221 386.653 413 385.653 403C385.153 394 349.146 394.5 349.146 383C349.146 335.78 375.113 308.5 407.146 308.5C439.178 308.5 465.146 346.78 465.146 394Z" /></g>
+            <g class="mbot__set mbot__set--center"><ellipse cx="224.646" cy="394" rx="59.5" ry="85.5" /><ellipse cx="407.146" cy="394" rx="59.5" ry="85.5" /></g>
+            <g class="mbot__set mbot__set--right"><path d="M166.646 394C166.646 441.22 192.613 479.5 224.646 479.5C251.149 479.5 273.501 463.294 280.427 427.5C283.136 413.5 245.138 413 246.138 403C246.638 394 282.646 394.5 282.646 383C282.646 335.78 256.678 308.5 224.646 308.5C192.613 308.5 166.646 346.78 166.646 394Z" /><path d="M349.146 394C349.146 441.22 375.113 479.5 407.146 479.5C433.649 479.5 456.001 463.294 462.927 427.5C465.146 419.221 427.638 413 428.638 403C429.138 394 465.146 394.5 465.146 383C465.146 335.78 439.178 308.5 407.146 308.5C375.113 308.5 349.146 346.78 349.146 394Z" /></g>
+          </g>
+        </symbol>
+      </defs>
+    </svg>
+  </main>
+
+  <!-- 17 · Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <img class="footer__logo" src="assets/logo.svg" alt="bluemind" width="1026" height="290" />
+          <p class="footer__tag">One mind for your whole business.</p>
+          <a class="btn btn--primary btn--lg" href="https://bluemind.app/contact-us">Contact us</a>
+        </div>
+        <nav class="footer__cols" aria-label="Footer">
+          <div><h3>Products</h3><ul><li><a href="enterprise.html">Harmony</a></li><li><a href="advisor.html">Advisor</a></li><li><a href="#">Pricing</a></li><li><a href="index.html#integrations">Integrations</a></li></ul></div>
+          <div><h3>Resources</h3><ul><li><a href="#">Blog</a></li><li><a href="#">Help Centre</a></li><li><a href="#">Documentation</a></li><li><a href="#">Press Release</a></li><li><a href="#">Webinar</a></li><li><a href="design-system.html">Design system</a></li></ul></div>
+          <div><h3>Company</h3><ul><li><a href="about.html">About Us</a></li><li><a href="team.html">Team</a></li><li><a href="partners.html">Partners</a></li><li><a href="brand.html">Brand</a></li></ul></div>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 BlueMind <span aria-hidden="true">·</span> <a href="#">Terms</a> <span aria-hidden="true">·</span> <a href="#">Privacy</a> <span aria-hidden="true">·</span> <a href="#">Cookies</a></p>
+        <ul class="footer__social">
+          <li><a href="https://www.linkedin.com/company/bluemindapp/" target="_blank" rel="noopener" aria-label="BlueMind on LinkedIn"><i class="icon ph ph-linkedin-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://twitter.com/BlueMind_app" target="_blank" rel="noopener" aria-label="BlueMind on X"><i class="icon ph ph-x-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.instagram.com/bluemind.app/" target="_blank" rel="noopener" aria-label="BlueMind on Instagram"><i class="icon ph ph-instagram-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.facebook.com/BlueMindApp/" target="_blank" rel="noopener" aria-label="BlueMind on Facebook"><i class="icon ph ph-facebook-logo" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+      <img class="footer__mark" src="assets/logo.svg" alt="" width="1026" height="290" aria-hidden="true" />
+    </div>
+  </footer>
+
+
+  <script src="sections.js"></script>
+  <script src="mia.js"></script>
+</body>
+</html>

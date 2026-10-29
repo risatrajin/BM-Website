@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About BlueMind</title>
+  <meta name="description" content="BlueMind was built by advisors, for advisors — our mission, story, values and journey so far." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="sections.css" />
+  <link rel="stylesheet" href="product.css" />
+  <link rel="stylesheet" href="company.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/duotone/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/thin/style.css" />
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="pp">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav" id="nav">
+    <nav class="nav__bar" aria-label="Main">
+      <a class="nav__logo" href="index.html">
+        <img src="assets/logo.svg" width="1026" height="290" alt="bluemind" />
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="enterprise.html">Enterprise</a></li>
+        <li><a href="advisor.html">Advisor</a></li>
+        <li><button class="nav__menu-btn nav__menu-btn--caret" type="button" aria-expanded="false" aria-controls="company-drawer" data-drawer-open>Company<i class="icon ph-bold ph-caret-down" aria-hidden="true"></i></button></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="nav__menu-icon" type="button" aria-label="Menu" aria-expanded="false" aria-controls="company-drawer" data-drawer-open><i class="icon ph-bold ph-dots-nine" aria-hidden="true"></i></button>
+        <a class="nav__mia" href="mia.html"><span class="mia-text">Mia</span></a>
+        <a class="nav__login" href="#">Login</a>
+        <a class="btn btn--primary btn--md" href="#">Book a demo</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Company menu: the "Company" button sinks, then the same shape spreads into this panel
+       (motion after Bencho's "Create menu", MIT — bencho.dev/licence). sections.js drives it.
+       On phones the nav links are hidden, so the menu also carries them (.drawer__item--phone).
+       The old Products menu is parked in archive/product-menu.html. -->
+  <div class="drawer-overlay" data-drawer-close aria-hidden="true"></div>
+  <div class="drawer" id="company-drawer" role="dialog" aria-labelledby="drawer-title" tabindex="-1" hidden>
+    <span class="drawer__shape" aria-hidden="true"></span>
+    <div class="drawer__panel">
+      <ul class="drawer__links drawer__links--phone">
+        <li class="drawer__item drawer__item--phone"><a href="index.html"><span class="drawer__icon"><i class="icon ph-duotone ph-house" aria-hidden="true"></i></span><span class="drawer__text"><b>Home</b><small>Back to the top</small></span></a></li>
+        <li class="drawer__item drawer__item--phone"><a href="enterprise.html" class="suite-card--enterprise"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#enterprise"/></svg></span><span class="drawer__text"><b>Enterprise</b><small>Oversight for MGAs, BGAs, IMOs &amp; carriers</small></span></a></li>
+        <li class="drawer__item drawer__item--phone"><a href="advisor.html" class="suite-card--advisor"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#advisor"/></svg></span><span class="drawer__text"><b>Advisor</b><small>Your compliance co-pilot, meeting to audit file</small></span></a></li>
+      <li class="drawer__item drawer__item--phone"><a href="mia.html"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#mia"/></svg></span><span class="drawer__text"><b class="mia-text">Mia</b><small>Your AI assistant for compliance work</small></span></a></li>
+      </ul>
+      <p class="drawer__label drawer__item" id="drawer-title">Who we are and how we work</p>
+      <ul class="drawer__links">
+        <li class="drawer__item"><a href="about.html"><span class="drawer__icon"><i class="icon ph-duotone ph-info" aria-hidden="true"></i></span><span class="drawer__text"><b>About Us</b><small>Our mission and story</small></span></a></li>
+        <li class="drawer__item"><a href="team.html"><span class="drawer__icon"><i class="icon ph-duotone ph-users-three" aria-hidden="true"></i></span><span class="drawer__text"><b>Team</b><small>The people behind BlueMind</small></span></a></li>
+        <li class="drawer__item"><a href="partners.html"><span class="drawer__icon"><i class="icon ph-duotone ph-handshake" aria-hidden="true"></i></span><span class="drawer__text"><b>Partners</b><small>Integrations, distributors and associations</small></span></a></li>
+        <li class="drawer__item"><a href="brand.html"><span class="drawer__icon"><i class="icon ph-duotone ph-palette" aria-hidden="true"></i></span><span class="drawer__text"><b>Brand</b><small>Logos, colours and press kit</small></span></a></li>
+      </ul>
+      <a class="drawer__feature drawer__item" href="about.html#story"><small>We’re founded by a CFP</small><b>Built by advisors, for advisors.</b><span>Read our story<i class="icon ph ph-arrow-right" aria-hidden="true"></i></span></a>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- 01 · Hero: photo globe around the headline (company.js), after ramp.design "Beyond the work" -->
+    <section class="cglobe" aria-labelledby="about-title">
+      <div class="cglobe__stage" data-globe>
+        <div class="cglobe__center">
+          <h1 class="cglobe__title" id="about-title"><span>Beyond</span><span>the paperwork</span></h1>
+          <p class="cglobe__dek">Paperwork doesn’t build trust. People do — the advisors, clients and conversations behind every plan.</p>
+        </div>
+        <ul class="cglobe__photos" aria-label="Photos of people working together. Drag to rotate.">
+          <li class="cglobe__photo" style="aspect-ratio: 3 / 4"><img src="assets/globe/g01.jpg" alt="A team listening closely in a meeting" width="480" height="686" loading="lazy" draggable="false" /></li>
+          <li class="cglobe__photo" style="aspect-ratio: 1 / 1"><img src="assets/globe/g02.jpg" alt="Three colleagues talking around a table" width="480" height="480" loading="lazy" draggable="false" /></li>
+          <li class="cglobe__photo" style="aspect-ratio: 1 / 1"><img src="assets/globe/g03.jpg" alt="Two colleagues talking in a bright office" width="480" height="480" loading="lazy" draggable="false" /></li>
+          <li class="cglobe__photo" style="aspect-ratio: 3 / 4"><img src="assets/globe/g04.jpg" alt="An advisor walking a client through a plan" width="480" height="686" loading="lazy" draggable="false" /></li>
+          <li class="cglobe__photo" style="aspect-ratio: 3 / 2"><img src="assets/globe/g05.jpg" alt="Three people in a relaxed discussion" width="480" height="320" loading="lazy" draggable="false" /></li>
+          <li class="cglobe__photo" style="aspect-ratio: 3 / 4"><img src="assets/globe/g06.jpg" alt="An advisor smiling beside a colleague" width="480" height="686" loading="lazy" draggable="false" /></li>
+          <li class="cglobe__photo" style="aspect-ratio: 3 / 4"><img src="assets/globe/g07.jpg" alt="Two colleagues working through something on a laptop" width="480" height="686" loading="lazy" draggable="false" /></li>
+          <li class="cglobe__photo" style="aspect-ratio: 3 / 2"><img src="assets/globe/g08.jpg" alt="Teammates laughing over a laptop" width="480" height="320" loading="lazy" draggable="false" /></li>
+          <li class="cglobe__photo" style="aspect-ratio: 3 / 2"><img src="assets/globe/g09.jpg" alt="A colleague smiling during a catch-up" width="480" height="240" loading="lazy" draggable="false" /></li>
+          <li class="cglobe__photo" style="aspect-ratio: 3 / 4"><img src="assets/globe/g10.jpg" alt="Two colleagues chatting over coffee" width="480" height="668" loading="lazy" draggable="false" /></li>
+          <li class="cglobe__photo" style="aspect-ratio: 3 / 4"><img src="assets/globe/g11.jpg" alt="Colleagues talking through an idea" width="480" height="806" loading="lazy" draggable="false" /></li>
+          <li class="cglobe__photo" style="aspect-ratio: 3 / 4"><img src="assets/globe/g12.jpg" alt="Two advisors reviewing paperwork together" width="480" height="686" loading="lazy" draggable="false" /></li>
+          <li class="cglobe__photo" style="aspect-ratio: 3 / 2"><img src="assets/globe/g13.jpg" alt="An advisor listening to a client" width="480" height="336" loading="lazy" draggable="false" /></li>
+          <li class="cglobe__photo" style="aspect-ratio: 3 / 4"><img src="assets/globe/g14.jpg" alt="Two teammates looking at a laptop together" width="480" height="637" loading="lazy" draggable="false" /></li>
+          <li class="cglobe__photo" style="aspect-ratio: 3 / 2"><img src="assets/globe/g15.jpg" alt="Colleagues talking as they walk through the office" width="480" height="262" loading="lazy" draggable="false" /></li>
+          <li class="cglobe__photo" style="aspect-ratio: 1 / 1"><img src="assets/globe/g16.jpg" alt="An advisor working at a wooden desk" width="480" height="480" loading="lazy" draggable="false" /></li>
+          <li class="cglobe__photo" style="aspect-ratio: 3 / 4"><img src="assets/globe/g17.jpg" alt="A partner shaking hands across a desk" width="480" height="686" loading="lazy" draggable="false" /></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 02 · Our story -->
+    <section class="section" id="story" aria-labelledby="story-title">
+      <div class="container">
+        <div class="cstory">
+          <div class="cread">
+            <p class="eyebrow">Who we are</p>
+            <h2 id="story-title">The mind behind BlueMind.</h2>
+            <p>Advisors didn’t choose this career to fill out forms — they chose it to help people live better lives.</p>
+            <p>Ahilan (Akil) Balachandran created BlueMind after years as a financial advisor at a global insurance company.</p>
+            <p>He went from medical student to financial planner, author, coach and, eventually, serial entrepreneur. BlueMind is the product of that experience.</p>
+            <div class="actions">
+              <a class="btn btn--primary btn--lg" href="team.html">Meet the team</a>
+              <a class="btn btn--border btn--lg" href="#values">Our values</a>
+            </div>
+          </div>
+          <figure class="cpic cstory__pic" data-reveal><img src="assets/people/akil-2.jpg" alt="Ahilan (Akil) Balachandran, founder and CEO of BlueMind" width="600" height="600" loading="lazy" /></figure>
+        </div>
+        <!-- 03 · By the numbers -->
+        <ul class="cstats" aria-label="BlueMind by the numbers">
+          <li data-reveal><i class="icon ph ph-hourglass-medium" aria-hidden="true"></i><b><span data-count="50">50</span>+<small>yrs</small></b><span>combined financial and tech experience</span></li>
+          <li data-reveal><i class="icon ph ph-chart-line-up" aria-hidden="true"></i><b><span data-count="94">94</span>%</b><span>adoption rate</span></li>
+          <li data-reveal><i class="icon ph ph-users-three" aria-hidden="true"></i><b><span data-count="13">13</span></b><span>people building BlueMind</span></li>
+          <li data-reveal><i class="icon ph ph-compass" aria-hidden="true"></i><b><span data-count="4">4</span></b><span>strategic advisors</span></li>
+        </ul>
+        <ul class="cgallery cgallery-wrap" aria-label="Life at BlueMind">
+          <li data-reveal><figure class="cpic"><img src="assets/photos/about-1.jpg" alt="Two teammates laughing while reviewing work on a laptop" width="800" height="800" loading="lazy" /></figure></li>
+          <li data-reveal><figure class="cpic"><img src="assets/photos/about-2.jpg" alt="A team member smiling during an informal catch-up" width="800" height="800" loading="lazy" /></figure></li>
+          <li data-reveal><figure class="cpic"><img src="assets/photos/about-3.jpg" alt="Three colleagues gathered around a laptop" width="800" height="800" loading="lazy" /></figure></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 04 · Values -->
+    <section class="section section--tint" id="values" aria-labelledby="values-title">
+      <div class="container">
+        <div class="cread">
+          <h2 id="values-title">Our values.</h2>
+          <p>We believe the future of financial services is human — built on trust, conversations and advice that actually helps people. Our job is to make sure the systems behind that work don’t get in the way.</p>
+          <ol class="cvalues">
+            <li><small>01</small><h3>We inspire and innovate</h3><p>Innovation is the heart of our company. We bring inspiration to create a positive impact on the industry.</p></li>
+            <li><small>02</small><h3>We are transparent</h3><p>Transparency builds trust and is the key to a long-term relationship. Our system is transparent and clear.</p></li>
+            <li><small>03</small><h3>We love simplicity</h3><p>Simplicity is our core. It’s in our code, language, message, communication and interface.</p></li>
+            <li><small>04</small><h3>We are data-driven</h3><p>Every action we take is data-driven. Every process and every change is based on data analysis.</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · Milestones -->
+    <section class="section" id="milestones" aria-labelledby="miles-title">
+      <div class="container">
+        <div class="cbar"><h2 id="miles-title">Our journey so far.</h2></div>
+          <ol class="cmiles">
+            <li><small>[Year]</small><h3>[Milestone]</h3><p>[One line of detail.]</p></li>
+            <li><small>[Year]</small><h3>[Milestone]</h3><p>[One line of detail.]</p></li>
+            <li><small>[Year]</small><h3>[Milestone]</h3><p>[One line of detail.]</p></li>
+            <li><small>[Year]</small><h3>[Milestone]</h3><p>[One line of detail.]</p></li>
+            <li><small>[Year]</small><h3>[Milestone]</h3><p>[One line of detail.]</p></li>
+          </ol>
+      </div>
+    </section>
+
+    <!-- 06 · Links -->
+    <section class="section section--tint" id="more" aria-label="More about BlueMind">
+      <div class="container">
+        <ul class="clinks">
+          <li data-reveal><a href="team.html"><h3>Meet the team</h3><p>Advisors, engineers and operators with 50+ years between them.</p><span>Team<i class="icon ph ph-arrow-right" aria-hidden="true"></i></span></a></li>
+          <li data-reveal><a href="partners.html"><h3>Our partners</h3><p>Who we work with.</p><span>Partners<i class="icon ph ph-arrow-right" aria-hidden="true"></i></span></a></li>
+          <li data-reveal><a href="https://bluemind.app/contact-us"><h3>Work with us</h3><p>Interested in working or contributing to BlueMind?</p><span>Careers<i class="icon ph ph-arrow-right" aria-hidden="true"></i></span></a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- 17 · Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <img class="footer__logo" src="assets/logo.svg" alt="bluemind" width="1026" height="290" />
+          <p class="footer__tag">One mind for your whole business.</p>
+          <a class="btn btn--primary btn--lg" href="https://bluemind.app/contact-us">Contact us</a>
+        </div>
+        <nav class="footer__cols" aria-label="Footer">
+          <div><h3>Products</h3><ul><li><a href="enterprise.html">Harmony</a></li><li><a href="advisor.html">Advisor</a></li><li><a href="#">Pricing</a></li><li><a href="index.html#integrations">Integrations</a></li></ul></div>
+          <div><h3>Resources</h3><ul><li><a href="#">Blog</a></li><li><a href="#">Help Centre</a></li><li><a href="#">Documentation</a></li><li><a href="#">Press Release</a></li><li><a href="#">Webinar</a></li><li><a href="design-system.html">Design system</a></li></ul></div>
+          <div><h3>Company</h3><ul><li><a href="about.html">About Us</a></li><li><a href="team.html">Team</a></li><li><a href="partners.html">Partners</a></li><li><a href="brand.html">Brand</a></li></ul></div>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 BlueMind <span aria-hidden="true">·</span> <a href="#">Terms</a> <span aria-hidden="true">·</span> <a href="#">Privacy</a> <span aria-hidden="true">·</span> <a href="#">Cookies</a></p>
+        <ul class="footer__social">
+          <li><a href="https://www.linkedin.com/company/bluemindapp/" target="_blank" rel="noopener" aria-label="BlueMind on LinkedIn"><i class="icon ph ph-linkedin-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://twitter.com/BlueMind_app" target="_blank" rel="noopener" aria-label="BlueMind on X"><i class="icon ph ph-x-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.instagram.com/bluemind.app/" target="_blank" rel="noopener" aria-label="BlueMind on Instagram"><i class="icon ph ph-instagram-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.facebook.com/BlueMindApp/" target="_blank" rel="noopener" aria-label="BlueMind on Facebook"><i class="icon ph ph-facebook-logo" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+      <img class="footer__mark" src="assets/logo.svg" alt="" width="1026" height="290" aria-hidden="true" />
+    </div>
+  </footer>
+
+
+  <script src="sections.js"></script>
+  <script src="product.js"></script>
+  <script src="company.js"></script>
+</body>
+</html>

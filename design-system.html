@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BlueMind design system</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" />
+  <!-- The site's own stylesheets: every value on this page is read from them -->
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="sections.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/duotone/style.css" />
+  <link rel="stylesheet" href="ds.css" />
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="ds">
+  <header class="nav" id="nav">
+    <nav class="nav__bar" aria-label="Main">
+      <a class="nav__logo" href="index.html">
+        <img src="assets/logo.svg" width="1026" height="290" alt="bluemind" />
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="enterprise.html">Enterprise</a></li>
+        <li><a href="advisor.html">Advisor</a></li>
+        <li><button class="nav__menu-btn nav__menu-btn--caret" type="button" aria-expanded="false" aria-controls="company-drawer" data-drawer-open>Company<i class="icon ph-bold ph-caret-down" aria-hidden="true"></i></button></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="nav__menu-icon" type="button" aria-label="Menu" aria-expanded="false" aria-controls="company-drawer" data-drawer-open><i class="icon ph-bold ph-dots-nine" aria-hidden="true"></i></button>
+        <a class="nav__mia" href="mia.html"><span class="mia-text">Mia</span></a>
+        <a class="nav__login" href="#">Login</a>
+        <a class="btn btn--primary btn--md" href="#">Book a demo</a>
+      </div>
+    </nav>
+  </header>
+  <!-- Company menu: the "Company" button sinks, then the same shape spreads into this panel
+       (motion after Bencho's "Create menu", MIT — bencho.dev/licence). sections.js drives it.
+       On phones the nav links are hidden, so the menu also carries them (.drawer__item--phone).
+       The old Products menu is parked in archive/product-menu.html. -->
+  <div class="drawer-overlay" data-drawer-close aria-hidden="true"></div>
+  <div class="drawer" id="company-drawer" role="dialog" aria-labelledby="drawer-title" tabindex="-1" hidden>
+    <span class="drawer__shape" aria-hidden="true"></span>
+    <div class="drawer__panel">
+      <ul class="drawer__links drawer__links--phone">
+        <li class="drawer__item drawer__item--phone"><a href="index.html"><span class="drawer__icon"><i class="icon ph-duotone ph-house" aria-hidden="true"></i></span><span class="drawer__text"><b>Home</b><small>Back to the top</small></span></a></li>
+        <li class="drawer__item drawer__item--phone"><a href="enterprise.html" class="suite-card--enterprise"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#enterprise"/></svg></span><span class="drawer__text"><b>Enterprise</b><small>Oversight for MGAs, BGAs, IMOs &amp; carriers</small></span></a></li>
+        <li class="drawer__item drawer__item--phone"><a href="advisor.html" class="suite-card--advisor"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#advisor"/></svg></span><span class="drawer__text"><b>Advisor</b><small>Your compliance co-pilot, meeting to audit file</small></span></a></li>
+      <li class="drawer__item drawer__item--phone"><a href="mia.html"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#mia"/></svg></span><span class="drawer__text"><b class="mia-text">Mia</b><small>Your AI assistant for compliance work</small></span></a></li>
+      </ul>
+      <p class="drawer__label drawer__item" id="drawer-title">Who we are and how we work</p>
+      <ul class="drawer__links">
+        <li class="drawer__item"><a href="about.html"><span class="drawer__icon"><i class="icon ph-duotone ph-info" aria-hidden="true"></i></span><span class="drawer__text"><b>About Us</b><small>Our mission and story</small></span></a></li>
+        <li class="drawer__item"><a href="team.html"><span class="drawer__icon"><i class="icon ph-duotone ph-users-three" aria-hidden="true"></i></span><span class="drawer__text"><b>Team</b><small>The people behind BlueMind</small></span></a></li>
+        <li class="drawer__item"><a href="partners.html"><span class="drawer__icon"><i class="icon ph-duotone ph-handshake" aria-hidden="true"></i></span><span class="drawer__text"><b>Partners</b><small>Integrations, distributors and associations</small></span></a></li>
+        <li class="drawer__item"><a href="brand.html"><span class="drawer__icon"><i class="icon ph-duotone ph-palette" aria-hidden="true"></i></span><span class="drawer__text"><b>Brand</b><small>Logos, colours and press kit</small></span></a></li>
+      </ul>
+      <a class="drawer__feature drawer__item" href="about.html#story"><small>We’re founded by a CFP</small><b>Built by advisors, for advisors.</b><span>Read our story<i class="icon ph ph-arrow-right" aria-hidden="true"></i></span></a>
+    </div>
+  </div>
+
+  <div class="ds-shell">
+    <nav class="ds-index" aria-label="Design system">
+      <p>Foundations</p>
+      <ul>
+        <li><a href="#colour">Colour</a></li>
+        <li><a href="#type">Typography</a></li>
+        <li><a href="#space">Spacing &amp; layout</a></li>
+        <li><a href="#radius">Radius &amp; elevation</a></li>
+        <li><a href="#motion">Motion</a></li>
+        <li><a href="#icons">Icons &amp; logo</a></li>
+        <li><a href="#mascot">Mia Mascot</a></li>
+      </ul>
+      <p>Components</p>
+      <ul>
+        <li><a href="#buttons">Buttons &amp; links</a></li>
+        <li><a href="#text">Headings &amp; labels</a></li>
+        <li><a href="#chips">Chips &amp; tags</a></li>
+        <li><a href="#cards">Cards</a></li>
+        <li><a href="#nav">Navigation</a></li>
+        <li><a href="#accordion">Accordion</a></li>
+        <li><a href="#forms">Forms</a></li>
+        <li><a href="#proof">Proof &amp; facts</a></li>
+        <li><a href="#motion-comps">Animated blocks</a></li>
+        <li><a href="#mocks">Product mocks</a></li>
+      </ul>
+      <p>Reference</p>
+      <ul><li><a href="#variables">All variables</a></li></ul>
+    </nav>
+
+    <div class="ds-content">
+      <div class="ds-hero">
+        <p class="eyebrow"><a href="index.html#resources" style="color:inherit">Resources</a> / Design system</p>
+        <h1>Design system</h1>
+        <p>Colours, type, spacing, motion and every component on the site, rendered with the site's own CSS. Change a variable in <code>styles.css</code> or <code>sections.css</code> and this page and the site change together.</p>
+        <ul class="tags"><span>Geist</span><span>Phosphor icons</span><span>White ground</span><span>One accent</span><span>Weight 400</span></ul>
+      </div>
+
+      <!-- ===== Colour ===== -->
+      <section class="ds-section" id="colour">
+        <h2>Colour</h2>
+        <p class="ds-intro">Values and contrast ratios are measured live from the stylesheets. Green ratios pass WCAG AA for body text (4.5:1).</p>
+        <h3 class="ds-sub">Palette</h3>
+        <p class="ds-intro">Every colour on the site comes from two scales, <b>blue</b> and <b>slate</b>, plus white (status is the one exception, see below). Semantic tokens point at a step (<code>--muted: var(--slate-500)</code>); translucent colours mix a step with transparent.</p>
+        <div class="ds-scale"><p class="ds-scale__name"><b>blue</b><code>--blue-10 … 900</code></p><div class="ds-scale__row"><div class="ds-scale__step" style="--c:var(--blue-10)"><i></i><b>10</b><span data-var="--blue-10"></span></div><div class="ds-scale__step" style="--c:var(--blue-50)"><i></i><b>50</b><span data-var="--blue-50"></span><small>--accent-soft</small></div><div class="ds-scale__step" style="--c:var(--blue-100)"><i></i><b>100</b><span data-var="--blue-100"></span></div><div class="ds-scale__step" style="--c:var(--blue-200)"><i></i><b>200</b><span data-var="--blue-200"></span></div><div class="ds-scale__step" style="--c:var(--blue-300)"><i></i><b>300</b><span data-var="--blue-300"></span><small>--accent-on-dark</small></div><div class="ds-scale__step" style="--c:var(--blue-400)"><i></i><b>400</b><span data-var="--blue-400"></span><small>--product-all</small></div><div class="ds-scale__step" style="--c:var(--blue-500)"><i></i><b>500</b><span data-var="--blue-500"></span><small>--accent, --product-enterprise</small></div><div class="ds-scale__step" style="--c:var(--blue-600)"><i></i><b>600</b><span data-var="--blue-600"></span><small>--accent-ink</small></div><div class="ds-scale__step" style="--c:var(--blue-700)"><i></i><b>700</b><span data-var="--blue-700"></span><small>--product-advisor</small></div><div class="ds-scale__step" style="--c:var(--blue-800)"><i></i><b>800</b><span data-var="--blue-800"></span></div><div class="ds-scale__step" style="--c:var(--blue-900)"><i></i><b>900</b><span data-var="--blue-900"></span><small>--product-mia</small></div></div></div>
+        <div class="ds-scale"><p class="ds-scale__name"><b>slate</b><code>--slate-10 … 900</code></p><div class="ds-scale__row"><div class="ds-scale__step" style="--c:var(--slate-10)"><i></i><b>10</b><span data-var="--slate-10"></span><small>--surface-warm</small></div><div class="ds-scale__step" style="--c:var(--slate-50)"><i></i><b>50</b><span data-var="--slate-50"></span><small>--surface-card</small></div><div class="ds-scale__step" style="--c:var(--slate-100)"><i></i><b>100</b><span data-var="--slate-100"></span><small>--surface-tile</small></div><div class="ds-scale__step" style="--c:var(--slate-200)"><i></i><b>200</b><span data-var="--slate-200"></span></div><div class="ds-scale__step" style="--c:var(--slate-300)"><i></i><b>300</b><span data-var="--slate-300"></span></div><div class="ds-scale__step" style="--c:var(--slate-400)"><i></i><b>400</b><span data-var="--slate-400"></span><small>--ink-soft</small></div><div class="ds-scale__step" style="--c:var(--slate-500)"><i></i><b>500</b><span data-var="--slate-500"></span><small>--muted</small></div><div class="ds-scale__step" style="--c:var(--slate-600)"><i></i><b>600</b><span data-var="--slate-600"></span></div><div class="ds-scale__step" style="--c:var(--slate-700)"><i></i><b>700</b><span data-var="--slate-700"></span><small>--ink-2</small></div><div class="ds-scale__step" style="--c:var(--slate-800)"><i></i><b>800</b><span data-var="--slate-800"></span><small>--ink-hover</small></div><div class="ds-scale__step" style="--c:var(--slate-900)"><i></i><b>900</b><span data-var="--slate-900"></span><small>--ink, --ink-black, --night, lines (alpha)</small></div></div></div>
+
+        <h3 class="ds-sub">Ink &amp; text</h3>
+        <p class="ds-intro">Text and dark fills. Ink is the one colour for headings and body; the rest step down from it.</p>
+        <div class="ds-swatches" style="margin-top:20px">
+          <div class="ds-swatch" data-swatch="--ink"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>Ink</b><code>--ink</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">Headings, body text, dark sections, primary buttons</span><div class="ds-contrast"></div></div></div>
+          <div class="ds-swatch" data-swatch="--ink-2"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>Ink 2</b><code>--ink-2</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">Secondary copy inside cards and lists</span><div class="ds-contrast"></div></div></div>
+          <div class="ds-swatch" data-swatch="--muted"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>Muted</b><code>--muted</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">Leads, captions, labels, helper text</span><div class="ds-contrast"></div></div></div>
+          <div class="ds-swatch" data-swatch="--ink-soft"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>Ink soft</b><code>--ink-soft</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">Second half of two-tone headings — large text only</span><div class="ds-contrast"></div></div></div>
+          <div class="ds-swatch" data-swatch="--ink-hover"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>Ink hover</b><code>--ink-hover</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">One step darker than Ink, toward Black — dark hover surfaces</span><div class="ds-contrast"></div></div></div>
+          <div class="ds-swatch" data-swatch="--ink-black"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>Black</b><code>--ink-black</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">Deepest ink — same blue-black hue as Ink, for the darkest fills</span><div class="ds-contrast"></div></div></div>
+          <div class="ds-swatch" data-swatch="--night"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>Night</b><code>--night</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">Behind the hero video and its frame</span><div class="ds-contrast"></div></div></div>
+        </div>
+        <h3 class="ds-sub">Accent</h3>
+        <p class="ds-intro">One accent, the BlueMind brand blue <code>#0080FF</code>. Used sparingly for links, focus and the hover fill of primary buttons.</p>
+        <div class="ds-swatches" style="margin-top:20px">
+          <div class="ds-swatch" data-swatch="--accent"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>Accent</b><code>--accent</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">Focus rings, hover fills, charts, callout numbers</span><div class="ds-contrast"></div></div></div>
+          <div class="ds-swatch" data-swatch="--accent-ink"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>Accent ink</b><code>--accent-ink</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">Link and eyebrow text on light (passes AA)</span><div class="ds-contrast"></div></div></div>
+          <div class="ds-swatch" data-swatch="--accent-soft"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>Accent soft</b><code>--accent-soft</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">Tinted chips and icon tiles</span><div class="ds-contrast"></div></div></div>
+          <div class="ds-swatch" data-swatch="--accent-on-dark"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>Accent on dark</b><code>--accent-on-dark</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">Eyebrows and links on dark sections</span><div class="ds-contrast"></div></div></div>
+        </div>
+        <h3 class="ds-sub">Surfaces</h3>
+        <p class="ds-intro">The site is white. Light slate steps are reserved for cards and tiles that need to sit apart from it.</p>
+        <div class="ds-swatches" style="margin-top:20px">
+          <div class="ds-swatch" data-swatch="--surface"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>Surface</b><code>--surface</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">The one white — page background, cards and panels</span><div class="ds-contrast"></div></div></div>
+          <div class="ds-swatch" data-swatch="--surface-card"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>Card soft</b><code>--surface-card</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">Integrations and onboarding cards</span><div class="ds-contrast"></div></div></div>
+          <div class="ds-swatch" data-swatch="--surface-warm"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>Warm</b><code>--surface-warm</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">Rows and fields inside product mocks</span><div class="ds-contrast"></div></div></div>
+          <div class="ds-swatch" data-swatch="--surface-tile"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>Tile</b><code>--surface-tile</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">Logo tiles</span><div class="ds-contrast"></div></div></div>
+        </div>
+        <h3 class="ds-sub">Lines</h3>
+        <p class="ds-intro">Borders are hairlines drawn with inset box-shadows, so they never change an element's size.</p>
+        <div class="ds-swatches" style="margin-top:20px">
+          <div class="ds-swatch" data-swatch="--line"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>Line</b><code>--line</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">Default hairline on light</span><div class="ds-contrast"></div></div></div>
+          <div class="ds-swatch" data-swatch="--line-strong"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>Line strong</b><code>--line-strong</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">Outline buttons, inputs, emphasised dividers</span><div class="ds-contrast"></div></div></div>
+          <div class="ds-swatch" data-swatch="--line-dark"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>Line on dark</b><code>--line-dark</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">Hairlines on dark sections</span><div class="ds-contrast"></div></div></div>
+        </div>
+        <h3 class="ds-sub">On dark</h3>
+        <p class="ds-intro">Text on Ink or Night backgrounds.</p>
+        <div class="ds-swatches" style="margin-top:20px">
+          <div class="ds-swatch" data-swatch="--on-dark"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>On dark</b><code>--on-dark</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">Headings and primary text on dark</span><div class="ds-contrast"></div></div></div>
+          <div class="ds-swatch" data-swatch="--on-dark-2"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>On dark 2</b><code>--on-dark-2</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">Secondary text on dark</span><div class="ds-contrast"></div></div></div>
+        </div>
+        <h3 class="ds-sub">Status</h3>
+        <p class="ds-intro">The only hues outside blue and slate, from three small scales (<code>--green-*</code>, <code>--amber-*</code>, <code>--red-*</code>) so success, warning and risk read as such. Always paired with an icon or a word — colour is never the only signal.</p>
+        <div class="ds-swatches" style="margin-top:20px">
+          <div class="ds-swatch" data-swatch="--ok"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>Success</b><code>--ok</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">Approved, signed, complete</span><div class="ds-contrast"></div></div></div>
+          <div class="ds-swatch" data-swatch="--warn"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>Warning</b><code>--warn</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">Needs attention</span><div class="ds-contrast"></div></div></div>
+          <div class="ds-swatch" data-swatch="--danger"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>Danger</b><code>--danger</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">Risk flags, errors</span><div class="ds-contrast"></div></div></div>
+        </div>
+        <h3 class="ds-sub">Product</h3>
+        <p class="ds-intro">One blue step per product. Used for its icon and tint only — never for text blocks.</p>
+        <div class="ds-swatches" style="margin-top:20px">
+          <div class="ds-swatch" data-swatch="--product-enterprise"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>Enterprise · Harmony</b><code>--product-enterprise</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">Enterprise icons and tiles</span><div class="ds-contrast"></div></div></div>
+          <div class="ds-swatch" data-swatch="--product-advisor"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>Advisor</b><code>--product-advisor</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">Advisor icons and tiles</span><div class="ds-contrast"></div></div></div>
+          <div class="ds-swatch" data-swatch="--product-all"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>All in one</b><code>--product-all</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">All in one icons and tiles</span><div class="ds-contrast"></div></div></div>
+          <div class="ds-swatch" data-swatch="--product-mia"><div class="ds-swatch__chip"></div><div class="ds-swatch__body"><b>MIA</b><code>--product-mia</code><span class="ds-swatch__value"></span><span class="ds-swatch__use">MIA icons and tiles</span><div class="ds-contrast"></div></div></div>
+        </div>
+      </section>
+
+      <!-- ===== Typography ===== -->
+      <section class="ds-section" id="type">
+        <h2>Typography</h2>
+        <p class="ds-intro">One family, <b>Geist</b> (stand-in for Superpower's NB International Pro), at weight 400 with tight tracking on headings. The scale matches Superpower's at 1440px; the hero is set about 25% larger. Sizes are fluid, so the resolved values below are for this window.</p>
+        <table class="ds-table" style="margin-top:24px"><tbody>
+          <tr><td>Family</td><td><code>--font</code> <span data-var="--font"></span></td></tr>
+          <tr><td>Weights</td><td>400 everywhere · 500 for buttons, links and the active nav item · 600 only inside product mocks</td></tr>
+          <tr><td>Tracking</td><td><code>--tracking-tight</code> −1px on headings 30px and up (−2px on 48px+ numbers) · <code>--tracking-none</code> 0 everywhere else</td></tr>
+        </tbody></table>
+        <div class="ds-type" style="margin-top:24px">
+          <div class="ds-type__row" data-type-sample>
+            <div class="ds-type__meta"><b>Hero title</b><code>.hero__title</code><span>44px → 70px, rounded to whole pixels — ~25% above the display size</span><span data-resolved></span></div>
+            <div class="ds-type__sample"><p class="hero__title" style="color:var(--ink)">One mind for your<br>whole business.</p></div>
+          </div>
+          <div class="ds-type__row" data-type-sample>
+            <div class="ds-type__meta"><b>Display</b><code>--text-3xl</code><span>Integrations title, final CTA, big numbers</span><span data-resolved></span></div>
+            <div class="ds-type__sample"><p class="int__title" style="text-align:left">Connect BlueMind with the tools you already use</p></div>
+          </div>
+          <div class="ds-type__row" data-type-sample>
+            <div class="ds-type__meta"><b>Heading 2</b><code>--text-2xl · .h2</code><span>Section titles; the &lt;span&gt; half turns Ink soft</span><span data-resolved></span></div>
+            <div class="ds-type__sample"><p class="h2">Meet clients. <span>MIA does the paperwork.</span></p></div>
+          </div>
+          <div class="ds-type__row" data-type-sample>
+            <div class="ds-type__meta"><b>Heading 3</b><code>--text-xl</code><span>Sub-titles, case-study quotes, KPI numbers</span><span data-resolved></span></div>
+            <div class="ds-type__sample"><p style="font-size:var(--text-xl);line-height:var(--leading-xl);letter-spacing:var(--tracking-tight)">Built for regulated conversations.</p></div>
+          </div>
+          <div class="ds-type__row" data-type-sample>
+            <div class="ds-type__meta"><b>Lead</b><code>--text-lg · .lead</code><span>Section intros, card descriptions</span><span data-resolved></span></div>
+            <div class="ds-type__sample"><p class="lead" style="margin-top:0">BlueMind brings every client, task and record into one place, and does the busywork for you.</p></div>
+          </div>
+          <div class="ds-type__row" data-type-sample>
+            <div class="ds-type__meta"><b>Body</b><code>--text-md</code><span>FAQ answers, list items, menu names</span><span data-resolved></span></div>
+            <div class="ds-type__sample"><p style="font-size:var(--text-md);line-height:var(--leading-md)">MIA asks for client consent before recording, and the consent is saved to the audit trail.</p></div>
+          </div>
+          <div class="ds-type__row" data-type-sample>
+            <div class="ds-type__meta"><b>Small</b><code>--text-sm</code><span>Card body copy, nav login, footer links</span><span data-resolved></span></div>
+            <div class="ds-type__sample"><p style="font-size:var(--text-sm);line-height:var(--leading-sm);color:var(--muted)">Calendar, video calls and email — a few clicks.</p></div>
+          </div>
+          <div class="ds-type__row" data-type-sample>
+            <div class="ds-type__meta"><b>Label</b><code>--text-xs · .eyebrow</code><span>Eyebrows, labels, captions — sentence case, never uppercase</span><span data-resolved></span></div>
+            <div class="ds-type__sample"><p class="eyebrow" style="margin:0">Security &amp; regulation</p></div>
+          </div>
+          <div class="ds-type__row" data-type-sample>
+            <div class="ds-type__meta"><b>Button label</b><code>.btn--lg</code><span>15px · 500 — the only weight above 400 (sm 13, md 14)</span><span data-resolved></span></div>
+            <div class="ds-type__sample"><span class="btn btn--primary btn--lg">Book a demo</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Spacing ===== -->
+      <section class="ds-section" id="space">
+        <h2>Spacing &amp; layout</h2>
+        <p class="ds-intro">A 4px rhythm, named by pixel value from <code>--space-4</code> to <code>--space-160</code>. Sections breathe at 128px (88px on tablets and phones).</p>
+        <div class="ds-space" style="margin-top:24px">
+          <div class="ds-space__row"><span><b>4px</b> · hairline gaps</span><div class="ds-space__bar" style="width:var(--space-4)"></div><span><code>--space-4</code></span></div>
+          <div class="ds-space__row"><span><b>8px</b> · icon to text</span><div class="ds-space__bar" style="width:var(--space-8)"></div><span><code>--space-8</code></span></div>
+          <div class="ds-space__row"><span><b>12px</b> · button gaps</span><div class="ds-space__bar" style="width:var(--space-12)"></div><span><code>--space-12</code></span></div>
+          <div class="ds-space__row"><span><b>16px</b> · card grid</span><div class="ds-space__bar" style="width:var(--space-16)"></div><span><code>--space-16</code></span></div>
+          <div class="ds-space__row"><span><b>24px</b> · gutter, bento</span><div class="ds-space__bar" style="width:var(--space-24)"></div><span><code>--space-24</code></span></div>
+          <div class="ds-space__row"><span><b>32px</b> · title → copy</span><div class="ds-space__bar" style="width:var(--space-32)"></div><span><code>--space-32</code></span></div>
+          <div class="ds-space__row"><span><b>48px</b> · card padding</span><div class="ds-space__bar" style="width:var(--space-48)"></div><span><code>--space-48</code></span></div>
+          <div class="ds-space__row"><span><b>56px</b> · head → content</span><div class="ds-space__bar" style="width:var(--space-56)"></div><span><code>--space-56</code></span></div>
+          <div class="ds-space__row"><span><b>128px</b> · section</span><div class="ds-space__bar" style="width:var(--space-128)"></div><span><code>--space-128</code></span></div>
+          <div class="ds-space__row"><span><b>160px</b> · trust → suite</span><div class="ds-space__bar" style="width:var(--space-160)"></div><span><code>--space-160</code></span></div>
+        </div>
+        <table class="ds-table" style="margin-top:32px"><tbody>
+          <tr><td>Container</td><td><code>.container</code> · <code>min(1240px, 100% − 48px)</code> (32px gutters under 600px)</td></tr>
+          <tr><td>Wide container</td><td><code>.suite__wrap</code> · <code>min(1376px, 100% − 64px)</code></td></tr>
+          <tr><td>Nav</td><td><code>--nav-h</code> 72px (64px under 900px), fixed white bar</td></tr><tr><td>Hero frame</td><td>Nav height on top, 8px white frame elsewhere, 12px corners</td></tr>
+          <tr><td>Breakpoints</td><td>1100 (grids reflow) · 900 (single column, nav collapses) · 600 (phone) · 480 (small phone)</td></tr>
+          <tr><td>Page lift</td><td><code>--lift</code> 60vh (set on <code>main</code>, mirrored by <code>LIFT</code> in main.js) — extra rise after the hero; sticky offsets and anchors add it</td></tr>
+        </tbody></table>
+      </section>
+
+      <!-- ===== Radius & elevation ===== -->
+      <section class="ds-section" id="radius">
+        <h2>Radius &amp; elevation</h2>
+        <p class="ds-intro">Inner corners are the outer corner less the inset, so nested shapes stay concentric. Buttons are always pills.</p>
+        <h3 class="ds-sub">Radius</h3>
+        <div class="ds-grid"><div class="ds-tile"><div class="ds-radius-box" style="border-radius:var(--radius-2xs)"></div><b>2xs</b><small><code>--radius-2xs</code> · <span data-var="--radius-2xs"></span></small><small>Chart bars, tiny marks</small></div><div class="ds-tile"><div class="ds-radius-box" style="border-radius:var(--radius-xs)"></div><b>xs</b><small><code>--radius-xs</code> · <span data-var="--radius-xs"></span></small><small>Nav links, small chips, mini buttons</small></div><div class="ds-tile"><div class="ds-radius-box" style="border-radius:var(--radius-sm)"></div><b>sm</b><small><code>--radius-sm</code> · <span data-var="--radius-sm"></span></small><small>Tiles, menu rows, inputs</small></div><div class="ds-tile"><div class="ds-radius-box" style="border-radius:var(--radius-md)"></div><b>md</b><small><code>--radius-md</code> · <span data-var="--radius-md"></span></small><small>Inner cards, media, mock rows</small></div><div class="ds-tile"><div class="ds-radius-box" style="border-radius:var(--radius-lg)"></div><b>lg</b><small><code>--radius-lg</code> · <span data-var="--radius-lg"></span></small><small>Cards, menu panel, bento</small></div><div class="ds-tile"><div class="ds-radius-box" style="border-radius:var(--radius-xl)"></div><b>xl</b><small><code>--radius-xl</code> · <span data-var="--radius-xl"></span></small><small>Large stages and media</small></div><div class="ds-tile"><div class="ds-radius-box" style="border-radius:var(--radius-full)"></div><b>full</b><small><code>--radius-full</code> · <span data-var="--radius-full"></span></small><small>Every button, chips, pills</small></div></div>
+        <h3 class="ds-sub">Elevation</h3>
+        <div class="ds-grid"><div class="ds-tile"><div class="ds-shadow-box" style="box-shadow:var(--shadow-hairline)"></div><b>Hairline</b><small><code>--shadow-hairline</code></small><small>Default edge on cards, inputs and swatches</small></div><div class="ds-tile"><div class="ds-shadow-box" style="box-shadow:var(--shadow-raised)"></div><b>Raised</b><small><code>--shadow-raised</code></small><small>Hovered cards, raised tiles</small></div><div class="ds-tile"><div class="ds-shadow-box" style="box-shadow:var(--shadow-overlay)"></div><b>Overlay</b><small><code>--shadow-overlay</code></small><small>Menus and popovers</small></div><div class="ds-tile"><div class="ds-shadow-box" style="box-shadow:var(--shadow-floating)"></div><b>Floating</b><small><code>--shadow-floating</code></small><small>Product mocks over stages</small></div></div>
+      </section>
+
+      <!-- ===== Motion ===== -->
+      <section class="ds-section" id="motion">
+        <h2>Motion</h2>
+        <p class="ds-intro">Hover a tile to play its curve. Everything respects <code>prefers-reduced-motion</code>.</p>
+        <div class="ds-grid" style="margin-top:24px">
+          <div class="ds-tile"><div class="ds-motion" style="--e:var(--ease);--d:600ms"><i></i></div><b>--ease</b><small><span data-var="--ease"></span> — default; reveals, accordions, cards</small></div>
+          <div class="ds-tile"><div class="ds-motion" style="--e:var(--ease-drawer);--d:300ms"><i></i></div><b>--ease-drawer</b><small><span data-var="--ease-drawer"></span> — menus, panels</small></div>
+          <div class="ds-tile"><div class="ds-motion" style="--e:cubic-bezier(0.34,1.56,0.64,1);--d:450ms"><i></i></div><b>Spring arrow</b><small>cubic-bezier(.34, 1.56, .64, 1) — flow-button arrows</small></div>
+          <div class="ds-tile"><div class="ds-motion" style="--e:linear;--d:1200ms"><i></i></div><b>Linear</b><small>Logo marquees (40s loop)</small></div>
+        </div>
+        <table class="ds-table" style="margin-top:24px"><thead><tr><th>Moment</th><th>Duration</th><th>Curve</th></tr></thead><tbody>
+          <tr><td>Hover colour / wash</td><td>150–220ms</td><td>ease</td></tr>
+          <tr><td>Button press sink</td><td>160ms to 94%</td><td><code>--ease</code></td></tr>
+          <tr><td>Menu spread (after a 60ms beat)</td><td>260ms</td><td><code>--ease</code>, no overshoot</td></tr>
+          <tr><td>Menu rows</td><td>160ms fade · 220ms rise, +22ms each</td><td><code>--ease</code></td></tr>
+          <tr><td>Flow-button fill</td><td>450ms</td><td>cubic-bezier(.19, 1, .22, 1)</td></tr>
+          <tr><td>Scroll reveal</td><td>700ms, +60ms stagger</td><td><code>--ease</code></td></tr>
+          <tr><td>FAQ answer typing</td><td>3 chars / 16ms</td><td>steps</td></tr>
+          <tr><td>Lesson carousel</td><td>every 5s, 400ms slide</td><td>cubic-bezier(.22, .8, .3, 1)</td></tr>
+        </tbody></table>
+      </section>
+
+      <!-- ===== Icons ===== -->
+      <section class="ds-section" id="icons">
+        <h2>Icons &amp; logo</h2>
+        <p class="ds-intro">Phosphor icons, sized with <code>font-size</code> through the <code>.icon</code> class. Regular in body UI, bold for the menu trigger, fill for play and solid marks, duotone for product identity.</p>
+        <div class="ds-stage" style="margin-top:24px">
+          <span class="ds-label">regular · <code>ph</code></span>
+          <i class="icon ph ph-calendar-blank"></i><i class="icon ph ph-envelope-simple"></i><i class="icon ph ph-signature"></i><i class="icon ph ph-shield-check"></i><i class="icon ph ph-microphone"></i><i class="icon ph ph-file-text"></i><i class="icon ph ph-arrow-right"></i>
+          <span class="ds-label">bold · <code>ph-bold</code></span>
+          <i class="icon ph-bold ph-dots-nine"></i><i class="icon ph-bold ph-calendar-blank"></i><i class="icon ph-bold ph-envelope-simple"></i><i class="icon ph-bold ph-arrow-right"></i>
+          <span class="ds-label">fill · <code>ph-fill</code></span>
+          <i class="icon ph-fill ph-play"></i><i class="icon ph-fill ph-sparkle"></i><i class="icon ph-fill ph-shield-check"></i>
+          <span class="ds-label">product icons · <code>assets/product-icons.svg</code> — one smiling shape per product</span>
+          <svg class="icon picon" style="color:var(--product-enterprise)" aria-hidden="true"><use href="assets/product-icons.svg#enterprise"/></svg><svg class="icon picon" style="color:var(--product-advisor)" aria-hidden="true"><use href="assets/product-icons.svg#advisor"/></svg><svg class="icon picon" style="color:var(--product-all)" aria-hidden="true"><use href="assets/product-icons.svg#all"/></svg><svg class="icon picon" style="color:var(--product-mia)" aria-hidden="true"><use href="assets/product-icons.svg#mia"/></svg>
+        </div>
+        <div class="ds-stage">
+          <span class="ds-label">Sizes: 16 inline · 20 default · 24 nav · 28+ feature</span>
+          <i class="icon ph ph-shield-check" style="font-size:16px"></i><i class="icon ph ph-shield-check" style="font-size:20px"></i><i class="icon ph ph-shield-check" style="font-size:24px"></i><i class="icon ph ph-shield-check" style="font-size:32px"></i>
+        </div>
+        <div class="ds-cols" style="margin-top:16px">
+          <div class="ds-stage"><span class="ds-label">Logo on light — white asset, darkened with <code>filter: brightness(0)</code></span><img src="assets/logo.svg" alt="bluemind" width="160" style="height:auto;filter:brightness(0) opacity(.93)" /></div>
+          <div class="ds-stage ds-stage--dark"><span class="ds-label">Logo on dark — asset as supplied</span><img src="assets/logo.svg" alt="bluemind" width="160" style="height:auto" /></div>
+        </div>
+        <p class="ds-note">Usage: <code>&lt;i class="icon ph ph-NAME" aria-hidden="true"&gt;&lt;/i&gt;</code> — add a visible label or <code>aria-label</code> on the control, never on the icon.</p>
+      </section>
+
+      <!-- ===== Mia mascot ===== -->
+      <section class="ds-section" id="mascot">
+        <h2>Mia Mascot</h2>
+        <p class="ds-intro">Mia's face. The eyes follow the cursor and switch shape when it moves past either side: a notch toward the left, plain ovals in the middle, a notch toward the right. It blinks every few seconds and glances around on its own when the pointer is idle or on touch.</p>
+        <div class="ds-stage ds-stage--soft mm-stage" data-mascot style="margin-top:24px">
+          <span class="ds-label">Live · move the cursor around the page</span>
+          <svg class="mm" viewBox="0 0 622.145 662.796" data-look="center" role="img" aria-label="Mia mascot">
+            <path class="mm__body" d="M6.42055 349C40.6904 128.108 231.042 33.7442 411.826 5.25682C430.774 2.27115 445.719 20.1811 439.024 38.1562C409.667 116.984 375.883 154.244 418.5 132.5C479.417 101.42 547.37 110.62 589.302 133.865C606.849 143.592 597.037 167.443 586.638 184.6C570.275 211.597 575.772 254.577 580.421 270.5C720.421 619.7 463.796 691.079 258.156 654C95.9909 624.76 -30.3794 586.2 6.42055 349Z"/>
+            <g class="mm__eyes">
+              <g class="mm__set mm__set--left"><path d="M282.646 394C282.646 441.22 256.678 479.5 224.646 479.5C198.142 479.5 175.79 463.294 168.864 427.5C166.155 413.5 204.153 413 203.153 403C202.653 394 166.646 394.5 166.646 383C166.646 335.78 192.613 308.5 224.646 308.5C256.678 308.5 282.646 346.78 282.646 394Z"/><path d="M465.146 394C465.146 441.22 439.178 479.5 407.146 479.5C380.642 479.5 358.29 463.294 351.364 427.5C349.146 419.221 386.653 413 385.653 403C385.153 394 349.146 394.5 349.146 383C349.146 335.78 375.113 308.5 407.146 308.5C439.178 308.5 465.146 346.78 465.146 394Z"/></g>
+              <g class="mm__set mm__set--center"><ellipse cx="224.646" cy="394" rx="59.5" ry="85.5"/><ellipse cx="407.146" cy="394" rx="59.5" ry="85.5"/></g>
+              <g class="mm__set mm__set--right"><path d="M166.646 394C166.646 441.22 192.613 479.5 224.646 479.5C251.149 479.5 273.501 463.294 280.427 427.5C283.136 413.5 245.138 413 246.138 403C246.638 394 282.646 394.5 282.646 383C282.646 335.78 256.678 308.5 224.646 308.5C192.613 308.5 166.646 346.78 166.646 394Z"/><path d="M349.146 394C349.146 441.22 375.113 479.5 407.146 479.5C433.649 479.5 456.001 463.294 462.927 427.5C465.146 419.221 427.638 413 428.638 403C429.138 394 465.146 394.5 465.146 383C465.146 335.78 439.178 308.5 407.146 308.5C375.113 308.5 349.146 346.78 349.146 394Z"/></g>
+            </g>
+          </svg>
+        </div>
+        <div class="ds-cols mm-states" style="margin-top:16px">
+          <div class="ds-stage"><span class="ds-label">Looking left · <code>assets/mia/mascot-left.svg</code></span><img src="assets/mia/mascot-left.svg" alt="" width="622" height="663" /></div>
+          <div class="ds-stage"><span class="ds-label">Centre · <code>assets/mia/mascot-center.svg</code></span><img src="assets/mia/mascot-center.svg" alt="" width="622" height="663" /></div>
+          <div class="ds-stage"><span class="ds-label">Looking right · <code>assets/mia/mascot-right.svg</code></span><img src="assets/mia/mascot-right.svg" alt="" width="622" height="663" /></div>
+        </div>
+        <p class="ds-note">Usage: inline the SVG and add <code>data-mascot</code> to its wrapper, and <code>ds.js</code> wires the tracking. The body fills with <code>currentColor</code>, set to <code>--ink-black</code> by default. The eyes are always white. Under reduced motion the eyes still track the cursor, but there is no blinking or idle glancing.</p>
+      </section>
+
+      <!-- ===== Buttons ===== -->
+      <section class="ds-section" id="buttons">
+        <h2>Buttons &amp; links</h2>
+        <p class="ds-intro">One class, <code>.btn</code>, plus a size and a variant. Every button is a pill with the same colours — ink, ink tints, and the accent only as the primary's hover fill. On dark surfaces wrap them in <code>.on-dark</code> and the same variants flip to white. <code>sections.js</code> adds the flow parts (arrows + fill circle); just write the classes.</p>
+        <pre class="ds-code">&lt;a class="btn btn--primary btn--lg" href="#"&gt;Start free&lt;/a&gt;
+&lt;a class="btn btn--border btn--md" href="#"&gt;All resources&lt;/a&gt;
+&lt;div class="on-dark"&gt;&lt;a class="btn btn--secondary btn--lg"&gt;Book a demo&lt;/a&gt;&lt;/div&gt;</pre>
+
+        <h3 class="ds-sub">Sizes</h3>
+        <div class="ds-stage ds-stage--column"><div class="ds-btn-size"><a class="btn btn--primary btn--sm" href="#">Book a demo</a><span><b>sm</b> · 36px · 13px text · 16px side</span><code>.btn--sm</code></div><div class="ds-btn-size"><a class="btn btn--primary btn--md" href="#">Book a demo</a><span><b>md</b> · 40px · 14px text · 20px side</span><code>.btn--md</code></div><div class="ds-btn-size"><a class="btn btn--primary btn--lg" href="#">Book a demo</a><span><b>lg</b> · 48px · 15px text · 24px side</span><code>.btn--lg</code></div></div>
+        <table class="ds-table" style="margin-top:16px"><thead><tr><th>Size</th><th>Height</th><th>Text</th><th>Side padding</th><th>Use</th></tr></thead><tbody>
+          <tr><td><code>.btn--sm</code></td><td><span data-var="--btn-h-sm"></span></td><td>13px</td><td>16px (24px with flow)</td><td>Dense rows, tables, inline forms</td></tr>
+          <tr><td><code>.btn--md</code></td><td><span data-var="--btn-h-md"></span></td><td>14px</td><td>20px (28px with flow)</td><td>Nav, section heads, cards</td></tr>
+          <tr><td><code>.btn--lg</code></td><td><span data-var="--btn-h-lg"></span></td><td>15px</td><td>24px (32px with flow)</td><td>Hero, section CTAs, forms</td></tr>
+        </tbody></table>
+
+        <h3 class="ds-sub">Variants &amp; states · on light</h3>
+        <div class="ds-stage"><div class="ds-btn-grid"><div class="ds-btn-grid__head"></div><div class="ds-btn-grid__head">Default</div><div class="ds-btn-grid__head">Hover</div><div class="ds-btn-grid__head">Focus</div><div class="ds-btn-grid__head">Pressed</div><div class="ds-btn-grid__head">Disabled</div><div class="ds-btn-grid__name"><b>Primary</b><code>.btn--primary</code></div><div><a class="btn btn--primary btn--md" href="#">Button</a></div><div><a class="btn btn--primary btn--md is-hover" href="#">Button</a></div><div><a class="btn btn--primary btn--md is-hover is-focus" href="#">Button</a></div><div><a class="btn btn--primary btn--md is-hover is-active" href="#">Button</a></div><div><a class="btn btn--primary btn--md" href="#" aria-disabled="true" tabindex="-1">Button</a></div><div class="ds-btn-grid__name"><b>Secondary</b><code>.btn--secondary</code></div><div><a class="btn btn--secondary btn--md" href="#">Button</a></div><div><a class="btn btn--secondary btn--md is-hover" href="#">Button</a></div><div><a class="btn btn--secondary btn--md is-hover is-focus" href="#">Button</a></div><div><a class="btn btn--secondary btn--md is-hover is-active" href="#">Button</a></div><div><a class="btn btn--secondary btn--md" href="#" aria-disabled="true" tabindex="-1">Button</a></div><div class="ds-btn-grid__name"><b>Border</b><code>.btn--border</code></div><div><a class="btn btn--border btn--md" href="#">Button</a></div><div><a class="btn btn--border btn--md is-hover" href="#">Button</a></div><div><a class="btn btn--border btn--md is-hover is-focus" href="#">Button</a></div><div><a class="btn btn--border btn--md is-hover is-active" href="#">Button</a></div><div><a class="btn btn--border btn--md" href="#" aria-disabled="true" tabindex="-1">Button</a></div><div class="ds-btn-grid__name"><b>Ghost</b><code>.btn--ghost</code></div><div><a class="btn btn--ghost btn--md" href="#">Button</a></div><div><a class="btn btn--ghost btn--md is-hover" href="#">Button</a></div><div><a class="btn btn--ghost btn--md is-hover is-focus" href="#">Button</a></div><div><a class="btn btn--ghost btn--md is-hover is-active" href="#">Button</a></div><div><a class="btn btn--ghost btn--md" href="#" aria-disabled="true" tabindex="-1">Button</a></div></div></div>
+
+        <h3 class="ds-sub">Variants &amp; states · on dark</h3>
+        <div class="ds-stage ds-stage--night on-dark"><div class="ds-btn-grid"><div class="ds-btn-grid__head"></div><div class="ds-btn-grid__head">Default</div><div class="ds-btn-grid__head">Hover</div><div class="ds-btn-grid__head">Focus</div><div class="ds-btn-grid__head">Pressed</div><div class="ds-btn-grid__head">Disabled</div><div class="ds-btn-grid__name"><b>Primary</b><code>.btn--primary</code></div><div><a class="btn btn--primary btn--md" href="#">Button</a></div><div><a class="btn btn--primary btn--md is-hover" href="#">Button</a></div><div><a class="btn btn--primary btn--md is-hover is-focus" href="#">Button</a></div><div><a class="btn btn--primary btn--md is-hover is-active" href="#">Button</a></div><div><a class="btn btn--primary btn--md" href="#" aria-disabled="true" tabindex="-1">Button</a></div><div class="ds-btn-grid__name"><b>Secondary</b><code>.btn--secondary</code></div><div><a class="btn btn--secondary btn--md" href="#">Button</a></div><div><a class="btn btn--secondary btn--md is-hover" href="#">Button</a></div><div><a class="btn btn--secondary btn--md is-hover is-focus" href="#">Button</a></div><div><a class="btn btn--secondary btn--md is-hover is-active" href="#">Button</a></div><div><a class="btn btn--secondary btn--md" href="#" aria-disabled="true" tabindex="-1">Button</a></div><div class="ds-btn-grid__name"><b>Border</b><code>.btn--border</code></div><div><a class="btn btn--border btn--md" href="#">Button</a></div><div><a class="btn btn--border btn--md is-hover" href="#">Button</a></div><div><a class="btn btn--border btn--md is-hover is-focus" href="#">Button</a></div><div><a class="btn btn--border btn--md is-hover is-active" href="#">Button</a></div><div><a class="btn btn--border btn--md" href="#" aria-disabled="true" tabindex="-1">Button</a></div><div class="ds-btn-grid__name"><b>Ghost</b><code>.btn--ghost</code></div><div><a class="btn btn--ghost btn--md" href="#">Button</a></div><div><a class="btn btn--ghost btn--md is-hover" href="#">Button</a></div><div><a class="btn btn--ghost btn--md is-hover is-focus" href="#">Button</a></div><div><a class="btn btn--ghost btn--md is-hover is-active" href="#">Button</a></div><div><a class="btn btn--ghost btn--md" href="#" aria-disabled="true" tabindex="-1">Button</a></div></div></div>
+
+        <h3 class="ds-sub">Every variant at every size</h3>
+        <div class="ds-stage ds-stage--column"><div class="ds-btn-row"><span class="ds-label">Primary</span><a class="btn btn--primary btn--sm" href="#">Button sm</a><a class="btn btn--primary btn--md" href="#">Button md</a><a class="btn btn--primary btn--lg" href="#">Button lg</a></div><div class="ds-btn-row"><span class="ds-label">Secondary</span><a class="btn btn--secondary btn--sm" href="#">Button sm</a><a class="btn btn--secondary btn--md" href="#">Button md</a><a class="btn btn--secondary btn--lg" href="#">Button lg</a></div><div class="ds-btn-row"><span class="ds-label">Border</span><a class="btn btn--border btn--sm" href="#">Button sm</a><a class="btn btn--border btn--md" href="#">Button md</a><a class="btn btn--border btn--lg" href="#">Button lg</a></div><div class="ds-btn-row"><span class="ds-label">Ghost</span><a class="btn btn--ghost btn--sm" href="#">Button sm</a><a class="btn btn--ghost btn--md" href="#">Button md</a><a class="btn btn--ghost btn--lg" href="#">Button lg</a></div></div>
+
+        <table class="ds-table" style="margin-top:24px"><thead><tr><th>Variant</th><th>Use</th><th>Fill</th><th>Hover fill</th></tr></thead><tbody>
+          <tr><td><code>.btn--primary</code></td><td>Main action. One per view.</td><td><code>--ink</code></td><td><code>--accent</code></td></tr><tr><td><code>.btn--secondary</code></td><td>Second action next to a primary.</td><td><code>--btn-tint</code></td><td><code>--ink</code></td></tr><tr><td><code>.btn--border</code></td><td>Quiet action in section heads and cards.</td><td><code>transparent + --line-strong</code></td><td><code>--ink</code></td></tr><tr><td><code>.btn--ghost</code></td><td>Lowest emphasis: toolbars, inline actions.</td><td><code>transparent</code></td><td><code>--btn-tint</code></td></tr>
+        </tbody></table>
+        <table class="ds-table" style="margin-top:16px"><thead><tr><th>State</th><th>What changes</th></tr></thead><tbody>
+          <tr><td>Hover</td><td>Fill circle grows from the centre (450ms), label slides right, left arrow springs in, right arrow springs out</td></tr>
+          <tr><td>Focus</td><td>Same as hover, plus a 2px <code>--accent</code> ring offset 2px (keyboard only, <code>:focus-visible</code>)</td></tr>
+          <tr><td>Pressed</td><td>Scales to 97%</td></tr>
+          <tr><td>Disabled</td><td>40% opacity, no hover, not clickable — <code>disabled</code> or <code>aria-disabled="true"</code></td></tr>
+        </tbody></table>
+
+        <h3 class="ds-sub">Links</h3>
+        <div class="ds-stage">
+          <a class="link" href="#" style="margin:0">Learn more<i class="icon ph ph-arrow-right"></i></a>
+          <a class="int__link" href="#" style="margin:0">View all integrations<i class="icon ph ph-arrow-right"></i></a>
+          <a class="suite-card__link" href="#" style="margin:0">Learn more about Harmony<i class="icon ph ph-arrow-right"></i></a>
+        </div>
+      </section>
+
+      <!-- ===== Headings ===== -->
+      <section class="ds-section" id="text">
+        <h2>Headings &amp; labels</h2>
+        <p class="ds-intro">A section head is an eyebrow, a two-tone heading and a lead. The muted half of the heading carries the second thought.</p>
+        <div class="ds-stage ds-stage--column" style="margin-top:24px">
+          <div class="head" style="margin:0">
+            <p class="eyebrow">How it works</p>
+            <h2 class="h2">Up and running <span>in an afternoon.</span></h2>
+            <p class="lead">No migration project. Connect what you use, then just keep meeting clients.</p>
+          </div>
+        </div>
+        <div class="ds-stage ds-stage--dark ds-stage--column section--dark">
+          <div class="head" style="margin:0">
+            <p class="eyebrow">Security &amp; regulation</p>
+            <h2 class="h2">Built for regulated conversations.</h2>
+            <p class="lead">The answers your compliance team needs — before the demo.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Chips ===== -->
+      <section class="ds-section" id="chips">
+        <h2>Chips &amp; tags</h2>
+        <div class="ds-stage" style="margin-top:24px">
+          <span class="chip">4 key insights</span>
+          <span class="chip chip--accent">Filed to Maria Chen</span>
+          <span class="chip chip--ok"><i class="icon ph ph-check"></i>Complete</span>
+          <p class="tags"><span>Calendar</span><span>Client file</span><span>E-sign</span></p>
+        </div>
+        <div class="ds-stage ds-stage--dark">
+          <p class="tags tags--dark"><span>Advisor approves</span><span>Client consent</span><span>Full audit log</span></p>
+        </div>
+      </section>
+
+      <!-- ===== Cards ===== -->
+      <section class="ds-section" id="cards">
+        <h2>Cards</h2>
+        <p class="ds-intro">Cards are white with a hairline, or warm grey when they need to sit apart from the page. On dark they are outlines only.</p>
+        <div class="ds-cols" style="margin-top:24px">
+          <div class="icard"><span class="icard__icon"><i class="icon ph ph-calendar-blank"></i></span><h3>Calendar &amp; video</h3><p>Meetings are picked up automatically.</p></div>
+          <div class="quote"><p>“Easier to manage clients and stay compliant.”</p><div class="quote__who"><span class="avatar">SH</span><div><b>Dr. Shehnaz Hussain</b><span>CLU · CHS · EPC · PhD</span></div></div></div>
+          <div class="step"><div class="step__media step__media--connect"><span class="step__num">1</span><div class="glass step__connect"><span class="glass__label">Connected</span><span><i class="icon ph ph-calendar-blank"></i>Calendar<i class="icon ph-fill ph-check-circle"></i></span><span><i class="icon ph ph-envelope-simple"></i>Email<i class="icon ph-fill ph-check-circle"></i></span></div></div><h3>Connect your tools</h3><p>Calendar, video calls and email — a few clicks.</p></div>
+        </div>
+        <div class="ds-stage ds-stage--dark" style="margin-top:16px">
+          <span class="ds-label">Bento (Security) — outlined text card and line-art badge</span>
+          <div class="ds-cols" style="grid-template-columns:2fr 1fr">
+            <div class="bento__card" style="grid-column:auto"><h3>Built for compliance reviews</h3><p>Encrypted in transit and at rest, with a time-stamped audit trail.</p><span class="bento__link">Security overview<i class="icon ph ph-caret-right"></i></span></div>
+            <div class="bento__badge"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="54"/></svg><span>Client<br>consent</span></div>
+          </div>
+        </div>
+        <div class="ds-cols" style="margin-top:16px">
+          <article class="suite-card suite-card--enterprise" style="min-height:0;grid-template-columns:1fr"><div class="suite-card__col"><div class="suite-card__copy"><h3 class="suite-card__title">See every advisor. Catch risk early.</h3><p class="suite-card__text">An invisible oversight layer on top of your existing back office.</p><ul class="suite-card__list"><li>Real-time oversight</li><li>AI risk detection</li></ul></div></div></article>
+          <article class="next-card" style="min-height:0"><div class="next-card__copy" style="padding-bottom:48px"><p class="next-card__eyebrow">Integrations</p><h3 class="next-card__title">Connects to the tools you already use</h3><p class="next-card__text">Plug in your calendar, calls, email and back office.</p><a class="btn btn--primary btn--md next-card__btn" href="#">Explore integrations</a></div></article>
+        </div>
+      </section>
+
+      <!-- ===== Navigation ===== -->
+      <section class="ds-section" id="nav">
+        <h2>Navigation</h2>
+        <p class="ds-intro">The suite tab bar and the Company menu. On the site the tab bar sticks and the menu grows out of the “Company” button; here they are pinned open.</p>
+        <div class="ds-stage ds-stage--column suite" style="margin-top:24px">
+          <span class="ds-label">Suite tabs — <code>.suite__tab.is-active</code> marks the card in view</span>
+          <nav class="suite__tabs" aria-label="Example tabs">
+            <a class="suite__tab suite__tab--enterprise is-active" href="#nav"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#enterprise"/></svg><span>Enterprise</span></a>
+            <a class="suite__tab suite__tab--advisor" href="#nav"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#advisor"/></svg><span>Advisor</span></a>
+            <a class="suite__tab suite__tab--all" href="#nav"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#all"/></svg><span>All in one</span></a>
+            <a class="suite__tab suite__tab--mia" href="#nav"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#mia"/></svg><span>MIA</span></a>
+          </nav>
+        </div>
+        <div class="ds-stage ds-stage--soft">
+          <span class="ds-label">Company menu — opens from “Company ⌄” in the nav; duotone icon on a tinted tile, name and one-line description. The old Products menu is parked in <code>archive/product-menu.html</code></span>
+          <div class="drawer is-open ds-static">
+            <span class="drawer__shape" aria-hidden="true"></span>
+            <div class="drawer__panel">
+              <p class="drawer__label drawer__item">Who we are and how we work</p>
+              <ul class="drawer__links">
+                <li class="drawer__item"><a href="#nav"><span class="drawer__icon"><i class="icon ph-duotone ph-info" aria-hidden="true"></i></span><span class="drawer__text"><b>About Us</b><small>Our mission and story</small></span></a></li>
+                <li class="drawer__item"><a href="#nav"><span class="drawer__icon"><i class="icon ph-duotone ph-users-three" aria-hidden="true"></i></span><span class="drawer__text"><b>Team</b><small>The people behind BlueMind</small></span></a></li>
+                <li class="drawer__item"><a href="#nav"><span class="drawer__icon"><i class="icon ph-duotone ph-handshake" aria-hidden="true"></i></span><span class="drawer__text"><b>Partners</b><small>Integrations, distributors and associations</small></span></a></li>
+                <li class="drawer__item"><a href="#nav"><span class="drawer__icon"><i class="icon ph-duotone ph-palette" aria-hidden="true"></i></span><span class="drawer__text"><b>Brand</b><small>Logos, colours and press kit</small></span></a></li>
+              </ul>
+              <a class="drawer__feature drawer__item" href="#nav"><small>We’re founded by a CFP</small><b>Built by advisors, for advisors.</b><span>Read our story<i class="icon ph ph-arrow-right" aria-hidden="true"></i></span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Accordion ===== -->
+      <section class="ds-section" id="accordion">
+        <h2>Accordion</h2>
+        <p class="ds-intro">Hairline rows; answers type themselves out on open. Open one.</p>
+        <div class="acc acc--lines" data-acc="faq" style="margin-top:24px">
+          <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="ds-p0" id="ds-b0">Are my clients told their meeting is recorded?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="ds-p0" role="region" aria-labelledby="ds-b0"><div><p data-type>Yes. MIA asks for client consent before recording, and the consent is saved to the audit trail.</p></div></div></div>
+          <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="ds-p1" id="ds-b1">Do I have to stop using my current tools?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="ds-p1" role="region" aria-labelledby="ds-b1"><div><p data-type>No. BlueMind plugs into your calendar, video calls, email and back office.</p></div></div></div>
+        </div>
+      </section>
+
+      <!-- ===== Forms ===== -->
+      <section class="ds-section" id="forms">
+        <h2>Forms</h2>
+        <p class="ds-intro">Visible labels, 48px fields, errors under the field after blur. Try an invalid email.</p>
+        <div class="ds-stage" style="margin-top:24px">
+          <form class="news" novalidate style="margin:0">
+            <label for="ds-email">Work email</label>
+            <div class="news__row"><input id="ds-email" type="email" autocomplete="email" placeholder="you@firm.com" aria-describedby="ds-msg" required /><button class="btn btn--primary btn--lg" type="submit">Subscribe</button></div>
+            <p class="news__msg" id="ds-msg" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <!-- ===== Proof ===== -->
+      <section class="ds-section" id="proof">
+        <h2>Proof &amp; facts</h2>
+        <div class="ds-stage ds-stage--column" style="margin-top:24px">
+          <span class="ds-label">Trust row (under the hero)</span>
+          <div class="trust ds-static">
+            <div class="trust__line"><span class="trust__avatars" aria-hidden="true"><img src="assets/avatars/women-44.jpg" alt="" width="52" height="52" /><img src="assets/avatars/men-32.jpg" alt="" width="52" height="52" /><img src="assets/avatars/women-68.jpg" alt="" width="52" height="52" /></span><p>Built for Canadian compliance and the advisors who live it</p></div>
+            <ul class="trust__logos"><li class="trust__logo"><img src="assets/logos/google.svg" alt="" width="28" height="28" />Google</li><li class="trust__logo"><img src="assets/logos/stripe.svg" alt="" width="28" height="28" />Stripe</li><li class="trust__logo"><img src="assets/logos/notion.svg" alt="" width="28" height="28" />Notion</li></ul>
+          </div>
+        </div>
+        <div class="ds-stage ds-stage--night">
+          <span class="ds-label">Hero facts</span>
+          <ul class="hero__facts ds-static"><li><b>Less paperwork</b><span>Up to 80% less manual work</span></li><li><b>Compliance-ready</b><span>KYC, suitability &amp; audit trail</span></li><li><b>Canada &amp; US</b><span>FSRA · SEC · FINRA</span></li></ul>
+        </div>
+      </section>
+
+      <!-- ===== Animated blocks ===== -->
+      <section class="ds-section" id="motion-comps">
+        <h2>Animated blocks</h2>
+        <p class="ds-intro">Live — the logo rows drift at 40s a loop in alternating directions; the lesson carousel advances every 5s.</p>
+        <div class="ds-stage ds-stage--soft" style="margin-top:24px;padding:0;overflow:hidden">
+          <div class="int-card__rows ds-static" style="--card-bg:var(--surface-card)">
+            <div class="int-card__row int-card__row--right" style="--y:0px; --offset:0px"><div class="int-card__track"><span class="int-card__tile"><img src="assets/logos/google.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/zoom.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/googlecalendar.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/gmail.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/googlemeet.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/slack.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/hubspot.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/salesforce.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/calendly.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/google.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/zoom.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/googlecalendar.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/gmail.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/googlemeet.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/slack.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/hubspot.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/salesforce.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/calendly.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/google.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/zoom.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/googlecalendar.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/gmail.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/googlemeet.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/slack.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/hubspot.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/salesforce.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/calendly.svg" alt="" width="40" height="40" /></span></div></div>
+            <div class="int-card__row int-card__row--left" style="--y:105px; --offset:-180px"><div class="int-card__track"><span class="int-card__tile"><img src="assets/logos/googledrive.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/dropbox.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/box.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/adobeacrobatreader.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/zoho.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/quickbooks.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/zapier.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/loom.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/microsoft.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/googledrive.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/dropbox.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/box.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/adobeacrobatreader.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/zoho.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/quickbooks.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/zapier.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/loom.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/microsoft.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/googledrive.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/dropbox.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/box.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/adobeacrobatreader.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/zoho.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/quickbooks.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/zapier.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/loom.svg" alt="" width="40" height="40" /></span><span class="int-card__tile"><img src="assets/logos/microsoft.svg" alt="" width="40" height="40" /></span></div></div>
+            <div class="int-card__fade" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="ds-stage ds-stage--soft">
+          <div class="lessons ds-static" data-lessons><div class="lessons__panel"><article class="lesson"><div class="lesson__top"><span class="lesson__brand"><img src="assets/logo.svg" alt="" width="1026" height="290" /><em>Onboarding</em></span><span class="lesson__tag">Getting started</span></div><h3 class="lesson__title">Welcome<br>to BlueMind</h3><div class="lesson__speaker"><span class="lesson__avatar"><i class="icon ph-fill ph-sparkle"></i></span><span><b>BlueMind team</b><small>Customer success</small></span></div><span class="lesson__play" aria-hidden="true"><i class="icon ph-fill ph-play"></i></span></article><article class="lesson"><div class="lesson__top"><span class="lesson__brand"><img src="assets/logo.svg" alt="" width="1026" height="290" /><em>Onboarding</em></span><span class="lesson__tag">Setup</span></div><h3 class="lesson__title">Connect your<br>calendar &amp; email</h3><div class="lesson__speaker"><span class="lesson__avatar"><i class="icon ph-fill ph-sparkle"></i></span><span><b>BlueMind team</b><small>Customer success</small></span></div><span class="lesson__play" aria-hidden="true"><i class="icon ph-fill ph-play"></i></span></article><article class="lesson"><div class="lesson__top"><span class="lesson__brand"><img src="assets/logo.svg" alt="" width="1026" height="290" /><em>Onboarding</em></span><span class="lesson__tag">AI workflow</span></div><h3 class="lesson__title">Your first meeting<br>with MIA</h3><div class="lesson__speaker"><span class="lesson__avatar"><i class="icon ph-fill ph-sparkle"></i></span><span><b>BlueMind team</b><small>Customer success</small></span></div><span class="lesson__play" aria-hidden="true"><i class="icon ph-fill ph-play"></i></span></article><article class="lesson"><div class="lesson__top"><span class="lesson__brand"><img src="assets/logo.svg" alt="" width="1026" height="290" /><em>Onboarding</em></span><span class="lesson__tag">Compliance</span></div><h3 class="lesson__title">Exporting an<br>audit file</h3><div class="lesson__speaker"><span class="lesson__avatar"><i class="icon ph-fill ph-sparkle"></i></span><span><b>BlueMind team</b><small>Customer success</small></span></div><span class="lesson__play" aria-hidden="true"><i class="icon ph-fill ph-play"></i></span></article></div></div>
+        </div>
+      </section>
+
+      <!-- ===== Mocks ===== -->
+      <section class="ds-section" id="mocks">
+        <h2>Product mocks</h2>
+        <p class="ds-intro">Illustrative product screens built in HTML, on a warm or cool stage. Names and numbers in them are made up.</p>
+        <div class="ds-cols" style="margin-top:24px">
+          <div class="stage stage--warm ds-static"><div class="mock"><div class="mock__bar"><span></span><span></span><span></span><b>Meeting · Maria Chen</b></div><div class="mock__body"><p class="mock__label">Summary</p><ul class="mock__list"><li><i class="icon ph ph-check"></i>New home — wants mortgage protection</li><li><i class="icon ph ph-check"></i>Two dependents, budget ≈ $150 / month</li></ul><div class="mock__foot"><span class="chip chip--accent">Filed to Maria Chen</span></div></div></div></div>
+          <div class="stage stage--cool ds-static"><div class="mock mock--dark"><div class="mock__bar"><span></span><span></span><span></span><b>Live activity · 128 advisors</b></div><div class="mock__body"><ul class="feed"><li><i class="dot dot--ok"></i><b>J. Patel</b> approved summary<em>now</em></li><li><i class="dot dot--warn"></i><b>R. Khan</b> note missing<em>6m</em></li></ul></div></div></div>
+        </div>
+      </section>
+
+      <!-- ===== Variables ===== -->
+      <section class="ds-section" id="variables">
+        <h2>All variables</h2>
+        <p class="ds-intro">Every custom property declared on <code>:root</code> in the site's stylesheets — <b data-var-count></b> in total — with the value the browser resolves right now.</p>
+        <div class="ds-table-wrap" style="margin-top:24px">
+          <table class="ds-table" data-all-vars><thead><tr><th>Variable</th><th>Value</th><th>File</th></tr></thead><tbody></tbody></table>
+        </div>
+        <code class="ds-code">/* Use tokens, never raw values */
+.my-card {
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: var(--radius-lg);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-size: var(--text-md);
+  transition: transform 0.3s var(--ease);
+}</code>
+      </section>
+    </div>
+  </div>
+
+  <!-- 17 · Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <img class="footer__logo" src="assets/logo.svg" alt="bluemind" width="1026" height="290" />
+          <p class="footer__tag">One mind for your whole business.</p>
+          <a class="btn btn--primary btn--lg" href="https://bluemind.app/contact-us">Contact us</a>
+        </div>
+        <nav class="footer__cols" aria-label="Footer">
+          <div><h3>Products</h3><ul><li><a href="enterprise.html">Harmony</a></li><li><a href="advisor.html">Advisor</a></li><li><a href="#">Pricing</a></li><li><a href="index.html#integrations">Integrations</a></li></ul></div>
+          <div><h3>Resources</h3><ul><li><a href="#">Blog</a></li><li><a href="#">Help Centre</a></li><li><a href="#">Documentation</a></li><li><a href="#">Press Release</a></li><li><a href="#">Webinar</a></li><li><a href="design-system.html" aria-current="page">Design system</a></li></ul></div>
+          <div><h3>Company</h3><ul><li><a href="about.html">About Us</a></li><li><a href="team.html">Team</a></li><li><a href="partners.html">Partners</a></li><li><a href="brand.html">Brand</a></li></ul></div>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 BlueMind <span aria-hidden="true">·</span> <a href="#">Terms</a> <span aria-hidden="true">·</span> <a href="#">Privacy</a> <span aria-hidden="true">·</span> <a href="#">Cookies</a></p>
+        <ul class="footer__social">
+          <li><a href="https://www.linkedin.com/company/bluemindapp/" target="_blank" rel="noopener" aria-label="BlueMind on LinkedIn"><i class="icon ph ph-linkedin-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://twitter.com/BlueMind_app" target="_blank" rel="noopener" aria-label="BlueMind on X"><i class="icon ph ph-x-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.instagram.com/bluemind.app/" target="_blank" rel="noopener" aria-label="BlueMind on Instagram"><i class="icon ph ph-instagram-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.facebook.com/BlueMindApp/" target="_blank" rel="noopener" aria-label="BlueMind on Facebook"><i class="icon ph ph-facebook-logo" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+      <img class="footer__mark" src="assets/logo.svg" alt="" width="1026" height="290" aria-hidden="true" />
+    </div>
+  </footer>
+
+  <script src="sections.js"></script>
+  <script src="ds.js"></script>
+</body>
+</html>

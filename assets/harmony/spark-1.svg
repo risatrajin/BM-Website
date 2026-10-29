@@ -1,0 +1,15 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="64" height="24" viewBox="0 0 64 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Chart" clip-path="url(#clip0_0_13)">
+<path id="Area" d="M0 22L7.1 18.4L14.2 20.2L21.3 14.8L28.4 16.6L35.6 11.2L42.7 13L49.8 9.4L56.9 7.6L64 4V24H0V22Z" fill="url(#paint0_linear_0_13)"/>
+<path id="Line" d="M0 22L7.1 18.4L14.2 20.2L21.3 14.8L28.4 16.6L35.6 11.2L42.7 13L49.8 9.4L56.9 7.6L64 4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#0080FF"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_13" x1="32" y1="4" x2="32" y2="24" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0080FF" stop-opacity="0.16"/>
+<stop offset="1" stop-color="#0080FF" stop-opacity="0"/>
+</linearGradient>
+<clipPath id="clip0_0_13">
+<rect width="64" height="24" fill="white"/>
+</clipPath>
+</defs>
+</svg>

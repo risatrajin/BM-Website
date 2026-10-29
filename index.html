@@ -1,0 +1,834 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BlueMind</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="sections.css" />
+  <!-- Phosphor Icons (regular + fill + bold + duotone). Usage: <i class="ph ph-calendar"></i> or <i class="ph-fill ph-check-circle"></i> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/duotone/style.css" />
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <header class="nav" id="nav">
+    <nav class="nav__bar" aria-label="Main">
+      <a class="nav__logo" href="/">
+        <img src="assets/logo.svg" width="1026" height="290" alt="bluemind" />
+      </a>
+      <ul class="nav__links">
+        <li><a href="#hero" aria-current="page">Home</a></li>
+        <li><a href="enterprise.html">Enterprise</a></li>
+        <li><a href="advisor.html">Advisor</a></li>
+        <li><button class="nav__menu-btn nav__menu-btn--caret" type="button" aria-expanded="false" aria-controls="company-drawer" data-drawer-open>Company<i class="icon ph-bold ph-caret-down" aria-hidden="true"></i></button></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="nav__menu-icon" type="button" aria-label="Menu" aria-expanded="false" aria-controls="company-drawer" data-drawer-open><i class="icon ph-bold ph-dots-nine" aria-hidden="true"></i></button>
+        <a class="nav__mia" href="mia.html"><span class="mia-text">Mia</span></a>
+        <a class="nav__login" href="#">Login</a>
+        <a class="btn btn--primary btn--md" href="#">Book a demo</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Company menu: the "Company" button sinks, then the same shape spreads into this panel
+       (motion after Bencho's "Create menu", MIT — bencho.dev/licence). sections.js drives it.
+       On phones the nav links are hidden, so the menu also carries them (.drawer__item--phone).
+       The old Products menu is parked in archive/product-menu.html. -->
+  <div class="drawer-overlay" data-drawer-close aria-hidden="true"></div>
+  <div class="drawer" id="company-drawer" role="dialog" aria-labelledby="drawer-title" tabindex="-1" hidden>
+    <span class="drawer__shape" aria-hidden="true"></span>
+    <div class="drawer__panel">
+      <ul class="drawer__links drawer__links--phone">
+        <li class="drawer__item drawer__item--phone"><a href="#hero"><span class="drawer__icon"><i class="icon ph-duotone ph-house" aria-hidden="true"></i></span><span class="drawer__text"><b>Home</b><small>Back to the top</small></span></a></li>
+        <li class="drawer__item drawer__item--phone"><a href="enterprise.html" class="suite-card--enterprise"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#enterprise"/></svg></span><span class="drawer__text"><b>Enterprise</b><small>Oversight for MGAs, BGAs, IMOs &amp; carriers</small></span></a></li>
+        <li class="drawer__item drawer__item--phone"><a href="advisor.html" class="suite-card--advisor"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#advisor"/></svg></span><span class="drawer__text"><b>Advisor</b><small>Your compliance co-pilot, meeting to audit file</small></span></a></li>
+      <li class="drawer__item drawer__item--phone"><a href="mia.html"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#mia"/></svg></span><span class="drawer__text"><b class="mia-text">Mia</b><small>Your AI assistant for compliance work</small></span></a></li>
+      </ul>
+      <p class="drawer__label drawer__item" id="drawer-title">Who we are and how we work</p>
+      <ul class="drawer__links">
+        <li class="drawer__item"><a href="about.html"><span class="drawer__icon"><i class="icon ph-duotone ph-info" aria-hidden="true"></i></span><span class="drawer__text"><b>About Us</b><small>Our mission and story</small></span></a></li>
+        <li class="drawer__item"><a href="team.html"><span class="drawer__icon"><i class="icon ph-duotone ph-users-three" aria-hidden="true"></i></span><span class="drawer__text"><b>Team</b><small>The people behind BlueMind</small></span></a></li>
+        <li class="drawer__item"><a href="partners.html"><span class="drawer__icon"><i class="icon ph-duotone ph-handshake" aria-hidden="true"></i></span><span class="drawer__text"><b>Partners</b><small>Integrations, distributors and associations</small></span></a></li>
+        <li class="drawer__item"><a href="brand.html"><span class="drawer__icon"><i class="icon ph-duotone ph-palette" aria-hidden="true"></i></span><span class="drawer__text"><b>Brand</b><small>Logos, colours and press kit</small></span></a></li>
+      </ul>
+      <a class="drawer__feature drawer__item" href="about.html#story"><small>We’re founded by a CFP</small><b>Built by advisors, for advisors.</b><span>Read our story<i class="icon ph ph-arrow-right" aria-hidden="true"></i></span></a>
+    </div>
+  </div>
+
+  <!-- Hero: looping video, scroll zooms into the glow above the standing man's head, then fades to #F5F3F1 -->
+  <section class="hero" id="hero">
+    <div class="hero__stage">
+      <!-- White-padded, rounded frame around the hero media -->
+      <div class="hero__frame">
+      <video
+        class="hero__video"
+        id="heroVideo"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        poster="assets/hero-poster.jpg"
+        aria-hidden="true"
+      >
+        <source src="assets/hero.webm" type="video/webm" />
+        <source src="assets/hero.mp4" type="video/mp4" />
+      </video>
+      <div class="hero__shade" aria-hidden="true"></div>
+      <div class="hero__fade" id="heroFade" aria-hidden="true"></div>
+
+      <div class="hero__content" id="heroContent">
+        <div class="hero__inner">
+          <h1 class="hero__title">One mind for your<br />whole business.</h1>
+          <p class="hero__sub">BlueMind brings every client, task and record into one place, and does the busywork for you.</p>
+          <div class="hero__ctas on-dark">
+            <a class="btn btn--primary btn--lg" href="#">Start free as an advisor</a>
+            <a class="btn btn--secondary btn--lg" href="#">Book a demo for your firm</a>
+          </div>
+          <a class="hero__clip" href="#" aria-label="Watch the product demo">
+            <img src="assets/demo-thumb.jpg" alt="" width="600" height="420" decoding="async" />
+            <span class="hero__clip-play" aria-hidden="true"><i class="icon ph-fill ph-play"></i></span>
+            <span class="hero__clip-label">Watch demo</span>
+          </a>
+        </div>
+        <!-- Key facts, all taken from claims elsewhere on the page -->
+        <ul class="hero__facts">
+          <li><b>Less paperwork</b><span>Up to 80% less manual work</span></li>
+          <li><b>Compliance-ready</b><span>KYC, suitability &amp; audit trail</span></li>
+          <li><b>Canada &amp; US</b><span>FSRA · SEC · FINRA</span></li>
+        </ul>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+    <!-- Suite · Enterprise, Advisor, All in one, MIA (layout modelled on a tabbed product-suite pattern) -->
+    <section class="section suite" id="suite" aria-labelledby="suite-title">
+        <!-- Trust row in the white hand-off space; fades in with --blend (main.js).
+             Avatars are placeholder stock portraits (randomuser.me); logos from Simple Icons — confirm before launch. -->
+        <div class="trust" aria-label="Who BlueMind is built for">
+          <div class="trust__line">
+            <span class="trust__avatars" aria-hidden="true"><img src="assets/avatars/women-44.jpg" alt="" width="52" height="52" /><img src="assets/avatars/men-32.jpg" alt="" width="52" height="52" /><img src="assets/avatars/women-68.jpg" alt="" width="52" height="52" /><img src="assets/avatars/men-46.jpg" alt="" width="52" height="52" /><img src="assets/avatars/women-65.jpg" alt="" width="52" height="52" /></span>
+            <p>Built for Canadian compliance and the advisors who live it</p>
+          </div>
+          <ul class="trust__logos">
+            <li class="trust__logo"><img src="assets/logos/google.svg" alt="" width="28" height="28" />Google</li>
+            <li class="trust__logo"><img src="assets/logos/intercom.svg" alt="" width="28" height="28" />Intercom</li>
+            <li class="trust__logo"><img src="assets/logos/stripe.svg" alt="" width="28" height="28" />Stripe</li>
+            <li class="trust__logo"><img src="assets/logos/notion.svg" alt="" width="28" height="28" />Notion</li>
+            <li class="trust__logo"><img src="assets/logos/hubspot.svg" alt="" width="28" height="28" />HubSpot</li>
+          </ul>
+        </div>
+      <div class="suite__wrap">
+        <!-- Title, then a sticky tab bar that follows the card in view (sections.js) -->
+        <header class="suite__header">
+          <div class="suite__head">
+            <h2 class="suite__title" id="suite-title">Built for advisors. <span>Trusted by compliance.</span></h2>
+            <p class="lead">Advisor runs the client side, Enterprise watches the whole network, and MIA does the paperwork in between. Start with one — or run them all on one record.</p>
+          </div>
+          <nav class="suite__tabs" aria-label="BlueMind products">
+            <a class="suite__tab suite__tab--enterprise is-active" href="#suite-enterprise" aria-current="true"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#enterprise"/></svg><span>Enterprise</span></a>
+            <a class="suite__tab suite__tab--advisor" href="#suite-advisor"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#advisor"/></svg><span>Advisor</span></a>
+            <a class="suite__tab suite__tab--all" href="#suite-all"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#all"/></svg><span>All in one</span></a>
+            <a class="suite__tab suite__tab--mia" href="#suite-mia"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#mia"/></svg><span>MIA</span></a>
+          </nav>
+        </header>
+
+        <div class="suite__cards">
+          <article class="suite-card suite-card--enterprise" id="suite-enterprise" aria-labelledby="suite-enterprise-title">
+            <div class="suite-card__col">
+              <div class="suite-card__copy">
+                <h3 class="suite-card__title" id="suite-enterprise-title">See every advisor. Catch risk early.</h3>
+                <p class="suite-card__text">An invisible oversight layer on top of your existing back office — for MGAs, BGAs, IMOs and carriers.</p>
+                <a class="suite-card__link" href="enterprise.html">Learn more about Harmony<i class="icon ph ph-arrow-right" aria-hidden="true"></i></a>
+                <ul class="suite-card__list">
+                  <li>Real-time oversight of every advisor action</li>
+                  <li>AI risk detection before issues become findings</li>
+                  <li>One compliance score for your whole network</li>
+                  <li>Audit-ready reports in a click</li>
+                </ul>
+              </div>
+            </div>
+            <div class="suite-card__media stage stage--cool">
+              <div class="mock mock--dark">
+                <div class="mock__bar"><span></span><span></span><span></span><b>Live activity · 128 advisors</b></div>
+                <div class="mock__body">
+                  <ul class="feed">
+                    <li><i class="dot dot--ok"></i><b>J. Patel</b> approved meeting summary<em>now</em></li>
+                    <li><i class="dot dot--ok"></i><b>S. Moreau</b> sent KYC for e-sign<em>2m</em></li>
+                    <li><i class="dot dot--warn"></i><b>R. Khan</b> suitability note missing<em>6m</em></li>
+                  </ul>
+                  <div class="flag"><i class="icon ph ph-warning" aria-hidden="true"></i><div><b>Replacement without rationale</b><span>R. Khan · client file #2041</span></div><em>High</em></div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="suite-card suite-card--advisor" id="suite-advisor" aria-labelledby="suite-advisor-title">
+            <div class="suite-card__col">
+              <div class="suite-card__copy">
+                <h3 class="suite-card__title" id="suite-advisor-title">Meet clients. MIA does the paperwork.</h3>
+                <p class="suite-card__text">Your compliance co-pilot — from the first meeting to the audit file.</p>
+                <a class="suite-card__link" href="advisor.html">Learn more about Advisor<i class="icon ph ph-arrow-right" aria-hidden="true"></i></a>
+                <ul class="suite-card__list">
+                  <li>AI meeting notes, filed to the right client</li>
+                  <li>1-click KYC &amp; FNA with e-sign</li>
+                  <li>Suitability engine with saved reasoning</li>
+                  <li>A time-stamped E&amp;O trail</li>
+                </ul>
+              </div>
+            </div>
+            <div class="suite-card__media stage stage--warm">
+              <div class="mock">
+                <div class="mock__bar"><span></span><span></span><span></span><b>Meeting · Maria Chen</b></div>
+                <div class="mock__body">
+                  <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                  <p class="mock__label">Summary</p>
+                  <ul class="mock__list">
+                    <li><i class="icon ph ph-check" aria-hidden="true"></i>New home — wants mortgage protection</li>
+                    <li><i class="icon ph ph-check" aria-hidden="true"></i>Two dependents, budget ≈ $150 / month</li>
+                    <li><i class="icon ph ph-check" aria-hidden="true"></i>Follow up: term life options</li>
+                  </ul>
+                  <div class="mock__foot"><span class="chip chip--accent">Filed to Maria Chen</span><span class="chip">4 key insights</span></div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="suite-card suite-card--all" id="suite-all" aria-labelledby="suite-all-title">
+            <div class="suite-card__col">
+              <div class="suite-card__copy">
+                <h3 class="suite-card__title" id="suite-all-title">Advisors and compliance on one record.</h3>
+                <p class="suite-card__text">Use Advisor and Harmony together. What an advisor approves, your compliance team sees — no exports, no chasing.</p>
+                <a class="suite-card__link" href="#">See plans<i class="icon ph ph-arrow-right" aria-hidden="true"></i></a>
+                <ul class="suite-card__list">
+                  <li>One client record for every team</li>
+                  <li>Advisor sign-offs flow straight into oversight</li>
+                  <li>One audit trail across your network</li>
+                  <li>Built for FSRA, SEC and FINRA</li>
+                </ul>
+              </div>
+            </div>
+            <div class="suite-card__media stage stage--mix">
+              <div class="record record--card">
+                <div class="record__head"><span class="avatar">MC</span><div><b>Maria Chen</b><span>Shared record · Advisor + Harmony</span></div><span class="chip chip--ok"><i class="icon ph ph-check" aria-hidden="true"></i>Complete</span></div>
+                <ul class="record__rows">
+                  <li><i class="icon ph ph-microphone" aria-hidden="true"></i>Meeting notes<em>Approved</em></li>
+                  <li><i class="icon ph ph-file-text" aria-hidden="true"></i>KYC &amp; FNA<em>Signed</em></li>
+                  <li><i class="icon ph ph-shield-check" aria-hidden="true"></i>Suitability rationale<em>Saved</em></li>
+                  <li><i class="icon ph ph-shield" aria-hidden="true"></i>Compliance review<em>Cleared</em></li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article class="suite-card suite-card--mia" id="suite-mia" aria-labelledby="suite-mia-title">
+            <div class="suite-card__col">
+              <div class="suite-card__copy">
+                <h3 class="suite-card__title" id="suite-mia-title">An AI co-pilot that never sends without you.</h3>
+                <p class="suite-card__text">MIA works quietly inside the tools you already use. You review and approve; MIA does the rest.</p>
+                <a class="suite-card__link" href="#workflow">Learn more about MIA<i class="icon ph ph-arrow-right" aria-hidden="true"></i></a>
+                <ul class="suite-card__list">
+                  <li>Builds a brief before every meeting</li>
+                  <li>Drafts summaries, forms and follow-ups</li>
+                  <li>Answers any question in chat</li>
+                  <li>Surfaces risk to your compliance team</li>
+                </ul>
+              </div>
+            </div>
+            <div class="suite-card__media stage stage--warm">
+              <div class="mock">
+                <div class="mock__bar"><span></span><span></span><span></span><b>Chat with MIA</b></div>
+                <div class="mock__body chat">
+                  <p class="chat__me">Which clients need a KYC refresh this month?</p>
+                  <p class="chat__mia"><i class="icon ph ph-sparkle" aria-hidden="true"></i>Three clients: Maria Chen, Leo Park and Ana Ruiz. I’ve drafted the refresh forms for your review.</p>
+                  <p class="chat__me">Send them for e-sign.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03c · AI Workflow -->
+    <section class="section" id="workflow" aria-labelledby="workflow-title">
+      <div class="container">
+        <div class="head head--row">
+          <div>
+            <p class="eyebrow eyebrow--mia"><span class="mia-dot">M</span>AI Workflow · Meet MIA</p>
+            <h2 class="h2" id="workflow-title">One AI Workflow, <span>from first call to final audit.</span></h2>
+            <p class="lead">MIA works quietly inside the tools you already use — before, during and after every client meeting. You review and approve; MIA does the rest.</p>
+          </div>
+          <a class="btn btn--border btn--lg" href="#">See the AI Workflow in action<i class="icon ph-fill ph-play" aria-hidden="true"></i></a>
+        </div>
+
+        <ol class="stages" data-stages>
+          <li class="stage-card">
+            <div class="stage-card__top"><span class="num">1</span><h3>Before the meeting</h3></div>
+            <div class="stage-card__art"><i class="icon ph ph-file-text" aria-hidden="true"></i><span>Client brief</span></div>
+            <p class="mini-label">MIA does</p>
+            <ul class="ticks"><li>Builds a brief from past notes and policies</li><li>Pre-fills KYC and FNA with what’s known</li><li>Flags expiring documents</li></ul>
+            <p class="mini-label">Works in</p>
+            <p class="tags"><span>Calendar</span><span>Client file</span></p>
+          </li>
+          <li class="stage-card">
+            <div class="stage-card__top"><span class="num">2</span><h3>During the meeting</h3></div>
+            <div class="stage-card__art"><i class="icon ph ph-microphone" aria-hidden="true"></i><span>Live notes</span></div>
+            <p class="mini-label">MIA does</p>
+            <ul class="ticks"><li>Records and transcribes — with client consent</li><li>Captures goals, budget, dependents</li><li>Updates the FNA as you talk</li></ul>
+            <p class="mini-label">Works in</p>
+            <p class="tags"><span>Video call</span><span>In person</span></p>
+          </li>
+          <li class="stage-card">
+            <div class="stage-card__top"><span class="num">3</span><h3>After the meeting</h3></div>
+            <div class="stage-card__art"><i class="icon ph ph-signature" aria-hidden="true"></i><span>Summary + forms</span></div>
+            <p class="mini-label">MIA does</p>
+            <ul class="ticks"><li>Writes the summary and next steps</li><li>Runs the suitability check and saves reasoning</li><li>Sends forms for e-signature</li></ul>
+            <p class="mini-label">Works in</p>
+            <p class="tags"><span>Email</span><span>E-sign</span></p>
+          </li>
+          <li class="stage-card">
+            <div class="stage-card__top"><span class="num">4</span><h3>Every day</h3></div>
+            <div class="stage-card__art"><i class="icon ph ph-bell" aria-hidden="true"></i><span>Reminders + answers</span></div>
+            <p class="mini-label">MIA does</p>
+            <ul class="ticks"><li>Reminds you of renewals and KYC refreshes</li><li>Answers any question in chat</li><li>Surfaces risk to your compliance team</li></ul>
+            <p class="mini-label">Works in</p>
+            <p class="tags"><span>MIA chat</span><span>Harmony</span></p>
+          </li>
+          <li class="stage-card">
+            <div class="stage-card__top"><span class="num">5</span><h3>At audit time</h3></div>
+            <div class="stage-card__art"><i class="icon ph ph-shield" aria-hidden="true"></i><span>Evidence file</span></div>
+            <p class="mini-label">MIA does</p>
+            <ul class="ticks"><li>Assembles every record for the client</li><li>Exports a time-stamped trail in a click</li></ul>
+            <p class="mini-label">Works in</p>
+            <p class="tags"><span>Harmony</span><span>PDF export</span></p>
+          </li>
+        </ol>
+
+        <div class="control" data-reveal>
+          <span class="control__icon"><i class="icon ph ph-shield-check" aria-hidden="true"></i></span>
+          <div>
+            <h3>You stay in control.</h3>
+            <p>MIA drafts — you review and approve. Nothing is filed or sent without your sign-off, and every step is logged.</p>
+          </div>
+          <p class="tags tags--dark"><span>Advisor approves</span><span>Client consent</span><span>Full audit log</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · How it works -->
+    <section class="section section--tint" id="how" aria-labelledby="how-title">
+      <div class="container">
+        <div class="head head--center">
+          <h2 class="h2" id="how-title">How it works</h2>
+          <p class="lead">Up and running in an afternoon — then just keep meeting clients.</p>
+        </div>
+        <!-- Each step: square scene with a numbered badge and a piece of the product floating on it -->
+        <ol class="steps">
+          <li class="step" data-reveal>
+            <div class="step__media step__media--connect">
+              <span class="step__num">1</span>
+              <div class="glass step__connect">
+                <span class="glass__label">Connected</span>
+                <span><i class="icon ph ph-calendar-blank" aria-hidden="true"></i>Calendar<i class="icon ph-fill ph-check-circle" aria-hidden="true"></i></span>
+                <span><i class="icon ph ph-envelope-simple" aria-hidden="true"></i>Email<i class="icon ph-fill ph-check-circle" aria-hidden="true"></i></span>
+                <span><i class="icon ph ph-video-camera" aria-hidden="true"></i>Video calls<i class="icon ph-fill ph-check-circle" aria-hidden="true"></i></span>
+              </div>
+            </div>
+            <h3>Connect your tools</h3>
+            <p>Calendar, video calls and email — a few clicks, about ten minutes.</p>
+          </li>
+          <li class="step" data-reveal>
+            <div class="step__media step__media--meet">
+              <span class="step__num">2</span>
+              <div class="glass glass--dark step__rec">
+                <span class="rec-dot"></span>
+                <div><b>Recording</b><span>Client consent given · 24:18</span></div>
+              </div>
+            </div>
+            <h3>Meet clients as usual</h3>
+            <p>MIA listens, with client consent, and takes the notes for you.</p>
+          </li>
+          <li class="step" data-reveal>
+            <div class="step__media step__media--review">
+              <span class="step__num">3</span>
+              <div class="phone">
+                <div class="phone__bar"><b>9:41</b><span>bluemind</span></div>
+                <b class="phone__title">Maria Chen</b>
+                <span class="phone__sub">Ready for your sign-off</span>
+                <ul class="phone__list">
+                  <li><i class="icon ph-bold ph-check" aria-hidden="true"></i>Meeting summary</li>
+                  <li><i class="icon ph-bold ph-check" aria-hidden="true"></i>KYC &amp; FNA</li>
+                  <li><i class="icon ph-bold ph-check" aria-hidden="true"></i>Suitability rationale</li>
+                  <li><i class="icon ph-bold ph-check" aria-hidden="true"></i>Follow-up email</li>
+                </ul>
+              </div>
+            </div>
+            <h3>Review &amp; sign off</h3>
+            <p>Check the summary, KYC and suitability MIA prepared — about two minutes.</p>
+          </li>
+          <li class="step" data-reveal>
+            <div class="step__media step__media--audit">
+              <span class="step__num">4</span>
+              <svg class="trail" viewBox="0 0 280 160" aria-hidden="true">
+                <path class="trail__grid" d="M0 40H280M0 100H280M140 0V160M70 0V160M210 0V160"/>
+                <path class="trail__line" d="M30 130 L140 82 L250 34"/>
+                <circle class="trail__dot" cx="30" cy="130" r="6"/>
+                <circle class="trail__dot trail__dot--mid" cx="140" cy="82" r="6"/>
+                <circle class="trail__dot trail__dot--end" cx="250" cy="34" r="7"/>
+              </svg>
+              <span class="trail__tip">audit-file.pdf</span>
+              <div class="trail__axis"><span>Meeting</span><span>Sign-off</span><span>Audit</span></div>
+            </div>
+            <h3>Stay audit-ready</h3>
+            <p>Every step lands on a time-stamped record. Export any file, anytime.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 05 · Time-back calculator -->
+    <section class="section" id="calculator" aria-labelledby="calc-title">
+      <div class="container calc">
+        <div>
+          <p class="eyebrow">Time-back calculator</p>
+          <h2 class="h2" id="calc-title">How much time <span>would you get back?</span></h2>
+          <p class="lead">Drag to your weekly admin hours. Based on “up to 80% less manual work”.</p>
+        </div>
+        <div class="calc__card" data-reveal>
+          <div class="calc__row">
+            <label for="calc-hours">Hours a week on compliance admin</label>
+            <output id="calc-hours-out" for="calc-hours">10 h</output>
+          </div>
+          <input type="range" id="calc-hours" min="1" max="40" step="1" value="10" />
+          <div class="calc__results" aria-live="polite">
+            <div><b id="calc-year">384</b><span>hours back a year</span></div>
+            <div><b id="calc-days">48</b><span>working days</span></div>
+          </div>
+          <p class="calc__note">Estimate: hours × 80% × 48 weeks. Up to — results vary.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 · Replace the patchwork -->
+    <section class="section section--tint" id="patchwork" aria-labelledby="patch-title">
+      <div class="container">
+        <div class="head">
+          <p class="eyebrow">Replace the patchwork</p>
+          <h2 class="h2" id="patch-title">Five tools stitched together <span>— or one built for compliance.</span></h2>
+          <p class="lead">Note-takers, spreadsheets, e-sign, folders and email. None of them know what an auditor needs.</p>
+        </div>
+        <div class="compare">
+          <figure class="compare__card compare__card--before" data-reveal>
+            <div class="scatter" aria-hidden="true">
+              <span style="--x:8%;--y:14%;--r:-6deg"><i class="icon ph ph-microphone" aria-hidden="true"></i>Note-taker</span>
+              <span style="--x:52%;--y:8%;--r:5deg"><i class="icon ph ph-database" aria-hidden="true"></i>Spreadsheet</span>
+              <span style="--x:30%;--y:44%;--r:-3deg"><i class="icon ph ph-signature" aria-hidden="true"></i>E-sign</span>
+              <span style="--x:62%;--y:52%;--r:7deg"><i class="icon ph ph-file-text" aria-hidden="true"></i>Folders</span>
+              <span style="--x:12%;--y:74%;--r:4deg"><i class="icon ph ph-envelope-simple" aria-hidden="true"></i>Email</span>
+            </div>
+            <figcaption><b>Before</b> Five logins. No shared record. Gaps an auditor finds first.</figcaption>
+          </figure>
+          <figure class="compare__card compare__card--after" data-reveal>
+            <div class="record">
+              <div class="record__head"><span class="avatar">MC</span><div><b>Maria Chen</b><span>Client record · audit-ready</span></div><span class="chip chip--ok"><i class="icon ph ph-check" aria-hidden="true"></i>Complete</span></div>
+              <ul class="record__rows">
+                <li><i class="icon ph ph-microphone" aria-hidden="true"></i>Meeting notes<em>Approved</em></li>
+                <li><i class="icon ph ph-file-text" aria-hidden="true"></i>KYC &amp; FNA<em>Signed</em></li>
+                <li><i class="icon ph ph-shield-check" aria-hidden="true"></i>Suitability rationale<em>Saved</em></li>
+                <li><i class="icon ph ph-envelope-simple" aria-hidden="true"></i>Client emails<em>Filed</em></li>
+                <li><i class="icon ph ph-clock" aria-hidden="true"></i>Audit trail<em>Time-stamped</em></li>
+              </ul>
+            </div>
+            <figcaption><b>With BlueMind</b> One client record with everything an auditor asks for.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 · AI Workflow — in detail -->
+    <section class="section" id="pipeline" aria-labelledby="pipe-title">
+      <div class="container">
+        <div class="head">
+          <p class="eyebrow">AI Workflow · Under the hood</p>
+          <h2 class="h2" id="pipe-title">What happens to a client conversation <span>— step by step.</span></h2>
+          <p class="lead">What goes in, what the AI does with it, and what comes out ready for your approval.</p>
+        </div>
+
+        <div class="pipe" data-pipe>
+          <div class="pipe__col">
+            <p class="mini-label">Goes in</p>
+            <h3>What MIA works from</h3>
+            <ul class="io">
+              <li><span class="io__icon"><i class="icon ph ph-microphone" aria-hidden="true"></i></span><div><b>Meeting audio</b><span>Video call or in person — with consent</span></div></li>
+              <li><span class="io__icon"><i class="icon ph ph-file-text" aria-hidden="true"></i></span><div><b>Documents &amp; IDs</b><span>Policies, statements, ID scans</span></div></li>
+              <li><span class="io__icon"><i class="icon ph ph-database" aria-hidden="true"></i></span><div><b>Existing client data</b><span>Past notes, family, holdings</span></div></li>
+              <li><span class="io__icon"><i class="icon ph ph-envelope-simple" aria-hidden="true"></i></span><div><b>Emails</b><span>Client replies and attachments</span></div></li>
+            </ul>
+          </div>
+          <div class="pipe__col pipe__col--ai">
+            <p class="mini-label">The AI Workflow</p>
+            <h3>What MIA does with it</h3>
+            <ol class="ai-steps">
+              <li><span class="num">1</span><div><b>Listen &amp; transcribe</b><span>Turns the conversation into an accurate, speaker-labelled transcript.</span></div></li>
+              <li><span class="num">2</span><div><b>Understand &amp; extract</b><span>Picks out goals, budget, dependents, risks and products discussed.</span></div></li>
+              <li><span class="num">3</span><div><b>Check against the rules</b><span>Tests KYC and suitability for completeness against regulator requirements.</span></div></li>
+              <li><span class="num">4</span><div><b>Draft the work</b><span>Prepares notes, forms, rationale and follow-ups — never sends them.</span></div></li>
+              <li class="ai-steps__you"><span class="num">5</span><div><b>You approve</b><span>Advisor reviews, edits and signs off in one screen.</span></div></li>
+              <li><span class="num">6</span><div><b>Record everything</b><span>Time-stamps each step into the audit trail, visible in Harmony.</span></div></li>
+            </ol>
+          </div>
+          <div class="pipe__col">
+            <p class="mini-label">Comes out</p>
+            <h3>Ready for your approval</h3>
+            <ul class="io io--out">
+              <li><span class="io__icon"><i class="icon ph ph-file-text" aria-hidden="true"></i></span><b>Meeting summary &amp; next steps</b><i class="icon ph ph-check ok" aria-hidden="true"></i></li>
+              <li><span class="io__icon"><i class="icon ph ph-shield-check" aria-hidden="true"></i></span><b>KYC &amp; FNA fields filled</b><i class="icon ph ph-check ok" aria-hidden="true"></i></li>
+              <li><span class="io__icon"><i class="icon ph ph-seal-check" aria-hidden="true"></i></span><b>Suitability rationale</b><i class="icon ph ph-check ok" aria-hidden="true"></i></li>
+              <li><span class="io__icon"><i class="icon ph ph-signature" aria-hidden="true"></i></span><b>E-sign package</b><i class="icon ph ph-check ok" aria-hidden="true"></i></li>
+              <li><span class="io__icon"><i class="icon ph ph-envelope-simple" aria-hidden="true"></i></span><b>Follow-up email draft</b><i class="icon ph ph-check ok" aria-hidden="true"></i></li>
+              <li><span class="io__icon"><i class="icon ph ph-clock" aria-hidden="true"></i></span><b>Audit trail entry</b><i class="icon ph ph-check ok" aria-hidden="true"></i></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="example" data-reveal>
+          <div class="example__quote">
+            <p class="mini-label">Example · One sentence in a meeting</p>
+            <blockquote>
+              <p class="example__who"><span class="avatar avatar--sm">MC</span>Maria Chen · client</p>
+              <p>“We just bought a house, and I want to make sure the kids are covered if anything happens to me. We can do about $150 a month.”</p>
+            </blockquote>
+            <p class="muted">MIA turns that one sentence into five records — each one waiting for the advisor’s approval.</p>
+          </div>
+          <div class="example__out">
+            <p class="mini-label">MIA creates</p>
+            <ul class="creates">
+              <li><div><span>Goal</span><b>Protect the mortgage and family income</b></div><em>→ Meeting summary</em></li>
+              <li><div><span>Dependents</span><b>2 children</b></div><em>→ FNA</em></li>
+              <li><div><span>Budget</span><b>≈ $150 / month</b></div><em>→ FNA</em></li>
+              <li><div><span>Suggested review</span><b>Term life coverage — rationale drafted</b></div><em>→ Suitability</em></li>
+              <li><div><span>Next step</span><b>Send KYC refresh for e-sign</b></div><em>→ To-do + e-sign</em></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 · Harmony dashboard -->
+    <section class="section section--tint" id="dashboard" aria-labelledby="dash-title">
+      <div class="container">
+        <div class="head head--row">
+          <div>
+            <p class="eyebrow">Harmony</p>
+            <h2 class="h2" id="dash-title">Your whole network. <span>One screen.</span></h2>
+            <p class="lead">Sits on your existing back office. Your team only sees what needs attention.</p>
+          </div>
+          <a class="btn btn--border btn--lg" href="#">Explore Harmony<i class="icon ph ph-arrow-right" aria-hidden="true"></i></a>
+        </div>
+
+        <div class="dash" data-reveal role="img" aria-label="Harmony dashboard showing AI risk flags, a network compliance score trend and automatic license reminders">
+          <aside class="dash__side" aria-hidden="true">
+            <img src="assets/logo.svg" alt="" width="1026" height="290" />
+            <span class="is-active">Overview</span><span>Advisors</span><span>Risk flags</span><span>Reports</span><span>Settings</span>
+          </aside>
+          <div class="dash__main" aria-hidden="true">
+            <div class="dash__kpis">
+              <div class="kpi"><span>Compliance score</span><b>94</b><em>+6</em></div>
+              <div class="kpi"><span>Open risk flags</span><b>7</b><em class="down">−12</em></div>
+              <div class="kpi"><span>Files audit-ready</span><b>98%</b><em>+3%</em></div>
+            </div>
+            <div class="dash__grid">
+              <div class="panel">
+                <p class="panel__title"><i class="callout">1</i>AI risk flags</p>
+                <div class="flag flag--light"><i class="icon ph ph-warning" aria-hidden="true"></i><div><b>Replacement without rationale</b><span>R. Khan</span></div><em>High</em></div>
+                <div class="flag flag--light flag--mid"><i class="icon ph ph-warning" aria-hidden="true"></i><div><b>KYC older than 24 months</b><span>6 advisors</span></div><em>Med</em></div>
+              </div>
+              <div class="panel">
+                <p class="panel__title"><i class="callout">2</i>Network compliance score</p>
+                <svg class="spark" viewBox="0 0 300 90" preserveAspectRatio="none"><defs><linearGradient id="sg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#0080ff" stop-opacity=".25"/><stop offset="1" stop-color="#0080ff" stop-opacity="0"/></linearGradient></defs><path d="M0 70 L40 64 L80 66 L120 52 L160 48 L200 38 L240 30 L300 16 V90 H0Z" fill="url(#sg)"/><path d="M0 70 L40 64 L80 66 L120 52 L160 48 L200 38 L240 30 L300 16" fill="none" stroke="#0080ff" stroke-width="2.5"/></svg>
+              </div>
+              <div class="panel">
+                <p class="panel__title"><i class="callout">3</i>Auto-reminders</p>
+                <p class="remind"><i class="icon ph ph-bell" aria-hidden="true"></i>T. Silva · license renews in 30 days<em>Sent</em></p>
+                <p class="remind"><i class="icon ph ph-bell" aria-hidden="true"></i>A. Ruiz · E&amp;O certificate due<em>Sent</em></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ol class="callouts">
+          <li><span class="num">1</span><div><b>AI risk flags</b><span>Caught before they become findings.</span></div></li>
+          <li><span class="num">2</span><div><b>Network compliance score</b><span>Trend across every advisor, week by week.</span></div></li>
+          <li><span class="num">3</span><div><b>Auto-reminders</b><span>Expiring licenses chased without you.</span></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 09 · Integrations + Onboarding — two side-by-side cards (layout and motion modelled on Amplemarket) -->
+    <section class="section next-cards" id="integrations" aria-label="Integrations and onboarding">
+      <div class="container next-cards__grid">
+        <article class="next-card" aria-labelledby="int-title">
+          <div class="next-card__copy">
+            <p class="next-card__eyebrow">Integrations</p>
+            <h2 class="next-card__title" id="int-title">Connects to the tools you already use</h2>
+            <p class="next-card__text">Plug in your calendar, calls, email, e-sign and back office, so advisors meet clients instead of configuring software.</p>
+            <a class="btn btn--primary btn--md next-card__btn" href="#">Explore integrations</a>
+          </div>
+          <!-- Logo rows drift sideways in alternating directions; logos from Simple Icons (CC0) — confirm against live integrations -->
+          <div class="int-card__rows">
+            <div class="int-card__row int-card__row--right" style="--y:0px; --offset:0px"><div class="int-card__track"><span class="int-card__tile"><img src="assets/logos/google.svg" alt="Google" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/zoom.svg" alt="Zoom" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/googlecalendar.svg" alt="Google Calendar" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/gmail.svg" alt="Gmail" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/googlemeet.svg" alt="Google Meet" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/webex.svg" alt="Webex" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/salesforce.svg" alt="Salesforce" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/slack.svg" alt="Slack" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/hubspot.svg" alt="HubSpot" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/google.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/zoom.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/googlecalendar.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/gmail.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/googlemeet.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/webex.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/salesforce.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/slack.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/hubspot.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/google.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/zoom.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/googlecalendar.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/gmail.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/googlemeet.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/webex.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/salesforce.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/slack.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/hubspot.svg" alt="" width="40" height="40" loading="lazy" /></span></div></div>
+            <div class="int-card__row int-card__row--left" style="--y:105px; --offset:-180px"><div class="int-card__track"><span class="int-card__tile"><img src="assets/logos/calendly.svg" alt="Calendly" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/googledrive.svg" alt="Google Drive" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/dropbox.svg" alt="Dropbox" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/box.svg" alt="Box" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/adobeacrobatreader.svg" alt="Adobe Acrobat" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/zoho.svg" alt="Zoho" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/quickbooks.svg" alt="QuickBooks" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/zapier.svg" alt="Zapier" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/loom.svg" alt="Loom" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/calendly.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/googledrive.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/dropbox.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/box.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/adobeacrobatreader.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/zoho.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/quickbooks.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/zapier.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/loom.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/calendly.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/googledrive.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/dropbox.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/box.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/adobeacrobatreader.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/zoho.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/quickbooks.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/zapier.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/loom.svg" alt="" width="40" height="40" loading="lazy" /></span></div></div>
+            <div class="int-card__row int-card__row--right" style="--y:210px; --offset:-60px"><div class="int-card__track"><span class="int-card__tile"><img src="assets/logos/microsoft.svg" alt="Microsoft" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/google.svg" alt="Google" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/zoom.svg" alt="Zoom" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/googlecalendar.svg" alt="Google Calendar" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/gmail.svg" alt="Gmail" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/googlemeet.svg" alt="Google Meet" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/webex.svg" alt="Webex" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/salesforce.svg" alt="Salesforce" width="40" height="40" loading="lazy" /></span><span class="int-card__tile"><img src="assets/logos/slack.svg" alt="Slack" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/microsoft.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/google.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/zoom.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/googlecalendar.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/gmail.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/googlemeet.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/webex.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/salesforce.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/slack.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/microsoft.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/google.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/zoom.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/googlecalendar.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/gmail.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/googlemeet.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/webex.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/salesforce.svg" alt="" width="40" height="40" loading="lazy" /></span><span class="int-card__tile" aria-hidden="true"><img src="assets/logos/slack.svg" alt="" width="40" height="40" loading="lazy" /></span></div></div>
+            <div class="int-card__fade" aria-hidden="true"></div>
+          </div>
+        </article>
+
+        <article class="next-card" aria-labelledby="onb-title">
+          <div class="next-card__copy">
+            <p class="next-card__eyebrow">Onboarding</p>
+            <h2 class="next-card__title" id="onb-title">Up and running in an afternoon</h2>
+            <p class="next-card__text">Short guided lessons and free setup help, so your team is meeting clients with MIA from day one.</p>
+            <a class="btn btn--primary btn--md next-card__btn" href="#">Start learning</a>
+          </div>
+          <!-- Lesson carousel: centre card full size, neighbours at 75%, advances every 5s (sections.js) -->
+          <div class="lessons" data-lessons>
+            <div class="lessons__panel">
+              <article class="lesson" data-lesson="0">
+                <div class="lesson__top"><span class="lesson__brand"><img src="assets/logo.svg" alt="" width="1026" height="290" /><em>Onboarding</em></span><span class="lesson__tag">Getting started</span></div>
+                <h3 class="lesson__title">Welcome<br />to BlueMind</h3>
+                <div class="lesson__speaker"><span class="lesson__avatar"><i class="icon ph-fill ph-sparkle"></i></span><span><b>BlueMind team</b><small>Customer success</small></span></div>
+                <span class="lesson__play" aria-hidden="true"><i class="icon ph-fill ph-play"></i></span>
+              </article>
+              <article class="lesson" data-lesson="1">
+                <div class="lesson__top"><span class="lesson__brand"><img src="assets/logo.svg" alt="" width="1026" height="290" /><em>Onboarding</em></span><span class="lesson__tag">Setup</span></div>
+                <h3 class="lesson__title">Connect your<br />calendar &amp; email</h3>
+                <div class="lesson__speaker"><span class="lesson__avatar"><i class="icon ph-fill ph-sparkle"></i></span><span><b>BlueMind team</b><small>Customer success</small></span></div>
+                <span class="lesson__play" aria-hidden="true"><i class="icon ph-fill ph-play"></i></span>
+              </article>
+              <article class="lesson" data-lesson="2">
+                <div class="lesson__top"><span class="lesson__brand"><img src="assets/logo.svg" alt="" width="1026" height="290" /><em>Onboarding</em></span><span class="lesson__tag">AI workflow</span></div>
+                <h3 class="lesson__title">Your first meeting<br />with MIA</h3>
+                <div class="lesson__speaker"><span class="lesson__avatar"><i class="icon ph-fill ph-sparkle"></i></span><span><b>BlueMind team</b><small>Customer success</small></span></div>
+                <span class="lesson__play" aria-hidden="true"><i class="icon ph-fill ph-play"></i></span>
+              </article>
+              <article class="lesson" data-lesson="3">
+                <div class="lesson__top"><span class="lesson__brand"><img src="assets/logo.svg" alt="" width="1026" height="290" /><em>Onboarding</em></span><span class="lesson__tag">Compliance</span></div>
+                <h3 class="lesson__title">Exporting an<br />audit file</h3>
+                <div class="lesson__speaker"><span class="lesson__avatar"><i class="icon ph-fill ph-sparkle"></i></span><span><b>BlueMind team</b><small>Customer success</small></span></div>
+                <span class="lesson__play" aria-hidden="true"><i class="icon ph-fill ph-play"></i></span>
+              </article>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 10 · Security & regulation — bento of outlined cards (text cards + line-art badges) -->
+    <section class="section section--dark security" id="security" aria-labelledby="sec-title">
+      <div class="container">
+        <div class="head">
+          <p class="eyebrow">Security &amp; regulation</p>
+          <h2 class="h2" id="sec-title">Built for regulated conversations.</h2>
+        </div>
+
+        <div class="bento">
+          <!-- Row 1 -->
+          <div class="bento__badge" data-reveal>
+            <svg viewBox="0 0 120 140" aria-hidden="true"><path d="M60 6 110 24v40c0 34-21 58-50 70C31 122 10 98 10 64V24z"/></svg>
+            <span>SOC<br />2</span>
+          </div>
+          <a class="bento__card bento__card--wide" href="#" data-reveal>
+            <h3>Built for compliance reviews</h3>
+            <p>Encrypted in transit and at rest, with a time-stamped audit trail your compliance team can review on its own.</p>
+            <span class="bento__link">Security overview<i class="icon ph ph-caret-right" aria-hidden="true"></i></span>
+          </a>
+          <div class="bento__badge" data-reveal>
+            <svg class="bento__lock" viewBox="0 0 60 70" aria-hidden="true"><rect x="6" y="30" width="48" height="36" rx="6"/><path d="M16 30V20a14 14 0 0 1 28 0v10"/><path d="M30 44v8"/></svg>
+            <span>Encrypted</span>
+          </div>
+          <div class="bento__badge" data-reveal>
+            <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="54"/></svg>
+            <span>Client<br />consent</span>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="bento__card bento__card--wide" data-reveal>
+            <h3>Your client data stays where it should</h3>
+            <p>Stored in Canada or the US, and clients are asked for consent before any meeting is recorded.</p>
+          </div>
+          <div class="bento__badge" data-reveal>
+            <svg class="bento__ring" viewBox="0 0 120 120" aria-hidden="true"><circle cx="106.0" cy="60.0" r="2.2"/><circle cx="99.8" cy="83.0" r="2.2"/><circle cx="83.0" cy="99.8" r="2.2"/><circle cx="60.0" cy="106.0" r="2.2"/><circle cx="37.0" cy="99.8" r="2.2"/><circle cx="20.2" cy="83.0" r="2.2"/><circle cx="14.0" cy="60.0" r="2.2"/><circle cx="20.2" cy="37.0" r="2.2"/><circle cx="37.0" cy="20.2" r="2.2"/><circle cx="60.0" cy="14.0" r="2.2"/><circle cx="83.0" cy="20.2" r="2.2"/><circle cx="99.8" cy="37.0" r="2.2"/></svg>
+            <span>CA · US</span>
+          </div>
+          <div class="bento__card bento__card--wide" data-reveal>
+            <span class="bento__marks" aria-hidden="true"><i class="icon ph ph-identification-card"></i><i class="icon ph ph-scales"></i><i class="icon ph ph-archive"></i><i class="icon ph ph-eye"></i></span>
+            <h3>Mapped to your regulators</h3>
+            <p>KYC, suitability, record keeping and supervision — captured for FSRA, SEC and FINRA requirements.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 · Case study + testimonials -->
+    <section class="section" id="customers" aria-labelledby="cust-title">
+      <div class="container">
+        <div class="head">
+          <p class="eyebrow">Customers</p>
+          <h2 class="h2" id="cust-title">Advisors and firms <span>already doing less paperwork.</span></h2>
+        </div>
+        <article class="case" data-reveal>
+          <a class="case__media" href="#" aria-label="Play customer video">
+            <span class="play"><i class="icon ph-fill ph-play" aria-hidden="true"></i></span>
+          </a>
+          <div class="case__body">
+            <p class="mini-label">Case study · [Firm name]</p>
+            <p class="case__quote">“[One-sentence result in the customer’s words.]”</p>
+            <div class="case__stats">
+              <div><b>[x]%</b><span>less admin time</span></div>
+              <div><b>[x] days</b><span>to audit-ready</span></div>
+            </div>
+            <a class="link" href="#">Read the story<i class="icon ph ph-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+        <ul class="quotes">
+          <li class="quote" data-reveal><p>“Easier to manage clients and stay compliant.”</p><div class="quote__who"><span class="avatar">SH</span><div><b>Dr. Shehnaz Hussain</b><span>CLU · CHS · EPC · PhD</span></div></div></li>
+          <li class="quote" data-reveal><p>“A proven system, fundamentally different.”</p><div class="quote__who"><span class="avatar">NB</span><div><b>Nannette Britanico</b><span>CLU · CHS · MDRT</span></div></div></li>
+          <li class="quote" data-reveal><p>“Simplicity and sophistication.”</p><div class="quote__who"><span class="avatar">VJ</span><div><b>Vikram Janjua</b><span>Insurance broker</span></div></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 12 · Founder -->
+    <section class="section section--tint" id="founder" aria-labelledby="founder-title">
+      <div class="container founder">
+        <div class="founder__photo" data-reveal role="img" aria-label="Founder photo placeholder"><span>F</span></div>
+        <div>
+          <p class="eyebrow">Why we built it</p>
+          <h2 class="founder__quote" id="founder-title">“[One-line founder quote.]”</h2>
+          <p class="lead">[Why a Certified Financial Planner built BlueMind — 2 sentences.]</p>
+          <p class="founder__who"><span class="avatar">F</span>[Founder name], CFP</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14 · FAQ — minimal hairline list; answers type out on open (sections.js) -->
+    <section class="section faq2" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <h2 class="faq2__title" id="faq-title">Questions, answered.</h2>
+        <div class="acc acc--lines" data-acc="faq">
+          <div class="acc__item">
+            <h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p0" id="faq-b0">Which product is right for me — Advisor or Harmony?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3>
+            <div class="acc__panel" id="faq-p0" role="region" aria-labelledby="faq-b0"><div><p data-type>Advisor is for individual advisors. Harmony is for firms that supervise advisors. Many firms use both.</p></div></div>
+          </div>
+          <div class="acc__item">
+            <h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p1" id="faq-b1">Do I have to stop using my current tools?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3>
+            <div class="acc__panel" id="faq-p1" role="region" aria-labelledby="faq-b1"><div><p data-type>No. BlueMind plugs into your calendar, video calls, email and back office — there’s nothing to rip out or migrate.</p></div></div>
+          </div>
+          <div class="acc__item">
+            <h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p2" id="faq-b2">Are my clients told their meeting is recorded?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3>
+            <div class="acc__panel" id="faq-p2" role="region" aria-labelledby="faq-b2"><div><p data-type>Yes. MIA asks for client consent before recording, and the consent is saved to the audit trail.</p></div></div>
+          </div>
+          <div class="acc__item">
+            <h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p3" id="faq-b3">Will my E&amp;O carrier accept BlueMind records?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3>
+            <div class="acc__panel" id="faq-p3" role="region" aria-labelledby="faq-b3"><div><p data-type>[Answer to confirm with the compliance team.]</p></div></div>
+          </div>
+          <div class="acc__item">
+            <h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p4" id="faq-b4">Does it cover FSRA in Canada as well as SEC/FINRA?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3>
+            <div class="acc__panel" id="faq-p4" role="region" aria-labelledby="faq-b4"><div><p data-type>Yes. KYC, suitability and record-keeping requirements are mapped for FSRA as well as SEC and FINRA.</p></div></div>
+          </div>
+          <div class="acc__item">
+            <h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p5" id="faq-b5">Where is my data stored, and who can see it?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3>
+            <div class="acc__panel" id="faq-p5" role="region" aria-labelledby="faq-b5"><div><p data-type>Data is stored in Canada or the US and encrypted in transit and at rest. [Access details to confirm.]</p></div></div>
+          </div>
+          <div class="acc__item">
+            <h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p6" id="faq-b6">What does the free plan include?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3>
+            <div class="acc__panel" id="faq-p6" role="region" aria-labelledby="faq-b6"><div><p data-type>[Free plan details to confirm.]</p></div></div>
+          </div>
+        </div>
+        <p class="faq2__more">Still unsure? <a href="#">Talk to our compliance team</a></p>
+      </div>
+    </section>
+
+    <!-- 15 · Resources -->
+    <section class="section section--tint" id="resources" aria-labelledby="res-title">
+      <div class="container">
+        <div class="head head--row">
+          <div>
+            <p class="eyebrow">Resources</p>
+            <h2 class="h2" id="res-title">Stay ahead <span>of the regulators.</span></h2>
+          </div>
+          <a class="btn btn--border btn--md" href="#">All resources<i class="icon ph ph-arrow-right" aria-hidden="true"></i></a>
+        </div>
+        <ul class="res">
+          <li data-reveal><a class="res__card" href="#">
+            <span class="res__cover res__cover--blog"><i class="icon ph ph-book-open" aria-hidden="true"></i></span>
+            <span class="mini-label">Blog</span><b>[Article title on a compliance topic]</b><span class="muted">[5 min read]</span>
+          </a></li>
+          <li data-reveal><a class="res__card" href="#">
+            <span class="res__cover res__cover--pod"><i class="icon ph ph-headphones" aria-hidden="true"></i></span>
+            <span class="mini-label">Podcast</span><b>[Episode title]</b><span class="muted">[32 min · episode #]</span>
+          </a></li>
+          <li data-reveal><a class="res__card" href="#">
+            <span class="res__cover res__cover--lib"><i class="icon ph ph-download-simple" aria-hidden="true"></i></span>
+            <span class="mini-label">Library</span><b>[Guide / checklist download]</b><span class="muted">[PDF]</span>
+          </a></li>
+          <li data-reveal><a class="res__card" href="design-system.html">
+            <span class="res__cover res__cover--ds" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+            <span class="mini-label">Design system</span><b>BlueMind design system</b><span class="muted">Colours, type &amp; components</span>
+          </a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 16 · Final CTA -->
+    <section class="final" aria-labelledby="final-title">
+      <div class="final__glow" aria-hidden="true"></div>
+      <div class="container final__inner" data-reveal>
+        <h2 class="final__title" id="final-title">Next audit,<br /><span>be the calm one.</span></h2>
+        <div class="actions actions--center on-dark">
+          <a class="btn btn--primary btn--lg" href="#">I’m an advisor — Start free</a>
+          <a class="btn btn--border btn--lg" href="#">I run a firm — Book a demo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 17 · Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <img class="footer__logo" src="assets/logo.svg" alt="bluemind" width="1026" height="290" />
+          <p class="footer__tag">One mind for your whole business.</p>
+          <a class="btn btn--primary btn--lg" href="https://bluemind.app/contact-us">Contact us</a>
+        </div>
+        <nav class="footer__cols" aria-label="Footer">
+          <div><h3>Products</h3><ul><li><a href="enterprise.html">Harmony</a></li><li><a href="advisor.html">Advisor</a></li><li><a href="#">Pricing</a></li><li><a href="#integrations">Integrations</a></li></ul></div>
+          <div><h3>Resources</h3><ul><li><a href="#">Blog</a></li><li><a href="#">Help Centre</a></li><li><a href="#">Documentation</a></li><li><a href="#">Press Release</a></li><li><a href="#">Webinar</a></li><li><a href="design-system.html">Design system</a></li></ul></div>
+          <div><h3>Company</h3><ul><li><a href="about.html">About Us</a></li><li><a href="team.html">Team</a></li><li><a href="partners.html">Partners</a></li><li><a href="brand.html">Brand</a></li></ul></div>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 BlueMind <span aria-hidden="true">·</span> <a href="#">Terms</a> <span aria-hidden="true">·</span> <a href="#">Privacy</a> <span aria-hidden="true">·</span> <a href="#">Cookies</a></p>
+        <ul class="footer__social">
+          <li><a href="https://www.linkedin.com/company/bluemindapp/" target="_blank" rel="noopener" aria-label="BlueMind on LinkedIn"><i class="icon ph ph-linkedin-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://twitter.com/BlueMind_app" target="_blank" rel="noopener" aria-label="BlueMind on X"><i class="icon ph ph-x-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.instagram.com/bluemind.app/" target="_blank" rel="noopener" aria-label="BlueMind on Instagram"><i class="icon ph ph-instagram-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.facebook.com/BlueMindApp/" target="_blank" rel="noopener" aria-label="BlueMind on Facebook"><i class="icon ph ph-facebook-logo" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+      <img class="footer__mark" src="assets/logo.svg" alt="" width="1026" height="290" aria-hidden="true" />
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="sections.js"></script>
+</body>
+</html>

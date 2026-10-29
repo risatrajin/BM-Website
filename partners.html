@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Partners — BlueMind</title>
+  <meta name="description" content="Technology, distribution, association and referral partnerships with BlueMind." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="sections.css" />
+  <link rel="stylesheet" href="product.css" />
+  <link rel="stylesheet" href="company.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/duotone/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/thin/style.css" />
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="pp">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav" id="nav">
+    <nav class="nav__bar" aria-label="Main">
+      <a class="nav__logo" href="index.html">
+        <img src="assets/logo.svg" width="1026" height="290" alt="bluemind" />
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="enterprise.html">Enterprise</a></li>
+        <li><a href="advisor.html">Advisor</a></li>
+        <li><button class="nav__menu-btn nav__menu-btn--caret" type="button" aria-expanded="false" aria-controls="company-drawer" data-drawer-open>Company<i class="icon ph-bold ph-caret-down" aria-hidden="true"></i></button></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="nav__menu-icon" type="button" aria-label="Menu" aria-expanded="false" aria-controls="company-drawer" data-drawer-open><i class="icon ph-bold ph-dots-nine" aria-hidden="true"></i></button>
+        <a class="nav__mia" href="mia.html"><span class="mia-text">Mia</span></a>
+        <a class="nav__login" href="#">Login</a>
+        <a class="btn btn--primary btn--md" href="#">Book a demo</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Company menu: the "Company" button sinks, then the same shape spreads into this panel
+       (motion after Bencho's "Create menu", MIT — bencho.dev/licence). sections.js drives it.
+       On phones the nav links are hidden, so the menu also carries them (.drawer__item--phone).
+       The old Products menu is parked in archive/product-menu.html. -->
+  <div class="drawer-overlay" data-drawer-close aria-hidden="true"></div>
+  <div class="drawer" id="company-drawer" role="dialog" aria-labelledby="drawer-title" tabindex="-1" hidden>
+    <span class="drawer__shape" aria-hidden="true"></span>
+    <div class="drawer__panel">
+      <ul class="drawer__links drawer__links--phone">
+        <li class="drawer__item drawer__item--phone"><a href="index.html"><span class="drawer__icon"><i class="icon ph-duotone ph-house" aria-hidden="true"></i></span><span class="drawer__text"><b>Home</b><small>Back to the top</small></span></a></li>
+        <li class="drawer__item drawer__item--phone"><a href="enterprise.html" class="suite-card--enterprise"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#enterprise"/></svg></span><span class="drawer__text"><b>Enterprise</b><small>Oversight for MGAs, BGAs, IMOs &amp; carriers</small></span></a></li>
+        <li class="drawer__item drawer__item--phone"><a href="advisor.html" class="suite-card--advisor"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#advisor"/></svg></span><span class="drawer__text"><b>Advisor</b><small>Your compliance co-pilot, meeting to audit file</small></span></a></li>
+      <li class="drawer__item drawer__item--phone"><a href="mia.html"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#mia"/></svg></span><span class="drawer__text"><b class="mia-text">Mia</b><small>Your AI assistant for compliance work</small></span></a></li>
+      </ul>
+      <p class="drawer__label drawer__item" id="drawer-title">Who we are and how we work</p>
+      <ul class="drawer__links">
+        <li class="drawer__item"><a href="about.html"><span class="drawer__icon"><i class="icon ph-duotone ph-info" aria-hidden="true"></i></span><span class="drawer__text"><b>About Us</b><small>Our mission and story</small></span></a></li>
+        <li class="drawer__item"><a href="team.html"><span class="drawer__icon"><i class="icon ph-duotone ph-users-three" aria-hidden="true"></i></span><span class="drawer__text"><b>Team</b><small>The people behind BlueMind</small></span></a></li>
+        <li class="drawer__item"><a href="partners.html"><span class="drawer__icon"><i class="icon ph-duotone ph-handshake" aria-hidden="true"></i></span><span class="drawer__text"><b>Partners</b><small>Integrations, distributors and associations</small></span></a></li>
+        <li class="drawer__item"><a href="brand.html"><span class="drawer__icon"><i class="icon ph-duotone ph-palette" aria-hidden="true"></i></span><span class="drawer__text"><b>Brand</b><small>Logos, colours and press kit</small></span></a></li>
+      </ul>
+      <a class="drawer__feature drawer__item" href="about.html#story"><small>We’re founded by a CFP</small><b>Built by advisors, for advisors.</b><span>Read our story<i class="icon ph ph-arrow-right" aria-hidden="true"></i></span></a>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- 01 · Hero -->
+    <section class="chero" aria-labelledby="partners-title">
+      <div class="container">
+        <p class="eyebrow">Partners</p>
+        <h1 class="chero__title" id="partners-title">Better <span>together.</span></h1>
+        <p class="lead">We work with technology providers, distributors and industry associations to make compliance easier for every advisor.</p>
+        <div class="actions">
+          <a class="btn btn--primary btn--lg" href="#apply">Become a partner</a>
+          <a class="btn btn--border btn--lg" href="#directory">See our partners</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <figure class="cwide"><img src="assets/photos/partners-wide.jpg" alt="A smiling partner shaking hands with a BlueMind team member" width="2000" height="860" /></figure>
+    </div>
+
+    <!-- 02 · Partner types -->
+    <section class="section" id="types" aria-labelledby="types-title" >
+      <div class="container">
+        <div class="cbar"><h2 id="types-title">Ways to partner with BlueMind.</h2></div>
+        <ul class="ctypes">
+          <li data-reveal><div class="ctypes__pic"><img src="assets/photos/ptype-tech.jpg" alt="Two people working through an integration on a laptop" width="900" height="640" loading="lazy" /></div><h3>Technology &amp; integrations</h3><small>CRMs, calendars, e-sign, carrier systems</small><p>Connect your product to BlueMind’s AI Workflow.</p><a class="link" href="#apply">Learn more<i class="icon ph ph-arrow-right" aria-hidden="true"></i></a></li>
+          <li data-reveal><div class="ctypes__pic"><img src="assets/photos/ptype-dist.jpg" alt="Three colleagues in conversation in an office corridor" width="900" height="640" loading="lazy" /></div><h3>Distribution partners</h3><small>MGAs, BGAs, IMOs</small><p>Bring Harmony and Advisor to your network.</p><a class="link" href="enterprise.html">Learn more<i class="icon ph ph-arrow-right" aria-hidden="true"></i></a></li>
+          <li data-reveal><div class="ctypes__pic"><img src="assets/photos/ptype-assoc.jpg" alt="A speaker presenting to a group of members" width="900" height="640" loading="lazy" /></div><h3>Associations</h3><small>Industry bodies and advisor groups</small><p>Member benefits and education for your members.</p><a class="link" href="#apply">Learn more<i class="icon ph ph-arrow-right" aria-hidden="true"></i></a></li>
+          <li data-reveal><div class="ctypes__pic"><img src="assets/photos/ptype-ref.jpg" alt="A smiling partner shaking hands" width="900" height="640" loading="lazy" /></div><h3>Referral partners</h3><small>Consultants and service providers</small><p>Refer clients and earn [referral terms].</p><a class="link" href="#apply">Learn more<i class="icon ph ph-arrow-right" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 03 · Benefits -->
+    <section class="section section--tint" id="benefits" aria-labelledby="ben-title">
+      <div class="container">
+        <div class="cread" style="max-width:960px">
+          <h2 id="ben-title">What partners get.</h2>
+          <ul class="coffer">
+            <li><b><i class="icon ph ph-check-circle" aria-hidden="true"></i>Co-marketing</b><span>[Joint webinars, case studies, listings]</span></li>
+            <li><b><i class="icon ph ph-check-circle" aria-hidden="true"></i>Technical support</b><span>[Sandbox, docs, partner engineer]</span></li>
+            <li><b><i class="icon ph ph-check-circle" aria-hidden="true"></i>Revenue share</b><span>[Terms for referral and distribution]</span></li>
+            <li><b><i class="icon ph ph-check-circle" aria-hidden="true"></i>Early access</b><span>[Roadmap previews and beta features]</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · Directory -->
+    <section class="section" id="directory" aria-labelledby="dir-title">
+      <div class="container">
+        <div class="cbar">
+          <h2 id="dir-title">Our partners</h2>
+          <div class="cfilter" data-filter="dir" role="group" aria-label="Filter partners">
+            <button type="button" data-cat="all" aria-pressed="true">All</button>
+            <button type="button" data-cat="tech" aria-pressed="false">Technology</button>
+            <button type="button" data-cat="dist" aria-pressed="false">Distribution</button>
+            <button type="button" data-cat="assoc" aria-pressed="false">Associations</button>
+          </div>
+        </div>
+        <ul class="cdir" id="dir">
+          <li data-cat="tech"><span class="cdir__logo">[Logo]</span><b>[Partner name]</b><span>Technology · [one-line description]</span></li>
+          <li data-cat="dist"><span class="cdir__logo">[Logo]</span><b>[Partner name]</b><span>Distribution · [one-line description]</span></li>
+          <li data-cat="assoc"><span class="cdir__logo">[Logo]</span><b>[Partner name]</b><span>Association · [one-line description]</span></li>
+          <li data-cat="tech"><span class="cdir__logo">[Logo]</span><b>[Partner name]</b><span>Technology · [one-line description]</span></li>
+          <li data-cat="dist"><span class="cdir__logo">[Logo]</span><b>[Partner name]</b><span>Distribution · [one-line description]</span></li>
+          <li data-cat="tech"><span class="cdir__logo">[Logo]</span><b>[Partner name]</b><span>Technology · [one-line description]</span></li>
+          <li data-cat="assoc"><span class="cdir__logo">[Logo]</span><b>[Partner name]</b><span>Association · [one-line description]</span></li>
+          <li data-cat="dist"><span class="cdir__logo">[Logo]</span><b>[Partner name]</b><span>Distribution · [one-line description]</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 05 · How to join -->
+    <section class="section section--tint" id="apply" aria-labelledby="apply-title">
+      <div class="container cjoin">
+        <div>
+          <h2 class="h2" id="apply-title">Become a partner <span>in three steps.</span></h2>
+          <ol class="csteps">
+            <li><span class="num">1</span><b>Apply</b><p>Tell us about your company and goals.</p></li>
+            <li><span class="num">2</span><b>Meet the team</b><p>We explore the fit together.</p></li>
+            <li><span class="num">3</span><b>Launch</b><p>Agreement, onboarding and go-to-market.</p></li>
+          </ol>
+        </div>
+        <form class="pform" novalidate aria-label="Partner application">
+          <label class="full">Full name<input name="name" autocomplete="name" placeholder="Jane Smith" required /></label>
+          <label>Work email<input name="email" type="email" autocomplete="email" placeholder="jane@company.com" required /></label>
+          <label>Company<input name="company" autocomplete="organization" placeholder="Company name" required /></label>
+          <label class="full">Partnership type<select name="type" required><option value="">Select</option><option>Technology</option><option>Distribution</option><option>Association</option><option>Referral</option></select></label>
+          <label class="full">Tell us more<textarea name="message" placeholder="What would you like to build together?"></textarea></label>
+          <button class="btn btn--primary btn--lg" type="submit">Send application</button>
+          <p class="pform__msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- 17 · Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <img class="footer__logo" src="assets/logo.svg" alt="bluemind" width="1026" height="290" />
+          <p class="footer__tag">One mind for your whole business.</p>
+          <a class="btn btn--primary btn--lg" href="https://bluemind.app/contact-us">Contact us</a>
+        </div>
+        <nav class="footer__cols" aria-label="Footer">
+          <div><h3>Products</h3><ul><li><a href="enterprise.html">Harmony</a></li><li><a href="advisor.html">Advisor</a></li><li><a href="#">Pricing</a></li><li><a href="index.html#integrations">Integrations</a></li></ul></div>
+          <div><h3>Resources</h3><ul><li><a href="#">Blog</a></li><li><a href="#">Help Centre</a></li><li><a href="#">Documentation</a></li><li><a href="#">Press Release</a></li><li><a href="#">Webinar</a></li><li><a href="design-system.html">Design system</a></li></ul></div>
+          <div><h3>Company</h3><ul><li><a href="about.html">About Us</a></li><li><a href="team.html">Team</a></li><li><a href="partners.html">Partners</a></li><li><a href="brand.html">Brand</a></li></ul></div>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 BlueMind <span aria-hidden="true">·</span> <a href="#">Terms</a> <span aria-hidden="true">·</span> <a href="#">Privacy</a> <span aria-hidden="true">·</span> <a href="#">Cookies</a></p>
+        <ul class="footer__social">
+          <li><a href="https://www.linkedin.com/company/bluemindapp/" target="_blank" rel="noopener" aria-label="BlueMind on LinkedIn"><i class="icon ph ph-linkedin-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://twitter.com/BlueMind_app" target="_blank" rel="noopener" aria-label="BlueMind on X"><i class="icon ph ph-x-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.instagram.com/bluemind.app/" target="_blank" rel="noopener" aria-label="BlueMind on Instagram"><i class="icon ph ph-instagram-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.facebook.com/BlueMindApp/" target="_blank" rel="noopener" aria-label="BlueMind on Facebook"><i class="icon ph ph-facebook-logo" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+      <img class="footer__mark" src="assets/logo.svg" alt="" width="1026" height="290" aria-hidden="true" />
+    </div>
+  </footer>
+
+
+  <script src="sections.js"></script>
+  <script src="product.js"></script>
+  <script src="company.js"></script>
+</body>
+</html>
