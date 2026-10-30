@@ -1217,7 +1217,9 @@
 /* Advisor tone: lavender and rose instead of Harmony's blue and orange */
 .pp--advisor .phero::after { background: radial-gradient(38% 45% at 12% 30%, rgba(160, 150, 240, 0.42), transparent 70%), radial-gradient(34% 40% at 90% 26%, rgba(245, 160, 195, 0.38), transparent 70%), radial-gradient(40% 30% at 50% 0%, rgba(220, 216, 243, 0.8), transparent 70%); }
 .pp--advisor .hh__video::before { background: linear-gradient(135deg, #b3aef2, #f5b5cd); }
-.pp--advisor #start::after { background: radial-gradient(38% 45% at 12% 70%, rgba(160, 150, 240, 0.42), transparent 70%), radial-gradient(34% 40% at 90% 74%, rgba(245, 160, 195, 0.38), transparent 70%), radial-gradient(40% 30% at 50% 100%, rgba(220, 216, 243, 0.8), transparent 70%); }
+/* Final CTA glow sits on the bottom edge and is cut by it: blobs centred below the section, the
+   blurred layer runs past the edge so the cut stays crisp */
+.pp--advisor #start::after { inset: auto -10% -80px; height: 90%; background: radial-gradient(40% 60% at 14% 100%, rgba(160, 150, 240, 0.8), transparent 70%), radial-gradient(36% 55% at 88% 100%, rgba(245, 160, 195, 0.75), transparent 70%), radial-gradient(45% 45% at 50% 100%, rgba(220, 216, 243, 0.85), transparent 70%); }
 
 /* Before/after: a check-and-cross table. Feature on the left, one centred mark per column.
    Advisor's ticks sit in a soft blue circle, the "without" crosses in grey */
