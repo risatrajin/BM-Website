@@ -62,11 +62,8 @@
   color: var(--muted);
   font-size: var(--text-sm);
 }
-.cwide__faces { display: flex; }
-.cwide__faces img { width: 88px; height: 88px; margin-left: -18px; border: 4px solid var(--surface); border-radius: 50%; object-fit: cover; }
-.cwide__faces img:first-child { margin-left: 0; }
+
 .cwide > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.cwide__note { position: absolute; left: 20px; bottom: 16px; font-size: var(--text-xs); color: var(--ink-2); }
 
 /* ---------- Stats row (Manifesto "Fast forward a few years") ---------- */
 .cstats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 64px; list-style: none; }
@@ -128,7 +125,6 @@
 .cbar h2 { font-size: var(--text-xl); font-weight: 400; letter-spacing: var(--tracking-tight); }
 [data-cat][hidden] { display: none !important; }
 
-/* People as rows (Careers' team list) */
 /* People grid: blue duotone portraits. Leadership large, everyone else small. */
 .cpeople { display: grid; grid-template-columns: repeat(5, 1fr); gap: 40px 16px; list-style: none; }
 .cpeople--lg { grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -159,7 +155,6 @@
 .cpeople__item:hover .cpeople__arrow { transform: translate(2px, -2px); }
 .cpeople--lg .cpeople__name { font-size: var(--text-lg); }
 .cpeople--lg .cpeople__role { font-size: 15px; }
-
 
 /* ---------- Partner cards ---------- */
 .ctypes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; list-style: none; }
@@ -230,7 +225,7 @@
 .crules li { display: flex; flex-direction: column; padding: 8px; border-radius: var(--radius-lg); background: var(--surface-card); }
 .crules__art { display: grid; place-items: center; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radius-md); background: var(--surface); }
 .crules__art img { width: 60%; filter: brightness(0) opacity(0.93); }
-.crules__art--busy { background: repeating-linear-gradient(45deg, var(--slate-200) 0 6px, var(--slate-300) 6px 12px); }
+
 .crules p { display: flex; align-items: center; gap: 8px; padding: 16px 8px 8px; font-size: 15px; }
 .crules .icon { font-size: 18px; }
 .crules .do { color: var(--ok); }
@@ -241,7 +236,6 @@
 .cpress h3 { font-size: var(--text-lg); font-weight: 400; }
 .cpress p { margin-top: 12px; color: var(--ink-2); }
 .cpress .actions { margin-top: 24px; }
-
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1100px) {
@@ -274,5 +268,5 @@
   .cpeople, .cpeople--lg { grid-template-columns: 1fr 1fr; gap: 32px 12px; }
   .cpeople--lg li:first-child { grid-column: 1 / -1; }
   .cgallery li:nth-child(3) { display: none; }
-  .cwide__faces img { width: 56px; height: 56px; margin-left: -12px; }
+  
 }

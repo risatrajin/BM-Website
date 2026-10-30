@@ -6,28 +6,6 @@
 /* The page sits under the site's fixed nav */
 .ds { padding-top: var(--nav-h); }
 
-/* Top bar (unused now that the page carries the site nav) */
-.ds-bar {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  height: 64px;
-  padding: 0 24px;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 1px 0 var(--line);
-}
-
-.ds-bar__brand { display: flex; align-items: center; gap: 12px; font-size: var(--text-sm); color: var(--muted); text-decoration: none; }
-.ds-bar__brand img { width: 112px; height: auto; filter: brightness(0) opacity(0.93); }
-.ds-bar__brand span { padding-left: 12px; border-left: 1px solid var(--line-strong); }
-.ds-bar a.ds-back { font-size: var(--text-sm); color: var(--ink); }
-
 /* Shell: sticky index on the left, content on the right */
 .ds-shell { display: grid; grid-template-columns: var(--ds-side) 1fr; }
 

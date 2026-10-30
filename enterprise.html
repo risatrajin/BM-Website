@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/duotone/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/thin/style.css" />
-  <script>document.documentElement.classList.add('js')</script>
+  <script>document.documentElement.classList.add('js'); if (/[?&]embed\b/.test(location.search)) document.documentElement.classList.add('is-embed')</script>
 </head>
 <body class="pp pp--harmony">
   <a class="skip" href="#main">Skip to content</a>
@@ -69,7 +69,7 @@
     <!-- 01 · Hero: Superhuman Mail layout; the stage is a looping product film built from DOM (product.js) -->
     <section class="hh" id="overview" aria-labelledby="hero-title" data-hhero>
       <div class="container">
-        <p class="hh__brand"><img src="assets/harmony/harmony-icon.svg" alt="" width="22" height="22" /><b>bluemind</b> Harmony</p>
+        <p class="hh__brand"><img src="assets/harmony/harmony-icon.svg" alt="" width="22" height="22" /><b>bluemind</b> Harmony<span class="hh__tag">AI supervision for advisor networks</span></p>
         <h1 class="hh__title" id="hero-title">Total supervisory command.<br>Zero blind spots.</h1>
         <p class="hh__lead">Harmony is the oversight layer for your whole advisor network. <br>Watch every file in real time and catch risk before it becomes a finding.</p>
         <a class="btn btn--primary btn--lg hh__cta" href="#demo">Book a demo</a>
@@ -230,6 +230,33 @@
       </div>
     </section>
 
+
+    <!-- Live impact counters (Unify "Breadth & depth" layout) -->
+    <section class="section impact" id="impact" aria-labelledby="impact-title">
+      <div class="container">
+        <div class="phead">
+          <p class="eyebrow">Harmony in numbers</p>
+          <h2 class="h2" id="impact-title">What firms gain <span>with Harmony.</span></h2>
+        </div>
+        <ul class="impact__grid">
+          <li class="impact__card">
+            <p class="impact__num">$500K+</p>
+            <p class="impact__label">Total money saved<br>in compliance fines</p>
+            <svg class="impact__art impact__art--rings" viewBox="70 30 180 180" aria-hidden="true"><circle cx="160" cy="120" r="30"/><circle cx="160" cy="120" r="55"/><circle cx="160" cy="120" r="80"/><circle class="impact__wave" cx="160" cy="120" r="30"/><circle class="impact__dot" cx="160" cy="120" r="6"/></svg>
+          </li>
+          <li class="impact__card">
+            <p class="impact__num">10,000+ hrs</p>
+            <p class="impact__label">Total time saved<br>in compliance audits</p>
+            <svg class="impact__art impact__art--clock" viewBox="70 30 180 180" aria-hidden="true"><circle cx="160" cy="120" r="80"/><line x1="160" y1="40" x2="160" y2="52" transform="rotate(0 160 120)"/><line x1="160" y1="40" x2="160" y2="48" transform="rotate(30 160 120)"/><line x1="160" y1="40" x2="160" y2="48" transform="rotate(60 160 120)"/><line x1="160" y1="40" x2="160" y2="52" transform="rotate(90 160 120)"/><line x1="160" y1="40" x2="160" y2="48" transform="rotate(120 160 120)"/><line x1="160" y1="40" x2="160" y2="48" transform="rotate(150 160 120)"/><line x1="160" y1="40" x2="160" y2="52" transform="rotate(180 160 120)"/><line x1="160" y1="40" x2="160" y2="48" transform="rotate(210 160 120)"/><line x1="160" y1="40" x2="160" y2="48" transform="rotate(240 160 120)"/><line x1="160" y1="40" x2="160" y2="52" transform="rotate(270 160 120)"/><line x1="160" y1="40" x2="160" y2="48" transform="rotate(300 160 120)"/><line x1="160" y1="40" x2="160" y2="48" transform="rotate(330 160 120)"/><line class="impact__hand" x1="160" y1="120" x2="160" y2="62"/><circle class="impact__dot" cx="160" cy="120" r="4"/></svg>
+          </li>
+          <li class="impact__card">
+            <p class="impact__num">100%</p>
+            <p class="impact__label">Of advisor files<br>watched in real time</p>
+            <svg class="impact__art impact__art--grid" viewBox="70 30 180 180" aria-hidden="true"><circle cx="100" cy="60" r="6" style="--k:0"/><circle cx="130" cy="60" r="6" style="--k:1"/><circle cx="160" cy="60" r="6" style="--k:2"/><circle cx="190" cy="60" r="6" style="--k:3"/><circle cx="220" cy="60" r="6" style="--k:4"/><circle cx="100" cy="90" r="6" style="--k:1"/><circle cx="130" cy="90" r="6" style="--k:2"/><circle cx="160" cy="90" r="6" style="--k:3"/><circle cx="190" cy="90" r="6" style="--k:4"/><circle cx="220" cy="90" r="6" style="--k:5"/><circle cx="100" cy="120" r="6" style="--k:2"/><circle cx="130" cy="120" r="6" style="--k:3"/><circle cx="160" cy="120" r="6" style="--k:4"/><circle cx="190" cy="120" r="6" style="--k:5"/><circle cx="220" cy="120" r="6" style="--k:6"/><circle cx="100" cy="150" r="6" style="--k:3"/><circle cx="130" cy="150" r="6" style="--k:4"/><circle cx="160" cy="150" r="6" style="--k:5"/><circle cx="190" cy="150" r="6" style="--k:6"/><circle cx="220" cy="150" r="6" style="--k:7"/><circle cx="100" cy="180" r="6" style="--k:4"/><circle cx="130" cy="180" r="6" style="--k:5"/><circle cx="160" cy="180" r="6" style="--k:6"/><circle cx="190" cy="180" r="6" style="--k:7"/><circle cx="220" cy="180" r="6" style="--k:8"/></svg>
+          </li>
+        </ul>
+      </div>
+    </section>
     <!-- 07 · Rollout: Superpower-style rows -->
     <section class="section" id="rollout" aria-labelledby="rollout-title">
       <div class="container">
@@ -409,6 +436,164 @@
       </div>
     </section>
 
+    <!-- Mia · the AI assistant inside every BlueMind product (same block on Home, Advisor and Enterprise).
+         Prompt tabs switch the conversation; until someone picks one it steps on every 6s while a ring sweeps the active tab (sections.js) -->
+    <section class="section mia" id="mia" aria-labelledby="mia-title">
+      <div class="container">
+        <div class="phead">
+          <p class="mia__eyebrow"><svg class="mia__bot" viewBox="0 0 622 663" aria-hidden="true"><path fill="#0080ff" d="M6.42055 349C40.6904 128.108 231.042 33.7442 411.826 5.25682C430.774 2.27115 445.719 20.1811 439.024 38.1562C409.667 116.984 375.883 154.244 418.5 132.5C479.417 101.42 547.37 110.62 589.302 133.865C606.849 143.592 597.037 167.443 586.638 184.6C570.275 211.597 575.772 254.577 580.421 270.5C720.421 619.7 463.796 691.079 258.156 654C95.9909 624.76 -30.3794 586.2 6.42055 349Z"/><g fill="#fff"><ellipse cx="224.6" cy="394" rx="59.5" ry="85.5"/><ellipse cx="407.1" cy="394" rx="59.5" ry="85.5"/></g></svg>Meet Mia</p>
+          <h2 class="h2" id="mia-title">Ask Mia. <span>Get the paperwork done.</span></h2>
+          <p class="lead">Mia is the AI assistant inside BlueMind. Ask in plain words before, during or after a meeting — Mia drafts it, you approve it.</p>
+        </div>
+        <div class="mia__stage" data-mia>
+          <div class="mia__top">
+          <div class="mia__prompts" role="tablist" aria-label="Try asking Mia">
+            <button type="button" class="mia__prompt is-on" role="tab" id="mia-tab-prep" aria-controls="mia-pane-prep" aria-selected="true"><span class="mia__tile"><i class="icon ph-duotone ph-calendar-check" aria-hidden="true"></i></span><span class="mia__label">Prep me for my 10:00</span></button>
+            <button type="button" class="mia__prompt" role="tab" id="mia-tab-notes" aria-controls="mia-pane-notes" aria-selected="false" tabindex="-1"><span class="mia__tile"><i class="icon ph-duotone ph-waveform" aria-hidden="true"></i></span><span class="mia__label">Summarise my last meeting</span></button>
+            <button type="button" class="mia__prompt" role="tab" id="mia-tab-gaps" aria-controls="mia-pane-gaps" aria-selected="false" tabindex="-1"><span class="mia__tile"><i class="icon ph-duotone ph-seal-warning" aria-hidden="true"></i></span><span class="mia__label">What’s missing on a file?</span></button>
+            <button type="button" class="mia__prompt" role="tab" id="mia-tab-email" aria-controls="mia-pane-email" aria-selected="false" tabindex="-1"><span class="mia__tile"><i class="icon ph-duotone ph-paper-plane-tilt" aria-hidden="true"></i></span><span class="mia__label">Draft the follow-up email</span></button>
+          </div>
+          <a class="btn btn--primary btn--lg mia__cta" href="mia.html">Discover Mia</a>
+          </div>
+          <div class="mia__panel">
+            <div class="mia__win">
+            <div class="mia__bar"><span class="mia__av" aria-hidden="true"><svg class="mia__bot" viewBox="0 0 622 663" aria-hidden="true"><path fill="#0080ff" d="M6.42055 349C40.6904 128.108 231.042 33.7442 411.826 5.25682C430.774 2.27115 445.719 20.1811 439.024 38.1562C409.667 116.984 375.883 154.244 418.5 132.5C479.417 101.42 547.37 110.62 589.302 133.865C606.849 143.592 597.037 167.443 586.638 184.6C570.275 211.597 575.772 254.577 580.421 270.5C720.421 619.7 463.796 691.079 258.156 654C95.9909 624.76 -30.3794 586.2 6.42055 349Z"/><g fill="#fff"><ellipse cx="224.6" cy="394" rx="59.5" ry="85.5"/><ellipse cx="407.1" cy="394" rx="59.5" ry="85.5"/></g></svg></span><b>Mia</b><small>Inside BlueMind</small></div>
+            <div class="mia__body" aria-live="polite">
+              <div class="mia__pane is-on" role="tabpanel" id="mia-pane-prep" aria-labelledby="mia-tab-prep">
+                <p class="mia__me">Prep me for my 10:00 with Maria Chen.</p>
+                <div class="mia__reply"><span class="mia__av" aria-hidden="true"><svg class="mia__bot" viewBox="0 0 622 663" aria-hidden="true"><path fill="#0080ff" d="M6.42055 349C40.6904 128.108 231.042 33.7442 411.826 5.25682C430.774 2.27115 445.719 20.1811 439.024 38.1562C409.667 116.984 375.883 154.244 418.5 132.5C479.417 101.42 547.37 110.62 589.302 133.865C606.849 143.592 597.037 167.443 586.638 184.6C570.275 211.597 575.772 254.577 580.421 270.5C720.421 619.7 463.796 691.079 258.156 654C95.9909 624.76 -30.3794 586.2 6.42055 349Z"/><g fill="#fff"><ellipse cx="224.6" cy="394" rx="59.5" ry="85.5"/><ellipse cx="407.1" cy="394" rx="59.5" ry="85.5"/></g></svg></span><div class="mia__ans"><p>Here’s your brief for <b>Maria Chen</b>:</p><ul class="mia__pts"><li><i class="icon ph-bold ph-check" aria-hidden="true"></i><span>Last review in March — term life discussed</span></li><li><i class="icon ph-bold ph-check" aria-hidden="true"></i><span>New since then: second child born in June</span></li><li class="is-warn"><i class="icon ph-bold ph-warning" aria-hidden="true"></i><span>Still open: beneficiary form since August</span></li></ul><div class="mia__chips"><span>Brief · 3 talking points</span><span>Open client</span></div></div></div>
+              </div>
+              <div class="mia__pane" role="tabpanel" id="mia-pane-notes" aria-labelledby="mia-tab-notes" hidden>
+                <p class="mia__me">Summarise my meeting with Tom Park.</p>
+                <div class="mia__reply"><span class="mia__av" aria-hidden="true"><svg class="mia__bot" viewBox="0 0 622 663" aria-hidden="true"><path fill="#0080ff" d="M6.42055 349C40.6904 128.108 231.042 33.7442 411.826 5.25682C430.774 2.27115 445.719 20.1811 439.024 38.1562C409.667 116.984 375.883 154.244 418.5 132.5C479.417 101.42 547.37 110.62 589.302 133.865C606.849 143.592 597.037 167.443 586.638 184.6C570.275 211.597 575.772 254.577 580.421 270.5C720.421 619.7 463.796 691.079 258.156 654C95.9909 624.76 -30.3794 586.2 6.42055 349Z"/><g fill="#fff"><ellipse cx="224.6" cy="394" rx="59.5" ry="85.5"/><ellipse cx="407.1" cy="394" rx="59.5" ry="85.5"/></g></svg></span><div class="mia__ans"><p>Meeting with <b>Tom Park</b> · 32 min, client consent given.</p><ul class="mia__pts"><li><i class="icon ph-bold ph-check" aria-hidden="true"></i><span>Goal: protect the mortgage and family income</span></li><li><i class="icon ph-bold ph-check" aria-hidden="true"></i><span>Budget: about $150 a month</span></li><li><i class="icon ph-bold ph-check" aria-hidden="true"></i><span>Next: send two term options by Friday</span></li></ul><div class="mia__chips"><span>Filed to Tom Park</span><span>Approve summary</span></div></div></div>
+              </div>
+              <div class="mia__pane" role="tabpanel" id="mia-pane-gaps" aria-labelledby="mia-tab-gaps" hidden>
+                <p class="mia__me">What’s missing on Maria’s file before the audit?</p>
+                <div class="mia__reply"><span class="mia__av" aria-hidden="true"><svg class="mia__bot" viewBox="0 0 622 663" aria-hidden="true"><path fill="#0080ff" d="M6.42055 349C40.6904 128.108 231.042 33.7442 411.826 5.25682C430.774 2.27115 445.719 20.1811 439.024 38.1562C409.667 116.984 375.883 154.244 418.5 132.5C479.417 101.42 547.37 110.62 589.302 133.865C606.849 143.592 597.037 167.443 586.638 184.6C570.275 211.597 575.772 254.577 580.421 270.5C720.421 619.7 463.796 691.079 258.156 654C95.9909 624.76 -30.3794 586.2 6.42055 349Z"/><g fill="#fff"><ellipse cx="224.6" cy="394" rx="59.5" ry="85.5"/><ellipse cx="407.1" cy="394" rx="59.5" ry="85.5"/></g></svg></span><div class="mia__ans"><p>Two things before Maria’s file is audit-ready:</p><ul class="mia__pts"><li class="is-warn"><i class="icon ph-bold ph-warning" aria-hidden="true"></i><span>Employer — missing on the KYC</span></li><li class="is-warn"><i class="icon ph-bold ph-warning" aria-hidden="true"></i><span>Beneficiary — missing on the FNA</span></li><li><i class="icon ph-bold ph-check" aria-hidden="true"></i><span>Disclosure and consent — on file</span></li></ul><div class="mia__chips"><span>Send for e-sign</span><span>Remind me Friday</span></div></div></div>
+              </div>
+              <div class="mia__pane" role="tabpanel" id="mia-pane-email" aria-labelledby="mia-tab-email" hidden>
+                <p class="mia__me">Draft the follow-up email to Tom.</p>
+                <div class="mia__reply"><span class="mia__av" aria-hidden="true"><svg class="mia__bot" viewBox="0 0 622 663" aria-hidden="true"><path fill="#0080ff" d="M6.42055 349C40.6904 128.108 231.042 33.7442 411.826 5.25682C430.774 2.27115 445.719 20.1811 439.024 38.1562C409.667 116.984 375.883 154.244 418.5 132.5C479.417 101.42 547.37 110.62 589.302 133.865C606.849 143.592 597.037 167.443 586.638 184.6C570.275 211.597 575.772 254.577 580.421 270.5C720.421 619.7 463.796 691.079 258.156 654C95.9909 624.76 -30.3794 586.2 6.42055 349Z"/><g fill="#fff"><ellipse cx="224.6" cy="394" rx="59.5" ry="85.5"/><ellipse cx="407.1" cy="394" rx="59.5" ry="85.5"/></g></svg></span><div class="mia__ans"><p>Draft ready for your review:</p><div class="mia__mail"><b>To: Tom Park · Subject: Next steps from today</b><p>Hi Tom, thanks for your time today. As promised, I’ll send two term life options that fit around $150 a month by Friday.</p></div><div class="mia__chips"><span class="is-dark">Approve &amp; send</span><span>Edit</span></div></div></div>
+              </div>
+            </div>
+            <div class="mia__composer" aria-hidden="true"><i class="icon ph ph-plus"></i><span>Ask Mia anything…</span><b><i class="icon ph-bold ph-arrow-up"></i></b></div>
+          </div>
+          <div class="mia__note" aria-hidden="true"><span class="mia__av mia__av--lg"><svg class="mia__bot" viewBox="0 0 622 663" aria-hidden="true"><path fill="#0080ff" d="M6.42055 349C40.6904 128.108 231.042 33.7442 411.826 5.25682C430.774 2.27115 445.719 20.1811 439.024 38.1562C409.667 116.984 375.883 154.244 418.5 132.5C479.417 101.42 547.37 110.62 589.302 133.865C606.849 143.592 597.037 167.443 586.638 184.6C570.275 211.597 575.772 254.577 580.421 270.5C720.421 619.7 463.796 691.079 258.156 654C95.9909 624.76 -30.3794 586.2 6.42055 349Z"/><g fill="#fff"><ellipse cx="224.6" cy="394" rx="59.5" ry="85.5"/><ellipse cx="407.1" cy="394" rx="59.5" ry="85.5"/></g></svg></span><p>3 client files are ready for your sign-off<small>Today · 9:12 AM</small></p></div>
+          </div>
+        </div>
+        <ul class="mia__facts">
+          <li><i class="icon ph ph-hand" aria-hidden="true"></i><div><h3>Never sends without you</h3><p>Every note, form and email waits for your approval.</p></div></li>
+          <li><i class="icon ph ph-clock-counter-clockwise" aria-hidden="true"></i><div><h3>Every step logged</h3><p>What Mia drafted and what you changed lands in the audit trail.</p></div></li>
+          <li><i class="icon ph ph-users-three" aria-hidden="true"></i><div><h3>Knows your whole book</h3><p>Ask about any client and get the answer from their file.</p></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- More in Harmony: content-type cards with looping scenes (JoomShaper "All your content type in one place" layout) -->
+    <section class="section" id="more" aria-labelledby="more-title">
+      <div class="container">
+        <div class="phead">
+          <p class="eyebrow">And everything around it</p>
+          <h2 class="h2" id="more-title">All your supervision work <span>in one place.</span></h2>
+          <p class="lead">Dashboards, records, audits and conversations, connected from the first day.</p>
+        </div>
+        <div class="mgrid">
+          <article class="mcard mcard--wide" data-mcard>
+            <div class="mcard__media" aria-hidden="true">
+              <div class="mc mc--dash">
+                <div class="mc__tabs mc__tabs--3"><span>CCO</span><span>Supervision</span><span>High risk</span></div>
+                <div class="mc__panes mc__panes--3">
+                  <div class="mc__pane" style="--k:0"><div class="mc__tiles"><span><b>92</b>Compliance score</span><span><b>14</b>Open flags</span><span><b>3</b>Expiring soon</span></div><div class="mc__bars"><i style="--w:86%"></i><i style="--w:64%"></i><i style="--w:48%"></i></div></div>
+                  <div class="mc__pane" style="--k:1"><div class="mc__tiles"><span><b>128</b>Meetings today</span><span><b>9</b>Awaiting review</span><span><b>96%</b>Notes filed</span></div><div class="mc__bars"><i style="--w:72%"></i><i style="--w:90%"></i><i style="--w:55%"></i></div></div>
+                  <div class="mc__pane" style="--k:2"><div class="mc__tiles"><span><b>6</b>High-risk cases</span><span><b>2</b>Overdue</span><span><b>4d</b>Avg. to resolve</span></div><div class="mc__bars"><i style="--w:40%"></i><i style="--w:78%"></i><i style="--w:30%"></i></div></div>
+                </div>
+              </div>
+            </div>
+            <h3>Role dashboards</h3>
+            <p>CCO, Supervision and High-risk views. Each role opens to the numbers it owns.</p>
+          </article>
+          <article class="mcard mcard--wide" data-mcard>
+            <div class="mcard__media" aria-hidden="true">
+              <div class="mc mc--rec">
+                <div class="mc__tabs mc__tabs--5"><span>Clients</span><span>Policies</span><span>Investments</span><span>Agency</span><span>Documents</span></div>
+                <div class="mc__panes mc__panes--5">
+                  <ul class="mc__pane mc__list" style="--k:0"><li><i class="icon ph ph-user"></i>Amelia Hart<small>Aged 42 · Low risk</small></li><li><i class="icon ph ph-user"></i>Daniel Okoye<small>Aged 57 · Medium</small></li><li><i class="icon ph ph-user"></i>Priya Nair<small>Aged 35 · Low risk</small></li></ul>
+                  <ul class="mc__pane mc__list" style="--k:1"><li><i class="icon ph ph-shield-check"></i>Term Life 20<small>Active · Renews Mar</small></li><li><i class="icon ph ph-shield-check"></i>Critical Illness<small>Active · Renews Jun</small></li><li><i class="icon ph ph-shield-warning"></i>Whole Life Plus<small>Lapse risk</small></li></ul>
+                  <ul class="mc__pane mc__list" style="--k:2"><li><i class="icon ph ph-chart-line-up"></i>Balanced Growth Fund<small>Suitability matched</small></li><li><i class="icon ph ph-chart-line-up"></i>Global Equity Fund<small>Suitability matched</small></li><li><i class="icon ph ph-warning"></i>Frontier Markets Fund<small>Needs review</small></li></ul>
+                  <div class="mc__pane mc__ag" style="--k:3">
+                    <span><i class="icon ph ph-buildings" style="--t:#ece6ff;--c:#6d4bd8"></i><b>Northbridge Financial Group</b><small>Managing general agency</small></span>
+                    <span><i class="icon ph ph-buildings" style="--t:#d9f2ec;--c:#1c8f78"></i><b>Prairie West Insurance Partners</b><small>Operates under an MGA</small></span>
+                    <span><i class="icon ph ph-users-three" style="--t:#ffecd1;--c:#c26a0a"></i><b>Lakeshore Advisors Network</b><small>Associate general agency</small></span>
+                    <span><i class="icon ph ph-map-pin" style="--t:#dcebff;--c:#1f6feb"></i><b>Harbourfront Wealth Office</b><small>Physical branch office</small></span>
+                  </div>
+                  <ul class="mc__pane mc__list" style="--k:4"><li><i class="icon ph ph-file-pdf"></i>Fact find, signed<small>Filed today</small></li><li><i class="icon ph ph-file-pdf"></i>Suitability report<small>Filed today</small></li><li><i class="icon ph ph-file-text"></i>Meeting note<small>Filed yesterday</small></li></ul>
+                </div>
+              </div>
+            </div>
+            <h3>Clients, policies and records</h3>
+            <p>Clients, policies, investments, agencies and documents, one searchable record per advisor.</p>
+          </article>
+          <article class="mcard" data-mcard>
+            <div class="mcard__media" aria-hidden="true">
+              <div class="mc mc--aud">
+                <div class="mc__panes mc__panes--2">
+                  <ul class="mc__pane mc__list mc__list--req" style="--k:0">
+                    <li><img src="assets/harmony/av/elena.png" alt=""><span><b>REQ-9001</b><small>Annual audit</small></span><em class="chip chip--blue">Sent</em></li>
+                    <li><img src="assets/harmony/av/noah.png" alt=""><span><b>REQ-9002</b><small>Policy-specific review</small></span><em class="chip chip--amber">In progress</em></li>
+                    <li><img src="assets/harmony/av/ingrid.png" alt=""><span><b>REQ-9003</b><small>Annual audit</small></span><em class="chip chip--green">Submitted</em></li>
+                    <li><img src="assets/harmony/av/lucas.png" alt=""><span><b>REQ-9004</b><small>New advisor review</small></span><em class="chip chip--red">Overdue</em></li>
+                  </ul>
+                  <div class="mc__pane mc__inc" style="--k:1">
+                    <div class="mc__cov"><span class="mc__btn">Escalate</span><span class="mc__btn mc__btn--dark">Mark resolved</span></div>
+                    <i class="icon ph ph-warning-circle mc__badge"></i>
+                    <b class="mc__ttl">Unauthorized trade in account</b>
+                    <small>INC-2026-0042</small>
+                    <div class="mc__chips"><em class="chip chip--red">Critical</em><em class="chip chip--amber">In progress</em><em class="chip chip--grey">Trading violation</em></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h3>Audit reviews and incidents</h3>
+            <p>Log it, review it, close it. Every step stays on the record.</p>
+          </article>
+          <article class="mcard" data-mcard>
+            <div class="mcard__media" aria-hidden="true">
+              <div class="mc mc--chat">
+                <div class="mc__card">
+                  <div class="mc__chead"><img src="assets/harmony/av/fatima.png" alt=""><span><b>Sara Chen</b><small>Branch Manager · Toronto</small></span></div>
+                  <div class="mc__thread">
+                    <p class="mc__b mc__b--in" style="--n:1">Do you have a minute to discuss Maya’s file?</p>
+                    <p class="mc__b mc__b--out" style="--n:2">Sure, what’s the concern?</p>
+                    <p class="mc__b mc__b--in" style="--n:3">Her FNA form is three months old.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h3>Inbox</h3>
+            <p>Requests, assignments and reminders from your team, in one thread per case.</p>
+          </article>
+          <article class="mcard" data-mcard>
+            <div class="mcard__media" aria-hidden="true">
+              <div class="mc mc--eng">
+                <div class="mc__card">
+                  <p class="mc__cap">Advisor Engagement Report</p>
+                  <div class="mc__stabs"><span class="is-on">All <i>13</i></span><span>Active <i>8</i></span><span>Invited <i>3</i></span><span>Suspended <i>2</i></span></div>
+                  <ul class="mc__tbl">
+                    <li style="--n:0"><img src="assets/harmony/av/jessica.png" alt=""><span><b>Priya Raman</b><small>Today, 9:12 AM</small></span><em class="chip chip--green">Active</em></li>
+                    <li style="--n:1"><img src="assets/harmony/av/ingrid.png" alt=""><span><b>Hannah Lindqvist</b><small>Newly active</small></span><em class="chip chip--green">Active</em></li>
+                    <li style="--n:2"><img src="assets/harmony/av/santiago.png" alt=""><span><b>Ana Wong</b><small>Invited Oct 9</small></span><em class="chip chip--blue">Invited</em></li>
+                    <li style="--n:3"><img src="assets/harmony/av/dmitri.png" alt=""><span><b>Jean Tremblay</b><small>Suspended Oct 3</small></span><em class="chip chip--red">Suspended</em></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <h3>Advisor engagement</h3>
+            <p>See who is active, invited or suspended across your advisors, and what changed since last week.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- Outcomes: case-style carousel (Mailchimp "Businesses like yours are thriving" layout) -->
     <section class="section cases" id="outcomes" aria-labelledby="cases-title" data-cases>
       <div class="container">
@@ -544,41 +729,35 @@
 
     <!-- 09 · Proof -->
     <!-- Testimonials: side-by-side slider (reuses the outcomes carousel script, data-cases) -->
-    <section class="section tslider" id="customers" aria-labelledby="cust-title" data-cases data-cases-interval="8000">
+    <section class="section tslider" id="customers" aria-labelledby="cust-title">
       <div class="container">
         <div class="phead">
           <p class="eyebrow">Testimonials</p>
           <h2 class="h2" id="cust-title">What advisors say <span>about BlueMind.</span></h2>
         </div>
-        <ul class="cases__track" aria-label="Testimonials">
-          <li class="tcard is-on">
+        <ul class="tgrid" aria-label="Testimonials">
+          <li class="tcard" style="--ph:url('assets/photos/team-1.jpg');--pp:38% 30%">
             <figure>
+              <figcaption><span class="tcard__av" aria-hidden="true"></span><span class="tcard__who"><b>Dr. Shehnaz Hussain</b><span>CEO/Broker · CLU · CHS · EPC · PhD</span></span></figcaption>
               <blockquote><p>“BlueMind has helped me streamline and automate my business by making it easier to manage my clients, track progress and stay compliant!”</p></blockquote>
-              <svg class="tcard__curve" viewBox="0 0 1000 24" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="tc-fade" x1="0" x2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.55"/><stop offset="0.7" stop-color="currentColor" stop-opacity="0.25"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><path d="M0 19 C 280 14, 640 22, 1000 4" fill="none" stroke="url(#tc-fade)" stroke-width="1.5"/></svg>
-              <figcaption><span class="tcard__av" aria-hidden="true">SH</span><span class="tcard__who"><b>Dr. Shehnaz Hussain</b><span>CEO/Broker · CLU · CHS · EPC · PhD</span></span></figcaption>
+              <div class="tcard__stars" role="img" aria-label="5 out of 5 stars"><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i></div>
             </figure>
           </li>
-          <li class="tcard">
+          <li class="tcard" style="--ph:url('assets/harmony/t-1.jpg');--pp:55% 25%">
             <figure>
+              <figcaption><span class="tcard__av" aria-hidden="true"></span><span class="tcard__who"><b>Nannette Britanico</b><span>CLU · CHS · MDRT</span></span></figcaption>
               <blockquote><p>“If you want to leave mounting stress behind… all you need is a proven system.”</p></blockquote>
-              <svg class="tcard__curve" viewBox="0 0 1000 24" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="tc-fade" x1="0" x2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.55"/><stop offset="0.7" stop-color="currentColor" stop-opacity="0.25"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><path d="M0 19 C 280 14, 640 22, 1000 4" fill="none" stroke="url(#tc-fade)" stroke-width="1.5"/></svg>
-              <figcaption><span class="tcard__av" aria-hidden="true">NB</span><span class="tcard__who"><b>Nannette Britanico</b><span>CLU · CHS · MDRT</span></span></figcaption>
+              <div class="tcard__stars" role="img" aria-label="5 out of 5 stars"><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i></div>
             </figure>
           </li>
-          <li class="tcard">
+          <li class="tcard" style="--ph:url('assets/cta/p2.jpg');--pp:52% 20%">
             <figure>
+              <figcaption><span class="tcard__av" aria-hidden="true"></span><span class="tcard__who"><b>Vikram Janjua</b><span>Insurance broker</span></span></figcaption>
               <blockquote><p>“Migrating from a big-name system was a well-thought-out decision. Simplicity &amp; sophistication.”</p></blockquote>
-              <svg class="tcard__curve" viewBox="0 0 1000 24" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="tc-fade" x1="0" x2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.55"/><stop offset="0.7" stop-color="currentColor" stop-opacity="0.25"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><path d="M0 19 C 280 14, 640 22, 1000 4" fill="none" stroke="url(#tc-fade)" stroke-width="1.5"/></svg>
-              <figcaption><span class="tcard__av" aria-hidden="true">VJ</span><span class="tcard__who"><b>Vikram Janjua</b><span>Insurance broker</span></span></figcaption>
+              <div class="tcard__stars" role="img" aria-label="5 out of 5 stars"><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i></div>
             </figure>
           </li>
         </ul>
-        <div class="cases__nav">
-          <button class="cases__btn" type="button" data-cases-prev aria-label="Previous"><i class="icon ph ph-arrow-left" aria-hidden="true"></i></button>
-          <span class="cases__dots" aria-hidden="true"><i class="is-on"></i><i></i><i></i></span>
-          <button class="cases__btn" type="button" data-cases-next aria-label="Next"><i class="icon ph ph-arrow-right" aria-hidden="true"></i></button>
-          <button class="cases__btn cases__pause" type="button" data-cases-pause aria-label="Pause slideshow" aria-pressed="false"><i class="icon ph-fill ph-pause" aria-hidden="true"></i></button>
-        </div>
       </div>
     </section>
 

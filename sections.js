@@ -187,35 +187,6 @@
 
   revealEls.forEach((el) => io.observe(el));
 
-  // Pipeline steps light up 1 → 6 once it's in view
-  const pipe = document.querySelector('[data-pipe]');
-  if (pipe) {
-    pipe.querySelectorAll('.ai-steps li').forEach((li, i) => li.style.setProperty('--i', String(i)));
-    io.observe(pipe);
-  }
-
-  // Workflow stages highlight left → right as the list moves through the viewport
-  const stages = document.querySelector('[data-stages]');
-  if (stages && !reduceMotion) {
-    const cards = [...stages.children];
-    let ticking = false;
-    const update = () => {
-      ticking = false;
-      const r = stages.getBoundingClientRect();
-      const vh = window.innerHeight;
-      const p = clamp((vh * 0.8 - r.top) / (r.height + vh * 0.4));
-      const active = Math.min(cards.length - 1, Math.floor(p * cards.length));
-      cards.forEach((c, i) => {
-        c.classList.toggle('is-active', i === active);
-        c.classList.toggle('is-done', i < active);
-      });
-    };
-    window.addEventListener('scroll', () => {
-      if (!ticking) { ticking = true; requestAnimationFrame(update); }
-    }, { passive: true });
-    update();
-  }
-
   // Suite tabs follow the card in view (the last card whose top has passed 45% of the viewport);
   // the active tab's bar fills as that card is read. Clicking a tab, or any #suite-… link,
   // scrolls its card up under the sticky tab bar.
@@ -297,6 +268,67 @@
     update();
   }
 
+  // Mia: prompt pills switch the conversation (tabs, arrow keys too). Until someone picks one,
+  // it steps to the next prompt every 6s while the block is on screen.
+  document.querySelectorAll('[data-mia]').forEach((box) => {
+    const tabs = [...box.querySelectorAll('[role="tab"]')];
+    const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let timer = null;
+    const pick = (t, focus) => {
+      tabs.forEach((x) => {
+        const on = x === t;
+        x.classList.toggle('is-on', on);
+        x.setAttribute('aria-selected', String(on));
+        x.tabIndex = on ? 0 : -1;
+        const pane = box.querySelector('#' + x.getAttribute('aria-controls'));
+        pane.hidden = !on;
+        pane.classList.toggle('is-on', on);
+      });
+      if (focus) t.focus();
+    };
+    const stop = () => { clearInterval(timer); timer = null; box.classList.remove('is-auto'); };
+    const userPick = () => { box.dataset.picked = '1'; stop(); };
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => { userPick(); pick(t); });
+      t.addEventListener('keydown', (e) => {
+        const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (!d) return;
+        e.preventDefault(); userPick();
+        pick(tabs[(i + d + tabs.length) % tabs.length], true);
+      });
+    });
+    if (still) return;
+    new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !timer && !box.dataset.picked) {
+        // restart the ring on the current prompt so it lines up with the timer
+        const cur = tabs.find((t) => t.classList.contains('is-on'));
+        box.classList.add('is-auto'); cur.classList.remove('is-on'); void cur.offsetWidth; cur.classList.add('is-on');
+        timer = setInterval(() => {
+          const i = tabs.findIndex((t) => t.classList.contains('is-on'));
+          pick(tabs[(i + 1) % tabs.length]);
+        }, 6000);
+      } else if (!e.isIntersecting) stop();
+    }, { threshold: 0.4 }).observe(box);
+  });
+
+  // Demo video: any [data-video] link opens the YouTube player in a modal; closing removes the
+  // iframe so playback stops. Without JS the link still goes to YouTube.
+  const vmodal = document.getElementById('video-modal');
+  if (vmodal) {
+    const frame = vmodal.querySelector('.vmodal__frame');
+    const close = () => vmodal.close();
+    document.querySelectorAll('[data-video]').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        frame.innerHTML = `<iframe src="https://www.youtube.com/embed/${a.dataset.video}?autoplay=1&rel=0" title="BlueMind product demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+        vmodal.showModal();
+      });
+    });
+    vmodal.querySelector('.vmodal__close').addEventListener('click', close);
+    vmodal.addEventListener('click', (e) => { if (e.target === vmodal) close(); });
+    vmodal.addEventListener('close', () => { frame.innerHTML = ''; });
+  }
+
   // Onboarding lessons: centre card full size, neighbours at 75%, advance one slot every 5s.
   // The card leaving on the left slides out first, then jumps (unseen) to the far right.
   const lessonsWrap = document.querySelector('[data-lessons]');
@@ -325,25 +357,6 @@
         setTimeout(() => set(lessons[leaving], dist(leaving), true), 450);
       }, 5000);
     }
-  }
-
-  // Time-back calculator: hours × 80% × 48 weeks; 8-hour working days
-  const range = document.getElementById('calc-hours');
-  if (range) {
-    const out = document.getElementById('calc-hours-out');
-    const year = document.getElementById('calc-year');
-    const days = document.getElementById('calc-days');
-    const update = () => {
-      const h = Number(range.value);
-      const back = Math.round(h * 0.8 * 48);
-      out.textContent = `${h} h`;
-      year.textContent = back.toLocaleString();
-      days.textContent = String(Math.round(back / 8));
-      range.style.setProperty('--fill', `${((h - range.min) / (range.max - range.min)) * 100}%`);
-      range.setAttribute('aria-valuetext', `${h} hours a week`);
-    };
-    range.addEventListener('input', update);
-    update();
   }
 
   // Email form (design-system page): client-side validation only until a signup endpoint exists

@@ -2,6 +2,7 @@
 // buttons and FAQ; this adds the parts only these pages have.
 (() => {
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const embedded = document.documentElement.classList.contains('is-embed');
   // Sticky feature list: the item crossing the middle of the screen lights up and its picture shows
   document.querySelectorAll('[data-pfeat]').forEach((root) => {
     const items = [...root.querySelectorAll('.pfeat__item')];
@@ -65,22 +66,6 @@
     pick();
   });
 
-  // Loop: steps light up 1 → 4 and round again while the section is on screen
-  const loop = document.querySelector('[data-loop]');
-  if (loop && !still) {
-    const steps = [...loop.children];
-    let i = 0;
-    let timer = 0;
-    const tick = () => {
-      steps.forEach((s, n) => s.classList.toggle('is-on', n === i));
-      i = (i + 1) % steps.length;
-    };
-    new IntersectionObserver(([e]) => {
-      clearInterval(timer);
-      if (e.isIntersecting) { tick(); timer = setInterval(tick, 1800); }
-    }, { threshold: 0.4 }).observe(loop);
-  }
-
   // Demo form: no backend yet, so confirm in place
   document.querySelectorAll('.pform').forEach((form) => {
     form.addEventListener('submit', (e) => {
@@ -102,7 +87,17 @@
     const $ = (sel) => cv.querySelector(sel);
     const $$ = (sel) => [...cv.querySelectorAll(sel)];
     let scale = 1;
-    const fit = () => { scale = stage.clientWidth / 960; hh.style.setProperty('--hh-s', scale); };
+    // In embed mode (Home's product cards) zoom in on the app window: fill the frame's height
+    // with a little air, pin it to the left and let the right side run off the edge
+    const fit = () => {
+      if (embedded) {
+        const [wx, wy, , wh] = [70, 50, 820, 540], pad = 36;
+        scale = (stage.clientHeight - pad * 2) / wh;
+        hh.style.setProperty('--hh-x', pad - wx * scale + 'px');
+        hh.style.setProperty('--hh-y', pad - wy * scale + 'px');
+      } else scale = stage.clientWidth / 960;
+      hh.style.setProperty('--hh-s', scale);
+    };
     fit();
     new ResizeObserver(fit).observe(stage);
 
@@ -269,6 +264,133 @@
     }
   }
 
+  // Advisor hero film: the same format as Harmony's, on the Advisor app's own screens
+  const ah = document.querySelector('[data-ahero]');
+  if (ah) {
+    const stage = ah.querySelector('.hh__stage');
+    const cv = ah.querySelector('.ah__canvas');
+    const win = cv.querySelector('.ah__win');
+    const $ = (sel) => cv.querySelector(sel);
+    const $$ = (sel) => [...cv.querySelectorAll(sel)];
+    let scale = 1;
+    // In embed mode (Home's product cards) zoom in on the app window: fill the frame's height
+    // with a little air, pin it to the left and let the right side run off the edge
+    const fit = () => {
+      if (embedded) {
+        const [wx, wy, , wh] = [20, 20, 880, 560], pad = 36;
+        scale = (stage.clientHeight - pad * 2) / wh;
+        ah.style.setProperty('--hh-x', pad - wx * scale + 'px');
+        ah.style.setProperty('--hh-y', pad - wy * scale + 'px');
+      } else scale = stage.clientWidth / 960;
+      ah.style.setProperty('--hh-s', scale);
+    };
+    fit();
+    new ResizeObserver(fit).observe(stage);
+    const crumbs = { dash: 'Dashboard', cal: 'Calendar', notes: 'AI Notes', compl: 'Compliance' };
+    const screen = (name) => {
+      win.dataset.screen = name;
+      $$('[data-nav]').forEach((li) => li.classList.toggle('is-on', li.dataset.nav === name));
+      $('[data-ah-crumb]').textContent = crumbs[name];
+    };
+    if (still) {
+      cv.dataset.scene = 'a';
+      $$('.ah__dash .ad__slot').forEach((el) => el.classList.add('is-in'));
+    } else {
+      let paused = false;
+      let visible = false;
+      const wait = (ms) => new Promise((done) => {
+        const tick = () => {
+          if (paused || !visible) { setTimeout(tick, 100); return; }
+          if ((ms -= 50) <= 0) done(); else setTimeout(tick, 50);
+        };
+        setTimeout(tick, 50);
+      });
+      const aim = async (el, fx = 0.5, fy = 0.5) => {
+        const r = el.getBoundingClientRect();
+        const c = cv.getBoundingClientRect();
+        cv.style.setProperty('--cx', `${(r.left - c.left + r.width * fx) / scale - 4}px`);
+        cv.style.setProperty('--cy', `${(r.top - c.top + r.height * fy) / scale - 3}px`);
+        await wait(850);
+      };
+      const click = async () => { cv.classList.add('is-click'); await wait(200); cv.classList.remove('is-click'); };
+      const stagger = async (els, gap) => { for (const el of els) { el.classList.add('is-in'); await wait(gap); } };
+      const type = async (el) => {
+        const text = el.dataset.ahType;
+        for (let i = 1; i <= text.length; i += 1) { el.textContent = text.slice(0, i); await wait(45); }
+      };
+      const go = async (name) => { await aim($(`[data-nav="${name}"]`), 0.4); await click(); screen(name); await wait(700); };
+      const reset = () => {
+        cv.dataset.scene = '';
+        cv.classList.remove('has-cursor', 'is-click');
+        win.classList.remove('is-panel', 'is-done', 'is-sent');
+        screen('dash');
+        $$('.is-in, .is-lit').forEach((el) => el.classList.remove('is-in', 'is-lit'));
+        $$('[data-ah-type]').forEach((el) => { el.textContent = ''; });
+      };
+      const film = async () => {
+        for (;;) {
+          reset();
+          await wait(700);
+          // 1 · Dashboard: the day at a glance
+          cv.dataset.scene = 'a';
+          await wait(900);
+          await stagger($$('.ah__dash .ad__slot'), 300);
+          await wait(1200);
+          // 2 · Calendar: Mia has prepared the next meeting
+          cv.classList.add('has-cursor');
+          await go('cal');
+          const ev = $('.ah__ev--sel');
+          await aim(ev, 0.4);
+          ev.classList.add('is-lit');
+          await click();
+          win.classList.add('is-panel');
+          await wait(600);
+          await stagger($$('.ah__panel .ah__in'), 230);
+          await wait(1600);
+          // 3 · AI notes: rough notes during the meeting, a clean summary after it
+          win.classList.remove('is-panel');
+          await go('notes');
+          for (const el of $$('[data-ah-type]')) { await type(el); await wait(250); }
+          await aim($('.ah__rec .af__stop'));
+          await click();
+          win.classList.add('is-done');
+          await wait(500);
+          await stagger($$('.ah__sum .ah__in'), 150);
+          await wait(1800);
+          // 4 · Compliance: who is missing what, reminders in one click
+          await go('compl');
+          await stagger($$('.ah__compl .ah__in'), 200);
+          await aim($('.ah__send'));
+          await click();
+          win.classList.add('is-sent');
+          await wait(2400);
+          cv.classList.remove('has-cursor');
+          cv.dataset.scene = 'out';
+          await wait(900);
+        }
+      };
+      new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(stage);
+      film();
+      const btn = ah.querySelector('.hh__pause');
+      btn.addEventListener('click', () => {
+        paused = !paused;
+        btn.setAttribute('aria-pressed', String(paused));
+        btn.setAttribute('aria-label', paused ? 'Play animation' : 'Pause animation');
+        btn.querySelector('.icon').className = `icon ph-fill ${paused ? 'ph-play' : 'ph-pause'}`;
+      });
+    }
+  }
+
+  // Impact cards: the line art only moves while the section is on screen
+  document.querySelectorAll('.impact').forEach((sec) => {
+    new IntersectionObserver(([e]) => sec.classList.toggle('is-live', e.isIntersecting && !still)).observe(sec);
+  });
+  // Before/after table: the "with" answers arrive once, the first time it scrolls in
+  document.querySelectorAll('[data-pvx]').forEach((t) => {
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { t.classList.add('is-in'); io.disconnect(); } }, { threshold: 0.35 });
+    io.observe(t);
+  });
+
   // Persona tabs (Who it's for): click or arrow keys switch the panel
   document.querySelectorAll('[data-wtabs]').forEach((box) => {
     const tabs = [...box.querySelectorAll('[role="tab"]')];
@@ -386,3 +508,8 @@
     sync();
   });
 })();
+
+/* More in Harmony cards: run each looping scene only while it is on screen */
+document.querySelectorAll('[data-mcard]').forEach(card => {
+  new IntersectionObserver(([e]) => card.classList.toggle('is-play', e.isIntersecting), { threshold: 0.3 }).observe(card);
+});

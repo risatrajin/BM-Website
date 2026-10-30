@@ -152,6 +152,15 @@
 
 .mgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; list-style: none; }
 .mgrid .mcard { display: flex; flex-direction: column; padding: 24px 24px 0; overflow: hidden; }
+/* Bento: three columns, wide–narrow on top and narrow–wide below. Scoped to this page (body.mia)
+   so Harmony's own .mgrid/.mcard rules in product.css don't stretch every card full width */
+.mia .mgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 48px; }
+.mia .mgrid .mcard { grid-column: span 1; border-radius: var(--radius-lg); }
+.mia .mgrid .mcard:nth-child(1), .mia .mgrid .mcard:nth-child(4) { grid-column: span 2; }
+.mia .mcard h3 { margin: 0; }
+.mia .mcard p { margin-left: 0; margin-right: 0; }
+.mia .mgrid .mcard > p { margin-top: 6px; }
+.mia .mgrid .mstage { flex: 1; min-height: 300px; height: auto; }
 
 .mstage { position: relative; display: grid; place-items: end center; height: 300px; margin: 24px -24px 0; padding: 32px 32px 0; overflow: hidden; }
 .mstage--warm { background: radial-gradient(120% 90% at 20% 100%, var(--blue-300), transparent 60%), radial-gradient(90% 90% at 90% 90%, var(--blue-500), transparent 60%), var(--blue-100); }
@@ -317,6 +326,8 @@
   .mapp { grid-template-columns: 1fr; height: 480px; }
   .mapp__side { display: none; }
   .mgrid, .mjobs, .mget, .mfaq { grid-template-columns: 1fr; gap: 32px; }
+  .mia .mgrid { grid-template-columns: 1fr; gap: 16px; }
+  .mia .mgrid .mcard:nth-child(n) { grid-column: auto; }
   .mcard--bot { flex-direction: column; align-items: flex-start; min-height: 0; padding: 32px 28px 0; }
   .mbot--big { position: static; width: 240px; height: 240px; margin: 24px auto -60px; }
   .mplans { grid-template-columns: 1fr; }

@@ -16,9 +16,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/duotone/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/thin/style.css" />
-  <script>document.documentElement.classList.add('js')</script>
+  <script>document.documentElement.classList.add('js'); if (/[?&]embed\b/.test(location.search)) document.documentElement.classList.add('is-embed')</script>
 </head>
-<body class="pp">
+<body class="pp pp--harmony pp--advisor">
   <a class="skip" href="#main">Skip to content</a>
   <header class="nav" id="nav">
     <nav class="nav__bar" aria-label="Main">
@@ -69,105 +69,326 @@
     <!-- 01 · Hero -->
     <section class="phero suite-card--advisor" id="overview" aria-labelledby="hero-title">
       <div class="container">
-        <p class="phero__pill"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#advisor"/></svg>Advisor · AI digital assistant for advisors</p>
+        <p class="hh__brand"><img src="assets/advisor/advisor-icon.svg" alt="" width="22" height="22" /><b>bluemind</b> Advisor<span class="hh__tag">AI digital assistant for advisors</span></p>
         <h1 class="phero__title" id="hero-title">Grow your business <span>while staying compliant.</span></h1>
         <p class="lead">BlueMind gives you back 10+ hours a week, keeps you regulator-ready, helps you protect your clients and grows your business.</p>
         <div class="actions actions--center">
-          <a class="btn btn--primary btn--lg" href="#pricing">Start free</a>
+          <a class="btn btn--primary btn--lg" href="#start">Start free</a>
           <a class="btn btn--border btn--lg" href="#">Watch demo</a>
         </div>
         <ul class="phero__checks">
           <li><i class="icon ph ph-check" aria-hidden="true"></i>Free plan · no credit card</li>
           <li><i class="icon ph ph-check" aria-hidden="true"></i>Set up in minutes</li>
-          <li><i class="icon ph ph-check" aria-hidden="true"></i>Built by advisors, for advisors</li>
+          <li><i class="icon ph ph-check" aria-hidden="true"></i>Data hosted in Canada</li>
         </ul>
+        <p class="phero__proof"><span class="phero__faces" aria-hidden="true"><i style="--ph:url('assets/photos/team-1.jpg');--pp:38% 30%"></i><i style="--ph:url('assets/harmony/t-1.jpg');--pp:55% 25%"></i><i style="--ph:url('assets/cta/p2.jpg');--pp:52% 20%"></i></span><span>“Simplicity &amp; sophistication.” <small>Vikram Janjua, insurance broker</small></span></p>
 
         <!-- Stand-in for the real Advisor screenshot -->
-        <div class="phero__shot" data-reveal>
-          <div class="phero__frame" role="img" aria-label="Advisor with sample data: today’s meetings, a meeting summary MIA drafted and items waiting for approval">
-            <div class="app__side" aria-hidden="true">
-              <b><svg class="icon picon"><use href="assets/product-icons.svg#advisor"/></svg>Advisor</b>
-              <span class="is-on"><i class="icon ph ph-sun-horizon"></i>Today</span>
-              <span><i class="icon ph ph-users"></i>Clients</span>
-              <span><i class="icon ph ph-microphone"></i>Meetings</span>
-              <span><i class="icon ph ph-file-text"></i>Forms</span>
-              <span><i class="icon ph ph-chat-circle-dots"></i>Ask MIA</span>
-              <span><i class="icon ph ph-shield-check"></i>E&amp;O trail</span>
-            </div>
-            <div class="app__main" aria-hidden="true">
-              <div class="app__head"><b>Good morning, Sarah</b><span>Tuesday · 4 meetings</span></div>
-              <div class="app__kpis">
-                <div><span>Files complete</span><b>100%</b></div>
-                <div><span>Waiting for you</span><b>3</b></div>
-                <div><span>Hours saved this week</span><b>6.5</b></div>
+        <div class="hh__video ah" data-ahero aria-hidden="true">
+          <div class="hh__stage" role="img" aria-label="The Advisor app with sample data: the morning dashboard, Mia’s meeting prep for an annual review, live notes turning into a meeting summary, and the compliance check sending reminders">
+            <div class="hh__canvas ah__canvas" aria-hidden="true">
+              <span class="ah__bg"></span>
+              <div class="ah__win" data-screen="dash">
+                <aside class="ad__side">
+                  <div class="ad__logo"><img src="assets/advisor/wordmark.svg" alt="" width="123" height="35" /></div>
+                  <div class="ad__nav">
+                    <ul><li data-nav="dash" class="is-on"><i class="icon ph ph-house-simple"></i><i class="icon ph-fill ph-house-simple"></i>Dashboard</li></ul>
+                    <p class="ad__lab">Workspace</p>
+                    <ul><li><i class="icon ph ph-list-checks"></i><i class="icon ph-fill ph-list-checks"></i>Tasks</li><li data-nav="cal"><i class="icon ph ph-calendar-blank"></i><i class="icon ph-fill ph-calendar-blank"></i>Calendar</li><li><i class="icon ph ph-address-book"></i><i class="icon ph-fill ph-address-book"></i>Contacts</li><li><i class="icon ph ph-envelope-simple"></i><i class="icon ph-fill ph-envelope-simple"></i>Email</li><li><i class="icon ph ph-target"></i><i class="icon ph-fill ph-target"></i>Opportunities</li><li><i class="icon ph ph-chart-line-up"></i><i class="icon ph-fill ph-chart-line-up"></i>Sales Journey</li></ul>
+                    <p class="ad__lab">Advice</p>
+                    <ul><li><i class="icon ph ph-package"></i><i class="icon ph-fill ph-package"></i>Products</li><li><i class="icon ph ph-chart-pie-slice"></i><i class="icon ph-fill ph-chart-pie-slice"></i>All FNAs</li><li><i class="icon ph ph-file-magnifying-glass"></i><i class="icon ph-fill ph-file-magnifying-glass"></i>KYC reviews</li><li data-nav="notes"><i class="icon ph ph-notebook"></i><i class="icon ph-fill ph-notebook"></i>AI Notes</li><li data-nav="compl"><i class="icon ph ph-shield-check"></i><i class="icon ph-fill ph-shield-check"></i>Compliance</li></ul>
+                    <p class="ad__lab">Content</p>
+                    <ul><li><i class="icon ph ph-envelope-open"></i><i class="icon ph-fill ph-envelope-open"></i>Email Template</li><li><i class="icon ph ph-books"></i><i class="icon ph-fill ph-books"></i>Documents Library</li><li><i class="icon ph ph-upload-simple"></i><i class="icon ph-fill ph-upload-simple"></i>Upload Hub</li></ul>
+                    <p class="ad__lab">Practice</p>
+                    <ul><li><i class="icon ph ph-users-three"></i><i class="icon ph-fill ph-users-three"></i>Team Workspace</li><li><i class="icon ph ph-credit-card"></i><i class="icon ph-fill ph-credit-card"></i>Plan &amp; Billing</li><li><i class="icon ph ph-sliders-horizontal"></i><i class="icon ph-fill ph-sliders-horizontal"></i>Admin Center</li></ul>
+                  </div>
+                  <div class="ad__bottom">
+                    <p class="ad__item"><i class="icon ph ph-sidebar-simple"></i>Collapse</p>
+                    <div class="ad__me"><img src="assets/harmony/av/aaron.png" alt=""><span><b>Mike Ross</b><small>Insurance advisor</small></span><i class="icon ph ph-caret-down"></i></div>
+                  </div>
+                </aside>
+                <div class="ad__right">
+                  <div class="ad__bar"><span class="ad__crumb" data-ah-crumb>Dashboard</span><span class="ad__search">Search<i class="icon ph ph-magnifying-glass"></i></span>
+                    <span class="ad__icons"><i class="icon ph ph-alarm"></i><i class="icon ph ph-chat"><em>3</em></i><i class="icon ph ph-bell"><em>12</em></i><i class="icon ph ph-person"></i><i class="icon ph ph-sparkle"></i></span></div>
+                  <div class="ah__screens">
+                  <div class="ah__scr ah__dash" data-scr="dash">
+                    <div class="ad__cols">
+                      <div class="ad__mcol">
+                        <div class="ad__hero">
+                          <img class="ad__banner" src="assets/advisor/dash-banner.jpg" alt="" width="1100" height="1079" />
+                          <div class="ad__greet"><p class="ad__hi">Good morning, <b>Mike</b></p><p>Monday, October 5 · 3 things today · 4 files in underwriting</p></div>
+                          <span class="ad__tool"><i class="icon ph ph-sliders-horizontal"></i></span>
+                          <div class="ad__stages"><div><p class="ad__slab">Total AUM<i class="icon ph ph-info"></i></p><p class="ad__sval"><b>$413K</b><small>/ 4 with investments</small></p></div><div><p class="ad__slab">Premium volume<i class="icon ph ph-info"></i></p><p class="ad__sval"><b>$3.69M</b><small>/ 24 policies</small></p></div><div><p class="ad__slab">Compliance<i class="icon ph ph-info"></i></p><p class="ad__sval"><b>5%</b><small>/ 22 of 426 checks</small></p></div><div><p class="ad__slab">Renewals due<i class="icon ph ph-info"></i></p><p class="ad__sval"><b>3</b><small>/ next on Oct 19</small></p></div></div>
+                          <div class="ad__welcome">
+                            <div class="ad__head"><i class="icon ph ph-dots-six-vertical"></i><b>This week</b><span class="ad__sp"></span><i class="icon ph ph-arrow-up-right ad__rb"></i><span class="ad__btn"><i class="icon ph ph-plus"></i>Add new</span></div>
+                            <div class="ad__days"><span class="ad__arr"><i class="icon ph ph-caret-left"></i></span><span class="ad__day is-off"><b>4</b>Sun</span><span class="ad__day is-on"><b>5</b>Mon</span><span class="ad__day"><b>6</b>Tue</span><span class="ad__day"><b>7</b>Wed</span><span class="ad__day"><b>8</b>Thu</span><span class="ad__day"><b>9</b>Fri</span><span class="ad__day is-off"><b>10</b>Sat</span><span class="ad__day is-off"><b>11</b>Sun</span><span class="ad__arr"><i class="icon ph ph-caret-right"></i></span></div>
+                            <p class="ad__today">Today <span>5 Mon</span></p>
+                            <div class="ad__rows">
+                              <div class="ad__slot"><small>10:00 AM</small><div class="ad__ev"><span class="ad__tile"><i class="icon ph ph-phone"></i></span><span class="ad__txt"><b class="is-done">Call Sam Albert about the Assumption Life medical</b><small>10:00 to 10:30 AM</small></span><span class="ad__who"><img src="assets/harmony/av/brittany.png" alt="">Brooklyn Simmons</span><i class="icon ph-bold ph-dots-three"></i></div></div>
+                              <div class="ad__slot is-next"><small>2:00 PM</small><div class="ad__ev ad__ev--next"><span class="ad__txt"><b>Annual review with Mariia Smith</b><small>UP NEXT · IN 3 HOURS</small></span><span class="ad__who"><img src="assets/harmony/av/elena.png" alt="">Mariia Smith · Google Meet · 60 min</span><span class="ad__join"><i class="icon ph ph-video-camera"></i>Join meeting</span></div></div>
+                              <div class="ad__slot"><small>4:30 PM</small><div class="ad__ev"><span class="ad__tile"><i class="icon ph ph-check-square"></i></span><span class="ad__txt"><b>Send the FNA summary to Manjith Singh</b><small>Due 4:30 PM</small></span><span class="ad__who"><img src="assets/harmony/av/holly.png" alt="">Mariia Smith · Google Meet · 60 min</span><i class="icon ph-bold ph-dots-three"></i></div></div>
+                            </div>
+                            <div class="ad__chips"><span>2 tasks</span><span>1 meeting</span><span>1 birthday · Sat</span><span>0 anniversaries</span></div>
+                          </div>
+                        </div>
+                        <div class="ad__pair">
+                          <div class="ad__card"><div class="ad__head"><i class="icon ph ph-dots-six-vertical"></i><b>Upcoming renewals</b><span class="ad__cnt">3</span><span class="ad__sp"></span><i class="icon ph ph-arrow-up-right ad__rb"></i></div>
+                            <p class="ad__lead">3 policies renew in the next 60 days</p>
+                            <div class="ad__line"><i style="left:21.7%"></i><i style="left:45%"></i><i class="is-grey" style="left:75%"></i></div>
+                            <div class="ad__axis"><small>Today</small><small>30 days</small><small>60 days</small></div>
+                            <ul class="ad__list">
+                              <li><span><b>Jordan Ellis</b><small>Canada Life · Term 20 · CL-20988</small></span><b>Oct 19</b><em class="is-amber">14 days</em></li>
+                              <li><span><b>Mei Tanaka</b><small>Manulife · Critical illness · MN-40277</small></span><b>Nov 2</b><em class="is-amber">28 days</em></li>
+                              <li><span><b>Laura Chen</b><small>Empire Life · Term 10 · EM-11702</small></span><b>Nov 20</b><em>46 days</em></li>
+                            </ul></div>
+                          <div class="ad__card"><div class="ad__head"><i class="icon ph ph-dots-six-vertical"></i><b>Underwriting pipeline</b><span class="ad__cnt">4</span><span class="ad__sp"></span><i class="icon ph ph-arrow-up-right ad__rb"></i></div>
+                            <p class="ad__lead">$483,857 with the carriers</p>
+                            <div class="ad__share"><i style="width:258px"></i><i style="width:61px"></i><i style="width:38px"></i><i style="width:58px"></i></div>
+                            <small class="ad__note">Sam Albert at Assumption Life is 62% of the value in underwriting</small>
+                            <ul class="ad__list">
+                              <li><span><b>Sam Albert</b><small>Assumption Life · Whole Life</small></span><b>$300,000</b><em class="is-blue">New</em></li>
+                              <li><span><b>Sam Albert</b><small>Beneva · Whole Life</small></span><b>$70,970</b><em class="is-blue">New</em></li>
+                              <li><span><b>Mariia Smith</b><small>IA Financial Group · Single</small></span><b>$45,000</b><em class="is-blue">New</em></li>
+                            </ul></div>
+                        </div>
+                      </div>
+                      <div class="ad__scol">
+                        <div class="ad__card ad__pipe"><div class="ad__head"><i class="icon ph ph-dots-six-vertical"></i><b>Pipeline</b><span class="ad__sp"></span><i class="icon ph ph-arrow-up-right ad__rb"></i></div>
+                          <p class="ad__total"><b>$42K</b><small>Total pipeline value</small></p>
+                          <div class="ad__tiles"><span><b>0</b>Discovery</span><span><b>4</b>Proposal</span><span><b>1</b>Funded</span></div></div>
+                        <div class="ad__card ad__goals"><div class="ad__head"><i class="icon ph ph-dots-six-vertical"></i><b>Monthly goals</b></div>
+                          <div class="ad__gauge"><img src="assets/advisor/goals/halo.svg" alt="" style="left:-21.96px;top:102.04px;width:493.9px;height:75.96px" /><img src="assets/advisor/goals/ticks.svg" alt="" style="left:-26.8px;top:84.07px;width:503.6px;height:41.9px" /><img src="assets/advisor/goals/track.svg" alt="" style="left:30.96px;top:116.98px;width:388.1px;height:33.66px" /><img src="assets/advisor/goals/fill.svg" alt="" style="left:30.96px;top:116.98px;width:223.6px;height:33.66px" /><img src="assets/advisor/goals/marker.svg" alt="" style="left:247.0px;top:74.2px;width:3.2px;height:20.1px" /><img src="assets/advisor/goals/knob.svg" alt="" style="left:227.16px;top:108.34px;width:40.86px;height:39.96px" /><img src="assets/advisor/goals/knob-dot.svg" alt="" style="left:240.12px;top:117.34px;width:14.94px;height:14.04px" /><p class="ad__score">56%</p><p class="ad__fair"><b>Fair</b><small>Overall performance</small></p></div><div class="ad__goalbody"><div class="ad__grow"><span><img src="assets/advisor/goals/ring-aum.svg" alt="" width="32" height="32" /><b>$413K / $500K</b><small>New AUM</small></span><span><img src="assets/advisor/goals/ring-full.svg" alt="" width="32" height="32" /><b>142 / 10</b><small>Client reviews</small></span></div><i class="ad__rule"></i><div class="ad__grow"><span><img src="assets/advisor/goals/ring-full.svg" alt="" width="32" height="32" /><b>24 / 5</b><small>New accounts</small></span><span><img src="assets/advisor/goals/ring-pipe.svg" alt="" width="32" height="32" /><b>$12K / $100K</b><small>Pipeline value</small></span></div><i class="ad__rule"></i><div class="ad__grow"><span><img src="assets/advisor/goals/ring-empty.svg" alt="" width="32" height="32" /><b>$0 / $8K</b><small>New business</small></span><span><img src="assets/advisor/goals/ring-empty.svg" alt="" width="32" height="32" /><b>$0 / $3K</b><small>Renewals</small></span></div><i class="ad__rule"></i><div class="ad__grow"><span><img src="assets/advisor/goals/ring-full.svg" alt="" width="32" height="32" /><b>$25K / $500</b><small>Trail commissions</small></span><span></span></div></div><span class="ad__edit"><i class="icon ph ph-pencil-simple"></i>Edit goals</span></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="ah__scr ah__cal" data-scr="cal">
+                    <div class="ac__page">
+                      <div class="ac__top"><span><b class="ac__h1">Calendar</b><small>Events for your clients from BlueMind and your connected calendars.</small></span><span class="ac__ghost"><i class="icon ph ph-gear-six"></i>Settings</span><span class="ac__pri"><i class="icon ph ph-plus"></i>Add event</span></div>
+                      <div class="ac__filters"><span class="ac__input"><i class="icon ph ph-magnifying-glass"></i>Search events, clients or calendars</span><span class="ac__sel">Contact<i class="icon ph ph-caret-down"></i></span><span class="ac__sel">Calendars · 6<i class="icon ph ph-caret-down"></i></span></div>
+                      <div class="ac__card">
+                        <div class="ac__cal-h"><span class="ac__arr"><i class="icon ph ph-caret-left"></i></span><span class="ac__arr"><i class="icon ph ph-caret-right"></i></span><b>October 4 – 10, 2026</b><span class="ad__sp"></span><small>Meeting prep · 2</small><span class="ac__seg"><span>Day</span><span class="is-on">Week</span><span>Month</span></span></div>
+                        <div class="ac__wk"><span><small>SUN</small><b>4</b></span><span><small>MON</small><b>5</b></span><span><small>TUE</small><b>6</b></span><span class="is-today"><small>WED</small><b>7</b></span><span><small>THU</small><b>8</b></span><span><small>FRI</small><b>9</b></span><span><small>SAT</small><b>10</b></span></div>
+                        <div class="ac__grid"><div class="ac__hrs"><small style="--h:0">8 AM</small><small style="--h:1">9 AM</small><small style="--h:2">10 AM</small><small style="--h:3">11 AM</small><small style="--h:4">12 PM</small><small style="--h:5">1 PM</small><small style="--h:6">2 PM</small><small style="--h:7">3 PM</small><small style="--h:8">4 PM</small><small style="--h:9">5 PM</small><small style="--h:10">6 PM</small></div><span class="ac__now"></span>
+                          <i class="ac__ev" style="--c:3;--t:2">Call Sam Albert · 10:00 AM</i>
+                          <i class="ac__ev ac__ev--sel ah__ev--sel" style="--c:3;--t:6"><b>Annual review with Mariia S…</b>2:00 – 3:00 PM · Google Meet</i>
+                        </div>
+                      </div>
+                    </div>
+                    <aside class="ah__panel ac__panel">
+                      <div class="ac__ph"><span><b>Meeting prep</b><small>Annual review with Mariia Smith · Wed, Oct 7 · 2:00 PM</small></span><i class="icon ph ph-x"></i></div>
+                      <div class="ac__mia ah__in"><img src="assets/harmony/av/elena.png" alt=""><b>Prepared by Mia</b><small>Updated 9:42 AM</small></div>
+                      <p class="ac__lab ah__in">About Mariia</p>
+                      <dl class="ac__dl ah__in"><dt>Client since</dt><dd>2019</dd><dt>Policies</dt><dd>2 active · Term Life, Critical Illness</dd><dt>Last review</dt><dd>Aug 2025</dd><dt>Household</dt><dd>Married, 2 children</dd></dl>
+                      <p class="ac__lab ah__in">Talk about</p>
+                      <ul class="ac__bul"><li class="ah__in">Coverage after the second child: is the term amount still enough?</li><li class="ah__in">Beneficiary form is still pending since Aug.</li><li class="ah__in">RRSP top-up before the year ends.</li></ul>
+                      <p class="ac__lab ah__in">Bring</p>
+                      <div class="ac__bring ah__in"><span>Policy summary</span><span>Beneficiary form</span><span>FNA from Aug 2025</span></div>
+                      <div class="ac__pbtns"><span>Open client</span><span class="is-pri">Join meeting</span></div>
+                    </aside>
+                  </div>
+
+                  <div class="ah__scr ah__notes" data-scr="notes">
+                    <div class="an__doc">
+                      <div class="an__meta"><span class="an__chip"><i class="icon ph ph-user-circle"></i>Dave Neel</span><small>Oct 13 · 2:10 PM</small><span class="ad__sp"></span><span class="an__share">Share <i class="icon ph ph-arrow-up-right"></i></span></div>
+                      <h4 class="an__title">Annual review with Dave</h4>
+                      <div class="ah__live"><small class="an__hint">Your notes. AI fills in the rest when the meeting ends.</small>
+                        <p data-ah-type="tfsa 12k this yr"></p><p data-ah-type="top ups after mortgage renews (march)"></p><p data-ah-type="resp grant at 17??"></p><p data-ah-type="sarah sending tax slips"></p></div>
+                      <div class="ah__sum">
+                        <p class="an__sec ah__in">TFSA plan</p>
+                        <ul class="an__bul"><li class="ah__in is-key">$12,000 into the TFSA this year</li><li class="ah__in">Monthly top-ups start after the mortgage renews in March. Dave expects about $400 a month to free up.</li></ul>
+                        <p class="an__sec ah__in">RESP question</p>
+                        <ul class="an__bul"><li class="ah__in is-key">Does the grant still apply at 17?</li><li class="ah__in">The CESG can still be paid at 16 and 17 if at least $2,000 went in before the year she turned 15. Check her contribution history.</li></ul>
+                        <p class="an__sec ah__in">Next steps</p>
+                        <ul class="an__chk"><li class="ah__in"><i></i>Send Dave the RESP grant rules<small>Fri, Oct 16</small></li><li class="ah__in"><i></i>Collect the 2025 tax slips from Sarah<small>Mon, Oct 19</small></li><li class="ah__in"><i></i>Book the April review</li></ul>
+                      </div>
+                    </div>
+                    <div class="an__rec ah__rec"><span class="an__dot"></span><span class="af__wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><b>12:40</b><span class="af__stop">Stop</span></div>
+                    <div class="an__ask ah__ask">Ask anything about this meeting<span>Transcript</span></div>
+                  </div>
+
+                  <div class="ah__scr ah__compl" data-scr="compl">
+                    <div class="ac__page">
+                      <div class="ac__top"><span><b class="ac__h1">Compliance</b><small>Every client needs three things on file: an FNA, email consent, and a disclosure.</small></span><span class="ac__pri ah__send"><i class="icon ph ph-paper-plane-tilt"></i>Send reminders</span></div>
+                      <div class="ac__card ap__health">
+                        <div><b>Book health</b><strong>9 of 143</strong><small>clients have all three on file</small></div>
+                        <div><p><b>FNA</b><small>47 of 143</small></p><s style="--w:33%"></s><small>96 missing · 4 expired</small></div>
+                        <div><p><b>Email consent</b><small>22 of 143</small></p><s style="--w:15%"></s><small>121 missing · 6 expired</small></div>
+                        <div><p><b>Disclosure</b><small>13 of 143</small></p><s style="--w:9%"></s><small>130 missing · 2 expired</small></div>
+                      </div>
+                      <div class="ac__seg ap__tabs"><span class="is-on">All <i>143</i></span><span>Needs attention <i>134</i></span><span>Compliant <i>9</i></span></div>
+                      <div class="ac__card ap__table">
+                        <div class="ac__filters"><span class="ac__input"><i class="icon ph ph-magnifying-glass"></i>Search by client or purpose</span><span class="ac__sel">Missing<i class="icon ph ph-caret-down"></i></span></div>
+                        <div class="ap__thead"><span>Client</span><span>Phone</span><span>What’s missing</span><span>Last checked</span><span>Status</span><span></span></div>
+                        <ul class="ap__rows">
+                          <li class="ah__in"><span class="ac__who"><img src="assets/harmony/av/ingrid.png" alt="">Margaret Chen</span><span>(416) 555-0142</span><span>All on file</span><span>Oct 12, 2026</span><em class="ac__st is-ok">Compliant</em><i class="icon ph-bold ph-dots-three-vertical"></i></li>
+                          <li class="ah__in"><span class="ac__who"><img src="assets/harmony/av/aaron.png" alt="">Dave Neel</span><span>(905) 555-0187</span><span>Email consent</span><span>Oct 9, 2026</span><em class="ac__st is-warn">1 to fix</em><i class="icon ph-bold ph-dots-three-vertical"></i></li>
+                          <li class="ah__in"><span class="ac__who"><img src="assets/harmony/av/elena.png" alt="">Sarah Thompson</span><span>(647) 555-0113</span><span>Disclosure · FNA expired</span><span>Oct 2, 2026</span><em class="ac__st is-bad">2 to fix</em><i class="icon ph-bold ph-dots-three-vertical"></i></li>
+                          <li class="ah__in"><span class="ac__who"><img src="assets/harmony/av/fatima.png" alt="">Ren Gana</span><span>(613) 555-0166</span><span>FNA · Email consent · Disclosure</span><span>Sep 28, 2026</span><em class="ac__st is-bad">3 to fix</em><i class="icon ph-bold ph-dots-three-vertical"></i></li>
+                          <li class="ah__in"><span class="ac__who"><img src="assets/harmony/av/noah.png" alt="">Daniel Okafor</span><span>(519) 555-0121</span><span>Disclosure · Email consent expired</span><span>Sep 24, 2026</span><em class="ac__st is-bad">2 to fix</em><i class="icon ph-bold ph-dots-three-vertical"></i></li>
+                          <li class="ah__in"><span class="ac__who"><img src="assets/harmony/av/jessica.png" alt="">Priya Raman</span><span>(705) 555-0198</span><span>FNA</span><span>Sep 19, 2026</span><em class="ac__st is-warn">1 to fix</em><i class="icon ph-bold ph-dots-three-vertical"></i></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="ah__toast"><i class="icon ph-fill ph-check-circle"></i>Reminders sent to 134 clients</div>
+                  </div>
+                </div>
+                </div>
               </div>
-              <ul class="app__rows">
-                <li><span class="avatar avatar--sm">MC</span><div>Maria Chen<small>10:00 · Annual review · video</small></div><span class="tag tag--info">Recording</span><span class="tag tag--ok">KYC ✓</span></li>
-                <li><span class="avatar avatar--sm">TP</span><div>Tom Park<small>12:30 · New policy · in person</small></div><span class="tag tag--warn">KYC refresh</span><span class="tag tag--ok">FNA ✓</span></li>
-                <li><span class="avatar avatar--sm">AR</span><div>Ana Ruiz<small>15:00 · Follow-up · phone</small></div><span class="tag tag--info">Prepared</span><span class="tag tag--ok">Ready</span></li>
-              </ul>
+              <svg class="hh__cursor" viewBox="0 0 24 24" width="22" height="22"><path d="M4 2l15 11.5-6.6 1.1 3.9 7.2-2.8 1.4-3.8-7.3L4 20.5Z" fill="#121212" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
             </div>
-            <div class="app__aside" aria-hidden="true">
-              <span class="mini-label">MIA drafted</span>
-              <div class="ui"><div class="ui__top"><i class="icon ph ph-note"></i><b>Meeting summary</b><span class="tag tag--info">Review</span></div><p>New home — wants mortgage protection. Two dependants, budget ≈ $150 / month.</p><div class="ui__btns"><span>Approve</span><span>Edit</span></div></div>
-              <div class="ui"><div class="ui__top"><i class="icon ph ph-signature"></i><b>KYC &amp; FNA</b><span class="tag tag--ok">Pre-filled</span></div><p>2 fields to check before e-sign.</p></div>
-            </div>
+            <button class="hh__pause" type="button" aria-label="Pause animation" aria-pressed="false"><i class="icon ph-fill ph-pause"></i></button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 02 · The pain (from bluemind.app/advisor) -->
-    <section class="section" id="reality" aria-labelledby="reality-title">
-      <div class="container ppain">
-        <div class="phead phead--left">
-          <p class="eyebrow">The pain</p>
-          <h2 class="h2" id="reality-title">The advisor’s <span>reality.</span></h2>
-          <p class="lead">Advisors don’t fail because of bad advice. They fail because they get buried.</p>
-        </div>
-        <div>
-          <p class="ppain__intro">Every day, you’re stuck:</p>
-          <ol class="ppain__list">
-            <li data-reveal>Chasing paperwork and e-signatures across carrier portals.</li>
-            <li data-reveal>Retyping the same client data into multiple systems.</li>
-            <li data-reveal>Stressing about whether your files are audit-ready.</li>
-            <li data-reveal>Losing sleep before audits.</li>
-          </ol>
-          <p class="ppain__note"><i class="icon ph ph-warning-circle" aria-hidden="true"></i>Meanwhile, compliance rules keep tightening.</p>
-        </div>
-      </div>
+    <!-- 02 · The pain -->
+    <section class="section pain" id="reality" aria-labelledby="reality-title">
       <div class="container">
-        <div class="pclaim" data-reveal>
-          <p>Advisors don’t need another CRM. <span>They need an AI digital assistant. That’s BlueMind Advisor.</span></p>
-          <a class="btn btn--primary btn--lg" href="#pricing">Start free</a>
+        <div class="pain__head">
+          <h2 class="h2" id="reality-title">The advisor’s reality.</h2>
+          <p class="lead">Five things that quietly eat into every advisor’s week.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- 03 · Benefits: stat tiles (Duo) -->
-    <section class="section section--tint" id="benefits" aria-labelledby="benefits-title">
-      <div class="container">
-        <div class="phead">
-          <p class="eyebrow">The BlueMind Advisor</p>
-          <h2 class="h2" id="benefits-title">More clients. Less paperwork. <span>Simplified compliance.</span></h2>
-          <p class="lead">From client meeting to regulator-ready file in minutes.</p>
-        </div>
-        <ul class="pstats">
-          <li data-reveal><b>Seconds</b><h3>Organized client files</h3><p>All in one place, accessible in seconds.</p></li>
-          <li data-reveal><b>Before risk</b><h3>Smart compliance guardrails</h3><p>AI flags gaps before they become risks.</p></li>
-          <li data-reveal><b>Automatic</b><h3>Regulator-ready documentation</h3><p>Auto-generated notes and a full audit trail.</p></li>
-          <li data-reveal><b>On time</b><h3>Timely reminders</h3><p>Never miss renewals, reviews or client touchpoints.</p></li>
+        <ul class="pain__list">
+          <li><span class="pain__tag">Paperwork</span><span class="pain__chip" aria-hidden="true">3 signatures pending<i class="icon ph ph-hourglass-medium"></i></span><p>E-signatures sit stuck across three carrier portals, and every one needs a follow-up.</p></li>
+          <li><span class="pain__tag">Data entry</span><span class="pain__chip" aria-hidden="true">Typing it again…<i class="icon ph ph-copy"></i></span><p>One client’s details, typed by hand into every system you use.</p></li>
+          <li><span class="pain__tag">Audits</span><span class="pain__chip" aria-hidden="true">Is this file complete?<i class="icon ph ph-file-magnifying-glass"></i></span><p>Never quite sure that every file is complete and on record.</p></li>
+          <li><span class="pain__tag">Sleep</span><span class="pain__chip" aria-hidden="true">Audit’s tomorrow<i class="icon ph ph-moon"></i></span><p>The night before an audit is always the longest one.</p></li>
+          <li><span class="pain__tag">Regulation</span><span class="pain__chip" aria-hidden="true">New rules again?<i class="icon ph ph-scales"></i></span><p>More to prove every year, in the same number of hours.</p></li>
         </ul>
       </div>
     </section>
 
-    <!-- 04 · How it fits into your day: Superpower-style rows -->
+    <!-- 03 · Features in detail -->
+    <section class="section" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <div class="phead">
+          <p class="eyebrow">Everything Advisor does</p>
+          <h2 class="h2" id="features-title">Six features. <span>One AI workflow.</span></h2>
+          <p class="lead">Each one removes a job you used to do by hand.</p>
+        </div>
+        <div class="pfeat pfeat--hx" data-pfeat>
+          <div class="pfeat__pin">
+          <ol class="pfeat__list">
+            <li class="pfeat__item">
+              <div class="pfeat__inline" aria-hidden="true"></div>
+              <h3>Talk to your client. Get the notes.</h3>
+              <p>Mia records with consent, transcribes and summarises every meeting, then files it to the right client.</p><ul class="pfeat__pts"><li><i class="icon ph ph-calendar-blank" aria-hidden="true"></i><span><b>Calendar &amp; video sync</b>Meetings from your calendar and video calls are picked up automatically.</span></li><li><i class="icon ph ph-microphone" aria-hidden="true"></i><span><b>Speaker-labelled transcript</b>Every word, with who said it, for video calls and in-person meetings.</span></li><li><i class="icon ph ph-sparkle" aria-hidden="true"></i><span><b>Summary, insights and next steps</b>A clean summary is ready before you leave the room.</span></li><li><i class="icon ph ph-folder-simple-user" aria-hidden="true"></i><span><b>Filed to the right client</b>Notes and client emails land on the client’s profile, no copying across.</span></li></ul>
+            </li>
+            <li class="pfeat__item">
+              <div class="pfeat__inline" aria-hidden="true"></div>
+              <h3>A financial profile that builds itself.</h3>
+              <p>What the client earns, owns and owes is pulled from the conversation into one clear profile.</p><ul class="pfeat__pts"><li><i class="icon ph ph-wallet" aria-hidden="true"></i><span><b>Cash flow, assets and debts</b>Filled in from what the client already told you.</span></li><li><i class="icon ph ph-pencil-simple-line" aria-hidden="true"></i><span><b>Adjust in a tap</b>Correct any number before it goes into a plan.</span></li><li><i class="icon ph ph-arrow-right" aria-hidden="true"></i><span><b>Straight into goals</b>The profile feeds the FNA, so nothing is typed twice.</span></li><li><i class="icon ph ph-folder-simple" aria-hidden="true"></i><span><b>Documents on the profile</b>IDs, policies and statements kept with the client, in one place.</span></li></ul>
+            </li>
+            <li class="pfeat__item">
+              <div class="pfeat__inline" aria-hidden="true"></div>
+              <h3>FNAs in minutes, not evenings.</h3>
+              <p>Start a financial needs analysis from the profile and track every one across your book.</p><ul class="pfeat__pts"><li><i class="icon ph ph-list-checks" aria-hidden="true"></i><span><b>Every FNA in one list</b>Completed, drafts and those waiting on a signature.</span></li><li><i class="icon ph ph-calculator" aria-hidden="true"></i><span><b>Needs calculated for you</b>Insurance, retirement and education gaps worked out.</span></li><li><i class="icon ph ph-signature" aria-hidden="true"></i><span><b>E-signature built in</b>Send for signature and see when it comes back.</span></li></ul>
+            </li>
+            <li class="pfeat__item">
+              <div class="pfeat__inline" aria-hidden="true"></div>
+              <h3>Walk in prepared.</h3>
+              <p>Before every meeting Mia writes a brief: who the client is, what changed and what to talk about.</p><ul class="pfeat__pts"><li><i class="icon ph ph-user-circle" aria-hidden="true"></i><span><b>Client snapshot</b>Policies, household and history on one page.</span></li><li><i class="icon ph ph-clock-counter-clockwise" aria-hidden="true"></i><span><b>Client timeline</b>Every meeting, email and form with this client, in order.</span></li><li><i class="icon ph ph-chat-circle-dots" aria-hidden="true"></i><span><b>Talking points</b>Open items and life changes worth raising.</span></li><li><i class="icon ph ph-video-camera" aria-hidden="true"></i><span><b>Join from the brief</b>Open the client or join the call in one click.</span></li></ul>
+            </li>
+            <li class="pfeat__item">
+              <div class="pfeat__inline" aria-hidden="true"></div>
+              <h3>Know your compliance health.</h3>
+              <p>See which clients have their FNA, consent and disclosure on file, and fix gaps in one go.</p><ul class="pfeat__pts"><li><i class="icon ph ph-heartbeat" aria-hidden="true"></i><span><b>Book health at a glance</b>One number for how complete your files are.</span></li><li><i class="icon ph ph-warning-circle" aria-hidden="true"></i><span><b>Gaps by client</b>See exactly what is missing for each person.</span></li><li><i class="icon ph ph-paper-plane-tilt" aria-hidden="true"></i><span><b>Send reminders in bulk</b>Ask every client for what’s missing at once.</span></li></ul>
+            </li>
+            <li class="pfeat__item">
+              <div class="pfeat__inline" aria-hidden="true"></div>
+              <h3>Nothing slips through.</h3>
+              <p>Advisor watches renewal dates for you and puts the next ones on a timeline before they’re due.</p><ul class="pfeat__pts"><li><i class="icon ph ph-calendar-dots" aria-hidden="true"></i><span><b>Renewals on a timeline</b>Everything due in the next 60 days, in order.</span></li><li><i class="icon ph ph-bell-ringing" aria-hidden="true"></i><span><b>Reminders before it’s late</b>A nudge at 30 days and again near the date.</span></li><li><i class="icon ph ph-sun-horizon" aria-hidden="true"></i><span><b>A daily brief</b>What needs you today, every morning.</span></li></ul>
+            </li>
+          </ol>
+          <div class="pfeat__media" aria-hidden="true">
+            <div class="pfeat__shot" style="--bgp:15% 20%"><div class="fx af">
+              <div class="fx__card">
+                <div class="af__meta fx__in" style="--i:0"><span class="af__chip"><i class="icon ph ph-user-circle"></i>Dave Neel</span><small>Oct 13 · 2:10 PM</small><span class="af__share">Share <i class="icon ph ph-arrow-up-right"></i></span></div>
+                <h4 class="af__title fx__in" style="--i:1">Annual review with Dave</h4>
+                <p class="af__sec fx__in" style="--i:2">TFSA plan</p>
+                <ul class="af__bul"><li class="fx__in" style="--i:3"><b>$12,000 into the TFSA this year</b></li><li class="fx__in" style="--i:4">Monthly top-ups start after the mortgage renews in March.</li></ul>
+                <p class="af__sec fx__in" style="--i:5">Next steps</p>
+                <ul class="af__chk"><li class="fx__in" style="--i:6"><i></i>Send Dave the RESP grant rules<small>Fri, Oct 16</small></li><li class="fx__in" style="--i:7"><i></i>Collect the 2025 tax slips from Sarah<small>Mon, Oct 19</small></li></ul>
+              </div>
+              <div class="af__rec fx__in" style="--i:8"><span class="af__dot"></span><span class="af__wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><b>12:40</b><span class="af__stop">Stop</span></div>
+            </div></div>
+            <div class="pfeat__shot" style="--bgp:85% 25%"><div class="fx af">
+              <div class="fx__card">
+                <small class="af__over fx__in" style="--i:0">FINANCIAL PROFILE</small>
+                <h4 class="af__title fx__in" style="--i:1">What does Dave earn, own and owe?</h4>
+                <div class="af__box fx__in" style="--i:2"><b>Monthly cash flow</b>
+                  <div class="af__step"><span>Monthly income (after tax)</span><em><i>−</i>$6,500<i>+</i></em></div>
+                  <div class="af__step"><span>Monthly expenses</span><em><i>−</i>$4,200<i>+</i></em></div></div>
+                <div class="af__box fx__in" style="--i:3"><b>Assets</b>
+                  <div class="af__step"><span>Tax-free accounts (TFSA)</span><em><i>−</i>$18,000<i>+</i></em></div>
+                  <div class="af__step"><span>RRSP, LIRA and pensions</span><em><i>−</i>$32,000<i>+</i></em></div></div>
+                <div class="af__btns fx__in" style="--i:4"><span>Back</span><span class="is-pri">Next: Goals</span></div>
+              </div>
+            </div></div>
+            <div class="pfeat__shot" style="--bgp:50% 75%"><div class="fx af">
+              <div class="fx__card">
+                <div class="af__head fx__in" style="--i:0"><span><b>FNAs</b><small>Financial needs analyses across your clients</small></span><span class="af__pri">+ Start FNA</span></div>
+                <div class="af__seg fx__in" style="--i:1"><span class="is-on">All <i>30</i></span><span>Completed <i>24</i></span><span>Drafts <i>6</i></span></div>
+                <ul class="af__tbl">
+                  <li class="fx__in" style="--i:2"><span><b>Insurance planning</b><small>Virtual meeting</small></span><span class="af__who"><img src="assets/harmony/av/aaron.png" alt="">Dave Neel</span><span class="af__num">$680,000</span><em class="chip chip--green">Completed</em></li>
+                  <li class="fx__in" style="--i:3"><span><b>Retirement income</b><small>In person</small></span><span class="af__who"><img src="assets/harmony/av/ingrid.png" alt="">Margaret Chen</span><span class="af__num">$240,000</span><em class="chip chip--blue">Needs signature</em></li>
+                  <li class="fx__in" style="--i:4"><span><b>Education savings</b><small>Virtual meeting</small></span><span class="af__who"><img src="assets/harmony/av/elena.png" alt="">Sarah Thompson</span><span class="af__num">$62,000</span><em class="chip chip--green">Completed</em></li>
+                  <li class="fx__in" style="--i:5"><span><b>Insurance planning</b><small>Phone</small></span><span class="af__who"><img src="assets/harmony/av/fatima.png" alt="">Ren Gana</span><span class="af__num">Not calculated</span><em class="chip chip--grey">Draft</em></li>
+                </ul>
+              </div>
+            </div></div>
+            <div class="pfeat__shot" style="--bgp:10% 80%"><div class="fx af">
+              <div class="fx__card">
+                <div class="af__head fx__in" style="--i:0"><span><b>Meeting prep</b><small>Annual review with Mariia Smith · Wed, Oct 7 · 2:00 PM</small></span></div>
+                <div class="af__mia fx__in" style="--i:1"><img src="assets/harmony/av/holly.png" alt=""><b>Prepared by Mia</b><small>Updated 9:42 AM</small></div>
+                <p class="af__sec fx__in" style="--i:2">About Mariia</p>
+                <dl class="af__dl fx__in" style="--i:3"><dt>Client since</dt><dd>2019</dd><dt>Policies</dt><dd>2 active · Term Life, Critical Illness</dd><dt>Household</dt><dd>Married, 2 children</dd></dl>
+                <p class="af__sec fx__in" style="--i:4">Talk about</p>
+                <ul class="af__bul"><li class="fx__in" style="--i:5">Coverage after the second child: is the term amount still enough?</li><li class="fx__in" style="--i:6">Beneficiary form is still pending since Aug.</li></ul>
+                <div class="af__btns fx__in" style="--i:7"><span>Open client</span><span class="is-pri">Join meeting</span></div>
+              </div>
+            </div></div>
+            <div class="pfeat__shot" style="--bgp:75% 55%"><div class="fx af">
+              <div class="fx__card">
+                <div class="af__health fx__in" style="--i:0"><span><small>Book health</small><b>9 of 143</b><small>clients have all three on file</small></span>
+                  <span class="af__meter"><small>FNA <i>47 of 143</i></small><s style="--w:33%"></s><small>Email consent <i>22 of 143</i></small><s style="--w:15%"></s><small>Disclosure <i>13 of 143</i></small><s style="--w:9%"></s></span></div>
+                <ul class="af__tbl af__tbl--c">
+                  <li class="fx__in" style="--i:1"><span class="af__who"><img src="assets/harmony/av/ingrid.png" alt="">Margaret Chen</span><span>All on file</span><em class="chip chip--green">Compliant</em></li>
+                  <li class="fx__in" style="--i:2"><span class="af__who"><img src="assets/harmony/av/aaron.png" alt="">Dave Neel</span><span>Email consent</span><em class="chip chip--amber">1 to fix</em></li>
+                  <li class="fx__in" style="--i:3"><span class="af__who"><img src="assets/harmony/av/elena.png" alt="">Sarah Thompson</span><span>Disclosure · FNA expired</span><em class="chip chip--red">2 to fix</em></li>
+                  <li class="fx__in" style="--i:4"><span class="af__who"><img src="assets/harmony/av/noah.png" alt="">Daniel Okafor</span><span>Disclosure</span><em class="chip chip--amber">1 to fix</em></li>
+                </ul>
+                <div class="af__btns fx__in" style="--i:5"><span class="is-pri"><i class="icon ph ph-paper-plane-tilt"></i> Send reminders</span></div>
+              </div>
+            </div></div>
+            <div class="pfeat__shot" style="--bgp:90% 90%"><div class="fx af">
+              <div class="fx__card">
+                <div class="af__head fx__in" style="--i:0"><span><b>Upcoming renewals</b></span><span class="af__count">3</span></div>
+                <p class="af__lead fx__in" style="--i:1">3 policies renew in the next 60 days</p>
+                <div class="af__line fx__in" style="--i:2"><s></s><i style="--x:22%"></i><i style="--x:46%"></i><i class="is-grey" style="--x:76%"></i></div>
+                <div class="af__ticks fx__in" style="--i:2"><small>Today</small><small>30 days</small><small>60 days</small></div>
+                <ul class="af__ren">
+                  <li class="fx__in" style="--i:3"><span><b>Jordan Ellis</b><small>Canada Life · Term 20 · CL-20988</small></span><b>Oct 19</b><em class="chip chip--amber">14 days</em></li>
+                  <li class="fx__in" style="--i:4"><span><b>Mei Tanaka</b><small>Manulife · Critical illness · MN-40277</small></span><b>Nov 2</b><em class="chip chip--amber">28 days</em></li>
+                  <li class="fx__in" style="--i:5"><span><b>Laura Chen</b><small>Empire Life · Term 10 · EM-11702</small></span><b>Nov 20</b><em class="chip chip--grey">46 days</em></li>
+                </ul>
+              </div>
+            </div></div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · How it fits into your day -->
     <section class="section" id="how" aria-labelledby="how-title">
       <div class="container">
         <div class="phead">
           <p class="eyebrow">How it fits into your day</p>
-          <h2 class="h2" id="how-title">Works with the tools <span>you already use.</span></h2>
-          <p class="lead">BlueMind is there from the first hello to the moment someone asks for the file.</p>
+          <h2 class="h2" id="how-title">From first hello <span>to audit-ready file.</span></h2>
+          <p class="lead">Four moments in your day, and what BlueMind does in each.</p>
         </div>
         <ol class="psteps">
           <li class="pstep">
@@ -180,7 +401,7 @@
           </li>
           <li class="pstep">
             <div class="pstep__media scene--blue" aria-hidden="true"><div class="ui"><div class="ui__top"><i class="icon ph ph-chat-circle-dots"></i><b>Ask BlueMind</b></div><p style="color:var(--ink)">“What did Tom say about his budget?”</p><p>About $150 a month, flexible if it covers both kids. <span class="tag tag--info">Meeting · 12 Mar</span></p></div></div>
-            <div><p class="pstep__label">03</p><h3>Don’t search anywhere</h3><p>Chat with BlueMind AI — it finds what you need, when you need it.</p><span class="pstep__who"><i class="icon ph ph-check" aria-hidden="true"></i>No searching</span></div>
+            <div><p class="pstep__label">03</p><h3>Don’t search anywhere</h3><p>Ask Mia — it finds what you need, when you need it.</p><span class="pstep__who"><i class="icon ph ph-check" aria-hidden="true"></i>No searching</span></div>
           </li>
           <li class="pstep">
             <div class="pstep__media scene--night" aria-hidden="true"><div class="ui"><div class="ui__top"><i class="icon ph ph-shield-check"></i><b>Client file</b><span class="tag tag--ok">Ready</span></div><ul class="ui__list"><li><i class="icon ph ph-check"></i>Notes, KYC &amp; FNA</li><li><i class="icon ph ph-check"></i>Audit trail</li><li><i class="icon ph ph-check"></i>Export in one click</li></ul></div></div>
@@ -190,214 +411,123 @@
       </div>
     </section>
 
-    <!-- 05 · Features in detail: sticky list (Duo) -->
-    <section class="section" id="features" aria-labelledby="features-title">
+    <!-- Mia · the AI assistant inside every BlueMind product (same block on Home, Advisor and Enterprise).
+         Prompt tabs switch the conversation; until someone picks one it steps on every 6s while a ring sweeps the active tab (sections.js) -->
+    <section class="section mia" id="mia" aria-labelledby="mia-title">
       <div class="container">
         <div class="phead">
-          <p class="eyebrow">Everything Advisor does</p>
-          <h2 class="h2" id="features-title">Six features. <span>One AI Workflow.</span></h2>
-          <p class="lead">Each one removes a job you used to do by hand.</p>
+          <p class="mia__eyebrow"><svg class="mia__bot" viewBox="0 0 622 663" aria-hidden="true"><path fill="#0080ff" d="M6.42055 349C40.6904 128.108 231.042 33.7442 411.826 5.25682C430.774 2.27115 445.719 20.1811 439.024 38.1562C409.667 116.984 375.883 154.244 418.5 132.5C479.417 101.42 547.37 110.62 589.302 133.865C606.849 143.592 597.037 167.443 586.638 184.6C570.275 211.597 575.772 254.577 580.421 270.5C720.421 619.7 463.796 691.079 258.156 654C95.9909 624.76 -30.3794 586.2 6.42055 349Z"/><g fill="#fff"><ellipse cx="224.6" cy="394" rx="59.5" ry="85.5"/><ellipse cx="407.1" cy="394" rx="59.5" ry="85.5"/></g></svg>Meet Mia</p>
+          <h2 class="h2" id="mia-title">Ask Mia. <span>Get the paperwork done.</span></h2>
+          <p class="lead">Mia is the AI assistant inside BlueMind. Ask in plain words before, during or after a meeting — Mia drafts it, you approve it.</p>
         </div>
-        <div class="pfeat" data-pfeat>
-          <ol class="pfeat__list">
-            <li class="pfeat__item">
-              <div class="pfeat__inline scene--blue" aria-hidden="true"></div>
-              <p class="pfeat__kicker"><i class="icon ph ph-microphone" aria-hidden="true"></i>01 · AI meeting notes</p>
-              <h3>Talk to your client. Get the notes.</h3>
-              <p>MIA records (with consent), transcribes and summarises every meeting — then files it to the right client.</p>
-              <ul><li><i class="icon ph ph-check" aria-hidden="true"></i>Speaker-labelled transcript</li><li><i class="icon ph ph-check" aria-hidden="true"></i>Summary, key insights and next steps</li><li><i class="icon ph ph-check" aria-hidden="true"></i>Works for video calls and in-person meetings</li></ul>
-              <p class="pfeat__ba"><s>30–45 min of notes after every meeting</s><i class="icon ph ph-arrow-right" aria-hidden="true"></i><b>A 2-min review</b></p>
-            </li>
-            <li class="pfeat__item">
-              <div class="pfeat__inline scene--grey" aria-hidden="true"></div>
-              <p class="pfeat__kicker"><i class="icon ph ph-identification-card" aria-hidden="true"></i>02 · 1-click KYC &amp; FNA</p>
-              <h3>Forms that fill themselves.</h3>
-              <p>Everything the client said becomes the KYC and FNA — pre-filled, checked for gaps, and sent for e-signature.</p>
-              <ul><li><i class="icon ph ph-check" aria-hidden="true"></i>Pre-filled from the conversation</li><li><i class="icon ph ph-check" aria-hidden="true"></i>Missing fields highlighted</li><li><i class="icon ph ph-check" aria-hidden="true"></i>E-signature built in</li></ul>
-              <p class="pfeat__ba"><s>Re-typing answers into forms</s><i class="icon ph ph-arrow-right" aria-hidden="true"></i><b>Review and send</b></p>
-            </li>
-            <li class="pfeat__item">
-              <div class="pfeat__inline scene--night" aria-hidden="true"></div>
-              <p class="pfeat__kicker"><i class="icon ph ph-scales" aria-hidden="true"></i>03 · Suitability engine</p>
-              <h3>Every recommendation, justified.</h3>
-              <p>Each product you recommend is checked against the client’s profile, and the reasoning is written down for you.</p>
-              <ul><li><i class="icon ph ph-check" aria-hidden="true"></i>Checks against goals, budget and risk</li><li><i class="icon ph ph-check" aria-hidden="true"></i>Rationale drafted in plain language</li><li><i class="icon ph ph-check" aria-hidden="true"></i>Flags when a replacement needs more care</li></ul>
-              <p class="pfeat__ba"><s>Writing justifications from memory</s><i class="icon ph ph-arrow-right" aria-hidden="true"></i><b>Approve the draft</b></p>
-            </li>
-            <li class="pfeat__item">
-              <div class="pfeat__inline scene--blue" aria-hidden="true"></div>
-              <p class="pfeat__kicker"><i class="icon ph ph-chat-circle-dots" aria-hidden="true"></i>04 · Chat with MIA</p>
-              <h3>Ask, don’t search.</h3>
-              <p>Ask anything about any client, policy or deadline. MIA answers with the source — and offers to do the next step.</p>
-              <ul><li><i class="icon ph ph-check" aria-hidden="true"></i>Answers cite the meeting or document</li><li><i class="icon ph ph-check" aria-hidden="true"></i>Turns answers into actions</li><li><i class="icon ph ph-check" aria-hidden="true"></i>Works across all your clients</li></ul>
-              <p class="pfeat__ba"><s>Digging through folders</s><i class="icon ph ph-arrow-right" aria-hidden="true"></i><b>One question</b></p>
-            </li>
-            <li class="pfeat__item">
-              <div class="pfeat__inline scene--grey" aria-hidden="true"></div>
-              <p class="pfeat__kicker"><i class="icon ph ph-shield-check" aria-hidden="true"></i>05 · E&amp;O trail</p>
-              <h3>Your evidence, always on.</h3>
-              <p>Every meeting, form, check and approval is time-stamped and kept — exportable as one file when you need it.</p>
-              <ul><li><i class="icon ph ph-check" aria-hidden="true"></i>Unedited, time-stamped log</li><li><i class="icon ph ph-check" aria-hidden="true"></i>One-click export per client</li><li><i class="icon ph ph-check" aria-hidden="true"></i>Visible to your firm in Harmony</li></ul>
-              <p class="pfeat__ba"><s>Hoping the paperwork is somewhere</s><i class="icon ph ph-arrow-right" aria-hidden="true"></i><b>Proof in a click</b></p>
-            </li>
-            <li class="pfeat__item">
-              <div class="pfeat__inline scene--night" aria-hidden="true"></div>
-              <p class="pfeat__kicker"><i class="icon ph ph-bell-ringing" aria-hidden="true"></i>06 · Reminders &amp; renewals</p>
-              <h3>Nothing slips through.</h3>
-              <p>Advisor watches dates for you — KYC refreshes, renewals, expiring documents — and prepares the work before it’s due.</p>
-              <ul><li><i class="icon ph ph-check" aria-hidden="true"></i>Renewal and review reminders</li><li><i class="icon ph ph-check" aria-hidden="true"></i>KYC refresh prepared in advance</li><li><i class="icon ph ph-check" aria-hidden="true"></i>Daily brief of what needs you</li></ul>
-              <p class="pfeat__ba"><s>Spreadsheets and sticky notes</s><i class="icon ph ph-arrow-right" aria-hidden="true"></i><b>A morning brief</b></p>
-            </li>
-          </ol>
-          <div class="pfeat__media" aria-hidden="true">
-            <div class="pfeat__shot scene--blue">
-              <div class="ui"><div class="ui__top"><i class="icon ph ph-microphone"></i><b>Meeting · Maria Chen</b><span class="tag tag--ok">Filed</span></div>
-                <div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-                <ul class="ui__list"><li><i class="icon ph ph-check"></i>New home — wants mortgage protection</li><li><i class="icon ph ph-check"></i>Two dependants, budget ≈ $150 / month</li><li><i class="icon ph ph-check"></i>Next: term life options</li></ul></div>
+        <div class="mia__stage" data-mia>
+          <div class="mia__top">
+          <div class="mia__prompts" role="tablist" aria-label="Try asking Mia">
+            <button type="button" class="mia__prompt is-on" role="tab" id="mia-tab-prep" aria-controls="mia-pane-prep" aria-selected="true"><span class="mia__tile"><i class="icon ph-duotone ph-calendar-check" aria-hidden="true"></i></span><span class="mia__label">Prep me for my 10:00</span></button>
+            <button type="button" class="mia__prompt" role="tab" id="mia-tab-notes" aria-controls="mia-pane-notes" aria-selected="false" tabindex="-1"><span class="mia__tile"><i class="icon ph-duotone ph-waveform" aria-hidden="true"></i></span><span class="mia__label">Summarise my last meeting</span></button>
+            <button type="button" class="mia__prompt" role="tab" id="mia-tab-gaps" aria-controls="mia-pane-gaps" aria-selected="false" tabindex="-1"><span class="mia__tile"><i class="icon ph-duotone ph-seal-warning" aria-hidden="true"></i></span><span class="mia__label">What’s missing on a file?</span></button>
+            <button type="button" class="mia__prompt" role="tab" id="mia-tab-email" aria-controls="mia-pane-email" aria-selected="false" tabindex="-1"><span class="mia__tile"><i class="icon ph-duotone ph-paper-plane-tilt" aria-hidden="true"></i></span><span class="mia__label">Draft the follow-up email</span></button>
+          </div>
+          <a class="btn btn--primary btn--lg mia__cta" href="mia.html">Discover Mia</a>
+          </div>
+          <div class="mia__panel">
+            <div class="mia__win">
+            <div class="mia__bar"><span class="mia__av" aria-hidden="true"><svg class="mia__bot" viewBox="0 0 622 663" aria-hidden="true"><path fill="#0080ff" d="M6.42055 349C40.6904 128.108 231.042 33.7442 411.826 5.25682C430.774 2.27115 445.719 20.1811 439.024 38.1562C409.667 116.984 375.883 154.244 418.5 132.5C479.417 101.42 547.37 110.62 589.302 133.865C606.849 143.592 597.037 167.443 586.638 184.6C570.275 211.597 575.772 254.577 580.421 270.5C720.421 619.7 463.796 691.079 258.156 654C95.9909 624.76 -30.3794 586.2 6.42055 349Z"/><g fill="#fff"><ellipse cx="224.6" cy="394" rx="59.5" ry="85.5"/><ellipse cx="407.1" cy="394" rx="59.5" ry="85.5"/></g></svg></span><b>Mia</b><small>Inside BlueMind</small></div>
+            <div class="mia__body" aria-live="polite">
+              <div class="mia__pane is-on" role="tabpanel" id="mia-pane-prep" aria-labelledby="mia-tab-prep">
+                <p class="mia__me">Prep me for my 10:00 with Maria Chen.</p>
+                <div class="mia__reply"><span class="mia__av" aria-hidden="true"><svg class="mia__bot" viewBox="0 0 622 663" aria-hidden="true"><path fill="#0080ff" d="M6.42055 349C40.6904 128.108 231.042 33.7442 411.826 5.25682C430.774 2.27115 445.719 20.1811 439.024 38.1562C409.667 116.984 375.883 154.244 418.5 132.5C479.417 101.42 547.37 110.62 589.302 133.865C606.849 143.592 597.037 167.443 586.638 184.6C570.275 211.597 575.772 254.577 580.421 270.5C720.421 619.7 463.796 691.079 258.156 654C95.9909 624.76 -30.3794 586.2 6.42055 349Z"/><g fill="#fff"><ellipse cx="224.6" cy="394" rx="59.5" ry="85.5"/><ellipse cx="407.1" cy="394" rx="59.5" ry="85.5"/></g></svg></span><div class="mia__ans"><p>Here’s your brief for <b>Maria Chen</b>:</p><ul class="mia__pts"><li><i class="icon ph-bold ph-check" aria-hidden="true"></i><span>Last review in March — term life discussed</span></li><li><i class="icon ph-bold ph-check" aria-hidden="true"></i><span>New since then: second child born in June</span></li><li class="is-warn"><i class="icon ph-bold ph-warning" aria-hidden="true"></i><span>Still open: beneficiary form since August</span></li></ul><div class="mia__chips"><span>Brief · 3 talking points</span><span>Open client</span></div></div></div>
+              </div>
+              <div class="mia__pane" role="tabpanel" id="mia-pane-notes" aria-labelledby="mia-tab-notes" hidden>
+                <p class="mia__me">Summarise my meeting with Tom Park.</p>
+                <div class="mia__reply"><span class="mia__av" aria-hidden="true"><svg class="mia__bot" viewBox="0 0 622 663" aria-hidden="true"><path fill="#0080ff" d="M6.42055 349C40.6904 128.108 231.042 33.7442 411.826 5.25682C430.774 2.27115 445.719 20.1811 439.024 38.1562C409.667 116.984 375.883 154.244 418.5 132.5C479.417 101.42 547.37 110.62 589.302 133.865C606.849 143.592 597.037 167.443 586.638 184.6C570.275 211.597 575.772 254.577 580.421 270.5C720.421 619.7 463.796 691.079 258.156 654C95.9909 624.76 -30.3794 586.2 6.42055 349Z"/><g fill="#fff"><ellipse cx="224.6" cy="394" rx="59.5" ry="85.5"/><ellipse cx="407.1" cy="394" rx="59.5" ry="85.5"/></g></svg></span><div class="mia__ans"><p>Meeting with <b>Tom Park</b> · 32 min, client consent given.</p><ul class="mia__pts"><li><i class="icon ph-bold ph-check" aria-hidden="true"></i><span>Goal: protect the mortgage and family income</span></li><li><i class="icon ph-bold ph-check" aria-hidden="true"></i><span>Budget: about $150 a month</span></li><li><i class="icon ph-bold ph-check" aria-hidden="true"></i><span>Next: send two term options by Friday</span></li></ul><div class="mia__chips"><span>Filed to Tom Park</span><span>Approve summary</span></div></div></div>
+              </div>
+              <div class="mia__pane" role="tabpanel" id="mia-pane-gaps" aria-labelledby="mia-tab-gaps" hidden>
+                <p class="mia__me">What’s missing on Maria’s file before the audit?</p>
+                <div class="mia__reply"><span class="mia__av" aria-hidden="true"><svg class="mia__bot" viewBox="0 0 622 663" aria-hidden="true"><path fill="#0080ff" d="M6.42055 349C40.6904 128.108 231.042 33.7442 411.826 5.25682C430.774 2.27115 445.719 20.1811 439.024 38.1562C409.667 116.984 375.883 154.244 418.5 132.5C479.417 101.42 547.37 110.62 589.302 133.865C606.849 143.592 597.037 167.443 586.638 184.6C570.275 211.597 575.772 254.577 580.421 270.5C720.421 619.7 463.796 691.079 258.156 654C95.9909 624.76 -30.3794 586.2 6.42055 349Z"/><g fill="#fff"><ellipse cx="224.6" cy="394" rx="59.5" ry="85.5"/><ellipse cx="407.1" cy="394" rx="59.5" ry="85.5"/></g></svg></span><div class="mia__ans"><p>Two things before Maria’s file is audit-ready:</p><ul class="mia__pts"><li class="is-warn"><i class="icon ph-bold ph-warning" aria-hidden="true"></i><span>Employer — missing on the KYC</span></li><li class="is-warn"><i class="icon ph-bold ph-warning" aria-hidden="true"></i><span>Beneficiary — missing on the FNA</span></li><li><i class="icon ph-bold ph-check" aria-hidden="true"></i><span>Disclosure and consent — on file</span></li></ul><div class="mia__chips"><span>Send for e-sign</span><span>Remind me Friday</span></div></div></div>
+              </div>
+              <div class="mia__pane" role="tabpanel" id="mia-pane-email" aria-labelledby="mia-tab-email" hidden>
+                <p class="mia__me">Draft the follow-up email to Tom.</p>
+                <div class="mia__reply"><span class="mia__av" aria-hidden="true"><svg class="mia__bot" viewBox="0 0 622 663" aria-hidden="true"><path fill="#0080ff" d="M6.42055 349C40.6904 128.108 231.042 33.7442 411.826 5.25682C430.774 2.27115 445.719 20.1811 439.024 38.1562C409.667 116.984 375.883 154.244 418.5 132.5C479.417 101.42 547.37 110.62 589.302 133.865C606.849 143.592 597.037 167.443 586.638 184.6C570.275 211.597 575.772 254.577 580.421 270.5C720.421 619.7 463.796 691.079 258.156 654C95.9909 624.76 -30.3794 586.2 6.42055 349Z"/><g fill="#fff"><ellipse cx="224.6" cy="394" rx="59.5" ry="85.5"/><ellipse cx="407.1" cy="394" rx="59.5" ry="85.5"/></g></svg></span><div class="mia__ans"><p>Draft ready for your review:</p><div class="mia__mail"><b>To: Tom Park · Subject: Next steps from today</b><p>Hi Tom, thanks for your time today. As promised, I’ll send two term life options that fit around $150 a month by Friday.</p></div><div class="mia__chips"><span class="is-dark">Approve &amp; send</span><span>Edit</span></div></div></div>
+              </div>
             </div>
-            <div class="pfeat__shot scene--grey">
-              <div class="ui"><div class="ui__top"><i class="icon ph ph-identification-card"></i><b>KYC &amp; FNA · Maria Chen</b><span class="tag tag--warn">2 to check</span></div>
-                <ul class="ui__list"><li>Employment<span class="tag tag--ok">Filled</span></li><li>Annual income<span class="tag tag--ok">Filled</span></li><li>Dependants<span class="tag tag--ok">Filled</span></li><li>Existing coverage<span class="tag tag--warn">Missing</span></li><li>Risk tolerance<span class="tag tag--warn">Check</span></li></ul>
-                <div class="ui__btns"><span>Send for e-sign</span></div></div>
-            </div>
-            <div class="pfeat__shot scene--night">
-              <div class="ui"><div class="ui__top"><i class="icon ph ph-scales"></i><b>Suitability · Term life 20</b><span class="tag tag--ok">Suitable</span></div>
-                <p>Matches the goal (protect dependants), fits the $150 budget, and suits a low risk tolerance.</p>
-                <ul class="ui__list"><li><i class="icon ph ph-check"></i>Goals<i class="icon ph ph-check" style="margin-left:auto"></i></li><li><i class="icon ph ph-check"></i>Budget<i class="icon ph ph-check" style="margin-left:auto"></i></li><li><i class="icon ph ph-check"></i>Risk<i class="icon ph ph-check" style="margin-left:auto"></i></li></ul>
-                <div class="ui__btns"><span>Approve rationale</span><span>Edit</span></div></div>
-            </div>
-            <div class="pfeat__shot scene--blue">
-              <div class="ui"><div class="ui__top"><i class="icon ph ph-chat-circle-dots"></i><b>Ask MIA</b></div>
-                <p style="color:var(--ink)">“Which clients have a KYC refresh due this month?”</p>
-                <ul class="ui__list"><li><span class="avatar avatar--sm">TP</span>Tom Park<span class="tag tag--warn">Due 18th</span></li><li><span class="avatar avatar--sm">LK</span>Lina Kaur<span class="tag tag--warn">Due 26th</span></li></ul>
-                <div class="ui__btns"><span>Prepare both</span></div></div>
-            </div>
-            <div class="pfeat__shot scene--grey">
-              <div class="ui"><div class="ui__top"><i class="icon ph ph-shield-check"></i><b>E&amp;O trail · Maria Chen</b></div>
-                <ul class="ui__list"><li><i class="icon ph ph-clock"></i>10:00 Meeting recorded (consent)</li><li><i class="icon ph ph-clock"></i>10:46 Summary approved</li><li><i class="icon ph ph-clock"></i>10:47 KYC sent for e-sign</li><li><i class="icon ph ph-clock"></i>11:02 Suitability rationale saved</li></ul>
-                <div class="ui__btns"><span>Export file</span></div></div>
-            </div>
-            <div class="pfeat__shot scene--night">
-              <div class="ui"><div class="ui__top"><i class="icon ph ph-bell-ringing"></i><b>Coming up</b></div>
-                <ul class="ui__list"><li>Tom Park · KYC refresh<span class="tag tag--info">Prepared</span></li><li>Ana Ruiz · Policy renewal<span class="tag tag--warn">Fri</span></li><li>Lina Kaur · ID expires<span class="tag tag--warn">26th</span></li></ul></div>
-            </div>
+            <div class="mia__composer" aria-hidden="true"><i class="icon ph ph-plus"></i><span>Ask Mia anything…</span><b><i class="icon ph-bold ph-arrow-up"></i></b></div>
+          </div>
+          <div class="mia__note" aria-hidden="true"><span class="mia__av mia__av--lg"><svg class="mia__bot" viewBox="0 0 622 663" aria-hidden="true"><path fill="#0080ff" d="M6.42055 349C40.6904 128.108 231.042 33.7442 411.826 5.25682C430.774 2.27115 445.719 20.1811 439.024 38.1562C409.667 116.984 375.883 154.244 418.5 132.5C479.417 101.42 547.37 110.62 589.302 133.865C606.849 143.592 597.037 167.443 586.638 184.6C570.275 211.597 575.772 254.577 580.421 270.5C720.421 619.7 463.796 691.079 258.156 654C95.9909 624.76 -30.3794 586.2 6.42055 349Z"/><g fill="#fff"><ellipse cx="224.6" cy="394" rx="59.5" ry="85.5"/><ellipse cx="407.1" cy="394" rx="59.5" ry="85.5"/></g></svg></span><p>3 client files are ready for your sign-off<small>Today · 9:12 AM</small></p></div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- 06 · Also included -->
-    <section class="section section--tint" id="included" aria-labelledby="inc-title">
-      <div class="container">
-        <div class="phead"><h2 class="h2" id="inc-title">Also in every <span>Advisor account.</span></h2></div>
-        <ul class="pmini">
-          <li data-reveal><span class="picon-tile"><i class="icon ph ph-calendar-blank" aria-hidden="true"></i></span><div><h3>Calendar &amp; video sync</h3><p>Meetings picked up automatically.</p></div></li>
-          <li data-reveal><span class="picon-tile"><i class="icon ph ph-at" aria-hidden="true"></i></span><div><h3>Email filing</h3><p>Client emails land in the right file.</p></div></li>
-          <li data-reveal><span class="picon-tile"><i class="icon ph ph-signature" aria-hidden="true"></i></span><div><h3>E-signature</h3><p>Send and track signatures in-app.</p></div></li>
-          <li data-reveal><span class="picon-tile"><i class="icon ph ph-folder-simple" aria-hidden="true"></i></span><div><h3>Document storage</h3><p>IDs, policies and statements in one place.</p></div></li>
-          <li data-reveal><span class="picon-tile"><i class="icon ph ph-clock-counter-clockwise" aria-hidden="true"></i></span><div><h3>Client timeline</h3><p>Every interaction, in order.</p></div></li>
-          <li data-reveal><span class="picon-tile"><i class="icon ph ph-list-checks" aria-hidden="true"></i></span><div><h3>Compliance checklist</h3><p>See what’s missing per client.</p></div></li>
-          <li data-reveal><span class="picon-tile"><i class="icon ph ph-file-arrow-down" aria-hidden="true"></i></span><div><h3>One-click export</h3><p>Any file, ready to share.</p></div></li>
-          <li data-reveal><span class="picon-tile"><i class="icon ph ph-device-mobile" aria-hidden="true"></i></span><div><h3>[Mobile access]</h3><p>[Confirm availability]</p></div></li>
+        <ul class="mia__facts">
+          <li><i class="icon ph ph-hand" aria-hidden="true"></i><div><h3>Never sends without you</h3><p>Every note, form and email waits for your approval.</p></div></li>
+          <li><i class="icon ph ph-clock-counter-clockwise" aria-hidden="true"></i><div><h3>Every step logged</h3><p>What Mia drafted and what you changed lands in the audit trail.</p></div></li>
+          <li><i class="icon ph ph-users-three" aria-hidden="true"></i><div><h3>Knows your whole book</h3><p>Ask about any client and get the answer from their file.</p></div></li>
         </ul>
       </div>
     </section>
 
-    <!-- 07 · Before vs after -->
+    <!-- 05 · Before vs after, then the first ask -->
     <section class="section" id="difference" aria-labelledby="diff-title">
       <div class="container">
         <div class="phead">
           <p class="eyebrow">The difference</p>
           <h2 class="h2" id="diff-title">Your week, before <span>and after Advisor.</span></h2>
         </div>
-        <div class="ptable-wrap">
-          <table class="ptable">
-            <thead><tr><th scope="col">Task</th><th scope="col">Without Advisor</th><th scope="col">With Advisor</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Meeting notes</th><td><span class="no"><i class="icon ph ph-x" aria-hidden="true"></i>Typed up after every meeting</span></td><td><span class="yes"><i class="icon ph ph-check" aria-hidden="true"></i>Drafted by MIA, you review</span></td></tr>
-              <tr><th scope="row">KYC &amp; FNA</th><td><span class="no"><i class="icon ph ph-x" aria-hidden="true"></i>Re-entered by hand</span></td><td><span class="yes"><i class="icon ph ph-check" aria-hidden="true"></i>Pre-filled, sent for e-sign</span></td></tr>
-              <tr><th scope="row">Suitability write-up</th><td><span class="no"><i class="icon ph ph-x" aria-hidden="true"></i>Written from memory</span></td><td><span class="yes"><i class="icon ph ph-check" aria-hidden="true"></i>Rationale drafted for you</span></td></tr>
-              <tr><th scope="row">Finding information</th><td><span class="no"><i class="icon ph ph-x" aria-hidden="true"></i>Searching folders and email</span></td><td><span class="yes"><i class="icon ph ph-check" aria-hidden="true"></i>Ask MIA</span></td></tr>
-              <tr><th scope="row">Renewals &amp; refreshes</th><td><span class="no"><i class="icon ph ph-x" aria-hidden="true"></i>Spreadsheets and reminders</span></td><td><span class="yes"><i class="icon ph ph-check" aria-hidden="true"></i>Prepared before they’re due</span></td></tr>
-              <tr><th scope="row">Audit request</th><td><span class="no"><i class="icon ph ph-x" aria-hidden="true"></i>Days of gathering</span></td><td><span class="yes"><i class="icon ph ph-check" aria-hidden="true"></i>One-click export</span></td></tr>
-            </tbody>
-          </table>
+        <div class="pvx" role="table" aria-label="Your week without and with Advisor" data-pvx>
+          <div class="pvx__row pvx__row--head" role="row"><span role="columnheader"><span class="sr-only">Task</span></span><span class="pvx__old" role="columnheader">Without</span><span class="pvx__new" role="columnheader">With Advisor</span></div>
+          <div class="pvx__row" role="row" style="--i:0"><span class="pvx__task" role="rowheader">Works with your calendar, email and video calls</span><span class="pvx__old" role="cell"><span class="pvx__mark pvx__mark--yes"><i class="icon ph-bold ph-check" aria-hidden="true"></i><span class="sr-only">Yes</span></span></span><span class="pvx__new" role="cell"><span class="pvx__mark pvx__mark--yes"><i class="icon ph-bold ph-check" aria-hidden="true"></i><span class="sr-only">Yes</span></span></span></div>
+          <div class="pvx__row" role="row" style="--i:1"><span class="pvx__task" role="rowheader">Meeting notes written for you</span><span class="pvx__old" role="cell"><span class="pvx__mark"><i class="icon ph-bold ph-x" aria-hidden="true"></i><span class="sr-only">No</span></span></span><span class="pvx__new" role="cell"><span class="pvx__mark pvx__mark--yes"><i class="icon ph-bold ph-check" aria-hidden="true"></i><span class="sr-only">Yes</span></span></span></div>
+          <div class="pvx__row" role="row" style="--i:2"><span class="pvx__task" role="rowheader">KYC &amp; FNA pre-filled from the meeting</span><span class="pvx__old" role="cell"><span class="pvx__mark"><i class="icon ph-bold ph-x" aria-hidden="true"></i><span class="sr-only">No</span></span></span><span class="pvx__new" role="cell"><span class="pvx__mark pvx__mark--yes"><i class="icon ph-bold ph-check" aria-hidden="true"></i><span class="sr-only">Yes</span></span></span></div>
+          <div class="pvx__row" role="row" style="--i:3"><span class="pvx__task" role="rowheader">A brief before every client meeting</span><span class="pvx__old" role="cell"><span class="pvx__mark"><i class="icon ph-bold ph-x" aria-hidden="true"></i><span class="sr-only">No</span></span></span><span class="pvx__new" role="cell"><span class="pvx__mark pvx__mark--yes"><i class="icon ph-bold ph-check" aria-hidden="true"></i><span class="sr-only">Yes</span></span></span></div>
+          <div class="pvx__row" role="row" style="--i:4"><span class="pvx__task" role="rowheader">Answers about any client in seconds</span><span class="pvx__old" role="cell"><span class="pvx__txt">Search by hand</span></span><span class="pvx__new" role="cell"><span class="pvx__mark pvx__mark--yes"><i class="icon ph-bold ph-check" aria-hidden="true"></i><span class="sr-only">Yes</span></span></span></div>
+          <div class="pvx__row" role="row" style="--i:5"><span class="pvx__task" role="rowheader">Renewals tracked before they’re due</span><span class="pvx__old" role="cell"><span class="pvx__txt">Spreadsheets</span></span><span class="pvx__new" role="cell"><span class="pvx__mark pvx__mark--yes"><i class="icon ph-bold ph-check" aria-hidden="true"></i><span class="sr-only">Yes</span></span></span></div>
+          <div class="pvx__row" role="row" style="--i:6"><span class="pvx__task" role="rowheader">Audit file in one click</span><span class="pvx__old" role="cell"><span class="pvx__mark"><i class="icon ph-bold ph-x" aria-hidden="true"></i><span class="sr-only">No</span></span></span><span class="pvx__new" role="cell"><span class="pvx__mark pvx__mark--yes"><i class="icon ph-bold ph-check" aria-hidden="true"></i><span class="sr-only">Yes</span></span></span></div>
+        </div>
+        <div class="pband on-dark">
+          <h3 class="pband__title">Ready to get your evenings back?</h3>
+          <div class="actions actions--center"><a class="btn btn--primary btn--lg" href="#start">Start free</a><a class="btn btn--secondary btn--lg" href="#">Book a demo</a></div>
         </div>
       </div>
     </section>
 
-    <!-- 08 · Why advisors trust BlueMind: dark tile band -->
-    <section class="section section--dark" id="security" aria-labelledby="security-title">
-      <div class="container">
-        <div class="phead">
-          <p class="eyebrow">Why advisors trust BlueMind</p>
-          <h2 class="h2" id="security-title">Built by advisors, <span>for advisors.</span></h2>
-        </div>
-        <ul class="ptiles">
-          <li data-reveal><i class="icon ph-thin ph-briefcase" aria-hidden="true"></i><h3>Built by an advisor</h3><p>Founded by an advisor who built and sold an MGA.</p></li>
-          <li data-reveal><i class="icon ph-thin ph-map-pin" aria-hidden="true"></i><h3>Made for Canada</h3><p>Designed for Canadian advisors, with data hosted in Canada.</p></li>
-          <li data-reveal><i class="icon ph-thin ph-hand-tap" aria-hidden="true"></i><h3>Intuitive and simple</h3><p>No steep learning curve, no complex setup.</p></li>
-          <li data-reveal><i class="icon ph-thin ph-seal-check" aria-hidden="true"></i><h3>SOC 2-grade security</h3><p>Built into the platform, in line with Canadian laws and regulations.</p></li>
-        </ul>
-        <div class="actions actions--center on-dark" style="margin-top:48px"><a class="btn btn--primary btn--lg" href="#pricing">Start free</a></div>
-      </div>
-    </section>
-
-    <!-- 09 · Advisor voices -->
-    <section class="section" id="customers" aria-labelledby="cust-title">
+    <!-- 06 · Advisor voices -->
+    <section class="section tslider" id="customers" aria-labelledby="cust-title">
       <div class="container">
         <div class="phead">
           <p class="eyebrow">What advisors are saying</p>
           <h2 class="h2" id="cust-title">You stay focused on clients. <span>We’ll handle compliance.</span></h2>
           <p class="lead">Join thousands of advisors and firms who trust BlueMind to keep them audit-ready while they focus on what matters most.</p>
         </div>
-        <div class="pquote">
-          <figure class="pquote__big" data-reveal>
-            <p>“BlueMind has helped me streamline and automate my business by making it easier to manage my clients, track progress and stay compliant!”</p>
-            <figcaption class="quote__who"><span class="avatar">SH</span><div><b>Dr. Shehnaz Hussain</b><span>CEO/Broker · CLU · CHS · EPC · PhD</span></div></figcaption>
-          </figure>
-          <ul class="pquote__more">
-            <li class="quote" data-reveal><p>“If you want to leave mounting stress behind… all you need is a proven system.”</p><div class="quote__who"><span class="avatar">NB</span><div><b>Nannette Britanico</b><span>CLU · CHS · MDRT</span></div></div></li>
-            <li class="quote" data-reveal><p>“Migrating from a big-name system was a well-thought-out decision. Simplicity &amp; sophistication.”</p><div class="quote__who"><span class="avatar">VJ</span><div><b>Vikram Janjua</b><span>Insurance broker</span></div></div></li>
-            <li class="quote" data-reveal><p>“[Third advisor quote]”</p><div class="quote__who"><span class="avatar">N</span><div><b>[Name]</b><span>[Designation]</span></div></div></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- 10 · Pricing & plans -->
-    <section class="section section--tint" id="pricing" aria-labelledby="price-title">
-      <div class="container">
-        <div class="phead"><h2 class="h2" id="price-title">Start free. <span>Upgrade when it pays for itself.</span></h2></div>
-        <ul class="pplans">
-          <li data-reveal><h3>Free</h3><b>$0</b><p>For trying Advisor with a few clients.</p><a class="btn btn--border btn--md" href="#">Start free</a></li>
-          <li data-reveal class="is-pick"><h3>[Paid plan]</h3><b>[$] <small>/ mo</small></b><p>For full-time advisors. Most popular.</p><span class="on-dark"><a class="btn btn--primary btn--md" href="#">Start trial</a></span></li>
-          <li data-reveal><h3>[Team plan]</h3><b>[$] <small>/ seat</small></b><p>For small agencies sharing clients.</p><a class="btn btn--border btn--md" href="#">Talk to us</a></li>
+        <ul class="tgrid" aria-label="Advisor testimonials">
+          <li class="tcard" style="--ph:url('assets/photos/team-1.jpg');--pp:38% 30%"><figure><figcaption><span class="tcard__av" aria-hidden="true"></span><span class="tcard__who"><b>Dr. Shehnaz Hussain</b><span>CEO/Broker · CLU · CHS · EPC · PhD</span></span></figcaption><blockquote><p>“BlueMind has helped me streamline and automate my business by making it easier to manage my clients, track progress and stay compliant!”</p></blockquote><div class="tcard__stars" role="img" aria-label="5 out of 5 stars"><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i></div></figure></li>
+          <li class="tcard" style="--ph:url('assets/harmony/t-1.jpg');--pp:55% 25%"><figure><figcaption><span class="tcard__av" aria-hidden="true"></span><span class="tcard__who"><b>Nannette Britanico</b><span>CLU · CHS · MDRT</span></span></figcaption><blockquote><p>“If you want to leave mounting stress behind… all you need is a proven system.”</p></blockquote><div class="tcard__stars" role="img" aria-label="5 out of 5 stars"><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i></div></figure></li>
+          <li class="tcard" style="--ph:url('assets/cta/p2.jpg');--pp:52% 20%"><figure><figcaption><span class="tcard__av" aria-hidden="true"></span><span class="tcard__who"><b>Vikram Janjua</b><span>Insurance broker</span></span></figcaption><blockquote><p>“Migrating from a big-name system was a well-thought-out decision. Simplicity &amp; sophistication.”</p></blockquote><div class="tcard__stars" role="img" aria-label="5 out of 5 stars"><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i><i class="icon ph-fill ph-star"></i></div></figure></li>
         </ul>
-        <div class="ptable-wrap">
-          <table class="ptable ptable--center">
-            <thead><tr><th scope="col">Feature</th><th scope="col">Free</th><th scope="col">[Paid]</th><th scope="col">[Team]</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">AI meeting notes</th><td>[limit]</td><td><i class="icon ph ph-check" aria-label="Included"></i></td><td><i class="icon ph ph-check" aria-label="Included"></i></td></tr>
-              <tr><th scope="row">1-click KYC &amp; FNA</th><td>[limit]</td><td><i class="icon ph ph-check" aria-label="Included"></i></td><td><i class="icon ph ph-check" aria-label="Included"></i></td></tr>
-              <tr><th scope="row">Suitability engine</th><td>—</td><td><i class="icon ph ph-check" aria-label="Included"></i></td><td><i class="icon ph ph-check" aria-label="Included"></i></td></tr>
-              <tr><th scope="row">Chat with MIA</th><td>[limit]</td><td><i class="icon ph ph-check" aria-label="Included"></i></td><td><i class="icon ph ph-check" aria-label="Included"></i></td></tr>
-              <tr><th scope="row">E&amp;O trail &amp; export</th><td><i class="icon ph ph-check" aria-label="Included"></i></td><td><i class="icon ph ph-check" aria-label="Included"></i></td><td><i class="icon ph ph-check" aria-label="Included"></i></td></tr>
-              <tr><th scope="row">Shared clients &amp; roles</th><td>—</td><td>—</td><td><i class="icon ph ph-check" aria-label="Included"></i></td></tr>
-            </tbody>
-          </table>
-        </div>
       </div>
     </section>
 
-    <!-- 11 · FAQ -->
+    <!-- 07 · Why advisors trust BlueMind -->
+    <section class="section ptrust" id="security" aria-labelledby="security-title">
+      <div class="container">
+        <div class="phead">
+          <p class="eyebrow">Why advisors trust BlueMind</p>
+          <h2 class="h2" id="security-title">Built by advisors, <span>for advisors.</span></h2>
+        </div>
+        <ul class="ptrust__list">
+          <li><span class="ptrust__ico"><i class="icon ph ph-briefcase" aria-hidden="true"></i></span><h3>Built by an advisor</h3><p>Founded by an advisor who built and sold an MGA.</p></li>
+          <li><span class="ptrust__ico"><i class="icon ph ph-map-pin" aria-hidden="true"></i></span><h3>Made for Canada</h3><p>Designed for Canadian advisors, with data hosted in Canada.</p></li>
+          <li><span class="ptrust__ico"><i class="icon ph ph-hand-tap" aria-hidden="true"></i></span><h3>Intuitive and simple</h3><p>No steep learning curve, no complex setup.</p></li>
+          <li><span class="ptrust__ico"><i class="icon ph ph-seal-check" aria-hidden="true"></i></span><h3>SOC 2-grade security</h3><p>Built into the platform, in line with Canadian laws and regulations.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 08 · FAQ -->
     <section class="section faq2" id="faq" aria-labelledby="faq-title">
       <div class="container">
         <h2 class="faq2__title" id="faq-title">Questions advisors ask.</h2>
         <div class="acc acc--lines" data-acc="faq">
           <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p0" id="faq-b0">How long does setup take?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p0" role="region" aria-labelledby="faq-b0"><div><p data-type>[Typical setup time.] Connect your calendar and email, then hold your next meeting as usual.</p></div></div></div>
           <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p1" id="faq-b1">Do my clients have to agree to recording?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p1" role="region" aria-labelledby="faq-b1"><div><p data-type>[Answer to confirm with BlueMind.]</p></div></div></div>
-          <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p2" id="faq-b2">Can I edit what MIA writes?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p2" role="region" aria-labelledby="faq-b2"><div><p data-type>[Answer to confirm with BlueMind.]</p></div></div></div>
+          <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p2" id="faq-b2">Can I edit what Mia writes?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p2" role="region" aria-labelledby="faq-b2"><div><p data-type>[Answer to confirm with BlueMind.]</p></div></div></div>
           <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p3" id="faq-b3">What if I use another system for my clients today?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p3" role="region" aria-labelledby="faq-b3"><div><p data-type>[Answer to confirm with BlueMind.]</p></div></div></div>
           <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p4" id="faq-b4">Is my data used to train AI models?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p4" role="region" aria-labelledby="faq-b4"><div><p data-type>[Answer to confirm with BlueMind.]</p></div></div></div>
           <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p5" id="faq-b5">Can I cancel anytime?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p5" role="region" aria-labelledby="faq-b5"><div><p data-type>[Answer to confirm with BlueMind.]</p></div></div></div>
@@ -405,19 +535,20 @@
       </div>
     </section>
 
-    <!-- 12 · Final CTA -->
+    <!-- 09 · Final CTA -->
     <section class="section" id="start" aria-labelledby="cta-title">
       <div class="container">
         <div class="pcta">
-          <h2 id="cta-title">Advisors don’t need another CRM. They need a co-pilot. That’s BlueMind.</h2>
-          <div class="actions actions--center on-dark">
-            <a class="btn btn--primary btn--lg" href="#pricing">Start free</a>
+          <h2 id="cta-title">Spend your day with clients, <span>not paperwork.</span></h2>
+          <div class="actions actions--center">
+            <a class="btn btn--primary btn--lg" href="#">Start free</a>
             <a class="btn btn--border btn--lg" href="#">Book a demo</a>
           </div>
           <p class="pcta__cross">Part of an MGA, BGA or IMO? Your firm can supervise with Harmony. <a href="enterprise.html">See Harmony →</a></p>
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- 17 · Footer -->

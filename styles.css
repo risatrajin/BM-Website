@@ -274,35 +274,6 @@ body {
   mask-image: linear-gradient(to right, transparent, #000 5%, #000 80%, transparent);
 }
 
-.logos__track {
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  gap: 56px;
-  padding-right: 56px;
-  list-style: none;
-  animation: logos-marquee 40s linear infinite;
-}
-
-.logos__item {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 17px;
-  font-weight: 600;
-  letter-spacing: 0;
-  color: rgba(255, 255, 255, 0.34);
-  white-space: nowrap;
-}
-
-@keyframes logos-marquee {
-  to { transform: translateX(-100%); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .logos__track { animation: none; }
-}
-
 /* Buttons live in sections.css (.btn — sizes, variants, states) */
 
 /* Floating glass nav */
