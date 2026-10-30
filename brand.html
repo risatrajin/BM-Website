@@ -35,6 +35,13 @@
       <div class="nav__actions">
         <button class="nav__menu-icon" type="button" aria-label="Menu" aria-expanded="false" aria-controls="company-drawer" data-drawer-open><i class="icon ph-bold ph-dots-nine" aria-hidden="true"></i></button>
         <a class="nav__mia" href="mia.html"><span class="mia-text">Mia</span></a>
+        <div class="lang">
+          <button class="lang__btn" type="button" aria-expanded="false" aria-controls="lang-menu" aria-label="Language: English"><i class="icon ph ph-globe-simple" aria-hidden="true"></i><span class="lang__code">EN</span></button>
+          <ul class="lang__menu" id="lang-menu" hidden>
+            <li><button type="button" data-lang="en" lang="en" aria-current="true">English</button></li>
+            <li><button type="button" data-lang="fr" lang="fr">Français</button></li>
+          </ul>
+        </div>
         <a class="nav__login" href="#">Login</a>
         <a class="btn btn--primary btn--md" href="#">Book a demo</a>
       </div>
@@ -49,6 +56,7 @@
   <div class="drawer" id="company-drawer" role="dialog" aria-labelledby="drawer-title" tabindex="-1" hidden>
     <span class="drawer__shape" aria-hidden="true"></span>
     <div class="drawer__panel">
+      <div class="drawer__lang drawer__item" role="group" aria-label="Language"><i class="icon ph ph-globe-simple" aria-hidden="true"></i><button type="button" data-lang="en" lang="en" aria-pressed="true">English</button><button type="button" data-lang="fr" lang="fr" aria-pressed="false">Français</button></div>
       <ul class="drawer__links drawer__links--phone">
         <li class="drawer__item drawer__item--phone"><a href="index.html"><span class="drawer__icon"><i class="icon ph-duotone ph-house" aria-hidden="true"></i></span><span class="drawer__text"><b>Home</b><small>Back to the top</small></span></a></li>
         <li class="drawer__item drawer__item--phone"><a href="enterprise.html" class="suite-card--enterprise"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#enterprise"/></svg></span><span class="drawer__text"><b>Enterprise</b><small>Oversight for MGAs, BGAs, IMOs &amp; carriers</small></span></a></li>

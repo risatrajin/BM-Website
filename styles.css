@@ -411,6 +411,18 @@ body {
   .mia-text { animation: none; }
 }
 
+/* Language switcher: globe + code, opens a small menu under it (sections.js) */
+.lang { position: relative; }
+.lang__btn { display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 12px; border: 0; border-radius: var(--radius-xs); background: none; color: inherit; font: inherit; font-size: 14px; cursor: pointer; transition: background-color 0.2s ease; }
+.lang__btn .icon { font-size: 18px; }
+.lang__btn:hover,
+.lang__btn[aria-expanded="true"] { background: color-mix(in srgb, var(--slate-900) 6%, transparent); }
+.lang__menu { position: absolute; top: calc(100% + 8px); right: 0; z-index: 20; min-width: 160px; margin: 0; padding: 6px; list-style: none; border: 1px solid color-mix(in srgb, var(--slate-900) 8%, transparent); border-radius: 12px; background: #fff; box-shadow: 0 12px 32px -12px rgba(15, 23, 42, 0.18); }
+.lang__menu button { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 9px 12px; border: 0; border-radius: 8px; background: none; color: inherit; font: inherit; font-size: 14px; text-align: left; cursor: pointer; }
+.lang__menu button:hover { background: color-mix(in srgb, var(--slate-900) 6%, transparent); }
+.lang__menu button[aria-current="true"] { font-weight: 500; }
+.lang__menu button[aria-current="true"]::after { content: "✓"; font-size: 13px; }
+
 .nav__actions {
   grid-column: 3;
   grid-row: 1;
@@ -432,6 +444,7 @@ body {
 @media (max-width: 480px) {
   .nav__login { display: none; }
   .nav__mia { padding: 0 8px; }
+  .lang { display: none; } /* no room beside Mia + Book a demo + menu on phones */
   .hero__content { padding-top: 24px; }
   .hero__ctas { flex-direction: column; width: 100%; }
   .hero__ctas .btn { width: 100%; }

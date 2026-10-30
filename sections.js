@@ -22,6 +22,41 @@
     b.classList.add('flow');
   });
 
+  // Language switcher: the choice is remembered per browser; French copy is not written yet,
+  // so picking it only updates the label and <html lang>
+  const lang = document.querySelector('.lang');
+  if (lang) {
+    const btn = lang.querySelector('.lang__btn');
+    const menu = lang.querySelector('.lang__menu');
+    const options = [...menu.querySelectorAll('[data-lang]')];
+    const toggles = [...document.querySelectorAll('.drawer__lang [data-lang]')]; // phone copy in the menu
+    const setOpen = (open) => { menu.hidden = !open; btn.setAttribute('aria-expanded', String(open)); };
+    const apply = (code) => {
+      const opt = options.find((o) => o.dataset.lang === code) || options[0];
+      options.forEach((o) => o.setAttribute('aria-current', String(o === opt)));
+      toggles.forEach((t) => t.setAttribute('aria-pressed', String(t.dataset.lang === opt.dataset.lang)));
+      lang.querySelector('.lang__code').textContent = opt.dataset.lang.toUpperCase();
+      btn.setAttribute('aria-label', `Language: ${opt.textContent}`);
+      document.documentElement.lang = opt.dataset.lang;
+    };
+    let saved = null;
+    try { saved = localStorage.getItem('bm-lang'); } catch {}
+    if (saved) apply(saved);
+    btn.addEventListener('click', () => setOpen(menu.hidden));
+    options.forEach((o) => o.addEventListener('click', () => {
+      apply(o.dataset.lang);
+      try { localStorage.setItem('bm-lang', o.dataset.lang); } catch {}
+      setOpen(false);
+      btn.focus();
+    }));
+    toggles.forEach((t) => t.addEventListener('click', () => {
+      apply(t.dataset.lang);
+      try { localStorage.setItem('bm-lang', t.dataset.lang); } catch {}
+    }));
+    document.addEventListener('click', (e) => { if (!lang.contains(e.target)) setOpen(false); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !menu.hidden) { setOpen(false); btn.focus(); } });
+  }
+
   // Products menu. Motion after Bencho's "Create menu" (MIT — bencho.dev/licence):
   // the pressed button sinks, and 60ms into that 160ms sink the same shape starts spreading
   // from the button's own box into the panel, so there is never a frame where nothing moves.
