@@ -175,7 +175,7 @@
     radial-gradient(60% 80% at 50% 0%, color-mix(in srgb, var(--blue-500) 45%, transparent), transparent 70%),
     var(--ink);
 }
-.pcta h2 { max-width: 820px; margin: 0 auto; font-size: var(--text-3xl); font-weight: 400; line-height: var(--leading-3xl); letter-spacing: var(--tracking-tight); }
+.pcta h2 { max-width: 820px; margin: 0 auto; font-size: var(--text-3xl); font-weight: 400; line-height: var(--leading-3xl); letter-spacing: var(--tracking-tight); text-wrap: balance; }
 .pcta .actions { margin-top: 40px; }
 .pcta__cross { margin-top: 48px; font-size: 15px; color: var(--on-dark-2); }
 .pcta__cross a { color: #fff; }
@@ -932,6 +932,7 @@
   .tgrid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .tcard figure { min-height: 380px; padding: 20px; }
   .tcard blockquote p { font-size: 18px; line-height: 26px; }
+  .tcard:nth-child(odd) figure { min-height: 0; } /* stacked: quote cards hug their text, photo cards keep their height */
 }
 
 /* More in Harmony: content-type cards with looping scenes */
@@ -1095,6 +1096,13 @@
   .pp--advisor .phero { padding: 88px 0 48px; }
   .pp--advisor .psteps { grid-template-columns: minmax(0, 1fr); }
   .pp--advisor .pstep__media { height: 260px; }
+}
+/* Phones: the four moments swipe sideways too, so the day reads as a sequence */
+@media (max-width: 600px) {
+  .pp--advisor .psteps { display: flex; gap: 12px; margin: 0 -16px; padding: 0 16px 8px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 16px; scrollbar-width: none; }
+  .pp--advisor .psteps::-webkit-scrollbar { display: none; }
+  .pp--advisor .pstep { flex: 0 0 86%; scroll-snap-align: start; }
+  .pp--advisor .pstep__media { height: 220px; }
   
 }
 @media (prefers-reduced-motion: reduce) { .pp--advisor .phero::after, .pp--advisor #start::after { animation: none; } }
@@ -1258,8 +1266,12 @@
   .ptrust__list li:nth-child(odd) { box-shadow: none; }
 }
 @media (max-width: 560px) {
-  .ptrust__list { grid-template-columns: 1fr; }
+  .ptrust__list { column-gap: 12px; row-gap: 32px; }
+  .ptrust__list li { padding: 0 4px; }
   .ptrust__list li, .ptrust__list li + li { box-shadow: none; }
+  .ptrust__ico { width: 48px; height: 48px; margin-bottom: 16px; font-size: 22px; }
+  .ptrust__list h3 { font-size: var(--text-md); }
+  .ptrust__list p { font-size: 14px; }
 }
 /* also included: pastel icon tiles */
 
@@ -1564,6 +1576,14 @@
   .pain__list::before { display: none; }
   .pain__list li { row-gap: 14px; grid-template-rows: auto; }
   .pain__head { margin-bottom: 56px; }
+}
+/* Phones: the five pains become one swipeable row of cards instead of a 1,200px stack;
+   the next card peeks in so the row reads as scrollable */
+@media (max-width: 600px) {
+  .pain__head { margin-bottom: 32px; }
+  .pain__list { display: flex; gap: 12px; max-width: none; margin: 0 -16px; padding: 4px 16px 8px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 16px; scrollbar-width: none; }
+  .pain__list::-webkit-scrollbar { display: none; }
+  .pain__list li { flex: 0 0 76%; align-content: start; padding: 24px 16px 28px; border-radius: 20px; background: color-mix(in srgb, var(--t) 30%, #fff); scroll-snap-align: start; }
 }
 
 /* Mia · the same block on Home, Advisor and Enterprise. Prompt pills on top, one chat window under

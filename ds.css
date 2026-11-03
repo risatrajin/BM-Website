@@ -164,6 +164,15 @@ code { padding: 1px 6px; border-radius: var(--radius-xs); background: color-mix(
   .ds-index { display: none; }
   .ds-type__row { grid-template-columns: 1fr; gap: 12px; }
 }
+/* Phones: label and token on one line, the bar under them */
+@media (max-width: 600px) {
+  .ds-space__row { grid-template-columns: minmax(0, 1fr) auto; row-gap: 6px; }
+  .ds-space__bar { grid-column: 1 / -1; grid-row: 2; max-width: 100%; }
+  .ds-stage { padding: 20px; }
+  .ds-stage > *, .ds-cols > * { min-width: 0; max-width: 100%; }
+  .ds-cols { grid-template-columns: minmax(0, 1fr); }
+  .ds-table { display: block; overflow-x: auto; }
+}
 
 /* The site's nav and footer on this page: no hero, so the bar keeps its hairline from the start */
 .ds .nav { box-shadow: 0 1px 0 color-mix(in srgb, var(--slate-900) 8%, transparent); }

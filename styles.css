@@ -450,3 +450,20 @@ body {
   .hero__ctas .btn { width: 100%; }
 }
 
+/* Small phones (320–370px): Mia leaves the bar (the menu has it) so the menu button stays on screen */
+@media (max-width: 370px) {
+  .nav__mia { display: none; }
+}
+
+/* Phones: the bar sits at the bottom of the screen, in thumb reach. --nav-h keeps only the 8px
+   white frame above the hero and pages; the bar's own height moves to the bottom instead. */
+@media (max-width: 600px) {
+  :root { --nav-h: 8px; --bar-h: calc(64px + env(safe-area-inset-bottom)); }
+  .nav { top: auto; bottom: 0; padding-bottom: env(safe-area-inset-bottom); box-shadow: 0 -1px 0 color-mix(in srgb, var(--slate-900) 8%, transparent); }
+  .nav__bar { height: 64px; }
+  .nav--hidden { transform: translateY(100%); }
+  .nav--scrolled { box-shadow: 0 -1px 0 color-mix(in srgb, var(--slate-900) 8%, transparent); }
+  body { padding-bottom: var(--bar-h); }
+  .hero__stage { padding-bottom: calc(var(--bar-h) + 8px); }
+  .lang { display: none; } /* the menu sheet carries the language switch */
+}

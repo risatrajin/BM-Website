@@ -1193,7 +1193,8 @@ a.bento__card:hover .bento__link .icon { transform: translateX(3px); }
 }
 
 @media (max-width: 1100px) {
-  .bento { grid-template-columns: repeat(4, 1fr); }
+  /* square badges + a 205px row floor kept the columns at 205px and pushed the grid off narrow screens */
+  .bento { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: auto; }
   .bento__card { grid-column: span 4; min-height: 180px; }
 }
 
@@ -1687,7 +1688,66 @@ main section[id] { scroll-margin-top: calc(96px + var(--lift)); } /* below the s
 .drawer__lang .icon { margin-right: auto; font-size: 20px; color: var(--muted); }
 .drawer__lang button { height: 36px; padding: 0 14px; border: 0; border-radius: 8px; background: none; color: var(--muted); font: inherit; font-size: 14px; cursor: pointer; }
 .drawer__lang button[aria-pressed="true"] { background: #fff; color: var(--ink); font-weight: 500; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08); }
-@media (max-width: 480px) { .drawer__lang { display: flex; } }
+@media (max-width: 600px) { .drawer__lang { display: flex; } }
+
+/* Sheet-only parts: grab handle + title, and Login / Book a demo at the foot */
+.drawer__head, .drawer__foot { display: none; }
+.drawer__label--phone { padding-top: 4px; }
+@media (min-width: 901px) { .drawer__label--phone { display: none; } }
+
+/* Phones: the menu takes the whole screen, with everything sat low in thumb reach.
+   Products are big rows on their own tinted tiles, the page you're on sits on a soft
+   grey card, Company is a two-by-two of grey tiles, and the actions close the foot. */
+@media (max-width: 600px) {
+  .drawer.is-full { inset: 0 !important; z-index: 60; width: auto; transform: none; opacity: 0; transition: opacity 240ms ease; }
+  .drawer.is-full.is-open { opacity: 1; }
+  .drawer.is-full .drawer__shape { inset: 0; width: auto; height: auto; border-radius: 0; scale: 1; transition: none; box-shadow: none; background: #fff; }
+  .drawer.is-full .drawer__panel {
+    display: flex; flex-direction: column; height: 100%; overflow-y: auto; overscroll-behavior: contain;
+    padding: 0 16px calc(16px + env(safe-area-inset-bottom));
+  }
+  .drawer.is-full .drawer__item { transform: translateY(12px); transition: opacity 240ms ease, transform 420ms var(--ease-drawer); }
+  .drawer.is-full.is-open .drawer__item { transform: none; }
+
+  .drawer__head { display: flex; flex: none; align-items: center; justify-content: space-between; height: 72px; padding-left: 8px; margin-bottom: auto; }
+  .drawer__logo img { display: block; width: 104px; height: auto; }
+  .drawer__close { display: grid; place-items: center; width: 40px; height: 40px; border: 0; border-radius: var(--radius-full); background: var(--surface-card); color: var(--ink); font-size: 18px; cursor: pointer; }
+
+  .drawer.is-full .drawer__label { padding: 24px 8px 8px; font-size: 13px; }
+  .drawer.is-full .drawer__label--phone { padding-top: 16px; }
+  .drawer.is-full .drawer__feature { display: none; }
+  .drawer.is-full .drawer__links { padding: 0; margin: 0; border: 0; }
+  .drawer.is-full .drawer__links--phone .drawer__item:first-child { display: none; } /* Home: the logo goes home */
+  .drawer.is-full a[href="mia.html"] { --product: var(--product-mia); }
+
+  /* Products: big rows, tinted tile, one-line blurb */
+  .drawer.is-full .drawer__links--phone { gap: 4px; }
+  .drawer.is-full .drawer__links--phone a { gap: 14px; padding: 10px 8px; border-radius: var(--radius-md); }
+  .drawer.is-full .drawer__links--phone .drawer__icon { width: 48px; height: 48px; border-radius: var(--radius-md); }
+  .drawer.is-full .drawer__links--phone .drawer__icon .icon { font-size: 24px; }
+  .drawer.is-full .drawer__links--phone .drawer__text { min-width: 0; }
+  .drawer.is-full .drawer__links--phone .drawer__text b { font-size: 22px; line-height: 1.2; letter-spacing: -0.01em; }
+  .drawer.is-full .drawer__links--phone .drawer__text small { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .drawer.is-full .drawer__links a[aria-current="page"] { background: var(--surface-card); }
+  .drawer.is-full .drawer__links--phone a[aria-current="page"] .drawer__icon { background: #fff; }
+
+  /* Company: two-by-two grey tiles, names only */
+  .drawer.is-full .drawer__links:not(.drawer__links--phone) { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .drawer.is-full .drawer__links:not(.drawer__links--phone) a { gap: 10px; height: 56px; padding: 0 12px; border-radius: var(--radius-md); background: var(--surface-card); }
+  .drawer.is-full .drawer__links:not(.drawer__links--phone) a[aria-current="page"] { background: var(--surface-tile); }
+  .drawer.is-full .drawer__links:not(.drawer__links--phone) .drawer__icon { width: auto; height: auto; background: none; color: var(--muted); }
+  .drawer.is-full .drawer__links:not(.drawer__links--phone) .drawer__icon .icon { font-size: 20px; }
+  .drawer.is-full .drawer__links:not(.drawer__links--phone) .drawer__text b { font-size: 16px; }
+  .drawer.is-full .drawer__links:not(.drawer__links--phone) .drawer__text small { display: none; }
+
+  /* Foot: language switch, then Login + Book a demo */
+  /* One corner for every surface (16px), pills for every control */
+  .drawer__lang { order: 10; height: 48px; margin: 24px 0 0; padding: 4px 4px 4px 16px; border-radius: var(--radius-full); }
+  .drawer__lang button { height: 40px; padding: 0 16px; border-radius: var(--radius-full); }
+  .drawer__foot { order: 11; display: flex; gap: 8px; margin-top: 16px; }
+  .drawer__login { display: grid; place-items: center; flex: none; height: 48px; padding: 0 24px; border-radius: var(--radius-full); background: var(--surface-card); color: var(--ink); font-size: 15px; text-decoration: none; }
+  .drawer__foot .btn { flex: 1; height: 48px; justify-content: center; }
+}
 
 .drawer__text { display: grid; gap: 2px; }
 .drawer__text b { font-size: var(--text-lg); font-weight: 400; letter-spacing: 0; color: var(--ink); }

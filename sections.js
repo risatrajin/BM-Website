@@ -93,10 +93,30 @@
       drawer.style.left = right ? `${r.right - panelW}px` : `${r.left}px`;
     };
 
+    // Phones: the menu fills the screen (styles in sections.css)
+    const phone = window.matchMedia('(max-width: 600px)');
+    const here = location.pathname.split('/').pop() || 'index.html';
+    drawer.querySelectorAll('.drawer__links a').forEach((a) => {
+      if (a.getAttribute('href') === here) a.setAttribute('aria-current', 'page');
+    });
+    const openFull = () => {
+      drawer.classList.add('is-full');
+      drawer.hidden = false;
+      document.documentElement.style.overflow = 'hidden';
+      void drawer.offsetWidth; // commit the hidden frame so the fade runs
+      items.forEach((el, i) => { el.style.transitionDelay = `${40 + i * 24}ms`; });
+      drawer.classList.add('is-open');
+      overlay.classList.add('is-open');
+      openers.forEach((b) => b.setAttribute('aria-expanded', 'true'));
+      setTimeout(() => drawer.querySelector('.drawer__close').focus({ preventScroll: true }), 120);
+    };
+
     const open = (btn) => {
       opener = btn;
       clearTimeout(beat);
       clearTimeout(shut);
+      if (phone.matches) { openFull(); return; }
+      drawer.classList.remove('is-full');
       place();
       drawer.classList.add('no-anim');
       toButton();
@@ -139,8 +159,10 @@
       drawer.classList.remove('is-open', 'is-sink');
       overlay.classList.remove('is-open');
       openers.forEach((b) => b.setAttribute('aria-expanded', 'false'));
-      toButton();
-      shut = setTimeout(() => { drawer.hidden = true; }, 280);
+      const full = drawer.classList.contains('is-full');
+      if (full) document.documentElement.style.overflow = '';
+      else toButton();
+      shut = setTimeout(() => { drawer.hidden = true; }, full ? 240 : 280);
       if (returnFocus && opener) opener.focus({ preventScroll: true });
     };
 
@@ -153,7 +175,8 @@
       if (e.key === 'Escape' && drawer.classList.contains('is-open')) close();
     });
     window.addEventListener('scroll', () => { if (drawer.classList.contains('is-open')) close(false); }, { passive: true });
-    window.addEventListener('resize', () => { if (drawer.classList.contains('is-open')) close(false); });
+    // Phone browsers resize as their toolbars show and hide, so only the dropdown closes on resize
+    window.addEventListener('resize', () => { if (drawer.classList.contains('is-open') && !drawer.classList.contains('is-full')) close(false); });
   }
 
   // Type an answer out quickly, like MIA writing it. Screen readers get the full text at once.

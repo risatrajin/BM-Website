@@ -255,6 +255,7 @@
   .cglobe__stage { --card: 76px; height: 600px; }
   .cglobe__photo { border-radius: 14px; }
   .cglobe__dek { margin-top: 20px; font-size: 16px; }
+  .cglobe__center { z-index: 1001; } /* narrow screens: photos pass behind the headline so it stays readable */
   .cstory__pic { aspect-ratio: 4 / 3; }
 }
 @media (max-width: 600px) {
