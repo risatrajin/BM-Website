@@ -1248,9 +1248,23 @@
 .pband { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 32px; margin-top: 80px; padding: 56px 64px; overflow: hidden; border-radius: 28px; background: linear-gradient(90deg, rgba(18, 18, 30, 0.34), rgba(18, 18, 30, 0.12)), url("assets/advisor/dash-banner.jpg") center 60% / cover; }
 .pband__title { font-size: var(--text-2xl); font-weight: 400; line-height: var(--leading-2xl); letter-spacing: var(--tracking-tight); color: #fff; text-wrap: balance; }
 .pband .actions { flex: none; flex-wrap: nowrap; margin-top: 0; }
+/* Closing band merged with integrations: copy and buttons left, the tools on the right */
+.pband--int { align-items: center; gap: 48px; padding: 64px; }
+.pband--int .pband__copy { max-width: 600px; }
+.pband__text { margin-top: 16px; font-size: var(--text-lg); line-height: 1.45; color: rgba(255, 255, 255, 0.8); text-wrap: pretty; }
+.pband--int .actions { margin-top: 32px; }
+.pband--int .int-wide__logos { flex: none; }
+.pband--int .int-wide__logos::before { background: rgba(255, 255, 255, 0.35); }
+.pband--int .int-wide__logos::after { background: linear-gradient(90deg, transparent, #fff, transparent); }
+.pband--int .int-wide__tile { box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.14), 0 18px 40px -20px rgba(18, 18, 30, 0.5); }
 @media (max-width: 900px) {
   .pband { flex-direction: column; margin-top: 56px; padding: 48px 20px; border-radius: 22px; gap: 24px; text-align: center; }
   .pband .actions .btn { flex: 1 1 0; }
+  .pband--int { padding: 40px 20px; gap: 32px; }
+  .pband--int .pband__copy { max-width: none; }
+  .pband--int .actions { margin-top: 24px; }
+  .pband--int .int-wide__logos { justify-content: center; }
+  .pband--int .int-wide__tile { box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.14), 0 12px 28px -16px rgba(18, 18, 30, 0.5); }
 }
 /* Trust row: same quiet language as the pain row and the comparison table. Four centred columns,
    a soft blue icon circle, hairline between columns */
@@ -1694,3 +1708,32 @@ html.is-embed, html.is-embed body { min-height: 0; overflow: hidden; background:
 .is-embed .hh__bg, .is-embed .ah__bg { display: none; }
 .is-embed .hh__canvas { transform: translate(var(--hh-x, 0px), var(--hh-y, 0px)) scale(var(--hh-s, 1)); }
 .is-embed .hh__pause { display: none !important; }
+
+/* ---------- Advisor pricing: three plans, Team lifted in ink ---------- */
+.aplans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch; list-style: none; }
+.aplan { position: relative; display: flex; flex-direction: column; padding: 32px; border-radius: var(--radius-lg); background: var(--surface-card); color: var(--ink); }
+.aplan__head h3 { font-size: var(--text-lg); font-weight: 500; }
+.aplan__head p { margin-top: 4px; font-size: 14px; color: var(--muted); }
+.aplan__badge { position: absolute; top: 28px; right: 28px; padding: 4px 10px; border-radius: var(--radius-full); background: var(--accent); color: #fff; font-size: 12px; font-weight: 500; }
+.aplan__price { display: grid; gap: 6px; min-height: 104px; margin-top: 32px; }
+.aplan__price b { font-size: var(--text-2xl); font-weight: 400; line-height: 1; letter-spacing: var(--tracking-tight); }
+.aplan__price span { font-size: 14px; line-height: 1.45; color: var(--muted); }
+.aplan__cta { justify-content: center; width: 100%; margin-top: 24px; }
+.aplan__plus { margin-top: 28px; font-size: 14px; font-weight: 500; }
+.aplan__list { display: grid; gap: 12px; margin-top: 16px; padding-top: 0; list-style: none; }
+.aplan__plus { padding-top: 28px; border-top: 1px solid var(--line); }
+.aplan__list li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; line-height: 1.4; color: var(--ink-2); }
+.aplan__list .icon { flex: none; display: grid; place-items: center; width: 20px; height: 20px; margin-top: 1px; border-radius: 50%; background: color-mix(in srgb, var(--accent) 12%, #fff); color: var(--accent-ink); font-size: 11px; }
+.aplan__list em { margin-left: 6px; padding: 1px 8px; border-radius: var(--radius-full); background: #fff; font-size: 12px; font-style: normal; color: var(--muted); }
+.aplan--pick { background: var(--ink); color: #fff; }
+.aplan--pick .aplan__head p, .aplan--pick .aplan__price span { color: rgba(255, 255, 255, 0.64); }
+.aplan--pick .aplan__plus { border-color: rgba(255, 255, 255, 0.14); }
+.aplan--pick .aplan__list li { color: rgba(255, 255, 255, 0.88); }
+.aplan--pick .aplan__list .icon { background: rgba(255, 255, 255, 0.12); color: #fff; }
+@media (max-width: 1100px) {
+  .aplan { padding: 28px 24px; }
+}
+@media (max-width: 900px) {
+  .aplans { grid-template-columns: 1fr; max-width: 520px; margin-inline: auto; }
+  .aplan__price { min-height: 0; }
+}

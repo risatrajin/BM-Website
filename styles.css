@@ -133,6 +133,15 @@ body {
   width: min(1069px, 100%);
 }
 
+/* Small line over the headline */
+.hero__eyebrow {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.72);
+}
+
 .hero__title {
   max-width: 1070px;
   font-family: "Geist", ui-sans-serif, system-ui, sans-serif;

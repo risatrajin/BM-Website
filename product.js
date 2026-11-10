@@ -66,8 +66,35 @@
     pick();
   });
 
+  // Contact form: posts to BlueMind's HubSpot form (data-hubspot="portalId/formId")
+  document.querySelectorAll('.pform[data-hubspot]').forEach((form) => {
+    const msg = form.querySelector('.pform__msg');
+    const btn = form.querySelector('[type="submit"]');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      const fields = [...new FormData(form)].filter(([, v]) => v !== '').map(([name, value]) => ({ name, value }));
+      btn.disabled = true;
+      msg.textContent = 'Sending…';
+      try {
+        const res = await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${form.dataset.hubspot}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ fields, context: { pageUri: location.href, pageName: document.title } }),
+        });
+        if (!res.ok) throw new Error(res.status);
+        msg.textContent = 'Thanks — we’ll be in touch within one business day.';
+        form.reset();
+      } catch (err) {
+        msg.textContent = 'Something went wrong. Please email support@bluemind.app or call +1 888 887 5707.';
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  });
+
   // Demo form: no backend yet, so confirm in place
-  document.querySelectorAll('.pform').forEach((form) => {
+  document.querySelectorAll('.pform:not([data-hubspot])').forEach((form) => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       if (!form.reportValidity()) return;
@@ -411,6 +438,15 @@
         if (d) { e.preventDefault(); pick(tabs[(i + d + tabs.length) % tabs.length], true); }
       });
     });
+    // #carriers (or #mgas, #bgas …) opens that tab and scrolls to the section — the nav links here
+    const fromHash = () => {
+      const t = box.querySelector(`#wtab-${location.hash.slice(1)}`);
+      if (!t) return;
+      pick(t);
+      box.closest('section').scrollIntoView({ behavior: still ? 'auto' : 'smooth' });
+    };
+    fromHash();
+    window.addEventListener('hashchange', fromHash);
   });
 
   // Outcome tiles: numbers count up once when they scroll in

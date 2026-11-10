@@ -387,6 +387,83 @@
     vmodal.addEventListener('close', () => { frame.innerHTML = ''; });
   }
 
+  // Book a demo (nav and phone menu): ask who it's for first — advisor, firm, or just a question.
+  // Built here so every page gets the same dialog; the links still go somewhere without JS.
+  const demoBtns = [...document.querySelectorAll('.nav__actions a.btn--primary, .drawer__foot a.btn')]
+    .filter((a) => a.textContent.trim() === 'Book a demo');
+  if (demoBtns.length) {
+    const dlg = document.createElement('dialog');
+    dlg.className = 'dmodal';
+    dlg.setAttribute('aria-labelledby', 'dmodal-title');
+    dlg.innerHTML = `
+      <button class="dmodal__close" type="button" aria-label="Close"><i class="icon ph ph-x" aria-hidden="true"></i></button>
+      <div class="dmodal__view" data-view="pick">
+        <h2 class="dmodal__title" id="dmodal-title">Book a demo</h2>
+        <p class="dmodal__lead">Tell us who you are and we’ll show you the right product.</p>
+        <ul class="dmodal__opts">
+          <li><button class="dmodal__opt suite-card--advisor" type="button" data-to="advisor"><span class="dmodal__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#advisor"/></svg></span><b>I’m an advisor</b><small>See how Advisor handles your meetings, KYC and files.</small><i class="icon ph ph-arrow-right dmodal__go" aria-hidden="true"></i></button></li>
+          <li><button class="dmodal__opt suite-card--enterprise" type="button" data-to="firm"><span class="dmodal__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#enterprise"/></svg></span><b>I run a firm</b><small>MGA, BGA, IMO or carrier — see Enterprise on your network.</small><i class="icon ph ph-arrow-right dmodal__go" aria-hidden="true"></i></button></li>
+          <li><button class="dmodal__opt" type="button" data-to="ask"><span class="dmodal__icon"><i class="icon ph-duotone ph-chat-circle-dots" aria-hidden="true"></i></span><b>I have a question</b><small>Not ready for a demo? Send us a quick note.</small><i class="icon ph ph-arrow-right dmodal__go" aria-hidden="true"></i></button></li>
+        </ul>
+      </div>
+      <div class="dmodal__view dmodal__view--cal" data-view="advisor" hidden>
+        <button class="dmodal__back" type="button" data-to="pick"><i class="icon ph ph-arrow-left" aria-hidden="true"></i>Back</button>
+        <h2 class="dmodal__title">Book an Advisor demo</h2>
+        <p class="dmodal__lead">Pick a time and we’ll show you how Advisor fits your day, from the first meeting to the audit file.</p>
+        <div class="dmodal__cal" data-cal="https://meetings.hubspot.com/maneli?embed=true"></div>
+      </div>
+      <div class="dmodal__view dmodal__view--cal" data-view="firm" hidden>
+        <button class="dmodal__back" type="button" data-to="pick"><i class="icon ph ph-arrow-left" aria-hidden="true"></i>Back</button>
+        <h2 class="dmodal__title">Book an Enterprise demo</h2>
+        <p class="dmodal__lead">Pick a time and we’ll walk you through Enterprise on your own network.</p>
+        <div class="dmodal__cal" data-cal="https://bluemind.app/meetings/akil-balachandran?embed=true"></div>
+      </div>
+      <div class="dmodal__view" data-view="ask" hidden>
+        <button class="dmodal__back" type="button" data-to="pick"><i class="icon ph ph-arrow-left" aria-hidden="true"></i>Back</button>
+        <h2 class="dmodal__title">Ask us anything</h2>
+        <p class="dmodal__lead">We’ll get back to you within one business day.</p>
+        <form class="dmodal__form" novalidate>
+          <label>Full name<input name="name" autocomplete="name" placeholder="Jane Smith" required /></label>
+          <label>Work email<input name="email" type="email" autocomplete="email" placeholder="jane@company.com" required /></label>
+          <label>Your question<textarea name="message" rows="4" placeholder="What would you like to know?" required></textarea></label>
+          <button class="btn btn--primary btn--lg" type="submit">Send</button>
+          <p class="dmodal__msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>`;
+    document.body.appendChild(dlg);
+    const show = (v) => dlg.querySelectorAll('.dmodal__view').forEach((el) => { el.hidden = el.dataset.view !== v; });
+    const closeDlg = () => dlg.close();
+    demoBtns.forEach((a) => a.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.querySelector('.drawer.is-open .drawer__close')?.click(); // phone menu: put it away first
+      dlg.classList.remove('is-wide');
+      show('pick');
+      dlg.showModal();
+    }));
+    // Each calendar loads only the first time its option is picked
+    const loadCal = (view) => {
+      const cal = dlg.querySelector(`[data-view="${view}"] .dmodal__cal`);
+      if (!cal || cal.firstChild) return;
+      cal.innerHTML = `<iframe src="${cal.dataset.cal}" title="Book a demo" loading="lazy"></iframe>`;
+    };
+    dlg.querySelectorAll('[data-to]').forEach((b) => b.addEventListener('click', () => {
+      loadCal(b.dataset.to);
+      dlg.classList.toggle('is-wide', !!dlg.querySelector(`[data-view="${b.dataset.to}"] .dmodal__cal`));
+      show(b.dataset.to);
+      dlg.querySelector(`[data-view="${b.dataset.to}"] input, [data-view="${b.dataset.to}"] .dmodal__opt`)?.focus();
+    }));
+    dlg.querySelectorAll('a.dmodal__opt').forEach((a) => a.addEventListener('click', closeDlg));
+    dlg.querySelector('.dmodal__close').addEventListener('click', closeDlg);
+    dlg.addEventListener('click', (e) => { if (e.target === dlg) closeDlg(); });
+    const form = dlg.querySelector('.dmodal__form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      form.querySelector('.dmodal__msg').textContent = 'Thanks — we’ll be in touch within one business day.';
+      form.reset();
+    });
+  }
+
   // Onboarding lessons: centre card full size, neighbours at 75%, advance one slot every 5s.
   // The card leaving on the left slides out first, then jumps (unseen) to the far right.
   const lessonsWrap = document.querySelector('[data-lessons]');

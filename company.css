@@ -237,9 +237,51 @@
 .cpress p { margin-top: 12px; color: var(--ink-2); }
 .cpress .actions { margin-top: 24px; }
 
+/* ---------- Carriers: where BlueMind sits between carrier and advisor ---------- */
+.rsteps--4 { grid-template-columns: repeat(4, 1fr); }
+/* One soft card: four stops on a line, data travelling along it, BlueMind lit in the middle */
+.cflow { position: relative; overflow: hidden; padding: 56px 48px 48px; border-radius: 24px; background: var(--surface-card); isolation: isolate; }
+.cflow::before { content: ""; position: absolute; z-index: -1; left: 37.5%; top: -40px; width: 340px; height: 260px; margin-left: -170px; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--blue-500) 22%, transparent), transparent); filter: blur(10px); pointer-events: none; }
+.cflow__row { --icon: 64px; position: relative; display: grid; grid-template-columns: repeat(4, 1fr); list-style: none; }
+/* the line through the icon centres, from the first stop to the last */
+.cflow__row::before { content: ""; position: absolute; top: calc(var(--icon) / 2); left: 12.5%; right: 12.5%; height: 1px; background: linear-gradient(90deg, color-mix(in srgb, var(--ink) 14%, transparent), color-mix(in srgb, var(--blue-500) 55%, transparent) 37.5%, color-mix(in srgb, var(--ink) 14%, transparent)); }
+.cflow__row::after { content: ""; position: absolute; top: calc(var(--icon) / 2 - 1px); left: 12.5%; width: 96px; height: 3px; border-radius: 2px; background: linear-gradient(90deg, transparent, var(--blue-500) 50%, transparent); filter: blur(0.5px); opacity: 0; animation: cflow-run 6s cubic-bezier(0.45, 0, 0.55, 1) infinite; will-change: left, opacity; }
+/* a soft pulse that slides along the line, passing behind each stop */
+@keyframes cflow-run { 0% { left: 12.5%; opacity: 0; } 12% { opacity: 1; } 88% { opacity: 1; } 100% { left: calc(87.5% - 96px); opacity: 0; } }
+.cflow__node { display: grid; align-content: start; justify-items: center; gap: 4px; padding: 0 12px; text-align: center; }
+.cflow__icon { position: relative; z-index: 1; display: grid; place-items: center; width: var(--icon); height: var(--icon); margin-bottom: 14px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 6px var(--surface-card), 0 1px 2px rgba(18, 18, 18, 0.06); color: var(--ink-2); font-size: 26px; }
+.cflow__icon .icon { font-size: 26px; }
+.cflow__node--bm .cflow__icon { background: var(--ink); box-shadow: 0 0 0 6px var(--surface-card), 0 12px 28px -10px color-mix(in srgb, var(--blue-500) 70%, transparent); }
+.cflow__node b { font-size: var(--text-lg); font-weight: 400; letter-spacing: -0.01em; }
+.cflow__node small { max-width: 240px; font-size: 14px; line-height: 1.4; color: var(--muted); }
+.cflow__lanes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 48px; }
+.cflow__lane { padding: 24px 28px; border-radius: var(--radius-md); background: #fff; }
+.cflow__dir { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; font-size: 13px; font-weight: 500; color: var(--accent-ink); }
+.cflow__lane:last-child .cflow__dir { justify-content: flex-end; }
+.cflow__lane ul { display: grid; gap: 12px; list-style: none; }
+.cflow__lane li { display: flex; align-items: center; gap: 10px; color: var(--ink-2); }
+.cflow__lane li .icon { flex: none; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: color-mix(in srgb, var(--blue-500) 10%, #fff); color: var(--accent-ink); font-size: 11px; }
+.cflow__note { margin-top: 16px; font-size: 13px; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { .cflow__row::after { animation: none; display: none; } }
+
+/* ---------- Contact: details left, form right ---------- */
+.ccontact { align-items: start; }
+.ccontact__info { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 32px; padding-top: 8px; }
+.ccontact__block h2 { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 14px; font-weight: 500; color: var(--muted); }
+.ccontact__block h2 .icon { font-size: 18px; color: var(--accent-ink); }
+.ccontact__block address, .ccontact__block p { font-size: var(--text-lg); font-style: normal; line-height: 1.5; color: var(--ink); }
+.ccontact__block a { color: inherit; text-decoration: none; }
+.ccontact__block a:hover { color: var(--accent-ink); }
+.pform__check { display: flex !important; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.45; }
+.pform__check input { flex: none; width: 18px; height: 18px; margin-top: 1px; padding: 0; accent-color: var(--ink); }
+.pform__check a { color: var(--ink); }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1100px) {
   .ctypes, .cdir, .crules { grid-template-columns: repeat(2, 1fr); }
+  .rsteps--4 { grid-template-columns: repeat(2, 1fr); }
+  .rsteps--4 .rstep:nth-child(3n + 1) { padding-left: 28px; border-left: 1px solid var(--line); }
+  .rsteps--4 .rstep:nth-child(odd) { padding-left: 0; border-left: 0; }
   .cswatches { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 900px) {
@@ -248,7 +290,14 @@
   .cstats li > span { min-height: 3lh; }
   .clinks, .cjoin, .cpress, .ctype, .clogos { grid-template-columns: 1fr; }
   .coffer { grid-template-columns: 1fr; }
+  .ccontact { gap: 40px; }
   .chero { padding: 56px 0 40px; }
+  .cflow { padding: 40px 24px 24px; }
+  .cflow::before { left: 75%; }
+  .cflow__row { grid-template-columns: 1fr 1fr; row-gap: 32px; }
+  .cflow__row::before, .cflow__row::after { display: none; }
+  .cflow__lanes { grid-template-columns: 1fr; margin-top: 36px; }
+  .cflow__lane:last-child .cflow__dir { justify-content: flex-start; }
   .cwide { aspect-ratio: 4 / 3; }
   .cstory { grid-template-columns: 1fr; gap: 40px; }
   .cpeople { grid-template-columns: repeat(3, 1fr); }
@@ -269,5 +318,19 @@
   .cpeople, .cpeople--lg { grid-template-columns: 1fr 1fr; gap: 32px 12px; }
   .cpeople--lg li:first-child { grid-column: 1 / -1; }
   .cgallery li:nth-child(3) { display: none; }
-  
+  .rsteps--4 { grid-template-columns: 1fr; }
+  .ccontact__info { grid-template-columns: 1fr; gap: 28px; }
+  .rsteps--4 .rstep { padding-left: 0; }
+  .cflow { padding: 28px 16px 16px; border-radius: 20px; }
+  .cflow::before { left: 30%; }
+  /* stops stack, the line runs down through the icons */
+  .cflow__row { --icon: 52px; grid-template-columns: 1fr; row-gap: 20px; }
+  .cflow__row::before { display: block; top: 26px; bottom: 26px; left: calc(var(--icon) / 2 + 8px); right: auto; width: 1px; height: auto; background: linear-gradient(180deg, color-mix(in srgb, var(--ink) 14%, transparent), color-mix(in srgb, var(--blue-500) 55%, transparent) 33%, color-mix(in srgb, var(--ink) 14%, transparent)); }
+  .cflow__node { grid-template-columns: var(--icon) 1fr; grid-template-rows: auto auto; justify-items: start; align-items: center; column-gap: 16px; row-gap: 2px; padding: 0 8px; text-align: left; }
+  .cflow__icon { grid-row: 1 / 3; margin: 0; }
+  .cflow__icon .icon { font-size: 22px; }
+  .cflow__node b { align-self: end; font-size: 17px; }
+  .cflow__node small { align-self: start; max-width: none; }
+  .cflow__lane { padding: 20px; }
+
 }

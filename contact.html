@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact us — BlueMind</title>
+  <meta name="description" content="Get in touch with BlueMind: offices in Markham, Ontario and New York, phone, email and a contact form." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="sections.css" />
+  <link rel="stylesheet" href="product.css" />
+  <link rel="stylesheet" href="company.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/duotone/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/thin/style.css" />
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="pp">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav" id="nav">
+    <nav class="nav__bar" aria-label="Main">
+      <a class="nav__logo" href="index.html">
+        <img src="assets/logo.svg" width="1026" height="290" alt="bluemind" />
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="enterprise.html">Enterprise</a></li>
+        <li><a href="advisor.html">Advisor</a></li>
+        <li><a href="carriers.html">Carriers</a></li>
+        <li><button class="nav__menu-btn nav__menu-btn--caret" type="button" aria-expanded="false" aria-controls="company-drawer" data-drawer-open>Company<i class="icon ph-bold ph-caret-down" aria-hidden="true"></i></button></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="nav__menu-icon" type="button" aria-label="Menu" aria-expanded="false" aria-controls="company-drawer" data-drawer-open><i class="icon ph-bold ph-dots-nine" aria-hidden="true"></i></button>
+        <a class="nav__mia" href="mia.html"><span class="mia-text">Mia</span></a>
+        <div class="lang">
+          <button class="lang__btn" type="button" aria-expanded="false" aria-controls="lang-menu" aria-label="Language: English"><i class="icon ph ph-globe-simple" aria-hidden="true"></i><span class="lang__code">EN</span></button>
+          <ul class="lang__menu" id="lang-menu" hidden>
+            <li><button type="button" data-lang="en" lang="en" aria-current="true">English</button></li>
+            <li><button type="button" data-lang="fr" lang="fr">Français</button></li>
+          </ul>
+        </div>
+        <a class="nav__login" href="#">Login</a>
+        <a class="btn btn--primary btn--md" href="#">Book a demo</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Company menu: the "Company" button sinks, then the same shape spreads into this panel
+       (motion after Bencho's "Create menu", MIT — bencho.dev/licence). sections.js drives it.
+       On phones the nav links are hidden, so the menu also carries them (.drawer__item--phone).
+       The old Products menu is parked in archive/product-menu.html. -->
+  <div class="drawer-overlay" data-drawer-close aria-hidden="true"></div>
+  <div class="drawer" id="company-drawer" role="dialog" aria-labelledby="drawer-title" tabindex="-1" hidden>
+    <span class="drawer__shape" aria-hidden="true"></span>
+    <div class="drawer__panel">
+      <div class="drawer__head drawer__item"><a class="drawer__logo" href="index.html"><img src="assets/logo.svg" width="1026" height="290" alt="bluemind" /></a><button class="drawer__close" type="button" aria-label="Close menu" data-drawer-close><i class="icon ph ph-x" aria-hidden="true"></i></button></div>
+      <div class="drawer__lang drawer__item" role="group" aria-label="Language"><i class="icon ph ph-globe-simple" aria-hidden="true"></i><button type="button" data-lang="en" lang="en" aria-pressed="true">English</button><button type="button" data-lang="fr" lang="fr" aria-pressed="false">Français</button></div>
+      <p class="drawer__label drawer__label--phone drawer__item">Products</p>
+      <ul class="drawer__links drawer__links--phone">
+        <li class="drawer__item drawer__item--phone"><a href="index.html"><span class="drawer__icon"><i class="icon ph-duotone ph-house" aria-hidden="true"></i></span><span class="drawer__text"><b>Home</b><small>Back to the top</small></span></a></li>
+        <li class="drawer__item drawer__item--phone"><a href="enterprise.html" class="suite-card--enterprise"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#enterprise"/></svg></span><span class="drawer__text"><b>Enterprise</b><small>Oversight for MGAs, BGAs, IMOs &amp; carriers</small></span></a></li>
+        <li class="drawer__item drawer__item--phone"><a href="advisor.html" class="suite-card--advisor"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#advisor"/></svg></span><span class="drawer__text"><b>Advisor</b><small>Compliance from first meeting to audit file</small></span></a></li>
+        <li class="drawer__item drawer__item--phone"><a href="carriers.html"><span class="drawer__icon"><i class="icon ph-duotone ph-umbrella" aria-hidden="true"></i></span><span class="drawer__text"><b>Carriers</b><small>Oversight for insurance companies</small></span></a></li>
+      <li class="drawer__item drawer__item--phone"><a href="mia.html"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#mia"/></svg></span><span class="drawer__text"><b class="mia-text">Mia</b><small>Your AI assistant for compliance work</small></span></a></li>
+      </ul>
+      <p class="drawer__label drawer__item" id="drawer-title">Who we are and how we work</p>
+      <ul class="drawer__links">
+        <li class="drawer__item"><a href="about.html"><span class="drawer__icon"><i class="icon ph-duotone ph-info" aria-hidden="true"></i></span><span class="drawer__text"><b>About Us</b><small>Our mission and story</small></span></a></li>
+        <li class="drawer__item"><a href="team.html"><span class="drawer__icon"><i class="icon ph-duotone ph-users-three" aria-hidden="true"></i></span><span class="drawer__text"><b>Team</b><small>The people behind BlueMind</small></span></a></li>
+        <li class="drawer__item"><a href="partners.html"><span class="drawer__icon"><i class="icon ph-duotone ph-handshake" aria-hidden="true"></i></span><span class="drawer__text"><b>Partners</b><small>Integrations, distributors and associations</small></span></a></li>
+        <li class="drawer__item"><a href="brand.html"><span class="drawer__icon"><i class="icon ph-duotone ph-palette" aria-hidden="true"></i></span><span class="drawer__text"><b>Brand</b><small>Logos, colours and press kit</small></span></a></li>
+      </ul>
+      <a class="drawer__feature drawer__item" href="about.html#story"><small>We’re founded by a CFP</small><b>Built by advisors, for advisors.</b><span>Read our story<i class="icon ph ph-arrow-right" aria-hidden="true"></i></span></a>
+      <div class="drawer__foot drawer__item"><a class="drawer__login" href="#">Login</a><a class="btn btn--primary btn--md" href="#">Book a demo</a></div>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- 01 · Hero -->
+    <section class="chero" aria-labelledby="contact-title">
+      <div class="container">
+        <p class="eyebrow">Contact us</p>
+        <h1 class="chero__title" id="contact-title">Get in touch <span>with BlueMind.</span></h1>
+        <p class="lead">Questions about Advisor, Enterprise or pricing? Send us a note and we’ll help you find your way.</p>
+      </div>
+    </section>
+
+    <!-- 02 · Details left, form right (the form posts to the same HubSpot form as bluemind.app/contact-us) -->
+    <section class="section section--tint" id="form" aria-label="Contact details and form">
+      <div class="container cjoin ccontact">
+        <div class="ccontact__info">
+          <div class="ccontact__block">
+            <h2><i class="icon ph ph-map-pin" aria-hidden="true"></i>Canada office</h2>
+            <address>3601 Hwy 7, Suite 610<br />Markham, ON L3R 0M3<br />Canada</address>
+          </div>
+          <div class="ccontact__block">
+            <h2><i class="icon ph ph-map-pin" aria-hidden="true"></i>USA office</h2>
+            <address>127 West 26th St., Suite 500<br />New York, NY 10001<br />United States</address>
+          </div>
+          <div class="ccontact__block">
+            <h2><i class="icon ph ph-phone" aria-hidden="true"></i>Call us</h2>
+            <p><a href="tel:+18888875707">+1 888 887 5707</a></p>
+          </div>
+          <div class="ccontact__block">
+            <h2><i class="icon ph ph-envelope-simple" aria-hidden="true"></i>Email us</h2>
+            <p><a href="mailto:support@bluemind.app">support@bluemind.app</a></p>
+          </div>
+        </div>
+        <form class="pform" data-hubspot="24404814/23ee68d4-0b06-450a-a9bd-7e4c73ae1b99" novalidate aria-label="Contact form">
+          <label>First name<input name="firstname" autocomplete="given-name" placeholder="Jane" required /></label>
+          <label>Last name<input name="lastname" autocomplete="family-name" placeholder="Smith" required /></label>
+          <label>Email<input name="email" type="email" autocomplete="email" placeholder="jane@company.com" required /></label>
+          <label>Phone<input name="mobilephone" type="tel" autocomplete="tel" placeholder="+1 555 555 5555" required /></label>
+          <label>Country / region<input name="country" autocomplete="country-name" placeholder="Canada" /></label>
+          <label>Company name<input name="company" autocomplete="organization" placeholder="Company name" /></label>
+          <label class="full">How did you hear about BlueMind?<input name="how_did_you_hear_about_buemind_" placeholder="A colleague, an event, search…" /></label>
+          <label class="full">Your message<textarea name="message" placeholder="How can we help?"></textarea></label>
+          <label class="full pform__check"><input type="checkbox" name="by_submitting_this_form__i_agree_to_bluemind_s_terms_of_service_and_privacy_policy" value="true" required />By submitting this form, I agree to BlueMind’s <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</label>
+          <button class="btn btn--primary btn--lg" type="submit">Send message</button>
+          <p class="pform__msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- 17 · Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <img class="footer__logo" src="assets/logo.svg" alt="bluemind" width="1026" height="290" />
+          <p class="footer__tag">One mind for your whole business.</p>
+          <a class="btn btn--primary btn--lg" href="contact.html">Contact us</a>
+        </div>
+        <nav class="footer__cols" aria-label="Footer">
+          <div><h3>Products</h3><ul><li><a href="enterprise.html">Enterprise</a></li><li><a href="advisor.html">Advisor</a></li><li><a href="#">Pricing</a></li><li><a href="index.html#integrations">Integrations</a></li></ul></div>
+          <div><h3>Resources</h3><ul><li><a href="#">Blog</a></li><li><a href="#">Help Centre</a></li><li><a href="#">Documentation</a></li><li><a href="#">Press Release</a></li><li><a href="#">Webinar</a></li><li><a href="design-system.html">Design system</a></li></ul></div>
+          <div><h3>Company</h3><ul><li><a href="about.html">About Us</a></li><li><a href="team.html">Team</a></li><li><a href="partners.html">Partners</a></li><li><a href="brand.html">Brand</a></li><li><a href="contact.html">Contact us</a></li></ul></div>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 BlueMind <span aria-hidden="true">·</span> <a href="#">Terms</a> <span aria-hidden="true">·</span> <a href="#">Privacy</a> <span aria-hidden="true">·</span> <a href="#">Cookies</a></p>
+        <ul class="footer__social">
+          <li><a href="https://www.linkedin.com/company/bluemindapp/" target="_blank" rel="noopener" aria-label="BlueMind on LinkedIn"><i class="icon ph ph-linkedin-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://twitter.com/BlueMind_app" target="_blank" rel="noopener" aria-label="BlueMind on X"><i class="icon ph ph-x-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.instagram.com/bluemind.app/" target="_blank" rel="noopener" aria-label="BlueMind on Instagram"><i class="icon ph ph-instagram-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.facebook.com/BlueMindApp/" target="_blank" rel="noopener" aria-label="BlueMind on Facebook"><i class="icon ph ph-facebook-logo" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+      <img class="footer__mark" src="assets/logo.svg" alt="" width="1026" height="290" aria-hidden="true" />
+    </div>
+  </footer>
+
+
+  <script src="sections.js"></script>
+  <script src="product.js"></script>
+  <script src="company.js"></script>
+</body>
+</html>

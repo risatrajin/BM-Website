@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>For insurance carriers — BlueMind</title>
+  <meta name="description" content="Partner with BlueMind to reach advisors at the moment of advice, receive complete applications and see the suitability record behind every policy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="sections.css" />
+  <link rel="stylesheet" href="product.css" />
+  <link rel="stylesheet" href="company.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/duotone/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/thin/style.css" />
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="pp">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav" id="nav">
+    <nav class="nav__bar" aria-label="Main">
+      <a class="nav__logo" href="index.html">
+        <img src="assets/logo.svg" width="1026" height="290" alt="bluemind" />
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="enterprise.html">Enterprise</a></li>
+        <li><a href="advisor.html">Advisor</a></li>
+        <li><a href="carriers.html" aria-current="page">Carriers</a></li>
+        <li><button class="nav__menu-btn nav__menu-btn--caret" type="button" aria-expanded="false" aria-controls="company-drawer" data-drawer-open>Company<i class="icon ph-bold ph-caret-down" aria-hidden="true"></i></button></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="nav__menu-icon" type="button" aria-label="Menu" aria-expanded="false" aria-controls="company-drawer" data-drawer-open><i class="icon ph-bold ph-dots-nine" aria-hidden="true"></i></button>
+        <a class="nav__mia" href="mia.html"><span class="mia-text">Mia</span></a>
+        <div class="lang">
+          <button class="lang__btn" type="button" aria-expanded="false" aria-controls="lang-menu" aria-label="Language: English"><i class="icon ph ph-globe-simple" aria-hidden="true"></i><span class="lang__code">EN</span></button>
+          <ul class="lang__menu" id="lang-menu" hidden>
+            <li><button type="button" data-lang="en" lang="en" aria-current="true">English</button></li>
+            <li><button type="button" data-lang="fr" lang="fr">Français</button></li>
+          </ul>
+        </div>
+        <a class="nav__login" href="#">Login</a>
+        <a class="btn btn--primary btn--md" href="#">Book a demo</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Company menu: the "Company" button sinks, then the same shape spreads into this panel
+       (motion after Bencho's "Create menu", MIT — bencho.dev/licence). sections.js drives it.
+       On phones the nav links are hidden, so the menu also carries them (.drawer__item--phone).
+       The old Products menu is parked in archive/product-menu.html. -->
+  <div class="drawer-overlay" data-drawer-close aria-hidden="true"></div>
+  <div class="drawer" id="company-drawer" role="dialog" aria-labelledby="drawer-title" tabindex="-1" hidden>
+    <span class="drawer__shape" aria-hidden="true"></span>
+    <div class="drawer__panel">
+      <div class="drawer__head drawer__item"><a class="drawer__logo" href="index.html"><img src="assets/logo.svg" width="1026" height="290" alt="bluemind" /></a><button class="drawer__close" type="button" aria-label="Close menu" data-drawer-close><i class="icon ph ph-x" aria-hidden="true"></i></button></div>
+      <div class="drawer__lang drawer__item" role="group" aria-label="Language"><i class="icon ph ph-globe-simple" aria-hidden="true"></i><button type="button" data-lang="en" lang="en" aria-pressed="true">English</button><button type="button" data-lang="fr" lang="fr" aria-pressed="false">Français</button></div>
+      <p class="drawer__label drawer__label--phone drawer__item">Products</p>
+      <ul class="drawer__links drawer__links--phone">
+        <li class="drawer__item drawer__item--phone"><a href="index.html"><span class="drawer__icon"><i class="icon ph-duotone ph-house" aria-hidden="true"></i></span><span class="drawer__text"><b>Home</b><small>Back to the top</small></span></a></li>
+        <li class="drawer__item drawer__item--phone"><a href="enterprise.html" class="suite-card--enterprise"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#enterprise"/></svg></span><span class="drawer__text"><b>Enterprise</b><small>Oversight for MGAs, BGAs, IMOs &amp; carriers</small></span></a></li>
+        <li class="drawer__item drawer__item--phone"><a href="advisor.html" class="suite-card--advisor"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#advisor"/></svg></span><span class="drawer__text"><b>Advisor</b><small>Compliance from first meeting to audit file</small></span></a></li>
+        <li class="drawer__item drawer__item--phone"><a href="carriers.html"><span class="drawer__icon"><i class="icon ph-duotone ph-umbrella" aria-hidden="true"></i></span><span class="drawer__text"><b>Carriers</b><small>Oversight for insurance companies</small></span></a></li>
+      <li class="drawer__item drawer__item--phone"><a href="mia.html"><span class="drawer__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#mia"/></svg></span><span class="drawer__text"><b class="mia-text">Mia</b><small>Your AI assistant for compliance work</small></span></a></li>
+      </ul>
+      <p class="drawer__label drawer__item" id="drawer-title">Who we are and how we work</p>
+      <ul class="drawer__links">
+        <li class="drawer__item"><a href="about.html"><span class="drawer__icon"><i class="icon ph-duotone ph-info" aria-hidden="true"></i></span><span class="drawer__text"><b>About Us</b><small>Our mission and story</small></span></a></li>
+        <li class="drawer__item"><a href="team.html"><span class="drawer__icon"><i class="icon ph-duotone ph-users-three" aria-hidden="true"></i></span><span class="drawer__text"><b>Team</b><small>The people behind BlueMind</small></span></a></li>
+        <li class="drawer__item"><a href="partners.html"><span class="drawer__icon"><i class="icon ph-duotone ph-handshake" aria-hidden="true"></i></span><span class="drawer__text"><b>Partners</b><small>Integrations, distributors and associations</small></span></a></li>
+        <li class="drawer__item"><a href="brand.html"><span class="drawer__icon"><i class="icon ph-duotone ph-palette" aria-hidden="true"></i></span><span class="drawer__text"><b>Brand</b><small>Logos, colours and press kit</small></span></a></li>
+      </ul>
+      <a class="drawer__feature drawer__item" href="about.html#story"><small>We’re founded by a CFP</small><b>Built by advisors, for advisors.</b><span>Read our story<i class="icon ph ph-arrow-right" aria-hidden="true"></i></span></a>
+      <div class="drawer__foot drawer__item"><a class="drawer__login" href="#">Login</a><a class="btn btn--primary btn--md" href="#">Book a demo</a></div>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- 01 · Hero: who this is for, one ask -->
+    <section class="chero" aria-labelledby="carriers-title">
+      <div class="container">
+        <p class="eyebrow">For insurance carriers</p>
+        <h1 class="chero__title" id="carriers-title">Reach advisors <span>where the advice happens.</span></h1>
+        <p class="lead">Advisors run their client meetings, needs analysis and applications in BlueMind. Partner with us to put your products in that moment, and get back complete applications with the advice behind them.</p>
+        <div class="actions">
+          <a class="btn btn--primary btn--lg" href="#apply">Become a carrier partner</a>
+          <a class="btn btn--border btn--lg" href="#connect">How it connects</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <figure class="cwide"><img src="assets/photos/carriers-wide.jpg" alt="A team working around a long table in a glass-walled meeting room" width="2000" height="860" /></figure>
+    </div>
+
+    <!-- 02 · Why partner -->
+    <section class="section" id="why" aria-labelledby="why-title">
+      <div class="container">
+        <div class="cbar"><h2 id="why-title">Why carriers partner with BlueMind.</h2></div>
+        <ol class="rsteps rsteps--4">
+          <li class="rstep" data-reveal><i class="icon ph ph-handshake rstep__icon" aria-hidden="true"></i><h3>Be there at the moment of advice</h3><p>Advisors compare and choose products inside BlueMind, while they are with the client.</p></li>
+          <li class="rstep" data-reveal><i class="icon ph ph-file-check rstep__icon" aria-hidden="true"></i><h3>Applications that arrive complete</h3><p>Needs analysis, KYC and disclosures travel with the e-application, so fewer files come back incomplete.</p></li>
+          <li class="rstep" data-reveal><i class="icon ph ph-scales rstep__icon" aria-hidden="true"></i><h3>Proof behind every sale</h3><p>Each policy links to the advice that justified it, ready for your market conduct reviews.</p></li>
+          <li class="rstep" data-reveal><i class="icon ph ph-identification-card rstep__icon" aria-hidden="true"></i><h3>Know who sells your products</h3><p>Licensing, appointments and E&amp;O for every advisor, visible to your distribution team.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 03 · How it connects: carrier → BlueMind → distribution → advisor, and what flows each way -->
+    <section class="section section--tint" id="connect" aria-labelledby="connect-title">
+      <div class="container">
+        <div class="cbar"><h2 id="connect-title">Where BlueMind sits.</h2></div>
+        <div class="cflow">
+          <ol class="cflow__row">
+            <li class="cflow__node"><span class="cflow__icon"><i class="icon ph-duotone ph-umbrella" aria-hidden="true"></i></span><b>Your company</b><small>Carrier</small></li>
+            <li class="cflow__node cflow__node--bm"><span class="cflow__icon"><img src="assets/harmony/harmony-icon.svg" alt="" width="26" height="26" /></span><b>BlueMind</b><small>Advice, KYC and e-app in one record</small></li>
+            <li class="cflow__node"><span class="cflow__icon"><i class="icon ph-duotone ph-tree-structure" aria-hidden="true"></i></span><b>MGAs, BGAs, IMOs</b><small>Your distribution</small></li>
+            <li class="cflow__node"><span class="cflow__icon"><i class="icon ph-duotone ph-users" aria-hidden="true"></i></span><b>Advisors</b><small>And their clients</small></li>
+          </ol>
+          <div class="cflow__lanes">
+            <div class="cflow__lane">
+              <p class="cflow__dir"><span>To advisors</span><i class="icon ph ph-arrow-right" aria-hidden="true"></i></p>
+              <ul><li><i class="icon ph ph-check" aria-hidden="true"></i>Products, rates and illustrations</li><li><i class="icon ph ph-check" aria-hidden="true"></i>Underwriting rules and forms</li><li><i class="icon ph ph-check" aria-hidden="true"></i>Policy status and commissions</li></ul>
+            </div>
+            <div class="cflow__lane">
+              <p class="cflow__dir"><i class="icon ph ph-arrow-left" aria-hidden="true"></i><span>Back to you</span></p>
+              <ul><li><i class="icon ph ph-check" aria-hidden="true"></i>Complete e-applications</li><li><i class="icon ph ph-check" aria-hidden="true"></i>Needs analysis, KYC and disclosures</li><li><i class="icon ph ph-check" aria-hidden="true"></i>The suitability record for every sale</li></ul>
+            </div>
+          </div>
+        </div>
+        <p class="cflow__note">[Integration methods to confirm with BlueMind: API, standard industry feeds or file transfer.]</p>
+      </div>
+    </section>
+
+    <!-- 04 · Due diligence -->
+    <section class="section" id="trust" aria-labelledby="trust-title">
+      <div class="container">
+        <div class="cread" style="max-width:960px">
+          <h2 id="trust-title">Built to pass your due diligence.</h2>
+          <ul class="coffer">
+            <li><b><i class="icon ph ph-check-circle" aria-hidden="true"></i>SOC 2</b><span>Security controls built to the SOC 2 standard.</span></li>
+            <li><b><i class="icon ph ph-check-circle" aria-hidden="true"></i>Encrypted</b><span>Client data encrypted in transit and at rest.</span></li>
+            <li><b><i class="icon ph ph-check-circle" aria-hidden="true"></i>Data hosted in Canada</b><span>Client data is hosted in Canada.</span></li>
+            <li><b><i class="icon ph ph-check-circle" aria-hidden="true"></i>Full audit log</b><span>Every view and action on a file is recorded.</span></li>
+            <li><b><i class="icon ph ph-check-circle" aria-hidden="true"></i>Mapped to your regulators</b><span>Suitability, KYC and record keeping mapped to FSRA, FINRA, the SEC and IAIS principles.</span></li>
+            <li><b><i class="icon ph ph-check-circle" aria-hidden="true"></i>Consent built in</b><span>Clients consent before a meeting is recorded or a file is shared.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · FAQ -->
+    <section class="section faq2" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <h2 class="faq2__title" id="faq-title">Questions carriers ask.</h2>
+        <div class="acc acc--lines" data-acc="faq">
+          <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p0" id="faq-b0">Is BlueMind a distributor or an MGA?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p0" role="region" aria-labelledby="faq-b0"><div><p data-type>No. BlueMind is software. Advisors and their firms stay your distribution partners; BlueMind is where they do the advice and the paperwork.</p></div></div></div>
+          <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p1" id="faq-b1">Do you favour one carrier’s products over another?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p1" role="region" aria-labelledby="faq-b1"><div><p data-type>[Answer to confirm with BlueMind.]</p></div></div></div>
+          <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p2" id="faq-b2">How do we connect our systems?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p2" role="region" aria-labelledby="faq-b2"><div><p data-type>[Answer to confirm with BlueMind.]</p></div></div></div>
+          <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p3" id="faq-b3">What data do we receive, and what stays with the advisor?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p3" role="region" aria-labelledby="faq-b3"><div><p data-type>[Answer to confirm with BlueMind.]</p></div></div></div>
+          <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p4" id="faq-b4">Is there a cost to become a carrier partner?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p4" role="region" aria-labelledby="faq-b4"><div><p data-type>[Answer to confirm with BlueMind.]</p></div></div></div>
+          <div class="acc__item"><h3><button class="acc__btn" aria-expanded="false" aria-controls="faq-p5" id="faq-b5">Which markets do you cover?<i class="icon ph ph-plus" aria-hidden="true"></i></button></h3><div class="acc__panel" id="faq-p5" role="region" aria-labelledby="faq-b5"><div><p data-type>Canada and the US.</p></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 · How to join -->
+    <section class="section section--tint" id="apply" aria-labelledby="apply-title">
+      <div class="container cjoin">
+        <div>
+          <h2 class="h2" id="apply-title">Become a carrier partner <span>in three steps.</span></h2>
+          <ol class="csteps">
+            <li><span class="num">1</span><b>Talk to us</b><p>Tell us about your products, markets and distribution.</p></li>
+            <li><span class="num">2</span><b>Connect</b><p>We scope the integration with your IT team.</p></li>
+            <li><span class="num">3</span><b>Pilot and launch</b><p>Start with one product or region, then roll out.</p></li>
+          </ol>
+        </div>
+        <form class="pform" novalidate aria-label="Carrier partnership enquiry">
+          <label class="full">Full name<input name="name" autocomplete="name" placeholder="Jane Smith" required /></label>
+          <label>Work email<input name="email" type="email" autocomplete="email" placeholder="jane@carrier.com" required /></label>
+          <label>Company<input name="company" autocomplete="organization" placeholder="Carrier name" required /></label>
+          <label class="full">Your team<select name="team" required><option value="">Select</option><option>Distribution and partnerships</option><option>Compliance and market conduct</option><option>Underwriting and new business</option><option>IT and integration</option><option>Other</option></select></label>
+          <label class="full">Tell us more<textarea name="message" placeholder="Which products and markets would you like to bring to advisors?"></textarea></label>
+          <button class="btn btn--primary btn--lg" type="submit">Talk to partnerships</button>
+          <p class="pform__msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- 17 · Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <img class="footer__logo" src="assets/logo.svg" alt="bluemind" width="1026" height="290" />
+          <p class="footer__tag">One mind for your whole business.</p>
+          <a class="btn btn--primary btn--lg" href="contact.html">Contact us</a>
+        </div>
+        <nav class="footer__cols" aria-label="Footer">
+          <div><h3>Products</h3><ul><li><a href="enterprise.html">Enterprise</a></li><li><a href="advisor.html">Advisor</a></li><li><a href="#">Pricing</a></li><li><a href="index.html#integrations">Integrations</a></li></ul></div>
+          <div><h3>Resources</h3><ul><li><a href="#">Blog</a></li><li><a href="#">Help Centre</a></li><li><a href="#">Documentation</a></li><li><a href="#">Press Release</a></li><li><a href="#">Webinar</a></li><li><a href="design-system.html">Design system</a></li></ul></div>
+          <div><h3>Company</h3><ul><li><a href="about.html">About Us</a></li><li><a href="team.html">Team</a></li><li><a href="partners.html">Partners</a></li><li><a href="brand.html">Brand</a></li><li><a href="contact.html">Contact us</a></li></ul></div>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 BlueMind <span aria-hidden="true">·</span> <a href="#">Terms</a> <span aria-hidden="true">·</span> <a href="#">Privacy</a> <span aria-hidden="true">·</span> <a href="#">Cookies</a></p>
+        <ul class="footer__social">
+          <li><a href="https://www.linkedin.com/company/bluemindapp/" target="_blank" rel="noopener" aria-label="BlueMind on LinkedIn"><i class="icon ph ph-linkedin-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://twitter.com/BlueMind_app" target="_blank" rel="noopener" aria-label="BlueMind on X"><i class="icon ph ph-x-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.instagram.com/bluemind.app/" target="_blank" rel="noopener" aria-label="BlueMind on Instagram"><i class="icon ph ph-instagram-logo" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.facebook.com/BlueMindApp/" target="_blank" rel="noopener" aria-label="BlueMind on Facebook"><i class="icon ph ph-facebook-logo" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+      <img class="footer__mark" src="assets/logo.svg" alt="" width="1026" height="290" aria-hidden="true" />
+    </div>
+  </footer>
+
+
+  <script src="sections.js"></script>
+  <script src="product.js"></script>
+  <script src="company.js"></script>
+</body>
+</html>
