@@ -46,6 +46,9 @@
 
 html, body { background: var(--surface); color: var(--ink); }
 
+/* Nothing may widen the page sideways. `clip` (not `hidden`) keeps position: sticky working. */
+html, body { overflow-x: clip; }
+
 body {
   font-family: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
