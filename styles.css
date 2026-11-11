@@ -479,3 +479,10 @@ body {
   .hero__stage { padding-bottom: calc(var(--bar-h) + 8px); }
   .lang { display: none; } /* the menu sheet carries the language switch */
 }
+
+/* French: "Réserver une démo" doesn't fit the phone bar next to Mia and the menu button, so the bar
+   shows "Démo" (the full label stays in the DOM for screen readers) */
+@media (max-width: 600px) {
+  html[lang^="fr"] .nav .flow__label { font-size: 0; }
+  html[lang^="fr"] .nav .flow__label::after { content: "Démo"; font-size: var(--btn-fs, 14px); }
+}

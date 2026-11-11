@@ -22,8 +22,8 @@
     b.classList.add('flow');
   });
 
-  // Language switcher: the choice is remembered per browser; French copy is not written yet,
-  // so picking it only updates the label and <html lang>
+  // Language switcher: English pages live at the root, French copies under /fr/ with the same
+  // file names (built by tools/i18n.py). Picking a language opens the same page in that language.
   const lang = document.querySelector('.lang');
   if (lang) {
     const btn = lang.querySelector('.lang__btn');
@@ -31,28 +31,23 @@
     const options = [...menu.querySelectorAll('[data-lang]')];
     const toggles = [...document.querySelectorAll('.drawer__lang [data-lang]')]; // phone copy in the menu
     const setOpen = (open) => { menu.hidden = !open; btn.setAttribute('aria-expanded', String(open)); };
-    const apply = (code) => {
-      const opt = options.find((o) => o.dataset.lang === code) || options[0];
-      options.forEach((o) => o.setAttribute('aria-current', String(o === opt)));
-      toggles.forEach((t) => t.setAttribute('aria-pressed', String(t.dataset.lang === opt.dataset.lang)));
-      lang.querySelector('.lang__code').textContent = opt.dataset.lang.toUpperCase();
-      btn.setAttribute('aria-label', `Language: ${opt.textContent}`);
-      document.documentElement.lang = opt.dataset.lang;
+    const current = document.documentElement.lang.startsWith('fr') ? 'fr' : 'en';
+    const translated = ['index.html', 'advisor.html', 'enterprise.html', 'mia.html', 'carriers.html', 'partners.html',
+      'about.html', 'team.html', 'brand.html', 'contact.html', 'resources.html'];
+    const go = (code) => {
+      if (code === current) return;
+      try { localStorage.setItem('bm-lang', code); } catch {}
+      const parts = location.pathname.split('/');
+      let file = parts.pop() || 'index.html';
+      if (current === 'fr') parts.pop(); // leave /fr/
+      if (code === 'fr' && !translated.includes(file)) file = 'index.html';
+      const base = parts.join('/') + '/' + (code === 'fr' ? 'fr/' : '');
+      location.href = base + (file === 'index.html' ? '' : file) + location.hash;
     };
-    let saved = null;
-    try { saved = localStorage.getItem('bm-lang'); } catch {}
-    if (saved) apply(saved);
+    btn.setAttribute('aria-label', `Language: ${options.find((o) => o.dataset.lang === current)?.textContent || 'English'}`);
     btn.addEventListener('click', () => setOpen(menu.hidden));
-    options.forEach((o) => o.addEventListener('click', () => {
-      apply(o.dataset.lang);
-      try { localStorage.setItem('bm-lang', o.dataset.lang); } catch {}
-      setOpen(false);
-      btn.focus();
-    }));
-    toggles.forEach((t) => t.addEventListener('click', () => {
-      apply(t.dataset.lang);
-      try { localStorage.setItem('bm-lang', t.dataset.lang); } catch {}
-    }));
+    options.forEach((o) => o.addEventListener('click', () => { setOpen(false); go(o.dataset.lang); }));
+    toggles.forEach((t) => t.addEventListener('click', () => go(t.dataset.lang)));
     document.addEventListener('click', (e) => { if (!lang.contains(e.target)) setOpen(false); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !menu.hidden) { setOpen(false); btn.focus(); } });
   }
@@ -387,10 +382,13 @@
     vmodal.addEventListener('close', () => { frame.innerHTML = ''; });
   }
 
-  // Book a demo (nav and phone menu): ask who it's for first — advisor, firm, or just a question.
-  // Built here so every page gets the same dialog; the links still go somewhere without JS.
-  const demoBtns = [...document.querySelectorAll('.nav__actions a.btn--primary, .drawer__foot a.btn')]
-    .filter((a) => a.textContent.trim() === 'Book a demo');
+  // Book a demo: every "Book a demo" link with no real destination (href="#") opens this dialog;
+  // links to a calendar section (Enterprise's #demo) are left alone. Advisor and Mia pages go straight
+  // to the Advisor calendar; everywhere else asks who it's for first.
+  const page = location.pathname.split('/').pop() || 'index.html';
+  const demoView = { 'advisor.html': 'advisor', 'mia.html': 'advisor' }[page] || 'pick';
+  const demoBtns = [...document.querySelectorAll('a')]
+    .filter((a) => a.textContent.trim() === 'Book a demo' && ['#', ''].includes(a.getAttribute('href') ?? ''));
   if (demoBtns.length) {
     const dlg = document.createElement('dialog');
     dlg.className = 'dmodal';
@@ -403,7 +401,7 @@
         <ul class="dmodal__opts">
           <li><button class="dmodal__opt suite-card--advisor" type="button" data-to="advisor"><span class="dmodal__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#advisor"/></svg></span><b>I’m an advisor</b><small>See how Advisor handles your meetings, KYC and files.</small><i class="icon ph ph-arrow-right dmodal__go" aria-hidden="true"></i></button></li>
           <li><button class="dmodal__opt suite-card--enterprise" type="button" data-to="firm"><span class="dmodal__icon"><svg class="icon picon" aria-hidden="true"><use href="assets/product-icons.svg#enterprise"/></svg></span><b>I run a firm</b><small>MGA, BGA, IMO or carrier — see Enterprise on your network.</small><i class="icon ph ph-arrow-right dmodal__go" aria-hidden="true"></i></button></li>
-          <li><button class="dmodal__opt" type="button" data-to="ask"><span class="dmodal__icon"><i class="icon ph-duotone ph-chat-circle-dots" aria-hidden="true"></i></span><b>I have a question</b><small>Not ready for a demo? Send us a quick note.</small><i class="icon ph ph-arrow-right dmodal__go" aria-hidden="true"></i></button></li>
+          <li><a class="dmodal__opt" href="contact.html"><span class="dmodal__icon"><i class="icon ph-duotone ph-chat-circle-dots" aria-hidden="true"></i></span><b>I have a question</b><small>Not ready for a demo? Send us a quick note.</small><i class="icon ph ph-arrow-right dmodal__go" aria-hidden="true"></i></a></li>
         </ul>
       </div>
       <div class="dmodal__view dmodal__view--cal" data-view="advisor" hidden>
@@ -417,18 +415,6 @@
         <h2 class="dmodal__title">Book an Enterprise demo</h2>
         <p class="dmodal__lead">Pick a time and we’ll walk you through Enterprise on your own network.</p>
         <div class="dmodal__cal" data-cal="https://bluemind.app/meetings/akil-balachandran?embed=true"></div>
-      </div>
-      <div class="dmodal__view" data-view="ask" hidden>
-        <button class="dmodal__back" type="button" data-to="pick"><i class="icon ph ph-arrow-left" aria-hidden="true"></i>Back</button>
-        <h2 class="dmodal__title">Ask us anything</h2>
-        <p class="dmodal__lead">We’ll get back to you within one business day.</p>
-        <form class="dmodal__form" novalidate>
-          <label>Full name<input name="name" autocomplete="name" placeholder="Jane Smith" required /></label>
-          <label>Work email<input name="email" type="email" autocomplete="email" placeholder="jane@company.com" required /></label>
-          <label>Your question<textarea name="message" rows="4" placeholder="What would you like to know?" required></textarea></label>
-          <button class="btn btn--primary btn--lg" type="submit">Send</button>
-          <p class="dmodal__msg" role="status" aria-live="polite"></p>
-        </form>
       </div>`;
     document.body.appendChild(dlg);
     const show = (v) => dlg.querySelectorAll('.dmodal__view').forEach((el) => { el.hidden = el.dataset.view !== v; });
@@ -436,8 +422,7 @@
     demoBtns.forEach((a) => a.addEventListener('click', (e) => {
       e.preventDefault();
       document.querySelector('.drawer.is-open .drawer__close')?.click(); // phone menu: put it away first
-      dlg.classList.remove('is-wide');
-      show('pick');
+      open(demoView);
       dlg.showModal();
     }));
     // Each calendar loads only the first time its option is picked
@@ -446,22 +431,18 @@
       if (!cal || cal.firstChild) return;
       cal.innerHTML = `<iframe src="${cal.dataset.cal}" title="Book a demo" loading="lazy"></iframe>`;
     };
+    function open(view) {
+      loadCal(view);
+      dlg.classList.toggle('is-wide', !!dlg.querySelector(`[data-view="${view}"] .dmodal__cal`));
+      show(view);
+    }
     dlg.querySelectorAll('[data-to]').forEach((b) => b.addEventListener('click', () => {
-      loadCal(b.dataset.to);
-      dlg.classList.toggle('is-wide', !!dlg.querySelector(`[data-view="${b.dataset.to}"] .dmodal__cal`));
-      show(b.dataset.to);
-      dlg.querySelector(`[data-view="${b.dataset.to}"] input, [data-view="${b.dataset.to}"] .dmodal__opt`)?.focus();
+      open(b.dataset.to);
+      dlg.querySelector(`[data-view="${b.dataset.to}"] .dmodal__opt, [data-view="${b.dataset.to}"] .dmodal__back`)?.focus();
     }));
     dlg.querySelectorAll('a.dmodal__opt').forEach((a) => a.addEventListener('click', closeDlg));
     dlg.querySelector('.dmodal__close').addEventListener('click', closeDlg);
     dlg.addEventListener('click', (e) => { if (e.target === dlg) closeDlg(); });
-    const form = dlg.querySelector('.dmodal__form');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (!form.reportValidity()) return;
-      form.querySelector('.dmodal__msg').textContent = 'Thanks — we’ll be in touch within one business day.';
-      form.reset();
-    });
   }
 
   // Onboarding lessons: centre card full size, neighbours at 75%, advance one slot every 5s.

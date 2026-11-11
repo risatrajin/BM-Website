@@ -96,6 +96,9 @@ PAGES = {
     "brand.html": ("Brand and press kit — BlueMind",
                    "BlueMind logos, colours, type and usage guidelines for partners and press.",
                    "WebPage", "Brand", "0.4", []),
+    "resources.html": ("Resources for financial advisors — guides, podcasts and blog — BlueMind",
+                       "Free compliance guides, onboarding checklists, whitepapers, podcasts and reading lists for financial and insurance advisors, from BlueMind.",
+                       "CollectionPage", "Resources", "0.6", []),
     "contact.html": ("Contact BlueMind — offices in Markham, ON and New York, NY",
                      "Get in touch with BlueMind: offices in Markham, Ontario and New York, phone +1 888 887 5707, support@bluemind.app and a contact form.",
                      "ContactPage", "Contact", "0.6", []),
@@ -103,8 +106,15 @@ PAGES = {
 NOINDEX = {"design-system.html": ("BlueMind design system", "Internal design system reference for the BlueMind website.")}
 
 
-def url_for(f):
-    return f"{SITE}/" if f == "index.html" else f"{SITE}/{f}"
+def url_for(f, lang="en"):
+    base = f"{SITE}/fr" if lang == "fr" else SITE
+    return f"{base}/" if f == "index.html" else f"{base}/{f}"
+
+
+def alternates(f):
+    return [f'  <link rel="alternate" hreflang="en" href="{url_for(f)}" />',
+            f'  <link rel="alternate" hreflang="fr-CA" href="{url_for(f, "fr")}" />',
+            f'  <link rel="alternate" hreflang="x-default" href="{url_for(f)}" />']
 
 
 def text(s):
@@ -154,6 +164,7 @@ def block(f, src):
         f"  <title>{e(title)}</title>",
         f'  <meta name="description" content="{e(desc)}" />',
         f'  <link rel="canonical" href="{url}" />',
+        *alternates(f),
         '  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />',
         *icons(),
         '  <meta property="og:type" content="website" />',
@@ -198,11 +209,14 @@ def write_page(f):
 
 
 def write_files():
-    urls = "\n".join(
-        f"  <url><loc>{url_for(f)}</loc><lastmod>{TODAY}</lastmod><priority>{v[4]}</priority></url>"
-        for f, v in PAGES.items())
+    def entry(f, v, lang):
+        alt = "".join(f'<xhtml:link rel="alternate" hreflang="{h}" href="{url_for(f, l)}"/>'
+                      for h, l in (("en", "en"), ("fr-CA", "fr"), ("x-default", "en")))
+        return f"  <url><loc>{url_for(f, lang)}</loc><lastmod>{TODAY}</lastmod><priority>{v[4]}</priority>{alt}</url>"
+    urls = "\n".join(entry(f, v, lang) for lang in ("en", "fr") for f, v in PAGES.items())
     (ROOT / "sitemap.xml").write_text(
-        f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}\n</urlset>\n')
+        '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+        f'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n{urls}\n</urlset>\n')
 
     bots = ["Googlebot", "Bingbot", "GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot",
             "Claude-User", "PerplexityBot", "Perplexity-User", "Google-Extended", "Applebot-Extended", "CCBot"]
@@ -229,6 +243,8 @@ Key facts:
 ## Pages
 
 {pages}
+
+A French (Canada) version of every page is at {SITE}/fr/ with the same file names.
 """)
 
     (ROOT / "site.webmanifest").write_text(json.dumps({

@@ -23,4 +23,7 @@ Key facts:
 - [About BlueMind — built by advisors, for advisors](https://bluemind.app/about.html): BlueMind was founded by a CFP and built by advisors, for advisors. Our mission, story, values and journey so far.
 - [Team — BlueMind](https://bluemind.app/team.html): Advisors, compliance experts and engineers with 50+ years of combined compliance experience behind BlueMind.
 - [Brand and press kit — BlueMind](https://bluemind.app/brand.html): BlueMind logos, colours, type and usage guidelines for partners and press.
+- [Resources for financial advisors — guides, podcasts and blog — BlueMind](https://bluemind.app/resources.html): Free compliance guides, onboarding checklists, whitepapers, podcasts and reading lists for financial and insurance advisors, from BlueMind.
 - [Contact BlueMind — offices in Markham, ON and New York, NY](https://bluemind.app/contact.html): Get in touch with BlueMind: offices in Markham, Ontario and New York, phone +1 888 887 5707, support@bluemind.app and a contact form.
+
+A French (Canada) version of every page is at https://bluemind.app/fr/ with the same file names.
