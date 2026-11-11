@@ -480,6 +480,15 @@ body {
   .lang { display: none; } /* the menu sheet carries the language switch */
 }
 
+/* French labels run longer; between the phone bar and wide screens, tighten the desktop nav so
+   the centred logo still leaves room for Mia, language, Connexion and the demo button */
+@media (min-width: 901px) and (max-width: 1240px) {
+  html[lang^="fr"] .nav__bar { gap: 12px; padding-inline: 20px; }
+  html[lang^="fr"] .nav__links a, html[lang^="fr"] .nav__menu-btn { padding-inline: 8px; }
+  html[lang^="fr"] .nav__login { padding: 0 10px; }
+  html[lang^="fr"] .nav__mia, html[lang^="fr"] .lang__btn { padding: 0 8px; }
+}
+
 /* French: "Réserver une démo" doesn't fit the phone bar next to Mia and the menu button, so the bar
    shows "Démo" (the full label stays in the DOM for screen readers) */
 @media (max-width: 600px) {

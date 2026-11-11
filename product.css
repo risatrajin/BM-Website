@@ -1582,10 +1582,15 @@
 .pain__list li:nth-child(4) { --t: #d8ecf9; }
 .pain__list li:nth-child(5) { --t: #dcf1e2; }
 .pain__tag { align-self: center; padding: 6px 14px; border-radius: 999px; background: var(--t); font-size: 13px; font-weight: 500; line-height: 20px; color: var(--ink); }
-.pain__chip { align-self: center; display: inline-flex; align-items: center; gap: 12px; padding: 7px 7px 7px 16px; border-radius: 999px; background: #fff; box-shadow: 0 0 0 1px var(--line), 0 6px 16px -8px rgba(18, 18, 18, 0.2); font-size: 15px; font-weight: 500; color: var(--ink); white-space: nowrap; }
+.pain__chip { align-self: center; display: inline-flex; align-items: center; gap: 12px; padding: 7px 7px 7px 16px; border-radius: 999px; background: #fff; box-shadow: 0 0 0 1px var(--line), 0 6px 16px -8px rgba(18, 18, 18, 0.2); font-size: 15px; font-weight: 500; color: var(--ink); white-space: nowrap; max-width: 100%; }
 .pain__chip .icon { display: grid; place-items: center; flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--t); font-size: 15px; }
 .pain__list p { max-width: 22ch; font-size: 15px; line-height: 1.55; color: var(--muted); text-wrap: balance; }
-@media (max-width: 1080px) {
+/* Five columns get narrow just above the stacking breakpoint: slimmer chips so the labels fit */
+@media (min-width: 1181px) and (max-width: 1240px) {
+  .pain__list { column-gap: 16px; }
+  .pain__chip { gap: 8px; padding-left: 12px; font-size: 14px; }
+}
+@media (max-width: 1180px) {
   .pain__list { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; row-gap: 56px; }
   .pain__list::before { display: none; }
   .pain__list li { row-gap: 14px; grid-template-rows: auto; }
