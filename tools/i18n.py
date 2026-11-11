@@ -17,7 +17,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "fr"
+PUB = ROOT / "public" if (ROOT / "public").is_dir() else ROOT  # published files; content/, i18n/ and tools/ stay at ROOT
+OUT = PUB / "fr"
 DICT = ROOT / "i18n" / "fr.json"
 TODO = ROOT / "i18n" / "todo.json"
 PAGES = ["index.html", "advisor.html", "enterprise.html", "mia.html", "carriers.html", "partners.html",
@@ -230,12 +231,12 @@ def extract():
             todo[key] = {"ctx": ctx[:300], "in": where}
         return None
     for f in PAGES:
-        src = (ROOT / f).read_text()
+        src = (PUB / f).read_text()
         walk(src, lambda k, c: note(k, c, f), lambda k, c: note(k, c, f))
         for m in LD.finditer(src):
             ld_strings(json.loads(m.group(2).replace("<\\/", "</")), lambda v: note(html.escape(v, quote=False), "[structured data]", f) or v)
     for f in SCRIPTS:
-        src = (ROOT / f).read_text()
+        src = (PUB / f).read_text()
         for _, _, t in js_chunks(src):
             note(t, "", f)
     TODO.parent.mkdir(exist_ok=True)
@@ -250,6 +251,8 @@ def local_url(v, pages):
     if v.startswith("/"):
         return "/fr/" if v == "/" else v
     path = re.split(r"[#?]", v)[0]
+    if path == "index.html":  # the French home is /fr/; linking index.html costs two redirects
+        return "./" + v[len(path):]
     return v if path in pages else "../" + v
 
 
@@ -265,7 +268,7 @@ def build():
     OUT.mkdir(exist_ok=True)
     pages = set(PAGES) | set(SCRIPTS)  # these have French copies inside fr/
     for f in PAGES:
-        src = (ROOT / f).read_text()
+        src = (PUB / f).read_text()
         out = walk(src, t, t)
         out = LD.sub(lambda m: m.group(1) + json.dumps(
             ld_strings(json.loads(m.group(2).replace("<\\/", "</")),
@@ -280,7 +283,7 @@ def build():
         out = switcher(out)
         (OUT / f).write_text(out)
     for f in SCRIPTS:
-        src = (ROOT / f).read_text()
+        src = (PUB / f).read_text()
         chunks = list(js_chunks(src))
         for s, e, txt in reversed(chunks):
             new = t(txt)

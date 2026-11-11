@@ -1,4 +1,7 @@
 (() => {
+  // Folder this script was loaded from: the site root, or /fr/ for the French copy. Markup built
+  // here uses paths relative to it, so it also works on pages one folder down (blog/, resources/).
+  const scriptBase = document.currentScript ? new URL('.', document.currentScript.src) : new URL('/', location.href);
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 
@@ -37,13 +40,14 @@
     const go = (code) => {
       if (code === current) return;
       try { localStorage.setItem('bm-lang', code); } catch {}
-      const parts = location.pathname.split('/');
-      let file = parts.pop() || 'index.html';
+      // Folders in the path, without the /fr prefix. The French home can be /fr, /fr/ or /fr/index.html.
+      const dirs = location.pathname.split('/').filter(Boolean);
+      if (current === 'fr' && dirs[0] === 'fr') dirs.shift();
+      let file = (dirs.length && !location.pathname.endsWith('/') && dirs.pop()) || 'index.html';
       const clean = !file.endsWith('.html'); // served as /advisor rather than /advisor.html
       if (clean) file += '.html';
-      if (current === 'fr') parts.pop(); // leave /fr/
-      if (code === 'fr' && (!translated.includes(file) || parts.length > 1)) { location.href = '/fr/'; return; } // blog, legal: English only
-      const base = parts.join('/') + '/' + (code === 'fr' ? 'fr/' : '');
+      if (code === 'fr' && (!translated.includes(file) || dirs.length)) { location.href = '/fr/'; return; } // blog, legal: English only
+      const base = '/' + dirs.map((d) => d + '/').join('') + (code === 'fr' ? 'fr/' : '');
       location.href = base + (file === 'index.html' ? '' : clean ? file.slice(0, -5) : file) + location.hash;
     };
     btn.setAttribute('aria-label', `Langue : ${options.find((o) => o.dataset.lang === current)?.textContent || 'English'}`);
@@ -94,7 +98,8 @@
     const phone = window.matchMedia('(max-width: 600px)');
     const here = (location.pathname.split('/').pop() || 'index').replace(/\.html$/, '');
     drawer.querySelectorAll('.drawer__links a').forEach((a) => {
-      if ((a.getAttribute('href') || '').replace(/\.html$/, '') === here) a.setAttribute('aria-current', 'page');
+      const href = (a.getAttribute('href') || '').replace(/\.html$/, '');
+      if ((href === './' ? 'index' : href) === here) a.setAttribute('aria-current', 'page'); // French pages link home as ./
     });
     const openFull = () => {
       drawer.classList.add('is-full');
@@ -395,6 +400,8 @@
     const dlg = document.createElement('dialog');
     dlg.className = 'dmodal';
     dlg.setAttribute('aria-labelledby', 'dmodal-title');
+    // Paths in this markup are relative to the site root. Resolve them before the markup is parsed,
+    // so pages one folder down (blog/, resources/) don't request /blog/assets/... first.
     dlg.innerHTML = `
       <button class="dmodal__close" type="button" aria-label="Close"><i class="icon ph ph-x" aria-hidden="true"></i></button>
       <div class="dmodal__view" data-view="pick">
@@ -417,7 +424,8 @@
         <h2 class="dmodal__title">Réserver une démo d’Enterprise</h2>
         <p class="dmodal__lead">Choisissez un moment et nous vous présenterons Enterprise sur votre propre réseau.</p>
         <div class="dmodal__cal" data-cal="https://meetings.hubspot.com/akil-balachandran?embed=true"></div>
-      </div>`;
+      </div>`.replace(/\bhref="(?![a-z]+:|\/|#)([^"#]*)(#[^"]*)?"/gi,
+      (m, path, hash = '') => `href="${new URL(path, scriptBase).pathname}${hash}"`);
     document.body.appendChild(dlg);
     const show = (v) => dlg.querySelectorAll('.dmodal__view').forEach((el) => { el.hidden = el.dataset.view !== v; });
     const closeDlg = () => dlg.close();

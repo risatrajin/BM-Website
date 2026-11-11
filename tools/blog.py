@@ -18,11 +18,12 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+PUB = ROOT / "public" if (ROOT / "public").is_dir() else ROOT  # published files; content/, i18n/ and tools/ stay at ROOT
 sys.path.insert(0, str(ROOT / "tools"))
 import seo  # noqa: E402  (shared ORG, WEBSITE, icons)
 
 SITE = seo.SITE
-TEMPLATE = ROOT / "resources.html"
+TEMPLATE = PUB / "resources.html"
 e = lambda s: html.escape(s, quote=True)
 
 
@@ -122,7 +123,7 @@ def minutes(p):
     return max(2, round(len(re.sub(r"<[^>]+>", " ", p["html"]).split()) / 220))
 
 
-COVERS = ROOT / "assets" / "blog" / "covers"  # one Lummi photo per post, named by slug
+COVERS = PUB / "assets" / "blog" / "covers"  # one Lummi photo per post, named by slug
 
 
 def photo(p):
@@ -216,7 +217,7 @@ def write_index(all_posts, head, mid, foot):
     block = head_block("Blog — ideas for financial and insurance advisors — BlueMind",
                        "Practical articles for financial and insurance advisors on compliance, client relationships, technology and growing a practice.",
                        url, "CollectionPage", [], [("Home", f"{SITE}/"), ("Blog", url)])
-    (ROOT / "blog.html").write_text(head + block + mid + main + foot)
+    (PUB / "blog.html").write_text(head + block + mid + main + foot)
 
 
 def write_post(p, all_posts, head, mid, foot):
@@ -258,7 +259,7 @@ def write_post(p, all_posts, head, mid, foot):
     block = head_block(f"{p['title']} — BlueMind Blog", p["description"] or p["title"], url, "WebPage",
                        [article], [("Home", f"{SITE}/"), ("Blog", f"{SITE}/blog"), (p["title"], url)],
                        (f"{SITE}/{ph[0]}", ph[1], ph[2]) if ph else None)
-    (ROOT / "blog" / f"{p['slug']}.html").write_text(up(head) + up(block) + up(mid) + main + up(foot))
+    (PUB / "blog" / f"{p['slug']}.html").write_text(up(head) + up(block) + up(mid) + main + up(foot))
 
 
 def write_legal(head, mid, foot):
@@ -279,7 +280,7 @@ def write_legal(head, mid, foot):
 '''
         block = head_block(f"{p['title']} — BlueMind", p["description"] or f"BlueMind {p['title']}.", url, "WebPage", [],
                            [("Home", f"{SITE}/"), (p["title"], url)])
-        (ROOT / f"{p['slug']}.html").write_text(head + block + mid + main + foot)
+        (PUB / f"{p['slug']}.html").write_text(head + block + mid + main + foot)
 
 
 TITLES = {  # HubSpot titles were split over two lines; these read as one
@@ -312,7 +313,7 @@ def paragraphs(markup):
 
 
 def write_resources(head, mid, foot):
-    folder = ROOT / "resources"
+    folder = PUB / "resources"
     folder.mkdir(exist_ok=True)
     n = 0
     for f in sorted((ROOT / "content" / "resources").glob("*.json")):
@@ -345,15 +346,54 @@ def write_resources(head, mid, foot):
     return n
 
 
+def rooted(markup):
+    """Make root-relative links absolute: the 404 page is served at whatever path was requested."""
+    def fix(m):
+        v = m.group(2)
+        if not v or re.match(r"^(?:[a-z]+:|//|#|/|\?)", v, re.I):
+            return m.group(0)
+        return f'{m.group(1)}="/{v}"'
+    markup = re.sub(r'\b(href|src|poster|srcset|data-src)="([^"]*)"', fix, markup)
+    return re.sub(r'url\((["\']?)(?!data:|https?:|/|#)([^)"\']+)\1\)', r"url(\1/\2\1)", markup)
+
+
+def write_404(head, mid, foot):
+    """Firebase Hosting serves 404.html for any path that has no file."""
+    block = "\n".join([
+        "  <!-- seo:start -->",
+        "  <title>Page not found — BlueMind</title>",
+        '  <meta name="robots" content="noindex" />',
+        *seo.icons(),
+        "  <!-- seo:end -->",
+    ])
+    main = """  <main id="main">
+    <article class="post post--legal" aria-labelledby="nf-title">
+      <header class="post__head container">
+        <p class="eyebrow">404</p>
+        <h1 class="post__title" id="nf-title">This page doesn’t exist</h1>
+        <p class="lead">The link may be old, or the page has moved. These are good places to start.</p>
+        <p class="nf__links">
+          <a class="btn btn--primary btn--md" href="/">Go to the home page</a>
+          <a class="btn btn--border btn--md" href="/blog">Read the blog</a>
+          <a class="btn btn--border btn--md" href="/contact">Contact us</a>
+        </p>
+      </header>
+    </article>
+  </main>
+"""
+    (PUB / "404.html").write_text(rooted(head) + rooted(block) + rooted(mid) + main + rooted(foot))
+
+
 def main():
     head, mid, foot = chrome()
     all_posts = posts()
-    (ROOT / "blog").mkdir(exist_ok=True)
+    (PUB / "blog").mkdir(exist_ok=True)
     write_index(all_posts, head, mid, foot)
     for p in all_posts:
         write_post(p, all_posts, head, mid, foot)
     write_legal(head, mid, foot)
     write_resources(head, mid, foot)
+    write_404(head, mid, foot)
     print(f"blog.html + {len(all_posts)} posts in blog/, {len(list((ROOT / 'content' / 'legal').glob('*.json')))} legal pages")
 
 

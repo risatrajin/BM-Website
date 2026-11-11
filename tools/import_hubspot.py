@@ -17,6 +17,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+PUB = ROOT / "public" if (ROOT / "public").is_dir() else ROOT  # published files; content/, i18n/ and tools/ stay at ROOT
 SITE = "https://bluemind.app"
 UA = {"User-Agent": "Mozilla/5.0 (site migration)"}
 LEGAL = ["terms-conditions", "privacy-policy", "cookies-policy", "acceptable-usage-policy"]
@@ -153,7 +154,7 @@ def image_saver(folder):
             ext = ".svg"
         name = hashlib.sha1(src.encode()).hexdigest()[:10] + ext
         (folder / name).write_bytes(data)
-        seen[src] = f"/{folder.relative_to(ROOT).as_posix()}/{name}"
+        seen[src] = f"/{folder.relative_to(PUB).as_posix()}/{name}"
         return seen[src]
     return save
 
@@ -170,7 +171,7 @@ def import_post(url):
     if not body:
         print(f"  ! no body: {url}")
         return None
-    c = Clean(image_saver(ROOT / "assets" / "blog" / slug))
+    c = Clean(image_saver(PUB / "assets" / "blog" / slug))
     c.feed(body.group(1))
     title = re.search(r'class="blog-post__headline"[^>]*>(.*?)</', s, re.S)
     date = re.search(r'"datePublished":\s*"([^"]+)"', s)
@@ -193,7 +194,7 @@ def import_legal(slug):
     blocks = re.findall(r'<span id="hs_cos_wrapper_(?:dnd_area|widget)[^"]*_" class="[^"]*rich_text"[^>]*>(.*?)</span></div>', main, re.S)
     title = re.search(r"<h1[^>]*>(.*?)</h1>", "\n".join(blocks), re.S)
     blocks = [b for b in blocks if "<h1" not in b]  # the page title is rendered by the template
-    c = Clean(image_saver(ROOT / "assets" / "legal"))
+    c = Clean(image_saver(PUB / "assets" / "legal"))
     c.feed("\n".join(blocks))
     out = c.result()
     return {"slug": slug, "title": html.unescape(re.sub(r"<[^>]+>", "", title.group(1))).strip() if title else slug,
@@ -213,7 +214,7 @@ def import_resource(slug):
     main = main[: main.find("footer-row-0")] if "footer-row-0" in main else main
     title = re.search(r"<h1[^>]*>(.*?)</h1>", main, re.S)
     main = re.sub(r"<h1[^>]*>.*?</h1>", "", main, count=1, flags=re.S)
-    c = Clean(image_saver(ROOT / "assets" / "resources" / slug))
+    c = Clean(image_saver(PUB / "assets" / "resources" / slug))
     c.feed(main)  # whole content area, so "Buy on Amazon"-style button links come along
     videos = list(dict.fromkeys(re.findall(r"youtube(?:-nocookie)?\.com/embed/([\w-]{11})", s)))
     return {"slug": slug, "title": html.unescape(re.sub(r"<[^>]+>", "", title.group(1))).strip() if title else meta(s, "og:title"),

@@ -13,6 +13,7 @@ from pathlib import Path
 
 SITE = "https://bluemind.app"  # production origin used for canonical, og:url and the sitemap
 ROOT = Path(__file__).resolve().parent.parent
+PUB = ROOT / "public" if (ROOT / "public").is_dir() else ROOT  # published files; content/, i18n/ and tools/ stay at ROOT
 TODAY = datetime.date.today().isoformat()
 OG_IMAGE = f"{SITE}/assets/og-image.jpg"
 
@@ -198,7 +199,7 @@ def icons():
 
 
 def write_page(f):
-    p = ROOT / f
+    p = PUB / f
     src = p.read_text()
     src = re.sub(r"\n?\s*<!-- seo:start -->.*?<!-- seo:end -->", "", src, flags=re.S)
     src = re.sub(r"\n\s*<title>.*?</title>", "", src, count=1, flags=re.S)
@@ -225,19 +226,19 @@ def write_files():
     for p in sorted((ROOT / "content" / "legal").glob("*.json")):
         extra.append((f"{SITE}/{p.stem}", TODAY, "0.3"))
     urls += "\n" + "\n".join(f"  <url><loc>{u}</loc><lastmod>{d}</lastmod><priority>{pr}</priority></url>" for u, d, pr in extra)
-    (ROOT / "sitemap.xml").write_text(
+    (PUB / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
         f'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n{urls}\n</urlset>\n')
 
     bots = ["Googlebot", "Bingbot", "GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot",
             "Claude-User", "PerplexityBot", "Perplexity-User", "Google-Extended", "Applebot-Extended", "CCBot"]
     rules = "\n\n".join(f"User-agent: {b}\nAllow: /" for b in bots)
-    (ROOT / "robots.txt").write_text(
+    (PUB / "robots.txt").write_text(
         f"# Search and AI assistants are welcome to read and cite this site.\n{rules}\n\n"
         f"User-agent: *\nAllow: /\nDisallow: /archive/\nDisallow: /design-system\n\nSitemap: {SITE}/sitemap.xml\n")
 
     pages = "\n".join(f"- [{v[0]}]({url_for(f)}): {v[1]}" for f, v in PAGES.items())
-    (ROOT / "llms.txt").write_text(f"""# BlueMind
+    (PUB / "llms.txt").write_text(f"""# BlueMind
 
 > BlueMind is AI-powered compliance and practice management software for financial advisors, insurance agencies, MGAs and insurance carriers in Canada and the US. One platform, three solutions: BlueMind Advisor for individual advisors, BlueMind Enterprise for firms that supervise advisors, and partnerships for insurance carriers.
 
@@ -258,7 +259,7 @@ Key facts:
 A French (Canada) version of every page is at {SITE}/fr/ with the same file names.
 """)
 
-    (ROOT / "site.webmanifest").write_text(json.dumps({
+    (PUB / "site.webmanifest").write_text(json.dumps({
         "name": "BlueMind", "short_name": "BlueMind", "start_url": "/", "display": "browser",
         "background_color": "#ffffff", "theme_color": "#ffffff",
         "icons": [{"src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"},

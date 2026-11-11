@@ -485,3 +485,4 @@
   .bfeature .bcover { min-height: 200px; }
   .bfeature__title { font-size: var(--text-xl); }
 }
+.nf__links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
