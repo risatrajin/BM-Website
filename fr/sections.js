@@ -39,10 +39,12 @@
       try { localStorage.setItem('bm-lang', code); } catch {}
       const parts = location.pathname.split('/');
       let file = parts.pop() || 'index.html';
+      const clean = !file.endsWith('.html'); // served as /advisor rather than /advisor.html
+      if (clean) file += '.html';
       if (current === 'fr') parts.pop(); // leave /fr/
-      if (code === 'fr' && !translated.includes(file)) file = 'index.html';
+      if (code === 'fr' && (!translated.includes(file) || parts.length > 1)) { location.href = '/fr/'; return; } // blog, legal: English only
       const base = parts.join('/') + '/' + (code === 'fr' ? 'fr/' : '');
-      location.href = base + (file === 'index.html' ? '' : file) + location.hash;
+      location.href = base + (file === 'index.html' ? '' : clean ? file.slice(0, -5) : file) + location.hash;
     };
     btn.setAttribute('aria-label', `Langue : ${options.find((o) => o.dataset.lang === current)?.textContent || 'English'}`);
     btn.addEventListener('click', () => setOpen(menu.hidden));
@@ -90,16 +92,16 @@
 
     // Phones: the menu fills the screen (styles in sections.css)
     const phone = window.matchMedia('(max-width: 600px)');
-    const here = location.pathname.split('/').pop() || 'index.html';
+    const here = (location.pathname.split('/').pop() || 'index').replace(/\.html$/, '');
     drawer.querySelectorAll('.drawer__links a').forEach((a) => {
-      if (a.getAttribute('href') === here) a.setAttribute('aria-current', 'page');
+      if ((a.getAttribute('href') || '').replace(/\.html$/, '') === here) a.setAttribute('aria-current', 'page');
     });
     const openFull = () => {
       drawer.classList.add('is-full');
       drawer.hidden = false;
       document.documentElement.style.overflow = 'hidden';
       void drawer.offsetWidth; // commit the hidden frame so the fade runs
-      items.forEach((el, i) => { el.style.transitionDelay = `${40 + i * 24}ms`; });
+      items.filter((el) => el.offsetParent).forEach((el, i) => { el.style.transitionDelay = `${40 + i * 24}ms`; });
       drawer.classList.add('is-open');
       overlay.classList.add('is-open');
       openers.forEach((b) => b.setAttribute('aria-expanded', 'true'));
@@ -138,7 +140,7 @@
           : Math.max(INSET, b.left - ALIGN) - b.left;
         drawer.style.setProperty('--dx', `${dx}px`);
         drawer.style.setProperty('--dy', `${navBottom + 4 - b.top}px`);
-        items.forEach((el, i) => { el.style.transitionDelay = `${30 + i * 22}ms`; });
+        items.filter((el) => el.offsetParent).forEach((el, i) => { el.style.transitionDelay = `${30 + i * 22}ms`; }); // visible rows only, top to bottom
         drawer.classList.add('is-open');
         overlay.classList.add('is-open');
         openers.forEach((b) => b.setAttribute('aria-expanded', 'true'));
@@ -385,8 +387,8 @@
   // Book a demo: every "Book a demo" link with no real destination (href="#") opens this dialog;
   // links to a calendar section (Enterprise's #demo) are left alone. Advisor and Mia pages go straight
   // to the Advisor calendar; everywhere else asks who it's for first.
-  const page = location.pathname.split('/').pop() || 'index.html';
-  const demoView = { 'advisor.html': 'advisor', 'mia.html': 'advisor' }[page] || 'pick';
+  const page = (location.pathname.split('/').pop() || 'index').replace(/\.html$/, ''); // works with or without .html
+  const demoView = { advisor: 'advisor', mia: 'advisor' }[page] || 'pick';
   const demoBtns = [...document.querySelectorAll('a')]
     .filter((a) => a.textContent.trim() === 'Réserver une démo' && ['#', ''].includes(a.getAttribute('href') ?? ''));
   if (demoBtns.length) {
@@ -414,7 +416,7 @@
         <button class="dmodal__back" type="button" data-to="pick"><i class="icon ph ph-arrow-left" aria-hidden="true"></i>Retour</button>
         <h2 class="dmodal__title">Réserver une démo d’Enterprise</h2>
         <p class="dmodal__lead">Choisissez un moment et nous vous présenterons Enterprise sur votre propre réseau.</p>
-        <div class="dmodal__cal" data-cal="https://bluemind.app/meetings/akil-balachandran?embed=true"></div>
+        <div class="dmodal__cal" data-cal="https://meetings.hubspot.com/akil-balachandran?embed=true"></div>
       </div>`;
     document.body.appendChild(dlg);
     const show = (v) => dlg.querySelectorAll('.dmodal__view').forEach((el) => { el.hidden = el.dataset.view !== v; });
@@ -441,6 +443,8 @@
       dlg.querySelector(`[data-view="${b.dataset.to}"] .dmodal__opt, [data-view="${b.dataset.to}"] .dmodal__back`)?.focus();
     }));
     dlg.querySelectorAll('a.dmodal__opt').forEach((a) => a.addEventListener('click', closeDlg));
+    // /book-demo on the old site redirects to …#book-demo: open the dialog straight away
+    if (location.hash === '#book-demo') { open(demoView); dlg.showModal(); }
     dlg.querySelector('.dmodal__close').addEventListener('click', closeDlg);
     dlg.addEventListener('click', (e) => { if (e.target === dlg) closeDlg(); });
   }

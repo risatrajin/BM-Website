@@ -10,20 +10,20 @@ Key facts:
 - Pricing (BlueMind Advisor): Pro $79 CAD per user per month; Team $169 CAD per month for 2 users, $59 per additional user; Enterprise custom. There is no free plan.
 - Founded by a CFP; built by advisors, for advisors.
 - Offices: 3601 Hwy 7, Suite 610, Markham, ON L3R 0M3, Canada; 127 West 26th St., Suite 500, New York, NY 10001, USA.
-- Contact: +1 888 887 5707, support@bluemind.app, https://bluemind.app/contact.html
+- Contact: +1 888 887 5707, support@bluemind.app, https://bluemind.app/contact
 
 ## Pages
 
 - [BlueMind — AI compliance software for insurance and financial advisors](https://bluemind.app/): BlueMind is AI-powered compliance and practice management software for advisors, agencies and carriers in the financial and insurance industry, in Canada and the US.
-- [BlueMind Advisor — AI compliance assistant for financial advisors](https://bluemind.app/advisor.html): Invisible compliance for advisors: BlueMind takes notes, fills forms, checks KYC and suitability and keeps an audit-ready file, so you spend your time on clients instead of admin.
-- [BlueMind Enterprise — compliance oversight for insurance firms and agencies](https://bluemind.app/enterprise.html): Grow your distribution, not your risk. BlueMind Enterprise gives compliance teams a live view of every advisor, AI risk detection and audit-ready evidence on top of your back office.
-- [Mia — the AI assistant for advisor compliance work — BlueMind](https://bluemind.app/mia.html): Mia sits in on your client meetings, fills in the paperwork and comes back with a regulator-ready file. An AI assistant built for financial and insurance advisors.
-- [BlueMind for insurance carriers — reach advisors at the moment of advice](https://bluemind.app/carriers.html): Partner with BlueMind to reach advisors where the advice happens, receive complete applications and see the suitability record behind every policy.
-- [Partners — BlueMind](https://bluemind.app/partners.html): Technology, distribution, association and referral partnerships with BlueMind, the AI compliance platform for advisors and insurance firms.
-- [About BlueMind — built by advisors, for advisors](https://bluemind.app/about.html): BlueMind was founded by a CFP and built by advisors, for advisors. Our mission, story, values and journey so far.
-- [Team — BlueMind](https://bluemind.app/team.html): Advisors, compliance experts and engineers with 50+ years of combined compliance experience behind BlueMind.
-- [Brand and press kit — BlueMind](https://bluemind.app/brand.html): BlueMind logos, colours, type and usage guidelines for partners and press.
-- [Resources for financial advisors — guides, podcasts and blog — BlueMind](https://bluemind.app/resources.html): Free compliance guides, onboarding checklists, whitepapers, podcasts and reading lists for financial and insurance advisors, from BlueMind.
-- [Contact BlueMind — offices in Markham, ON and New York, NY](https://bluemind.app/contact.html): Get in touch with BlueMind: offices in Markham, Ontario and New York, phone +1 888 887 5707, support@bluemind.app and a contact form.
+- [BlueMind Advisor — AI compliance assistant for financial advisors](https://bluemind.app/advisor): Invisible compliance for advisors: BlueMind takes notes, fills forms, checks KYC and suitability and keeps an audit-ready file, so you spend your time on clients instead of admin.
+- [BlueMind Enterprise — compliance oversight for insurance firms and agencies](https://bluemind.app/enterprise): Grow your distribution, not your risk. BlueMind Enterprise gives compliance teams a live view of every advisor, AI risk detection and audit-ready evidence on top of your back office.
+- [Mia — the AI assistant for advisor compliance work — BlueMind](https://bluemind.app/mia): Mia sits in on your client meetings, fills in the paperwork and comes back with a regulator-ready file. An AI assistant built for financial and insurance advisors.
+- [BlueMind for insurance carriers — reach advisors at the moment of advice](https://bluemind.app/carriers): Partner with BlueMind to reach advisors where the advice happens, receive complete applications and see the suitability record behind every policy.
+- [Partners — BlueMind](https://bluemind.app/partners): Technology, distribution, association and referral partnerships with BlueMind, the AI compliance platform for advisors and insurance firms.
+- [About BlueMind — built by advisors, for advisors](https://bluemind.app/about): BlueMind was founded by a CFP and built by advisors, for advisors. Our mission, story, values and journey so far.
+- [Team — BlueMind](https://bluemind.app/team): Advisors, compliance experts and engineers with 50+ years of combined compliance experience behind BlueMind.
+- [Brand and press kit — BlueMind](https://bluemind.app/brand): BlueMind logos, colours, type and usage guidelines for partners and press.
+- [Resources for financial advisors — guides, podcasts and blog — BlueMind](https://bluemind.app/resources): Free compliance guides, onboarding checklists, whitepapers, podcasts and reading lists for financial and insurance advisors, from BlueMind.
+- [Contact BlueMind — offices in Markham, ON and New York, NY](https://bluemind.app/contact): Get in touch with BlueMind: offices in Markham, Ontario and New York, phone +1 888 887 5707, support@bluemind.app and a contact form.
 
 A French (Canada) version of every page is at https://bluemind.app/fr/ with the same file names.

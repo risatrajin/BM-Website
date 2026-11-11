@@ -108,7 +108,8 @@ NOINDEX = {"design-system.html": ("BlueMind design system", "Internal design sys
 
 def url_for(f, lang="en"):
     base = f"{SITE}/fr" if lang == "fr" else SITE
-    return f"{base}/" if f == "index.html" else f"{base}/{f}"
+    # clean URLs: firebase.json and vercel.json serve /advisor for advisor.html
+    return f"{base}/" if f == "index.html" else f"{base}/{f.removesuffix('.html')}"
 
 
 def alternates(f):
@@ -214,6 +215,16 @@ def write_files():
                       for h, l in (("en", "en"), ("fr-CA", "fr"), ("x-default", "en")))
         return f"  <url><loc>{url_for(f, lang)}</loc><lastmod>{TODAY}</lastmod><priority>{v[4]}</priority>{alt}</url>"
     urls = "\n".join(entry(f, v, lang) for lang in ("en", "fr") for f, v in PAGES.items())
+    # English-only pages rendered by tools/blog.py from content/
+    extra = [(f"{SITE}/blog", TODAY, "0.7")]
+    for p in sorted((ROOT / "content" / "blog").glob("*.json")):
+        d = json.loads(p.read_text())
+        extra.append((f"{SITE}/blog/{d['slug']}", d["date"] or TODAY, "0.6"))
+    for p in sorted((ROOT / "content" / "resources").glob("*.json")):
+        extra.append((f"{SITE}/resources/{p.stem}", TODAY, "0.5"))
+    for p in sorted((ROOT / "content" / "legal").glob("*.json")):
+        extra.append((f"{SITE}/{p.stem}", TODAY, "0.3"))
+    urls += "\n" + "\n".join(f"  <url><loc>{u}</loc><lastmod>{d}</lastmod><priority>{pr}</priority></url>" for u, d, pr in extra)
     (ROOT / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
         f'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n{urls}\n</urlset>\n')
@@ -223,7 +234,7 @@ def write_files():
     rules = "\n\n".join(f"User-agent: {b}\nAllow: /" for b in bots)
     (ROOT / "robots.txt").write_text(
         f"# Search and AI assistants are welcome to read and cite this site.\n{rules}\n\n"
-        f"User-agent: *\nAllow: /\nDisallow: /archive/\nDisallow: /design-system.html\n\nSitemap: {SITE}/sitemap.xml\n")
+        f"User-agent: *\nAllow: /\nDisallow: /archive/\nDisallow: /design-system\n\nSitemap: {SITE}/sitemap.xml\n")
 
     pages = "\n".join(f"- [{v[0]}]({url_for(f)}): {v[1]}" for f, v in PAGES.items())
     (ROOT / "llms.txt").write_text(f"""# BlueMind
@@ -238,7 +249,7 @@ Key facts:
 - Pricing (BlueMind Advisor): Pro $79 CAD per user per month; Team $169 CAD per month for 2 users, $59 per additional user; Enterprise custom. There is no free plan.
 - Founded by a CFP; built by advisors, for advisors.
 - Offices: 3601 Hwy 7, Suite 610, Markham, ON L3R 0M3, Canada; 127 West 26th St., Suite 500, New York, NY 10001, USA.
-- Contact: +1 888 887 5707, support@bluemind.app, {SITE}/contact.html
+- Contact: +1 888 887 5707, support@bluemind.app, {SITE}/contact
 
 ## Pages
 

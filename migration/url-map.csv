@@ -1,0 +1,96 @@
+old_path,new_path,action,note
+/,/,same,
+/advisor,/advisor,same,Same path with clean URLs.
+/blog/financial-planning-questions-you-should-ask-your-clients,/blog/financial-planning-questions-you-should-ask-your-clients,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/book-demo/team,/enterprise#demo,301,
+/features,/advisor#features,301,
+/blog/what-we-told-the-ontario-ministry-of-finance-about-mga-licensing,/blog/what-we-told-the-ontario-ministry-of-finance-about-mga-licensing,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/how-to-be-a-successful-financial-advisor-part-1,/blog/how-to-be-a-successful-financial-advisor-part-1,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/acceptable-usage-policy,/acceptable-usage-policy,same,Imported into acceptable-usage-policy.html.
+/blog/how-to-talk-about-risk-management-with-your-clients,/blog/how-to-talk-about-risk-management-with-your-clients,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/benefits-of-using-e-signatures-in-financial-advisory,/blog/benefits-of-using-e-signatures-in-financial-advisory,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/is-artificial-intelligence-helping-us,/blog/is-artificial-intelligence-helping-us,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/effective-strategies-to-deal-with-difficult-clients,/blog/effective-strategies-to-deal-with-difficult-clients,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/no-advisor-left-behind,/blog/no-advisor-left-behind,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/new-years-resolution-tips-for-financial-advisors,/blog/new-years-resolution-tips-for-financial-advisors,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/book-demo/,/advisor#book-demo,301,Opens the Advisor demo calendar (sections.js handles #book-demo).
+/blog/six-tips-for-engaging-clients-on-their-terms,/blog/six-tips-for-engaging-clients-on-their-terms,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/resources/whitepaper-5-easy-ways-that-financial-advisors-can-increase-revenue,/resources/whitepaper-5-easy-ways-that-financial-advisors-can-increase-revenue,needs file,Gated download on HubSpot. Needs the PDF to host here.
+/why-bluemind,/about,301,Old “why BlueMind” page; the story now lives on About.
+/blog/implement-digital-documentation-for-clients-onboarding,/blog/implement-digital-documentation-for-clients-onboarding,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/thank-you/agency-signup,/,301,HubSpot form thank-you page. Switch those forms to an inline message before launch.
+/blog/tips-for-working-remotely-as-an-advisor,/blog/tips-for-working-remotely-as-an-advisor,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/financial-planning-tips-for-advisors-with-special-needs-clients,/blog/financial-planning-tips-for-advisors-with-special-needs-clients,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/digital-transformation-is-a-need-for-every-financial-advisor,/blog/digital-transformation-is-a-need-for-every-financial-advisor,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/9-ways-financial-advisors-can-use-linkedin-to-grow-clients,/blog/9-ways-financial-advisors-can-use-linkedin-to-grow-clients,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/top-productivity-hacks-for-financial-advisors,/blog/top-productivity-hacks-for-financial-advisors,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/compliance-and-automation-an-ideal-unison,/blog/compliance-and-automation-an-ideal-unison,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/tasks-financial-advisors-can-outsource-for-increased-efficiency,/blog/tasks-financial-advisors-can-outsource-for-increased-efficiency,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/thank-you/demo-booked/,/,301,HubSpot form thank-you page. Switch those forms to an inline message before launch.
+/contact-us,/contact,301,
+/blog/how-to-leverage-facebook-ads-for-financial-advisors,/blog/how-to-leverage-facebook-ads-for-financial-advisors,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/reducing-compliance-risk-with-technology,/blog/reducing-compliance-risk-with-technology,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/five-ways-to-grow-your-business-through-existing-clients,/blog/five-ways-to-grow-your-business-through-existing-clients,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/enterprise,/enterprise,same,Same path with clean URLs.
+/blog/how-to-determine-your-clients-risk-capacity,/blog/how-to-determine-your-clients-risk-capacity,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/how-to-determine-your-clients-risk-tolerance,/blog/how-to-determine-your-clients-risk-tolerance,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/enterprise-contact,/enterprise#demo,301,Old firm demo booking; Enterprise has the calendar at #demo.
+/blog/cold-calling-tips-for-financial-advisors,/blog/cold-calling-tips-for-financial-advisors,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/why-traditional-crm-may-not-be-helping-you-grow-your-business,/blog/why-traditional-crm-may-not-be-helping-you-grow-your-business,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/7-common-mistakes-financial-advisors-make,/blog/7-common-mistakes-financial-advisors-make,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/become-tomorrows-advisor-today,/blog/become-tomorrows-advisor-today,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/six-ways-to-build-client-trust-by-being-transparent,/blog/six-ways-to-build-client-trust-by-being-transparent,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/top-compliance-challenges-financial-advisors-face,/blog/top-compliance-challenges-financial-advisors-face,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/onboarding,/contact,301,No onboarding page on the new site. Change if onboarding gets its own page.
+/privacy-policy,/privacy-policy,same,Imported into privacy-policy.html.
+/about-us,/about,301,
+/blog/introducing-bluemind-empowering-advisors-with-the-digitized-relationship-edge,/blog/introducing-bluemind-empowering-advisors-with-the-digitized-relationship-edge,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/how-to-pitch-critical-illness-insurance-to-your-clients,/blog/how-to-pitch-critical-illness-insurance-to-your-clients,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/top-tech-tools-for-financial-advisors,/blog/top-tech-tools-for-financial-advisors,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/why-new-advisors-should-run-their-practice-like-a-business,/blog/why-new-advisors-should-run-their-practice-like-a-business,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/product/bluemind-harmony,/enterprise,301,Harmony was renamed Enterprise.
+/blog/how-to-make-memorable-presentations,/blog/how-to-make-memorable-presentations,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/how-financial-advisors-can-help-clients-prepare-for-recession,/blog/how-financial-advisors-can-help-clients-prepare-for-recession,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/how-financial-advisors-can-attract-millennial-clients,/blog/how-financial-advisors-can-attract-millennial-clients,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/how-financial-advisors-can-protect-their-clients-assets,/blog/how-financial-advisors-can-protect-their-clients-assets,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/no-customer-left-behind-revolutionizing-customer-engagement,/blog/no-customer-left-behind-revolutionizing-customer-engagement,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/agency-signup/,/enterprise#demo,301,Agency sign-up is now a demo booking with the firm team.
+/blog/how-to-overcome-objections-as-a-financial-advisor,/blog/how-to-overcome-objections-as-a-financial-advisor,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/top-movies-shows-for-financial-advisors-to-watch,/blog/top-movies-shows-for-financial-advisors-to-watch,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/faqs,/#faq,301,
+/blog/why-new-advisors-should-find-their-niche,/blog/why-new-advisors-should-find-their-niche,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/how-financial-advisors-should-engage-with-female-clientele,/blog/how-financial-advisors-should-engage-with-female-clientele,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/resources/ebook-client-onboarding-checklist-101,/resources/ebook-client-onboarding-checklist-101,needs file,Gated download on HubSpot. Needs the PDF to host here.
+/blog/six-ways-to-keep-clients-engaged,/blog/six-ways-to-keep-clients-engaged,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/product,/,301,
+/blog,/blog,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/pricing,/advisor#pricing,301,
+/blog/tips-to-boost-your-client-engagement-experience,/blog/tips-to-boost-your-client-engagement-experience,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/how-advisors-deal-with-high-net-worth-clients,/blog/how-advisors-deal-with-high-net-worth-clients,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/cookies-policy,/cookies-policy,same,Imported into cookies-policy.html.
+/blog/how-ai-is-aiding-the-financial-industry/,/blog/how-ai-is-aiding-the-financial-industry,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/how-technology-can-help-advisors-serve-clients-better,/blog/how-technology-can-help-advisors-serve-clients-better,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/testimonials,/advisor,301,No testimonials page; Advisor carries the quotes.
+/resources/recommended-books-for-financial-advisors,/resources/recommended-books-for-financial-advisors,same,Imported into resources/.
+/blog/lead-generation-for-financial-advisors-6-best-strategies,/blog/lead-generation-for-financial-advisors-6-best-strategies,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/resources/recommended-podcasts-for-financial-advisors,/resources/recommended-podcasts-for-financial-advisors,same,Imported into resources/.
+/thank-you/resource-download,/,301,HubSpot form thank-you page. Switch those forms to an inline message before launch.
+/blog/why-is-the-kyc-important-for-financial-advisors,/blog/why-is-the-kyc-important-for-financial-advisors,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/resources/intro-video-bluemind-app/,/resources/intro-video-bluemind-app,same,Imported into resources/.
+/blog/survival-strategies-for-new-advisors,/blog/survival-strategies-for-new-advisors,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/how-artificial-intelligence-impacts-the-insurance-industry,/blog/how-artificial-intelligence-impacts-the-insurance-industry,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/how-to-follow-up-on-your-leads-without-sounding-desperate,/blog/how-to-follow-up-on-your-leads-without-sounding-desperate,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/resources/compliance-checklist-for-financial-advisors,/resources/compliance-checklist-for-financial-advisors,needs file,Gated download on HubSpot. Needs the PDF to host here.
+/resources/insurance-business-canada-magazine,/resources/insurance-business-canada-magazine,needs file,Gated download on HubSpot. Needs the PDF to host here.
+/resources/podcast-episode-1-challenges-of-a-modern-day-advisor/,/resources/podcast-episode-1-challenges-of-a-modern-day-advisor,same,Imported into resources/.
+/terms-conditions,/terms-conditions,same,Imported into terms-conditions.html.
+/resources,/resources,same,
+/blog/top-crm-challenges-financial-advisors-tend-to-face,/blog/top-crm-challenges-financial-advisors-tend-to-face,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/expert-financial-advisors-share-things-they-wish-they-knew,/blog/expert-financial-advisors-share-things-they-wish-they-knew,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/five-reasons-why-you-should-be-using-videos,/blog/five-reasons-why-you-should-be-using-videos,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/thank-you/contact-us,/,301,HubSpot form thank-you page. Switch those forms to an inline message before launch.
+/blog/ways-to-build-your-business-as-a-rookie-advisor,/blog/ways-to-build-your-business-as-a-rookie-advisor,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/blog/what-is-a-financial-crm,/blog/what-is-a-financial-crm,same,"Imported from HubSpot into blog/ (tools/import_hubspot.py, tools/blog.py)."
+/pricing-plans,/advisor#pricing,301,Not in the sitemap but linked from the live nav.
+/product/bluemind-advisor,/advisor,301,Linked from the live site.
+/advisor-demo,/advisor,301,Watch-demo page; keep on HubSpot or rebuild if the video should stay.

@@ -1715,7 +1715,7 @@ main section[id] { scroll-margin-top: calc(96px + var(--lift)); } /* below the s
 @media (min-width: 901px) { .drawer__links--phone { display: none; } }
 
 /* Featured card at the foot of the Company menu */
-.drawer__feature { display: grid; gap: 4px; margin-top: 8px; padding: 16px; border-radius: var(--radius-xs); background: var(--surface-card); color: var(--ink); text-decoration: none; transition: background-color 0.2s ease; }
+.drawer__feature { display: grid; gap: 4px; margin-top: 8px; padding: 16px; border-radius: var(--radius-xs); background: var(--surface-card); color: var(--ink); text-decoration: none; transition: opacity 160ms ease, transform 220ms var(--menu-ease), background-color 0.2s ease; } /* keep the row fade, add the hover tint */
 .drawer__feature:hover { background: var(--surface-tile); }
 .drawer__feature small { font-size: 12px; color: var(--muted); }
 .drawer__feature b { font-size: var(--text-md); font-weight: 400; }

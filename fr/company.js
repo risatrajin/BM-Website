@@ -98,4 +98,35 @@
       });
     }));
   });
+
+  // Blog index: topic filter plus "Show more" paging. Every card is in the HTML (for search
+  // engines); the script only decides which ones are visible.
+  const bgrid = document.querySelector('.bgrid[data-page]');
+  if (bgrid) {
+    const step = Number(bgrid.dataset.page) || 9;
+    const cards = [...bgrid.children];
+    const more = document.querySelector('.bmore');
+    const pills = [...document.querySelectorAll('.bfilter button')];
+    let cat = 'all';
+    let shown = step;
+    const render = () => {
+      const match = cards.filter((c) => cat === 'all' || c.dataset.cat === cat);
+      cards.forEach((c) => { c.hidden = true; });
+      match.slice(0, shown).forEach((c) => { c.hidden = false; });
+      if (more) more.hidden = match.length <= shown;
+    };
+    pills.forEach((b) => b.addEventListener('click', () => {
+      pills.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      cat = b.dataset.cat;
+      shown = step;
+      render();
+    }));
+    more?.querySelector('button').addEventListener('click', () => {
+      const first = cards.find((c) => c.hidden && (cat === 'all' || c.dataset.cat === cat));
+      shown += step;
+      render();
+      first?.querySelector('a').focus({ preventScroll: true });
+    });
+    render();
+  }
 })();

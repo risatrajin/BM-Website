@@ -308,14 +308,17 @@ def quote_at(src, i):
 
 
 def fix_head(out, f):
-    en = "https://bluemind.app/" + ("" if f == "index.html" else f)
-    fr = "https://bluemind.app/fr/" + ("" if f == "index.html" else f)
+    page = "" if f == "index.html" else f.removesuffix(".html")
+    en = "https://bluemind.app/" + page
+    fr = "https://bluemind.app/fr/" + page
     out = out.replace(f'<link rel="canonical" href="{en}" />', f'<link rel="canonical" href="{fr}" />')
     out = out.replace(f'<meta property="og:url" content="{en}" />', f'<meta property="og:url" content="{fr}" />')
     out = out.replace('<meta property="og:locale" content="en_CA" />',
                       '<meta property="og:locale" content="fr_CA" />\n  <meta property="og:locale:alternate" content="en_CA" />')
     out = out.replace('"inLanguage": "en"', '"inLanguage": "fr-CA"')
-    out = out.replace(f'"url": "{en}"', f'"url": "{fr}"').replace(f'"@id": "{en}#', f'"@id": "{fr}#')
+    out = out.replace(f'"@id": "{en}#webpage",\n   "url": "{en}"', f'"@id": "{en}#webpage",\n   "url": "{fr}"')  # the page, not the org
+    for frag in ("webpage", "faq", "breadcrumb"):  # page-level ids only; #org and #website stay shared
+        out = out.replace(f'"{en}#{frag}"', f'"{fr}#{frag}"')
     out = out.replace('href="../site.webmanifest"', 'href="/site.webmanifest"')
     return out
 
